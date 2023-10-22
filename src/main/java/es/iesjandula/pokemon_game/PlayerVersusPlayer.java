@@ -251,6 +251,7 @@ public class PlayerVersusPlayer extends javax.swing.JFrame {
             this.jLabel2.setIcon(new ImageIcon(this.currentPlayerTwoPokemon.getPokeImage()));
         }
         //Update the health text and repaint the PlayerVersusPlayer
+        this.jLabel2.setText(this.currentPlayerTwoPokemon.getName());
         this.jLabel5Player2Health.setText(currentPlayerTwoPokemon.getHealth()+"");
         this.repaint();
     }//GEN-LAST:event_jButton1AttackMouseClicked
@@ -278,6 +279,7 @@ public class PlayerVersusPlayer extends javax.swing.JFrame {
             this.currentPlayerOnePokemon=this.listPlayerOne.get(this.listPlayerOne.size()-1);
             this.jLabel1.setIcon(new ImageIcon(this.currentPlayerOnePokemon.getPokeImage()));
         }
+        this.jLabel1.setText(this.currentPlayerOnePokemon.getName());
         this.jLabel4Player1Health.setText(this.currentPlayerOnePokemon.getHealth()+"");
         this.repaint();
     }//GEN-LAST:event_jButton3AttackActionPerformed
@@ -301,6 +303,7 @@ public class PlayerVersusPlayer extends javax.swing.JFrame {
             this.currentPlayerTwoPokemon=this.listPlayerTwo.get(this.listPlayerTwo.size()-1);
             this.jLabel2.setIcon(new ImageIcon(this.currentPlayerTwoPokemon.getPokeImage()));
         }
+        this.jLabel2.setText(this.currentPlayerTwoPokemon.getName());
         this.jLabel5Player2Health.setText(currentPlayerTwoPokemon.getHealth()+"");
         this.repaint();
     }//GEN-LAST:event_jButton2SpAttackMouseClicked
@@ -325,6 +328,7 @@ public class PlayerVersusPlayer extends javax.swing.JFrame {
             this.currentPlayerOnePokemon=this.listPlayerOne.get(this.listPlayerOne.size()-1);
             this.jLabel1.setIcon(new ImageIcon(this.currentPlayerOnePokemon.getPokeImage()));  
         }
+        this.jLabel1.setText(this.currentPlayerOnePokemon.getName());
         this.jLabel4Player1Health.setText(this.currentPlayerOnePokemon.getHealth()+"");
         this.repaint();
     }//GEN-LAST:event_jButton4SpAttackMouseClicked
