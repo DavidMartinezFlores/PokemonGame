@@ -261,6 +261,7 @@
         <Property name="text" type="java.lang.String" value="READY"/>
       </Properties>
       <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonREADYMouseClicked"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonREADYActionPerformed"/>
       </Events>
     </Component>

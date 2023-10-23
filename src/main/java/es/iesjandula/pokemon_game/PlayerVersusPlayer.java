@@ -5,6 +5,8 @@
 package es.iesjandula.pokemon_game;
 
 import es.iesjandula.pokemon_game.models.Pokemon;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 
@@ -154,6 +156,11 @@ public class PlayerVersusPlayer extends javax.swing.JFrame {
         jLabel5Player2Health.setText("jLabel4");
 
         jButtonREADY.setText("READY");
+        jButtonREADY.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonREADYMouseClicked(evt);
+            }
+        });
         jButtonREADY.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonREADYActionPerformed(evt);
@@ -281,12 +288,12 @@ public class PlayerVersusPlayer extends javax.swing.JFrame {
 
     private void jButton1AttackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1AttackMouseClicked
         //Getting the current poke position
-        this.playerOneAttack();
+        this.playerOneAttackPhysical();
     }//GEN-LAST:event_jButton1AttackMouseClicked
 	/**
 	 * Method playerOneAttack
 	 */
-	private void playerOneAttack()
+	private void playerOneAttackPhysical()
 	{
 		int position=0;
         for(int i =0;i<this.listPlayerTwo.size();i++)
@@ -315,21 +322,51 @@ public class PlayerVersusPlayer extends javax.swing.JFrame {
         this.jLabel5Player2Health.setText(currentPlayerTwoPokemon.getHealth()+"");
         this.repaint();
 	}
+        
+        private void playerOneAttackSpecial()
+	{
+		int position=0;
+        for(int i =0;i<this.listPlayerTwo.size();i++)
+        {
+            if(this.currentPlayerTwoPokemon.equals(this.listPlayerTwo.get(i)))
+            {
+                position=i;
+                break;
+            }
+        }
+        
+        //Caculate the health
+        this.currentPlayerTwoPokemon.setHealth(this.currentPlayerTwoPokemon.getHealth()+((this.currentPlayerOnePokemon.getSpAttack()*-0.4)+this.currentPlayerTwoPokemon.getSpDefense()*0.1));
+        //Setting the current poke with new values
+        this.listPlayerTwo.set(position, this.currentPlayerTwoPokemon);
+        
+        //If the poke die, get automaticaly the last poke
+        if(this.currentPlayerTwoPokemon.getHealth()<=0 && (this.listPlayerTwo.size()>0 && this.listPlayerOne.size()>0))
+        {
+            this.listPlayerTwo.remove(position);
+            this.currentPlayerTwoPokemon=this.listPlayerTwo.get(this.listPlayerTwo.size()-1);
+            this.jLabel2.setIcon(new ImageIcon(this.currentPlayerTwoPokemon.getPokeImage()));
+        }
+        //Update the health text and repaint the PlayerVersusPlayer
+        this.jLabel2.setText(this.currentPlayerTwoPokemon.getName());
+        this.jLabel5Player2Health.setText(currentPlayerTwoPokemon.getHealth()+"");
+        this.repaint();
+	}
 
     private void jButton1AttackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1AttackActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1AttackActionPerformed
 
     private void jButton3AttackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3AttackActionPerformed
-        this.playerTwoAttack();
+        this.playerTwoAttackPhysical();
     }//GEN-LAST:event_jButton3AttackActionPerformed
 
     private void jButton2SpAttackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2SpAttackMouseClicked
-      this.playerOneAttack();
+      this.playerOneAttackSpecial();
     }//GEN-LAST:event_jButton2SpAttackMouseClicked
 
     private void jButton4SpAttackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4SpAttackMouseClicked
-        this.playerTwoAttack();
+        this.playerTwoAttackSpecial();
     }//GEN-LAST:event_jButton4SpAttackMouseClicked
 
     private void jButtonREADYActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonREADYActionPerformed
@@ -339,10 +376,119 @@ public class PlayerVersusPlayer extends javax.swing.JFrame {
     private void jRadioButtonPlayerOneSpecialAttackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonPlayerOneSpecialAttackActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButtonPlayerOneSpecialAttackActionPerformed
+
+    private void jButtonREADYMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonREADYMouseClicked
+        
+        int randomNumber =(int) (Math.random()*10+1);
+        if(this.currentPlayerOnePokemon.getSpeed()==this.currentPlayerTwoPokemon.getSpeed())
+        {
+            if(randomNumber<5)
+            {
+                System.out.println("ATACA EL JUGADOR 1 PRIMERO");
+            
+                if(this.jRadioButtonPlayerOnePhysicalAttack.isSelected())
+                {
+                    this.playerOneAttackPhysical();
+                }
+                if(this.jRadioButtonPlayerOneSpecialAttack.isSelected())
+                {
+                    this.playerOneAttackSpecial();
+                }
+
+                System.out.println("ATACA EL JUGADOR 2 SEGUNDO");
+       
+
+                if(this.jRadioButtonPlayerTwoPhysicalAttack.isSelected())
+                {
+                    this.playerTwoAttackPhysical();
+                }
+                if(this.jRadioButtonPlayerTwoSpecialAttack.isSelected())
+                {
+                    this.playerTwoAttackSpecial();
+                }
+            }else
+            {
+                System.out.println("ATACA EL JUGADOR 2 PRIMERO");
+            
+
+                if(this.jRadioButtonPlayerTwoPhysicalAttack.isSelected())
+                {
+                    this.playerTwoAttackPhysical();
+                }
+                if(this.jRadioButtonPlayerTwoSpecialAttack.isSelected())
+                {
+                    this.playerTwoAttackSpecial();
+                }
+
+                System.out.println("ATACA EL JUGADOR 1 SEGUNDO");
+
+                if(this.jRadioButtonPlayerOnePhysicalAttack.isSelected())
+                {
+                    this.playerOneAttackPhysical();
+                }
+                if(this.jRadioButtonPlayerOneSpecialAttack.isSelected())
+                {
+                    this.playerOneAttackSpecial();
+                }
+            }
+            
+            
+        }
+        else if(this.currentPlayerOnePokemon.getSpeed()>this.currentPlayerTwoPokemon.getSpeed())
+        {
+            System.out.println("ATACA EL JUGADOR 1 PRIMERO");
+            
+            if(this.jRadioButtonPlayerOnePhysicalAttack.isSelected())
+            {
+                this.playerOneAttackPhysical();
+            }
+            if(this.jRadioButtonPlayerOneSpecialAttack.isSelected())
+            {
+                this.playerOneAttackSpecial();
+            }
+            
+            System.out.println("ATACA EL JUGADOR 2 SEGUNDO");
+          
+            
+            if(this.jRadioButtonPlayerTwoPhysicalAttack.isSelected())
+            {
+                this.playerTwoAttackPhysical();
+            }
+            if(this.jRadioButtonPlayerTwoSpecialAttack.isSelected())
+            {
+                this.playerTwoAttackSpecial();
+            }
+        }else
+        {
+            System.out.println("ATACA EL JUGADOR 2 PRIMERO");
+            
+            
+            if(this.jRadioButtonPlayerTwoPhysicalAttack.isSelected())
+            {
+                this.playerTwoAttackPhysical();
+            }
+            if(this.jRadioButtonPlayerTwoSpecialAttack.isSelected())
+            {
+                this.playerTwoAttackSpecial();
+            }
+        
+            System.out.println("ATACA EL JUGADOR 1 SEGUNDO");
+            
+            if(this.jRadioButtonPlayerOnePhysicalAttack.isSelected())
+            {
+                this.playerOneAttackPhysical();
+            }
+            if(this.jRadioButtonPlayerOneSpecialAttack.isSelected())
+            {
+                this.playerOneAttackSpecial();
+            }
+        }
+        
+    }//GEN-LAST:event_jButtonREADYMouseClicked
 	/**
 	 * Method playerTwoAttack
 	 */
-	private void playerTwoAttack()
+	private void playerTwoAttackSpecial()
 	{
 		int position=0;
         for(int i =0;i<this.listPlayerOne.size();i++)
@@ -355,6 +501,32 @@ public class PlayerVersusPlayer extends javax.swing.JFrame {
         }
         
         this.currentPlayerOnePokemon.setHealth(this.currentPlayerOnePokemon.getHealth()+((this.currentPlayerTwoPokemon.getSpAttack()*-0.4)+this.currentPlayerOnePokemon.getSpDefense()*0.1));
+        this.listPlayerOne.set(position, this.currentPlayerOnePokemon);
+        
+        if(this.currentPlayerOnePokemon.getHealth()<=0 && (this.listPlayerTwo.size()>0 && this.listPlayerOne.size()>0))
+        {
+            this.listPlayerOne.remove(position);
+            this.currentPlayerOnePokemon=this.listPlayerOne.get(this.listPlayerOne.size()-1);
+            this.jLabel1.setIcon(new ImageIcon(this.currentPlayerOnePokemon.getPokeImage()));  
+        }
+        this.jLabel1.setText(this.currentPlayerOnePokemon.getName());
+        this.jLabel4Player1Health.setText(this.currentPlayerOnePokemon.getHealth()+"");
+        this.repaint();
+	}
+        
+        private void playerTwoAttackPhysical()
+	{
+		int position=0;
+        for(int i =0;i<this.listPlayerOne.size();i++)
+        {
+            if(this.currentPlayerOnePokemon.equals(this.listPlayerOne.get(i)))
+            {
+                position=i;
+                break;
+            }
+        }
+        
+        this.currentPlayerOnePokemon.setHealth(this.currentPlayerOnePokemon.getHealth()+((this.currentPlayerTwoPokemon.getAttack()*-0.4)+this.currentPlayerOnePokemon.getDefense()*0.1));
         this.listPlayerOne.set(position, this.currentPlayerOnePokemon);
         
         if(this.currentPlayerOnePokemon.getHealth()<=0 && (this.listPlayerTwo.size()>0 && this.listPlayerOne.size()>0))
