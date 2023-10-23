@@ -70,6 +70,8 @@ public class PlayerVersusPlayer extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroupPlayer1 = new javax.swing.ButtonGroup();
+        buttonGroupPlayer2 = new javax.swing.ButtonGroup();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -83,6 +85,11 @@ public class PlayerVersusPlayer extends javax.swing.JFrame {
         jButton4SpAttack = new javax.swing.JButton();
         jLabel4Player1Health = new javax.swing.JLabel();
         jLabel5Player2Health = new javax.swing.JLabel();
+        jButtonREADY = new javax.swing.JButton();
+        jRadioButtonPlayerOnePhysicalAttack = new javax.swing.JRadioButton();
+        jRadioButtonPlayerOneSpecialAttack = new javax.swing.JRadioButton();
+        jRadioButtonPlayerTwoPhysicalAttack = new javax.swing.JRadioButton();
+        jRadioButtonPlayerTwoSpecialAttack = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -146,6 +153,30 @@ public class PlayerVersusPlayer extends javax.swing.JFrame {
 
         jLabel5Player2Health.setText("jLabel4");
 
+        jButtonREADY.setText("READY");
+        jButtonREADY.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonREADYActionPerformed(evt);
+            }
+        });
+
+        buttonGroupPlayer1.add(jRadioButtonPlayerOnePhysicalAttack);
+        jRadioButtonPlayerOnePhysicalAttack.setText("PATTACK");
+
+        buttonGroupPlayer1.add(jRadioButtonPlayerOneSpecialAttack);
+        jRadioButtonPlayerOneSpecialAttack.setText("jRadioButton2");
+        jRadioButtonPlayerOneSpecialAttack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonPlayerOneSpecialAttackActionPerformed(evt);
+            }
+        });
+
+        buttonGroupPlayer2.add(jRadioButtonPlayerTwoPhysicalAttack);
+        jRadioButtonPlayerTwoPhysicalAttack.setText("jRadioButton1");
+
+        buttonGroupPlayer2.add(jRadioButtonPlayerTwoSpecialAttack);
+        jRadioButtonPlayerTwoSpecialAttack.setText("jRadioButton2");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -170,7 +201,17 @@ public class PlayerVersusPlayer extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jButton1Attack)
                                     .addComponent(jButton2SpAttack))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jRadioButtonPlayerOneSpecialAttack)
+                                    .addComponent(jRadioButtonPlayerOnePhysicalAttack))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButtonREADY)
+                                .addGap(151, 151, 151)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jRadioButtonPlayerTwoSpecialAttack)
+                                    .addComponent(jRadioButtonPlayerTwoPhysicalAttack))
+                                .addGap(37, 37, 37)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jButton3Attack, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jButton4SpAttack, javax.swing.GroupLayout.Alignment.TRAILING))))))
@@ -188,11 +229,11 @@ public class PlayerVersusPlayer extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(53, 53, 53)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(14, 14, 14)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -206,13 +247,25 @@ public class PlayerVersusPlayer extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1Attack)
-                    .addComponent(jButton3Attack))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2SpAttack)
-                    .addComponent(jButton4SpAttack))
-                .addGap(46, 46, 46))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jButton1Attack)
+                                .addComponent(jRadioButtonPlayerOnePhysicalAttack))
+                            .addComponent(jButton3Attack)
+                            .addComponent(jRadioButtonPlayerTwoPhysicalAttack))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jButton2SpAttack)
+                                .addComponent(jRadioButtonPlayerOneSpecialAttack))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jButton4SpAttack)
+                                .addComponent(jRadioButtonPlayerTwoSpecialAttack)))
+                        .addGap(46, 46, 46))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButtonREADY)
+                        .addGap(61, 61, 61))))
         );
 
         pack();
@@ -228,7 +281,14 @@ public class PlayerVersusPlayer extends javax.swing.JFrame {
 
     private void jButton1AttackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1AttackMouseClicked
         //Getting the current poke position
-        int position=0;
+        this.playerOneAttack();
+    }//GEN-LAST:event_jButton1AttackMouseClicked
+	/**
+	 * Method playerOneAttack
+	 */
+	private void playerOneAttack()
+	{
+		int position=0;
         for(int i =0;i<this.listPlayerTwo.size();i++)
         {
             if(this.currentPlayerTwoPokemon.equals(this.listPlayerTwo.get(i)))
@@ -254,62 +314,37 @@ public class PlayerVersusPlayer extends javax.swing.JFrame {
         this.jLabel2.setText(this.currentPlayerTwoPokemon.getName());
         this.jLabel5Player2Health.setText(currentPlayerTwoPokemon.getHealth()+"");
         this.repaint();
-    }//GEN-LAST:event_jButton1AttackMouseClicked
+	}
 
     private void jButton1AttackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1AttackActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1AttackActionPerformed
 
     private void jButton3AttackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3AttackActionPerformed
-        int position=0;
-        for(int i =0;i<this.listPlayerOne.size();i++)
-        {
-            if(this.currentPlayerOnePokemon.equals(this.listPlayerOne.get(i)))
-            {
-                position=i;
-                break;
-            }
-        }
-        
-        this.currentPlayerOnePokemon.setHealth(this.currentPlayerOnePokemon.getHealth()+((this.currentPlayerTwoPokemon.getAttack()*-0.4)+this.currentPlayerOnePokemon.getDefense()*0.1));
-        this.listPlayerOne.set(position, this.currentPlayerOnePokemon);
-        if(this.currentPlayerOnePokemon.getHealth()<=0 && (this.listPlayerTwo.size()>0 && this.listPlayerOne.size()>0))
-        {
-            this.listPlayerOne.remove(position);
-            this.currentPlayerOnePokemon=this.listPlayerOne.get(this.listPlayerOne.size()-1);
-            this.jLabel1.setIcon(new ImageIcon(this.currentPlayerOnePokemon.getPokeImage()));
-        }
-        this.jLabel1.setText(this.currentPlayerOnePokemon.getName());
-        this.jLabel4Player1Health.setText(this.currentPlayerOnePokemon.getHealth()+"");
-        this.repaint();
+        this.playerTwoAttack();
     }//GEN-LAST:event_jButton3AttackActionPerformed
 
     private void jButton2SpAttackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2SpAttackMouseClicked
-      int position=0;
-        for(int i =0;i<this.listPlayerTwo.size();i++)
-        {
-            if(this.currentPlayerTwoPokemon.equals(this.listPlayerTwo.get(i)))
-            {
-                position=i;
-                break;
-            }
-        }
-        
-        this.currentPlayerTwoPokemon.setHealth(this.currentPlayerTwoPokemon.getHealth()+((this.currentPlayerOnePokemon.getSpAttack()*-0.4)+this.currentPlayerTwoPokemon.getSpDefense()*0.1));
-        this.listPlayerTwo.set(position, this.currentPlayerTwoPokemon);
-        if(this.currentPlayerTwoPokemon.getHealth()<=0 && (this.listPlayerTwo.size()>0 && this.listPlayerOne.size()>0))
-        {
-            this.listPlayerTwo.remove(position);
-            this.currentPlayerTwoPokemon=this.listPlayerTwo.get(this.listPlayerTwo.size()-1);
-            this.jLabel2.setIcon(new ImageIcon(this.currentPlayerTwoPokemon.getPokeImage()));
-        }
-        this.jLabel2.setText(this.currentPlayerTwoPokemon.getName());
-        this.jLabel5Player2Health.setText(currentPlayerTwoPokemon.getHealth()+"");
-        this.repaint();
+      this.playerOneAttack();
     }//GEN-LAST:event_jButton2SpAttackMouseClicked
 
     private void jButton4SpAttackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4SpAttackMouseClicked
-        int position=0;
+        this.playerTwoAttack();
+    }//GEN-LAST:event_jButton4SpAttackMouseClicked
+
+    private void jButtonREADYActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonREADYActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonREADYActionPerformed
+
+    private void jRadioButtonPlayerOneSpecialAttackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonPlayerOneSpecialAttackActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButtonPlayerOneSpecialAttackActionPerformed
+	/**
+	 * Method playerTwoAttack
+	 */
+	private void playerTwoAttack()
+	{
+		int position=0;
         for(int i =0;i<this.listPlayerOne.size();i++)
         {
             if(this.currentPlayerOnePokemon.equals(this.listPlayerOne.get(i)))
@@ -331,14 +366,17 @@ public class PlayerVersusPlayer extends javax.swing.JFrame {
         this.jLabel1.setText(this.currentPlayerOnePokemon.getName());
         this.jLabel4Player1Health.setText(this.currentPlayerOnePokemon.getHealth()+"");
         this.repaint();
-    }//GEN-LAST:event_jButton4SpAttackMouseClicked
+	}
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroupPlayer1;
+    private javax.swing.ButtonGroup buttonGroupPlayer2;
     private javax.swing.JButton jButton1Attack;
     private javax.swing.JButton jButton2SpAttack;
     private javax.swing.JButton jButton3Attack;
     private javax.swing.JButton jButton4SpAttack;
+    private javax.swing.JButton jButtonREADY;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -346,6 +384,10 @@ public class PlayerVersusPlayer extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5Player2Health;
     private javax.swing.JList<Pokemon> jList1;
     private javax.swing.JList<Pokemon> jList2;
+    private javax.swing.JRadioButton jRadioButtonPlayerOnePhysicalAttack;
+    private javax.swing.JRadioButton jRadioButtonPlayerOneSpecialAttack;
+    private javax.swing.JRadioButton jRadioButtonPlayerTwoPhysicalAttack;
+    private javax.swing.JRadioButton jRadioButtonPlayerTwoSpecialAttack;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
