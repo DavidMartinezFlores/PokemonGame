@@ -5,6 +5,7 @@
 package es.iesjandula.pokemon_game;
 
 import es.iesjandula.pokemon_game.models.Pokemon;
+import java.awt.Point;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
@@ -110,6 +111,9 @@ public class PlayerVersusPlayer extends javax.swing.JFrame {
 
         jLabel5Player2Health.setText("jLabel4");
 
+        jButtonREADY.setBackground(new java.awt.Color(0, 204, 51));
+        jButtonREADY.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButtonREADY.setForeground(new java.awt.Color(255, 255, 255));
         jButtonREADY.setText("READY");
         jButtonREADY.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -183,11 +187,11 @@ public class PlayerVersusPlayer extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jButtonREADY, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 197, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jRadioButtonPlayerTwoSpecialAttack)
                                     .addComponent(jRadioButtonPlayerTwoPhysicalAttack))
-                                .addGap(102, 102, 102))
+                                .addGap(92, 92, 92))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
@@ -325,112 +329,215 @@ public class PlayerVersusPlayer extends javax.swing.JFrame {
 
     private void jButtonREADYMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonREADYMouseClicked
         
-        int randomNumber =(int) (Math.random()*10+1);
         
+        int randomNumber =(int) (Math.random()*10+1);
+
+        
+        //this.launchPokemonPlayerOneAnimation();
+        
+    	//this.launchPokemonPlayerTwoAnimation();
+                
         if(this.currentPlayerOnePokemon.getSpeed()==this.currentPlayerTwoPokemon.getSpeed())
         {
             if(randomNumber<5)
             {
+            	this.launchPokemonPlayerOneAnimation();
                 System.out.println("ATACA EL JUGADOR 1 PRIMERO");
-            
-                if(this.jRadioButtonPlayerOnePhysicalAttack.isSelected())
-                {
-                    this.playerOneAttackPhysical();
+                
+                if(this.currentPlayerOnePokemon.getHealth()>0){
+                    if(this.jRadioButtonPlayerOnePhysicalAttack.isSelected())
+                    {
+                        this.playerOneAttackPhysical();
+                    }
+                    else if(this.jRadioButtonPlayerOneSpecialAttack.isSelected())
+                    {
+                        this.playerOneAttackSpecial();
+                    }
                 }
-                else if(this.jRadioButtonPlayerOneSpecialAttack.isSelected())
-                {
-                    this.playerOneAttackSpecial();
-                }
-
+                
+                this.launchPokemonPlayerTwoAnimation();
                 System.out.println("ATACA EL JUGADOR 2 SEGUNDO");
        
-
-                if(this.jRadioButtonPlayerTwoPhysicalAttack.isSelected())
-                {
-                    this.playerTwoAttackPhysical();
-                }
-                else if(this.jRadioButtonPlayerTwoSpecialAttack.isSelected())
-                {
-                    this.playerTwoAttackSpecial();
+                if(this.currentPlayerTwoPokemon.getHealth()>0){
+                    if(this.jRadioButtonPlayerTwoPhysicalAttack.isSelected())
+                    {
+                        this.playerTwoAttackPhysical();
+                    }
+                    else if(this.jRadioButtonPlayerTwoSpecialAttack.isSelected())
+                    {
+                        this.playerTwoAttackSpecial();
+                    }
                 }
             }else
             {
+            	this.launchPokemonPlayerTwoAnimation();
                 System.out.println("ATACA EL JUGADOR 2 PRIMERO");
             
-
-                if(this.jRadioButtonPlayerTwoPhysicalAttack.isSelected())
-                {
-                    this.playerTwoAttackPhysical();
+                if(this.currentPlayerTwoPokemon.getHealth()>0){
+                    if(this.jRadioButtonPlayerTwoPhysicalAttack.isSelected())
+                    {
+                        this.playerTwoAttackPhysical();
+                    }
+                    else if(this.jRadioButtonPlayerTwoSpecialAttack.isSelected())
+                    {
+                        this.playerTwoAttackSpecial();
+                    }
                 }
-                else if(this.jRadioButtonPlayerTwoSpecialAttack.isSelected())
-                {
-                    this.playerTwoAttackSpecial();
-                }
-
+                this.launchPokemonPlayerOneAnimation();
                 System.out.println("ATACA EL JUGADOR 1 SEGUNDO");
 
-                if(this.jRadioButtonPlayerOnePhysicalAttack.isSelected())
-                {
-                    this.playerOneAttackPhysical();
-                }
-                else if(this.jRadioButtonPlayerOneSpecialAttack.isSelected())
-                {
-                    this.playerOneAttackSpecial();
+                if(this.currentPlayerOnePokemon.getHealth()>0){
+                    if(this.jRadioButtonPlayerOnePhysicalAttack.isSelected())
+                    {
+                        this.playerOneAttackPhysical();
+                    }
+                    else if(this.jRadioButtonPlayerOneSpecialAttack.isSelected())
+                    {
+                        this.playerOneAttackSpecial();
+                    }
                 }
             }  
             this.repaint();
         }
         else if(this.currentPlayerOnePokemon.getSpeed()>this.currentPlayerTwoPokemon.getSpeed())
         {
+        	this.launchPokemonPlayerOneAnimation();
             System.out.println("ATACA EL JUGADOR 1 PRIMERO");
             
-            if(this.jRadioButtonPlayerOnePhysicalAttack.isSelected())
-            {
-                this.playerOneAttackPhysical();
-            }
-            if(this.jRadioButtonPlayerOneSpecialAttack.isSelected())
-            {
-                this.playerOneAttackSpecial();
+            if(this.currentPlayerOnePokemon.getHealth()>0){
+                if(this.jRadioButtonPlayerOnePhysicalAttack.isSelected())
+                {
+                    this.playerOneAttackPhysical();
+                }
+                else if(this.jRadioButtonPlayerOneSpecialAttack.isSelected())
+                {
+                    this.playerOneAttackSpecial();
+                }
             }
             
+            this.launchPokemonPlayerTwoAnimation();
             System.out.println("ATACA EL JUGADOR 2 SEGUNDO");
           
-            
-            if(this.jRadioButtonPlayerTwoPhysicalAttack.isSelected())
-            {
-                this.playerTwoAttackPhysical();
-            }
-            if(this.jRadioButtonPlayerTwoSpecialAttack.isSelected())
-            {
-                this.playerTwoAttackSpecial();
+            if(this.currentPlayerTwoPokemon.getHealth()>0){
+                if(this.jRadioButtonPlayerTwoPhysicalAttack.isSelected())
+                {
+                    this.playerTwoAttackPhysical();
+                }
+                else if(this.jRadioButtonPlayerTwoSpecialAttack.isSelected())
+                {
+                    this.playerTwoAttackSpecial();
+                }
             }
         }else
         {
+        	this.launchPokemonPlayerTwoAnimation();
             System.out.println("ATACA EL JUGADOR 2 PRIMERO");
             
+            if(this.currentPlayerTwoPokemon.getHealth()>0){
+                if(this.jRadioButtonPlayerTwoPhysicalAttack.isSelected())
+                {
+                    this.playerTwoAttackPhysical();
+                }
+                else if(this.jRadioButtonPlayerTwoSpecialAttack.isSelected())
+                {
+                    this.playerTwoAttackSpecial();
+                }
+            }
             
-            if(this.jRadioButtonPlayerTwoPhysicalAttack.isSelected())
-            {
-                this.playerTwoAttackPhysical();
-            }
-            if(this.jRadioButtonPlayerTwoSpecialAttack.isSelected())
-            {
-                this.playerTwoAttackSpecial();
-            }
-        
+            this.launchPokemonPlayerOneAnimation();
             System.out.println("ATACA EL JUGADOR 1 SEGUNDO");
             
-            if(this.jRadioButtonPlayerOnePhysicalAttack.isSelected())
-            {
-                this.playerOneAttackPhysical();
-            }
-            if(this.jRadioButtonPlayerOneSpecialAttack.isSelected())
-            {
-                this.playerOneAttackSpecial();
+            if(this.currentPlayerOnePokemon.getHealth()>0){
+                if(this.jRadioButtonPlayerOnePhysicalAttack.isSelected())
+                {
+                    this.playerOneAttackPhysical();
+                }
+                else if(this.jRadioButtonPlayerOneSpecialAttack.isSelected())
+                {
+                    this.playerOneAttackSpecial();
+                }
             }
         }
         
     }//GEN-LAST:event_jButtonREADYMouseClicked
+	/**
+	 * Method launchPokemonPlayerTwoAnimation
+	 */
+	private void launchPokemonPlayerTwoAnimation()
+	{
+		Thread animationTwo = new Thread(new Runnable(){
+            @Override
+            public void run(){
+                Point readyButtonLocation = jButtonREADY.getLocation();
+                
+                
+                
+                String initialText = jLabel2.getText();
+                jLabel2.setText("");
+                int startPosition = jLabel2.getX();
+                int speed = -1;
+                for(int i = 0;i<300;i++){
+                    jButtonREADY.setLocation(1000000000, 1000000000);
+                    jLabel2.setLocation(jLabel2.getX()+speed,jLabel2.getY());
+                    try {
+                        Thread.sleep(2);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                jLabel2.setLocation(startPosition,jLabel2.getY());
+                jLabel2.setText(initialText);
+                
+                jButtonREADY.setLocation(readyButtonLocation);
+            }
+        });
+    	animationTwo.start();
+    	animationTwo.interrupt();
+	}
+	/**
+	 * Method launchPokemonPlayerOneAnimation
+	 */
+	private void launchPokemonPlayerOneAnimation()
+	{
+		Thread animation = new Thread(new Runnable(){
+            @Override
+            public void run(){
+                Point readyButtonLocation = jButtonREADY.getLocation();
+                
+                
+                
+                String initialText = jLabel1.getText();
+                jLabel1.setText("");
+                int startPosition = jLabel1.getX();
+                int speed = 1;
+                for(int i = 0;i<300;i++){
+                    jButtonREADY.setLocation(1000000000, 1000000000);
+                    jLabel1.setLocation(jLabel1.getX()+speed,jLabel1.getY());
+                    try {
+                        Thread.sleep(2);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                jLabel1.setLocation(startPosition,jLabel1.getY());
+                jLabel1.setText(initialText);
+                
+                jButtonREADY.setLocation(readyButtonLocation);
+            }
+        });
+        animation.start();
+        animation.interrupt();
+	}
 
     private void jButtonChangePokemonPlayerOneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChangePokemonPlayerOneActionPerformed
         // TODO add your handling code here:
