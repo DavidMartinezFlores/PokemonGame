@@ -319,6 +319,7 @@ public class PlayerVersusPlayer extends javax.swing.JFrame {
         }
         //Update the health text and repaint the PlayerVersusPlayer
         this.jLabel2.setText(this.currentPlayerTwoPokemon.getName());
+
         this.jLabel5Player2Health.setText(currentPlayerTwoPokemon.getHealth()+"");
         this.repaint();
 	}
@@ -349,6 +350,7 @@ public class PlayerVersusPlayer extends javax.swing.JFrame {
         }
         //Update the health text and repaint the PlayerVersusPlayer
         this.jLabel2.setText(this.currentPlayerTwoPokemon.getName());
+
         this.jLabel5Player2Health.setText(currentPlayerTwoPokemon.getHealth()+"");
         this.repaint();
 	}
@@ -380,6 +382,7 @@ public class PlayerVersusPlayer extends javax.swing.JFrame {
     private void jButtonREADYMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonREADYMouseClicked
         
         int randomNumber =(int) (Math.random()*10+1);
+        
         if(this.currentPlayerOnePokemon.getSpeed()==this.currentPlayerTwoPokemon.getSpeed())
         {
             if(randomNumber<5)
@@ -390,7 +393,7 @@ public class PlayerVersusPlayer extends javax.swing.JFrame {
                 {
                     this.playerOneAttackPhysical();
                 }
-                if(this.jRadioButtonPlayerOneSpecialAttack.isSelected())
+                else if(this.jRadioButtonPlayerOneSpecialAttack.isSelected())
                 {
                     this.playerOneAttackSpecial();
                 }
@@ -402,7 +405,7 @@ public class PlayerVersusPlayer extends javax.swing.JFrame {
                 {
                     this.playerTwoAttackPhysical();
                 }
-                if(this.jRadioButtonPlayerTwoSpecialAttack.isSelected())
+                else if(this.jRadioButtonPlayerTwoSpecialAttack.isSelected())
                 {
                     this.playerTwoAttackSpecial();
                 }
@@ -415,7 +418,7 @@ public class PlayerVersusPlayer extends javax.swing.JFrame {
                 {
                     this.playerTwoAttackPhysical();
                 }
-                if(this.jRadioButtonPlayerTwoSpecialAttack.isSelected())
+                else if(this.jRadioButtonPlayerTwoSpecialAttack.isSelected())
                 {
                     this.playerTwoAttackSpecial();
                 }
@@ -426,13 +429,12 @@ public class PlayerVersusPlayer extends javax.swing.JFrame {
                 {
                     this.playerOneAttackPhysical();
                 }
-                if(this.jRadioButtonPlayerOneSpecialAttack.isSelected())
+                else if(this.jRadioButtonPlayerOneSpecialAttack.isSelected())
                 {
                     this.playerOneAttackSpecial();
                 }
-            }
-            
-            
+            }  
+            this.repaint();
         }
         else if(this.currentPlayerOnePokemon.getSpeed()>this.currentPlayerTwoPokemon.getSpeed())
         {
@@ -510,7 +512,7 @@ public class PlayerVersusPlayer extends javax.swing.JFrame {
             this.jLabel1.setIcon(new ImageIcon(this.currentPlayerOnePokemon.getPokeImage()));  
         }
         this.jLabel1.setText(this.currentPlayerOnePokemon.getName());
-        this.jLabel4Player1Health.setText(this.currentPlayerOnePokemon.getHealth()+"");
+        this.jLabel4Player1Health.setText(currentPlayerOnePokemon.getHealth()+"");
         this.repaint();
 	}
         
@@ -536,7 +538,7 @@ public class PlayerVersusPlayer extends javax.swing.JFrame {
             this.jLabel1.setIcon(new ImageIcon(this.currentPlayerOnePokemon.getPokeImage()));  
         }
         this.jLabel1.setText(this.currentPlayerOnePokemon.getName());
-        this.jLabel4Player1Health.setText(this.currentPlayerOnePokemon.getHealth()+"");
+        this.jLabel4Player1Health.setText(currentPlayerOnePokemon.getHealth()+"");
         this.repaint();
 	}
 

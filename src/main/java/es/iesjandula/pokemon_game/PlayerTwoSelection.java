@@ -30,7 +30,7 @@ public class PlayerTwoSelection extends javax.swing.JFrame
 		playerOneSelection.dispose();
 		initComponents();
 		this.setResizable(false);
-		this.listModel = playerOneSelection.getListModel();
+		this.listModel.addAll(new Application().getPokemonList());
 		this.jList1.setModel(listModel);
 		this.jList2.setModel(listModel2);
 
