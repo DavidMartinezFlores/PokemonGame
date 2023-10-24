@@ -4,8 +4,16 @@
  */
 package es.iesjandula.pokemon_game;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.ImageIcon;
 
 /**
@@ -14,12 +22,16 @@ import javax.swing.ImageIcon;
  */
 public class PokemonGameIntro extends javax.swing.JFrame
 {
+	private Clip mainTheme;
+	
 	/**
 	 * Creates new form PokemonGameIntro
 	 */
 	public PokemonGameIntro()
 	{
 		initComponents();
+                this.jumpStartButtonAnimationThread();
+		this.mainTheme=this.openingThemePlay();
 		this.jLabel1.setIcon(new ImageIcon("./images/presentation.png"));
 		this.jLabel2.setIcon(new ImageIcon("./images/pokeball.png"));
 		this.jLabel3.setIcon(new ImageIcon("./images/pokeball.png"));
@@ -29,6 +41,36 @@ public class PokemonGameIntro extends javax.swing.JFrame
 
 		this.setResizable(false);
 		this.setLocationRelativeTo(null);
+	}
+
+	private Clip openingThemePlay()
+	{
+		Clip clip = null;
+		try
+		{
+			AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("./audio/opening.wav"));
+			clip = AudioSystem.getClip();
+			clip.open(audioInputStream);
+			clip.start();
+		}
+		catch (UnsupportedAudioFileException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		catch (IOException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		catch (LineUnavailableException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return clip;
+		
 	}
 
 	/**
@@ -113,7 +155,8 @@ public class PokemonGameIntro extends javax.swing.JFrame
 
 	private void jButton1MouseClicked(java.awt.event.MouseEvent evt)
 	{// GEN-FIRST:event_jButton1MouseClicked
-		PlayerOneSelection playerOneSelection = new PlayerOneSelection();
+		this.selectButtonSound();
+		PlayerOneSelection playerOneSelection = new PlayerOneSelection(this.mainTheme);
 		playerOneSelection.setVisible(true);
 		this.dispose();
 	}// GEN-LAST:event_jButton1MouseClicked
@@ -207,5 +250,84 @@ public class PokemonGameIntro extends javax.swing.JFrame
 			}
 		});
 		rotatePokebal.start();
+	}
+	private void selectButtonSound()
+	{
+
+		AudioInputStream audioInputStream = null;
+		try
+		{
+
+			audioInputStream = AudioSystem.getAudioInputStream(new File("./audio/butonSelect.wav"));
+			Clip clip = AudioSystem.getClip();
+			clip.open(audioInputStream);
+			clip.start();
+
+		}
+		catch (UnsupportedAudioFileException ex)
+		{
+			Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null, ex);
+		}
+		catch (IOException ex)
+		{
+			Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null, ex);
+		}
+		catch (LineUnavailableException ex)
+		{
+			Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null, ex);
+		}
+		finally
+		{
+			try
+			{
+				audioInputStream.close();
+			}
+			catch (IOException ex)
+			{
+				Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null, ex);
+			}
+		}
+	}
+        
+        private void jumpStartButtonAnimationThread()
+	{
+		Thread jumpThread = new Thread(new Runnable()
+		{
+			@Override
+			public void run()
+			{
+				int speed = 1;
+				while (true)
+				{
+					for (int i = 0; i < 10; i++)
+					{
+
+						jButton1.setLocation(jButton1.getX(), jButton1.getY() + speed);
+						try
+						{
+							Thread.sleep(100);
+						}
+						catch (InterruptedException ex)
+						{
+							Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null, ex);
+						}
+					}
+					for (int i = 0; i < 10; i++)
+					{
+
+						jButton1.setLocation(jButton1.getX(), jButton1.getY() + (speed * -1));
+						try
+						{
+							Thread.sleep(100);
+						}
+						catch (InterruptedException ex)
+						{
+							Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null, ex);
+						}
+					}
+				}
+			}
+		});
+		jumpThread.start();
 	}
 }
