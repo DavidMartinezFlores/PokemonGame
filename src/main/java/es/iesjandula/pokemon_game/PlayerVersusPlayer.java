@@ -52,8 +52,8 @@ public class PlayerVersusPlayer extends javax.swing.JFrame
             this.startBattleTheme();
             this.setResizable(false);
             
-            this.playerOneChanges=4;
-            this.playerTwoChanges=4;
+            this.playerOneChanges=8;
+            this.playerTwoChanges=8;
 
             this.jLabel3.setIcon(new ImageIcon("./images/versus.png"));
 
@@ -93,8 +93,8 @@ public class PlayerVersusPlayer extends javax.swing.JFrame
             this.jLabelPlayerOneChanges.setText("Changes: "+this.playerOneChanges);
             this.jLabelPlayerTwoChanges.setText("Changes: "+this.playerTwoChanges);
             
-            this.jProgressBar1.setValue((int) this.currentPlayerOnePokemon.getHealth());
-            this.jProgressBar2.setValue((int) this.currentPlayerTwoPokemon.getHealth());
+            this.jProgressBar1.setValue((int) ((this.currentPlayerOnePokemon.getHealth()*100)/this.currentPlayerOnePokemon.getMaxHeatlh()));
+            this.jProgressBar2.setValue((int) ((this.currentPlayerTwoPokemon.getHealth()*100)/this.currentPlayerTwoPokemon.getMaxHeatlh()));
 	}
 
 	/**
@@ -149,11 +149,21 @@ public class PlayerVersusPlayer extends javax.swing.JFrame
         jScrollPane2.setViewportView(jList2);
 
         jLabel1.setText("jLabel1");
-        jLabel1.setToolTipText("");
+        jLabel1.setToolTipText("heyyy");
         jLabel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel1MouseEntered(evt);
+            }
+        });
 
         jLabel2.setText("jLabel2");
         jLabel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel2MouseEntered(evt);
+            }
+        });
 
         jLabel3.setText("                ");
 
@@ -178,9 +188,19 @@ public class PlayerVersusPlayer extends javax.swing.JFrame
 
         buttonGroupPlayer1.add(jRadioButtonPlayerOnePhysicalAttack);
         jRadioButtonPlayerOnePhysicalAttack.setText("PHYSICAK ATTACK");
+        jRadioButtonPlayerOnePhysicalAttack.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jRadioButtonPlayerOnePhysicalAttackMouseClicked(evt);
+            }
+        });
 
         buttonGroupPlayer1.add(jRadioButtonPlayerOneSpecialAttack);
         jRadioButtonPlayerOneSpecialAttack.setText("SPECIAL ATTACK");
+        jRadioButtonPlayerOneSpecialAttack.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jRadioButtonPlayerOneSpecialAttackMouseClicked(evt);
+            }
+        });
         jRadioButtonPlayerOneSpecialAttack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButtonPlayerOneSpecialAttackActionPerformed(evt);
@@ -189,9 +209,19 @@ public class PlayerVersusPlayer extends javax.swing.JFrame
 
         buttonGroupPlayer2.add(jRadioButtonPlayerTwoPhysicalAttack);
         jRadioButtonPlayerTwoPhysicalAttack.setText("PHYSICAL ATTACK");
+        jRadioButtonPlayerTwoPhysicalAttack.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jRadioButtonPlayerTwoPhysicalAttackMouseClicked(evt);
+            }
+        });
 
         buttonGroupPlayer2.add(jRadioButtonPlayerTwoSpecialAttack);
         jRadioButtonPlayerTwoSpecialAttack.setText("SPECIAL ATTACK");
+        jRadioButtonPlayerTwoSpecialAttack.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jRadioButtonPlayerTwoSpecialAttackMouseClicked(evt);
+            }
+        });
 
         jButtonChangePokemonPlayerOne.setText("CHANGE SELECTED POKEMON");
         jButtonChangePokemonPlayerOne.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -349,6 +379,36 @@ public class PlayerVersusPlayer extends javax.swing.JFrame
     private void jList2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList2MouseClicked
          this.selectButtonSound();
     }//GEN-LAST:event_jList2MouseClicked
+
+    private void jRadioButtonPlayerOnePhysicalAttackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButtonPlayerOnePhysicalAttackMouseClicked
+        this.selectButtonSound();
+    }//GEN-LAST:event_jRadioButtonPlayerOnePhysicalAttackMouseClicked
+
+    private void jRadioButtonPlayerOneSpecialAttackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButtonPlayerOneSpecialAttackMouseClicked
+        this.selectButtonSound();
+    }//GEN-LAST:event_jRadioButtonPlayerOneSpecialAttackMouseClicked
+
+    private void jRadioButtonPlayerTwoPhysicalAttackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButtonPlayerTwoPhysicalAttackMouseClicked
+        this.selectButtonSound();
+    }//GEN-LAST:event_jRadioButtonPlayerTwoPhysicalAttackMouseClicked
+
+    private void jRadioButtonPlayerTwoSpecialAttackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButtonPlayerTwoSpecialAttackMouseClicked
+        this.selectButtonSound();
+    }//GEN-LAST:event_jRadioButtonPlayerTwoSpecialAttackMouseClicked
+
+    private void jLabel1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseEntered
+       this.jLabel1.setToolTipText("Attack: "+this.currentPlayerOnePokemon.getAttack()+" \n"
+               + "SpAttack: "+this.currentPlayerOnePokemon.getSpAttack()+" \n"
+               + "Defense: "+this.currentPlayerOnePokemon.getDefense()+" \n"
+               + "SpDefense: "+this.currentPlayerOnePokemon.getSpDefense()+" \n");
+    }//GEN-LAST:event_jLabel1MouseEntered
+
+    private void jLabel2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseEntered
+        this.jLabel2.setToolTipText("Attack: "+this.currentPlayerTwoPokemon.getAttack()+" \n"
+               + "SpAttack: "+this.currentPlayerTwoPokemon.getSpAttack()+" \n"
+               + "Defense: "+this.currentPlayerTwoPokemon.getDefense()+" \n"
+               + "SpDefense: "+this.currentPlayerTwoPokemon.getSpDefense()+" \n");
+    }//GEN-LAST:event_jLabel2MouseEntered
 
 	/**
 	 * Method playerOneAttack
@@ -574,8 +634,8 @@ public class PlayerVersusPlayer extends javax.swing.JFrame
 				}
 			}
 		}
-                this.jProgressBar1.setValue((int) this.currentPlayerOnePokemon.getHealth());
-                this.jProgressBar2.setValue((int) this.currentPlayerTwoPokemon.getHealth());
+                this.jProgressBar1.setValue((int) ((this.currentPlayerOnePokemon.getHealth()*100)/this.currentPlayerOnePokemon.getMaxHeatlh()));
+                this.jProgressBar2.setValue((int) ((this.currentPlayerTwoPokemon.getHealth()*100)/this.currentPlayerTwoPokemon.getMaxHeatlh()));
 	}// GEN-LAST:event_jButtonREADYMouseClicked
 
 	private void startBattleTheme()
@@ -714,7 +774,7 @@ public class PlayerVersusPlayer extends javax.swing.JFrame
 	{// GEN-FIRST:event_jButtonChangePokemonPlayerOneMouseClicked
 		this.selectButtonSound();
 		this.changeSelectedCurrentPlayerOnePokemon();
-                this.jProgressBar1.setValue((int) this.currentPlayerOnePokemon.getHealth());
+                this.jProgressBar1.setValue((int) ((this.currentPlayerOnePokemon.getHealth()*100)/this.currentPlayerOnePokemon.getMaxHeatlh()));
 	}// GEN-LAST:event_jButtonChangePokemonPlayerOneMouseClicked
 
 	/**
@@ -745,7 +805,7 @@ public class PlayerVersusPlayer extends javax.swing.JFrame
 	{// GEN-FIRST:event_jButtonChangePokemonPlayerTwoMouseClicked
 		this.selectButtonSound();
 		this.changeSelectedCurrentPlayerTwoPokemon();
-                this.jProgressBar2.setValue((int) this.currentPlayerTwoPokemon.getHealth());
+                this.jProgressBar2.setValue((int) ((this.currentPlayerTwoPokemon.getHealth()*100)/this.currentPlayerTwoPokemon.getMaxHeatlh()));
 	}// GEN-LAST:event_jButtonChangePokemonPlayerTwoMouseClicked
 
 	/**

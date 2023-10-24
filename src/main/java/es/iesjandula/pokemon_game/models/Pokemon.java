@@ -52,7 +52,28 @@ public class Pokemon
 
 	/** Attribute legendary */
 	private boolean legendary;
+        
+        private double maxHeatlh;
 
+    public Pokemon(int pokedexNumber, String name, String type, String typeTwo, double total, double health, double attack, double defense, double spAttack, double spDefense, double speed, int generation, boolean legendary) {
+        this.pokedexNumber = pokedexNumber;
+        this.name = name;
+        this.type = type;
+        this.typeTwo = typeTwo;
+        this.total = total;
+        this.health = health;
+        this.attack = attack;
+        this.defense = defense;
+        this.spAttack = spAttack;
+        this.spDefense = spDefense;
+        this.speed = speed;
+        this.generation = generation;
+        this.legendary = legendary;
+        this.maxHeatlh = this.health;
+    }
+
+        
+        
 	public Image getPokeImage()
 	{
 		File imageResource = new File("./images/");

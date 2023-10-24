@@ -233,13 +233,16 @@
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="text" type="java.lang.String" value="jLabel1"/>
-        <Property name="toolTipText" type="java.lang.String" value=""/>
+        <Property name="toolTipText" type="java.lang.String" value="heyyy"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
             <BevelBorder/>
           </Border>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel1MouseEntered"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
@@ -250,6 +253,9 @@
           </Border>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel2MouseEntered"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
@@ -291,6 +297,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="PHYSICAK ATTACK"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jRadioButtonPlayerOnePhysicalAttackMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="jRadioButtonPlayerOneSpecialAttack">
       <Properties>
@@ -300,6 +309,7 @@
         <Property name="text" type="java.lang.String" value="SPECIAL ATTACK"/>
       </Properties>
       <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jRadioButtonPlayerOneSpecialAttackMouseClicked"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonPlayerOneSpecialAttackActionPerformed"/>
       </Events>
     </Component>
@@ -310,6 +320,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="PHYSICAL ATTACK"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jRadioButtonPlayerTwoPhysicalAttackMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="jRadioButtonPlayerTwoSpecialAttack">
       <Properties>
@@ -318,6 +331,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="SPECIAL ATTACK"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jRadioButtonPlayerTwoSpecialAttackMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButtonChangePokemonPlayerOne">
       <Properties>
