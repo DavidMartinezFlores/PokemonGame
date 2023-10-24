@@ -282,7 +282,7 @@ public class PlayerOneSelection extends javax.swing.JFrame
 
 	private void jButton2MouseClicked(java.awt.event.MouseEvent evt)
 	{// GEN-FIRST:event_jButton2MouseClicked
-            this.selectButtonSound();
+		this.selectButtonSound();
 		Pokemon selectedPokemon = this.jList2.getSelectedValue();
 
 		if (this.listModel2.contains(selectedPokemon))
@@ -300,13 +300,13 @@ public class PlayerOneSelection extends javax.swing.JFrame
 
 	private void jButton3MouseClicked(java.awt.event.MouseEvent evt)
 	{// GEN-FIRST:event_jButton3MouseClicked
-            this.selectButtonSound();
+		this.selectButtonSound();
 		this.listModel2.removeAllElements();
 	}// GEN-LAST:event_jButton3MouseClicked
 
 	private void jList1MouseClicked(java.awt.event.MouseEvent evt)
 	{// GEN-FIRST:event_jList1MouseClicked
-            this.selectButtonSound();
+		this.selectButtonSound();
 		Pokemon selectedPokemon = this.jList1.getSelectedValue();
 		ImageIcon icon = new ImageIcon(selectedPokemon.getPokeImage());
 		this.jLabel1.setIcon(icon);
@@ -325,7 +325,7 @@ public class PlayerOneSelection extends javax.swing.JFrame
 	private void jList2MouseClicked(java.awt.event.MouseEvent evt)
 	{// GEN-FIRST:event_jList2MouseClicked
 		Pokemon selectedPokemon = this.jList2.getSelectedValue();
-                this.selectButtonSound();
+		this.selectButtonSound();
 		if (selectedPokemon != null)
 		{
 			ImageIcon icon = new ImageIcon(selectedPokemon.getPokeImage());
@@ -349,7 +349,7 @@ public class PlayerOneSelection extends javax.swing.JFrame
 
 	private void jButton4MouseClicked(java.awt.event.MouseEvent evt)
 	{// GEN-FIRST:event_jButton4MouseClicked
-            this.selectButtonSound();
+		this.selectButtonSound();
 		if (this.listModel2.size() > 0)
 		{
 			PlayerTwoSelection playerTwoSelection = new PlayerTwoSelection(this);
@@ -363,7 +363,7 @@ public class PlayerOneSelection extends javax.swing.JFrame
 
 	private void jButton1MouseClicked(java.awt.event.MouseEvent evt)
 	{// GEN-FIRST:event_jButton1MouseClicked
-                this.selectButtonSound();
+		this.selectButtonSound();
 		Pokemon selectedPokemon = this.jList1.getSelectedValue();
 
 		if (listModel2.contains(selectedPokemon))
@@ -382,29 +382,42 @@ public class PlayerOneSelection extends javax.swing.JFrame
 		}
 
 	}// GEN-LAST:event_jButton1MouseClicked
-        private void selectButtonSound() {
-        
-        AudioInputStream audioInputStream = null;
-            try {
-                
-                audioInputStream = AudioSystem.getAudioInputStream(new File("./audio/butonSelect.wav"));
-                Clip clip = AudioSystem.getClip();
-                clip.open(audioInputStream);
-                clip.start();
-                
-                
-            } catch (UnsupportedAudioFileException ex) {
-                Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (IOException ex) {
-                Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (LineUnavailableException ex) {
-                Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null, ex);
-            } finally {
-                try {
-                    audioInputStream.close();
-                } catch (IOException ex) {
-                    Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-    }
+
+	private void selectButtonSound()
+	{
+
+		AudioInputStream audioInputStream = null;
+		try
+		{
+
+			audioInputStream = AudioSystem.getAudioInputStream(new File("./audio/butonSelect.wav"));
+			Clip clip = AudioSystem.getClip();
+			clip.open(audioInputStream);
+			clip.start();
+
+		}
+		catch (UnsupportedAudioFileException ex)
+		{
+			Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null, ex);
+		}
+		catch (IOException ex)
+		{
+			Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null, ex);
+		}
+		catch (LineUnavailableException ex)
+		{
+			Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null, ex);
+		}
+		finally
+		{
+			try
+			{
+				audioInputStream.close();
+			}
+			catch (IOException ex)
+			{
+				Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null, ex);
+			}
+		}
+	}
 }

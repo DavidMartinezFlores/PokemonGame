@@ -49,7 +49,7 @@ public class Application
 						Double.parseDouble(subStringArray[9]), Double.parseDouble(subStringArray[10]),
 						Integer.parseInt(subStringArray[11]), Boolean.parseBoolean(subStringArray[12]));
 				pokemonLoadedList.add(loadedPoke);
-				//System.out.println(loadedPoke);
+				// System.out.println(loadedPoke);
 				subString = bufferedReader.readLine();
 			}
 

@@ -7,10 +7,9 @@ package es.iesjandula.pokemon_game;
 import es.iesjandula.pokemon_game.models.Pokemon;
 import java.awt.Point;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+
 import java.io.IOException;
-import java.io.InputStream;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -20,7 +19,7 @@ import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.DefaultListModel;
-import javax.swing.Icon;
+
 import javax.swing.ImageIcon;
 
 /**
@@ -46,41 +45,44 @@ public class PlayerVersusPlayer extends javax.swing.JFrame
 	 */
 	public PlayerVersusPlayer(PlayerTwoSelection playerTwoSelection)
 	{
-		playerTwoSelection.dispose();
-		initComponents();
-		this.startBattleTheme();
-               
-		this.jLabel3.setIcon(new ImageIcon("./images/versus.png"));
+            playerTwoSelection.dispose();
+            initComponents();
+            this.startBattleTheme();
 
-		this.playerOneSelection = playerTwoSelection.getPlayerOneSelection();
-		this.playerTwoSelection = playerTwoSelection;
+            this.jLabel3.setIcon(new ImageIcon("./images/versus.png"));
 
-		this.listPlayerOne = this.playerOneSelection.getListModel2();
-		this.listPlayerTwo = this.playerTwoSelection.getListModel2();
+            this.playerOneSelection = playerTwoSelection.getPlayerOneSelection();
+            this.playerTwoSelection = playerTwoSelection;
 
-		this.jList1.setModel(listPlayerOne);
-		this.jList2.setModel(listPlayerTwo);
+            this.listPlayerOne = this.playerOneSelection.getListModel2();
+            this.listPlayerTwo = this.playerTwoSelection.getListModel2();
 
-		this.iconPlayer1 = new ImageIcon(this.listPlayerOne.get(0).getPokeImage());
-		this.iconPlayer2 = new ImageIcon(this.listPlayerTwo.get(0).getPokeImage());
+            this.jList1.setModel(listPlayerOne);
+            this.jList2.setModel(listPlayerTwo);
 
-		this.jLabel1.setText(this.listPlayerOne.get(0).getName());
-		this.jLabel2.setText(this.listPlayerTwo.get(0).getName());
+            this.iconPlayer1 = new ImageIcon(this.listPlayerOne.get(0).getPokeImage());
+            this.iconPlayer2 = new ImageIcon(this.listPlayerTwo.get(0).getPokeImage());
 
-		this.jLabel1.setIcon(this.iconPlayer1);
-		this.jLabel2.setIcon(this.iconPlayer2);
+            this.jLabel1.setText(this.listPlayerOne.get(0).getName());
+            this.jLabel2.setText(this.listPlayerTwo.get(0).getName());
 
-		this.currentPlayerOnePokemon = this.listPlayerOne.get(0);
-		this.currentPlayerTwoPokemon = this.listPlayerTwo.get(0);
+            this.jLabel1.setIcon(this.iconPlayer1);
+            this.jLabel2.setIcon(this.iconPlayer2);
 
-		this.jLabel4Player1Health.setText(currentPlayerOnePokemon.getHealth() + "");
-		this.jLabel5Player2Health.setText(currentPlayerTwoPokemon.getHealth() + "");
+            this.currentPlayerOnePokemon = this.listPlayerOne.get(0);
+            this.currentPlayerTwoPokemon = this.listPlayerTwo.get(0);
 
-		this.setLocationRelativeTo(null);
-		
-                this.jLabelPokeball.setIcon(new ImageIcon("./images/pokeball.png"));
-                this.rotatePokeballThread();
-		
+            this.jLabel4Player1Health.setText(currentPlayerOnePokemon.getHealth() + "");
+            this.jLabel5Player2Health.setText(currentPlayerTwoPokemon.getHealth() + "");
+
+            this.setLocationRelativeTo(null);
+
+            this.jLabelPokeball.setIcon(new ImageIcon("./images/pokeball.png"));
+            
+            this.rotatePokeballThread();
+            
+            this.jumpPlayerOneAnimationThread();
+            this.jumpPlayerTwoAnimationThread();
 	}
 
 	/**
@@ -90,196 +92,224 @@ public class PlayerVersusPlayer extends javax.swing.JFrame
 	 */
 	@SuppressWarnings("unchecked")
 	// <editor-fold defaultstate="collapsed" desc="Generated
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+	// <editor-fold defaultstate="collapsed" desc="Generated
+	// Code">//GEN-BEGIN:initComponents
+	private void initComponents()
+	{
 
-        buttonGroupPlayer1 = new javax.swing.ButtonGroup();
-        buttonGroupPlayer2 = new javax.swing.ButtonGroup();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jList2 = new javax.swing.JList<>();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4Player1Health = new javax.swing.JLabel();
-        jLabel5Player2Health = new javax.swing.JLabel();
-        jButtonREADY = new javax.swing.JButton();
-        jRadioButtonPlayerOnePhysicalAttack = new javax.swing.JRadioButton();
-        jRadioButtonPlayerOneSpecialAttack = new javax.swing.JRadioButton();
-        jRadioButtonPlayerTwoPhysicalAttack = new javax.swing.JRadioButton();
-        jRadioButtonPlayerTwoSpecialAttack = new javax.swing.JRadioButton();
-        jButtonChangePokemonPlayerOne = new javax.swing.JButton();
-        jButtonChangePokemonPlayerTwo = new javax.swing.JButton();
-        jLabelPokeball = new javax.swing.JLabel();
+		buttonGroupPlayer1 = new javax.swing.ButtonGroup();
+		buttonGroupPlayer2 = new javax.swing.ButtonGroup();
+		jScrollPane1 = new javax.swing.JScrollPane();
+		jList1 = new javax.swing.JList<>();
+		jScrollPane2 = new javax.swing.JScrollPane();
+		jList2 = new javax.swing.JList<>();
+		jLabel1 = new javax.swing.JLabel();
+		jLabel2 = new javax.swing.JLabel();
+		jLabel3 = new javax.swing.JLabel();
+		jLabel4Player1Health = new javax.swing.JLabel();
+		jLabel5Player2Health = new javax.swing.JLabel();
+		jButtonREADY = new javax.swing.JButton();
+		jRadioButtonPlayerOnePhysicalAttack = new javax.swing.JRadioButton();
+		jRadioButtonPlayerOneSpecialAttack = new javax.swing.JRadioButton();
+		jRadioButtonPlayerTwoPhysicalAttack = new javax.swing.JRadioButton();
+		jRadioButtonPlayerTwoSpecialAttack = new javax.swing.JRadioButton();
+		jButtonChangePokemonPlayerOne = new javax.swing.JButton();
+		jButtonChangePokemonPlayerTwo = new javax.swing.JButton();
+		jLabelPokeball = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jScrollPane1.setViewportView(jList1);
+		jScrollPane1.setViewportView(jList1);
 
-        jScrollPane2.setViewportView(jList2);
+		jScrollPane2.setViewportView(jList2);
 
-        jLabel1.setText("jLabel1");
-        jLabel1.setToolTipText("");
-        jLabel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+		jLabel1.setText("jLabel1");
+		jLabel1.setToolTipText("");
+		jLabel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jLabel2.setText("jLabel2");
-        jLabel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+		jLabel2.setText("jLabel2");
+		jLabel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jLabel3.setText("                ");
+		jLabel3.setText("                ");
 
-        jLabel4Player1Health.setText("jLabel4");
+		jLabel4Player1Health.setText("jLabel4");
 
-        jLabel5Player2Health.setText("jLabel4");
+		jLabel5Player2Health.setText("jLabel4");
 
-        jButtonREADY.setBackground(new java.awt.Color(0, 204, 51));
-        jButtonREADY.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButtonREADY.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonREADY.setText("READY");
-        jButtonREADY.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButtonREADYMouseClicked(evt);
-            }
-        });
-        jButtonREADY.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonREADYActionPerformed(evt);
-            }
-        });
+		jButtonREADY.setBackground(new java.awt.Color(0, 204, 51));
+		jButtonREADY.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+		jButtonREADY.setForeground(new java.awt.Color(255, 255, 255));
+		jButtonREADY.setText("READY");
+		jButtonREADY.addMouseListener(new java.awt.event.MouseAdapter()
+		{
+			public void mouseClicked(java.awt.event.MouseEvent evt)
+			{
+				jButtonREADYMouseClicked(evt);
+			}
+		});
+		jButtonREADY.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
+			{
+				jButtonREADYActionPerformed(evt);
+			}
+		});
 
-        buttonGroupPlayer1.add(jRadioButtonPlayerOnePhysicalAttack);
-        jRadioButtonPlayerOnePhysicalAttack.setText("PHYSICAK ATTACK");
+		buttonGroupPlayer1.add(jRadioButtonPlayerOnePhysicalAttack);
+		jRadioButtonPlayerOnePhysicalAttack.setText("PHYSICAK ATTACK");
 
-        buttonGroupPlayer1.add(jRadioButtonPlayerOneSpecialAttack);
-        jRadioButtonPlayerOneSpecialAttack.setText("SPECIAL ATTACK");
-        jRadioButtonPlayerOneSpecialAttack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonPlayerOneSpecialAttackActionPerformed(evt);
-            }
-        });
+		buttonGroupPlayer1.add(jRadioButtonPlayerOneSpecialAttack);
+		jRadioButtonPlayerOneSpecialAttack.setText("SPECIAL ATTACK");
+		jRadioButtonPlayerOneSpecialAttack.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
+			{
+				jRadioButtonPlayerOneSpecialAttackActionPerformed(evt);
+			}
+		});
 
-        buttonGroupPlayer2.add(jRadioButtonPlayerTwoPhysicalAttack);
-        jRadioButtonPlayerTwoPhysicalAttack.setText("PHYSICAL ATTACK");
+		buttonGroupPlayer2.add(jRadioButtonPlayerTwoPhysicalAttack);
+		jRadioButtonPlayerTwoPhysicalAttack.setText("PHYSICAL ATTACK");
 
-        buttonGroupPlayer2.add(jRadioButtonPlayerTwoSpecialAttack);
-        jRadioButtonPlayerTwoSpecialAttack.setText("SPECIAL ATTACK");
+		buttonGroupPlayer2.add(jRadioButtonPlayerTwoSpecialAttack);
+		jRadioButtonPlayerTwoSpecialAttack.setText("SPECIAL ATTACK");
 
-        jButtonChangePokemonPlayerOne.setText("CHANGE SELECTED POKEMON");
-        jButtonChangePokemonPlayerOne.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButtonChangePokemonPlayerOneMouseClicked(evt);
-            }
-        });
-        jButtonChangePokemonPlayerOne.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonChangePokemonPlayerOneActionPerformed(evt);
-            }
-        });
+		jButtonChangePokemonPlayerOne.setText("CHANGE SELECTED POKEMON");
+		jButtonChangePokemonPlayerOne.addMouseListener(new java.awt.event.MouseAdapter()
+		{
+			public void mouseClicked(java.awt.event.MouseEvent evt)
+			{
+				jButtonChangePokemonPlayerOneMouseClicked(evt);
+			}
+		});
+		jButtonChangePokemonPlayerOne.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
+			{
+				jButtonChangePokemonPlayerOneActionPerformed(evt);
+			}
+		});
 
-        jButtonChangePokemonPlayerTwo.setText("CHANGE SELECTED POKEMON");
-        jButtonChangePokemonPlayerTwo.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButtonChangePokemonPlayerTwoMouseClicked(evt);
-            }
-        });
+		jButtonChangePokemonPlayerTwo.setText("CHANGE SELECTED POKEMON");
+		jButtonChangePokemonPlayerTwo.addMouseListener(new java.awt.event.MouseAdapter()
+		{
+			public void mouseClicked(java.awt.event.MouseEvent evt)
+			{
+				jButtonChangePokemonPlayerTwoMouseClicked(evt);
+			}
+		});
 
-        jLabelPokeball.setText("         ");
+		jLabelPokeball.setText("         ");
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(128, 128, 128)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButtonPlayerOneSpecialAttack)
-                            .addComponent(jRadioButtonPlayerOnePhysicalAttack)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButtonREADY, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelPokeball, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jRadioButtonPlayerTwoSpecialAttack)
-                                    .addComponent(jRadioButtonPlayerTwoPhysicalAttack))
-                                .addGap(92, 92, 92))
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(42, 42, 42))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(130, 130, 130)
-                .addComponent(jLabel4Player1Health)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel5Player2Health)
-                .addGap(178, 178, 178))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(109, 109, 109)
-                .addComponent(jButtonChangePokemonPlayerOne, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonChangePokemonPlayerTwo, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(79, 79, 79))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(14, 14, 14)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4Player1Health)
-                            .addComponent(jLabel5Player2Health))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButtonPlayerOnePhysicalAttack)
-                            .addComponent(jRadioButtonPlayerTwoPhysicalAttack))
-                        .addGap(8, 8, 8)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButtonPlayerOneSpecialAttack)
-                            .addComponent(jRadioButtonPlayerTwoSpecialAttack)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(jLabelPokeball, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(36, 36, 36)
-                        .addComponent(jButtonREADY, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonChangePokemonPlayerOne, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonChangePokemonPlayerTwo, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-        );
+		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+		getContentPane().setLayout(layout);
+		layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+				.addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup().addGroup(layout
+						.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+						.addGroup(layout.createSequentialGroup().addGap(25, 25, 25).addComponent(jLabel1,
+								javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE))
+						.addGroup(layout.createSequentialGroup().addGap(128, 128, 128)
+								.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+										.addComponent(jRadioButtonPlayerOneSpecialAttack)
+										.addComponent(jRadioButtonPlayerOnePhysicalAttack)))
+						.addGroup(layout.createSequentialGroup().addGap(27, 27, 27).addComponent(jScrollPane1,
+								javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)))
+						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+						.addGroup(layout
+								.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+								.addGroup(javax.swing.GroupLayout.Alignment.LEADING,
+										layout.createSequentialGroup()
+												.addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 98,
+														javax.swing.GroupLayout.PREFERRED_SIZE)
+												.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98,
+														Short.MAX_VALUE)
+												.addComponent(
+														jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 321,
+														javax.swing.GroupLayout.PREFERRED_SIZE))
+								.addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+										.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+												.addComponent(jButtonREADY, javax.swing.GroupLayout.PREFERRED_SIZE, 105,
+														javax.swing.GroupLayout.PREFERRED_SIZE)
+												.addComponent(jLabelPokeball, javax.swing.GroupLayout.PREFERRED_SIZE,
+														105, javax.swing.GroupLayout.PREFERRED_SIZE))
+										.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53,
+												Short.MAX_VALUE)
+										.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+												.addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
+														layout.createSequentialGroup().addGroup(layout
+																.createParallelGroup(
+																		javax.swing.GroupLayout.Alignment.LEADING)
+																.addComponent(jRadioButtonPlayerTwoSpecialAttack)
+																.addComponent(jRadioButtonPlayerTwoPhysicalAttack))
+																.addGap(92, 92, 92))
+												.addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING,
+														javax.swing.GroupLayout.PREFERRED_SIZE, 359,
+														javax.swing.GroupLayout.PREFERRED_SIZE))))
+						.addGap(42, 42, 42))
+				.addGroup(layout.createSequentialGroup().addGap(130, 130, 130).addComponent(jLabel4Player1Health)
+						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED,
+								javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addComponent(jLabel5Player2Health).addGap(178, 178, 178))
+				.addGroup(layout.createSequentialGroup().addGap(109, 109, 109)
+						.addComponent(jButtonChangePokemonPlayerOne, javax.swing.GroupLayout.PREFERRED_SIZE, 208,
+								javax.swing.GroupLayout.PREFERRED_SIZE)
+						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED,
+								javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addComponent(jButtonChangePokemonPlayerTwo, javax.swing.GroupLayout.PREFERRED_SIZE, 208,
+								javax.swing.GroupLayout.PREFERRED_SIZE)
+						.addGap(79, 79, 79)));
+		layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+				.addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup().addGroup(layout
+						.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+						.addGroup(layout.createSequentialGroup().addGap(53, 53, 53)
+								.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+										.addGroup(layout.createSequentialGroup().addGap(14, 14, 14).addComponent(
+												jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 94,
+												javax.swing.GroupLayout.PREFERRED_SIZE))
+										.addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 158,
+												javax.swing.GroupLayout.PREFERRED_SIZE)))
+						.addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
+								layout.createSequentialGroup().addContainerGap().addComponent(jLabel1,
+										javax.swing.GroupLayout.PREFERRED_SIZE, 158,
+										javax.swing.GroupLayout.PREFERRED_SIZE)))
+						.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+								.addGroup(layout.createSequentialGroup()
+										.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+										.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+												.addComponent(jLabel4Player1Health).addComponent(jLabel5Player2Health))
+										.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED,
+												javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+										.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+												.addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE,
+														javax.swing.GroupLayout.DEFAULT_SIZE,
+														javax.swing.GroupLayout.PREFERRED_SIZE)
+												.addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE,
+														javax.swing.GroupLayout.DEFAULT_SIZE,
+														javax.swing.GroupLayout.PREFERRED_SIZE))
+										.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+										.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+												.addComponent(jRadioButtonPlayerOnePhysicalAttack)
+												.addComponent(jRadioButtonPlayerTwoPhysicalAttack))
+										.addGap(8, 8, 8)
+										.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+												.addComponent(jRadioButtonPlayerOneSpecialAttack)
+												.addComponent(jRadioButtonPlayerTwoSpecialAttack)))
+								.addGroup(layout.createSequentialGroup().addGap(40, 40, 40)
+										.addComponent(jLabelPokeball, javax.swing.GroupLayout.PREFERRED_SIZE, 114,
+												javax.swing.GroupLayout.PREFERRED_SIZE)
+										.addGap(36, 36, 36).addComponent(jButtonREADY,
+												javax.swing.GroupLayout.PREFERRED_SIZE, 60,
+												javax.swing.GroupLayout.PREFERRED_SIZE)))
+						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+						.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+								.addComponent(jButtonChangePokemonPlayerOne, javax.swing.GroupLayout.PREFERRED_SIZE, 29,
+										javax.swing.GroupLayout.PREFERRED_SIZE)
+								.addComponent(jButtonChangePokemonPlayerTwo, javax.swing.GroupLayout.PREFERRED_SIZE, 29,
+										javax.swing.GroupLayout.PREFERRED_SIZE))
+						.addContainerGap()));
 
-        pack();
-    }// </editor-fold>//GEN-END:initComponents
+		pack();
+	}// </editor-fold>//GEN-END:initComponents
 
 	/**
 	 * Method playerOneAttack
@@ -366,12 +396,12 @@ public class PlayerVersusPlayer extends javax.swing.JFrame
 	{// GEN-FIRST:event_jButtonREADYMouseClicked
 
 		int randomNumber = (int) (Math.random() * 10 + 1);
-		
+
 		// this.launchPokemonPlayerOneAnimation();
 
 		// this.launchPokemonPlayerTwoAnimation();
-                
-                this.selectButtonSound();
+
+		this.selectButtonSound();
 
 		if (this.currentPlayerOnePokemon.getSpeed() == this.currentPlayerTwoPokemon.getSpeed())
 		{
@@ -507,33 +537,33 @@ public class PlayerVersusPlayer extends javax.swing.JFrame
 
 	}// GEN-LAST:event_jButtonREADYMouseClicked
 
-	private void startBattleTheme() 
+	private void startBattleTheme()
 	{
-			try
-			{
-				AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("./audio/battle.wav"));                
-				Clip clip = AudioSystem.getClip();
-				clip.open(audioInputStream);
-				clip.loop(Clip.LOOP_CONTINUOUSLY);
-				clip.start();
-			}
-			catch (IOException e)
-			{
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			catch (LineUnavailableException e)
-			{
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			catch (UnsupportedAudioFileException e)
-			{
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+		try
+		{
+			AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("./audio/battle.wav"));
+			Clip clip = AudioSystem.getClip();
+			clip.open(audioInputStream);
+			clip.loop(Clip.LOOP_CONTINUOUSLY);
+			clip.start();
+		}
+		catch (IOException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		catch (LineUnavailableException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		catch (UnsupportedAudioFileException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
-	
+
 	/**
 	 * Method launchPokemonPlayerTwoAnimation
 	 */
@@ -560,7 +590,8 @@ public class PlayerVersusPlayer extends javax.swing.JFrame
 					}
 					catch (InterruptedException ex)
 					{
-						//Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null, ex);
+						// Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null,
+						// ex);
 					}
 				}
 				try
@@ -607,7 +638,8 @@ public class PlayerVersusPlayer extends javax.swing.JFrame
 					}
 					catch (InterruptedException ex)
 					{
-						//Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null, ex);
+						// Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null,
+						// ex);
 					}
 				}
 				try
@@ -635,7 +667,7 @@ public class PlayerVersusPlayer extends javax.swing.JFrame
 
 	private void jButtonChangePokemonPlayerOneMouseClicked(java.awt.event.MouseEvent evt)
 	{// GEN-FIRST:event_jButtonChangePokemonPlayerOneMouseClicked
-                this.selectButtonSound();
+		this.selectButtonSound();
 		this.changeSelectedCurrentPlayerOnePokemon();
 	}// GEN-LAST:event_jButtonChangePokemonPlayerOneMouseClicked
 
@@ -659,7 +691,7 @@ public class PlayerVersusPlayer extends javax.swing.JFrame
 
 	private void jButtonChangePokemonPlayerTwoMouseClicked(java.awt.event.MouseEvent evt)
 	{// GEN-FIRST:event_jButtonChangePokemonPlayerTwoMouseClicked
-                this.selectButtonSound();
+		this.selectButtonSound();
 		this.changeSelectedCurrentPlayerTwoPokemon();
 	}// GEN-LAST:event_jButtonChangePokemonPlayerTwoMouseClicked
 
@@ -742,81 +774,189 @@ public class PlayerVersusPlayer extends javax.swing.JFrame
 		this.repaint();
 	}
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.ButtonGroup buttonGroupPlayer1;
-    private javax.swing.ButtonGroup buttonGroupPlayer2;
-    private javax.swing.JButton jButtonChangePokemonPlayerOne;
-    private javax.swing.JButton jButtonChangePokemonPlayerTwo;
-    private javax.swing.JButton jButtonREADY;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4Player1Health;
-    private javax.swing.JLabel jLabel5Player2Health;
-    private javax.swing.JLabel jLabelPokeball;
-    private javax.swing.JList<Pokemon> jList1;
-    private javax.swing.JList<Pokemon> jList2;
-    private javax.swing.JRadioButton jRadioButtonPlayerOnePhysicalAttack;
-    private javax.swing.JRadioButton jRadioButtonPlayerOneSpecialAttack;
-    private javax.swing.JRadioButton jRadioButtonPlayerTwoPhysicalAttack;
-    private javax.swing.JRadioButton jRadioButtonPlayerTwoSpecialAttack;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    // End of variables declaration//GEN-END:variables
+	// Variables declaration - do not modify//GEN-BEGIN:variables
+	private javax.swing.ButtonGroup buttonGroupPlayer1;
+	private javax.swing.ButtonGroup buttonGroupPlayer2;
+	private javax.swing.JButton jButtonChangePokemonPlayerOne;
+	private javax.swing.JButton jButtonChangePokemonPlayerTwo;
+	private javax.swing.JButton jButtonREADY;
+	private javax.swing.JLabel jLabel1;
+	private javax.swing.JLabel jLabel2;
+	private javax.swing.JLabel jLabel3;
+	private javax.swing.JLabel jLabel4Player1Health;
+	private javax.swing.JLabel jLabel5Player2Health;
+	private javax.swing.JLabel jLabelPokeball;
+	private javax.swing.JList<Pokemon> jList1;
+	private javax.swing.JList<Pokemon> jList2;
+	private javax.swing.JRadioButton jRadioButtonPlayerOnePhysicalAttack;
+	private javax.swing.JRadioButton jRadioButtonPlayerOneSpecialAttack;
+	private javax.swing.JRadioButton jRadioButtonPlayerTwoPhysicalAttack;
+	private javax.swing.JRadioButton jRadioButtonPlayerTwoSpecialAttack;
+	private javax.swing.JScrollPane jScrollPane1;
+	private javax.swing.JScrollPane jScrollPane2;
+	// End of variables declaration//GEN-END:variables
 
-    private void rotatePokeballThread() {
-        Thread rotatePokebal = new Thread(new Runnable(){
-            @Override
-            public void run() {
-                int speed = 1;
-                while(true){
-                for(int i = 0;i<40;i++){
-                
-                    jLabelPokeball.setLocation(jLabelPokeball.getX(), jLabelPokeball.getY()+speed);
-                    try {
-                        Thread.sleep(15);
-                    } catch (InterruptedException ex) {
-                        Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
-                for(int i = 0;i<40;i++){
-                
-                    jLabelPokeball.setLocation(jLabelPokeball.getX(), jLabelPokeball.getY()+(speed*-1));
-                try {
-                        Thread.sleep(15);
-                    } catch (InterruptedException ex) {
-                        Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
-                }
-            }
-        });
-        rotatePokebal.start();
-    }
+	private void rotatePokeballThread()
+	{
+		Thread rotatePokebal = new Thread(new Runnable()
+		{
+			@Override
+			public void run()
+			{
+				int speed = 1;
+				while (true)
+				{
+					for (int i = 0; i < 40; i++)
+					{
 
-    private void selectButtonSound() {
+						jLabelPokeball.setLocation(jLabelPokeball.getX(), jLabelPokeball.getY() + speed);
+						try
+						{
+							Thread.sleep(15);
+						}
+						catch (InterruptedException ex)
+						{
+							Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null, ex);
+						}
+					}
+					for (int i = 0; i < 40; i++)
+					{
+
+						jLabelPokeball.setLocation(jLabelPokeball.getX(), jLabelPokeball.getY() + (speed * -1));
+						try
+						{
+							Thread.sleep(15);
+						}
+						catch (InterruptedException ex)
+						{
+							Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null, ex);
+						}
+					}
+				}
+			}
+		});
+		rotatePokebal.start();
+	}
         
-        AudioInputStream audioInputStream = null;
-            try {
-                
-                audioInputStream = AudioSystem.getAudioInputStream(new File("./audio/butonSelect.wav"));
-                Clip clip = AudioSystem.getClip();
-                clip.open(audioInputStream);
-                clip.start();
-                
-                
-            } catch (UnsupportedAudioFileException ex) {
-                Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (IOException ex) {
-                Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (LineUnavailableException ex) {
-                Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null, ex);
-            } finally {
-                try {
-                    audioInputStream.close();
-                } catch (IOException ex) {
-                    Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-    }
+        private void jumpPlayerOneAnimationThread()
+	{
+		Thread jumpThread = new Thread(new Runnable()
+		{
+			@Override
+			public void run()
+			{
+				int speed = 1;
+				while (true)
+				{
+					for (int i = 0; i < 10; i++)
+					{
+
+						jLabel1.setLocation(jLabel1.getX(), jLabel1.getY() + speed);
+						try
+						{
+							Thread.sleep(100);
+						}
+						catch (InterruptedException ex)
+						{
+							Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null, ex);
+						}
+					}
+					for (int i = 0; i < 10; i++)
+					{
+
+						jLabel1.setLocation(jLabel1.getX(), jLabel1.getY() + (speed * -1));
+						try
+						{
+							Thread.sleep(100);
+						}
+						catch (InterruptedException ex)
+						{
+							Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null, ex);
+						}
+					}
+				}
+			}
+		});
+		jumpThread.start();
+	}
+       
+        private void jumpPlayerTwoAnimationThread()
+	{
+		Thread jumpThread = new Thread(new Runnable()
+		{
+			@Override
+			public void run()
+			{
+				int speed = 1;
+				while (true)
+				{
+					for (int i = 0; i < 10; i++)
+					{
+
+						jLabel2.setLocation(jLabel2.getX(), jLabel2.getY() + speed);
+						try
+						{
+							Thread.sleep(100);
+						}
+						catch (InterruptedException ex)
+						{
+							Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null, ex);
+						}
+					}
+					for (int i = 0; i < 10; i++)
+					{
+
+						jLabel2.setLocation(jLabel2.getX(), jLabel2.getY() + (speed * -1));
+						try
+						{
+							Thread.sleep(100);
+						}
+						catch (InterruptedException ex)
+						{
+							Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null, ex);
+						}
+					}
+				}
+			}
+		});
+		jumpThread.start();
+	}
+
+	private void selectButtonSound()
+	{
+
+		AudioInputStream audioInputStream = null;
+		try
+		{
+
+			audioInputStream = AudioSystem.getAudioInputStream(new File("./audio/butonSelect.wav"));
+			Clip clip = AudioSystem.getClip();
+			clip.open(audioInputStream);
+			clip.start();
+
+		}
+		catch (UnsupportedAudioFileException ex)
+		{
+			Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null, ex);
+		}
+		catch (IOException ex)
+		{
+			Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null, ex);
+		}
+		catch (LineUnavailableException ex)
+		{
+			Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null, ex);
+		}
+		finally
+		{
+			try
+			{
+				audioInputStream.close();
+			}
+			catch (IOException ex)
+			{
+				Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null, ex);
+			}
+		}
+	}
 }
