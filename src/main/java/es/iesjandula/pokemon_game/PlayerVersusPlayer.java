@@ -4,12 +4,15 @@
  */
 package es.iesjandula.pokemon_game;
 
+import javax.swing.GroupLayout;
 import es.iesjandula.pokemon_game.models.Pokemon;
 import java.awt.Point;
 import java.io.File;
 
 import java.io.IOException;
-
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -21,13 +24,16 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.DefaultListModel;
 
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author David Martinez Flores
  */
-public class PlayerVersusPlayer extends javax.swing.JFrame
+public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializable
 {
+	private Clip mainTheme;
+
 	private PlayerOneSelection playerOneSelection;
 	private PlayerTwoSelection playerTwoSelection;
 
@@ -40,61 +46,130 @@ public class PlayerVersusPlayer extends javax.swing.JFrame
 	private Pokemon currentPlayerOnePokemon;
 	private Pokemon currentPlayerTwoPokemon;
 
-        private int playerOneChanges;
-        private int playerTwoChanges;
+	private int playerOneChanges;
+	private int playerTwoChanges;
+
 	/**
 	 * Creates new form PlayerVersusPlayer
 	 */
 	public PlayerVersusPlayer(PlayerTwoSelection playerTwoSelection)
 	{
-            playerTwoSelection.dispose();
-            initComponents();
-            this.startBattleTheme();
-            this.setResizable(false);
-            
-            this.playerOneChanges=8;
-            this.playerTwoChanges=8;
+		playerTwoSelection.dispose();
+		initComponents();
+		this.mainTheme = this.startBattleTheme();
+		if (this.mainTheme != null)
+		{
+			this.mainTheme.start();
+		}
+		this.setResizable(false);
 
-            this.jLabel3.setIcon(new ImageIcon("./images/versus.png"));
+		this.playerOneChanges = 8;
+		this.playerTwoChanges = 8;
 
-            this.playerOneSelection = playerTwoSelection.getPlayerOneSelection();
-            this.playerTwoSelection = playerTwoSelection;
+		this.jLabel3.setIcon(new ImageIcon("./images/versus.png"));
 
-            this.listPlayerOne = this.playerOneSelection.getListModel2();
-            this.listPlayerTwo = this.playerTwoSelection.getListModel2();
+		this.playerOneSelection = playerTwoSelection.getPlayerOneSelection();
+		this.playerTwoSelection = playerTwoSelection;
 
-            this.jList1.setModel(listPlayerOne);
-            this.jList2.setModel(listPlayerTwo);
+		this.listPlayerOne = this.playerOneSelection.getListModel2();
+		this.listPlayerTwo = this.playerTwoSelection.getListModel2();
 
-            this.iconPlayer1 = new ImageIcon(this.listPlayerOne.get(0).getPokeImage());
-            this.iconPlayer2 = new ImageIcon(this.listPlayerTwo.get(0).getPokeImage());
+		this.initDefaultGraphics();
+	}
 
-            this.jLabel1.setText(this.listPlayerOne.get(0).getName());
-            this.jLabel2.setText(this.listPlayerTwo.get(0).getName());
+	/**
+	 * Method initGraphics
+	 */
+	private void initDefaultGraphics()
+	{
+		this.jList1.setModel(listPlayerOne);
+		this.jList2.setModel(listPlayerTwo);
 
-            this.jLabel1.setIcon(this.iconPlayer1);
-            this.jLabel2.setIcon(this.iconPlayer2);
+		this.iconPlayer1 = new ImageIcon(this.listPlayerOne.get(0).getPokeImage());
+		this.iconPlayer2 = new ImageIcon(this.listPlayerTwo.get(0).getPokeImage());
 
-            this.currentPlayerOnePokemon = this.listPlayerOne.get(0);
-            this.currentPlayerTwoPokemon = this.listPlayerTwo.get(0);
+		this.jLabel1.setText(this.listPlayerOne.get(0).getName());
+		this.jLabel2.setText(this.listPlayerTwo.get(0).getName());
 
-            this.jLabel4Player1Health.setText(currentPlayerOnePokemon.getHealth() + "");
-            this.jLabel5Player2Health.setText(currentPlayerTwoPokemon.getHealth() + "");
+		this.jLabel1.setIcon(this.iconPlayer1);
+		this.jLabel2.setIcon(this.iconPlayer2);
 
-            this.setLocationRelativeTo(null);
+		this.currentPlayerOnePokemon = this.listPlayerOne.get(0);
+		this.currentPlayerTwoPokemon = this.listPlayerTwo.get(0);
 
-            this.jLabelPokeball.setIcon(new ImageIcon("./images/pokeball.png"));
-            
-            this.rotatePokeballThread();
-            
-            this.jumpPlayerOneAnimationThread();
-            this.jumpPlayerTwoAnimationThread();
-            
-            this.jLabelPlayerOneChanges.setText("Changes: "+this.playerOneChanges);
-            this.jLabelPlayerTwoChanges.setText("Changes: "+this.playerTwoChanges);
-            
-            this.jProgressBar1.setValue((int) ((this.currentPlayerOnePokemon.getHealth()*100)/this.currentPlayerOnePokemon.getMaxHeatlh()));
-            this.jProgressBar2.setValue((int) ((this.currentPlayerTwoPokemon.getHealth()*100)/this.currentPlayerTwoPokemon.getMaxHeatlh()));
+		this.jLabel4Player1Health.setText(currentPlayerOnePokemon.getHealth() + "");
+		this.jLabel5Player2Health.setText(currentPlayerTwoPokemon.getHealth() + "");
+
+		this.setLocationRelativeTo(null);
+
+		this.jLabelPokeball.setIcon(new ImageIcon("./images/pokeball.png"));
+
+		this.rotatePokeballThread();
+
+		this.jumpPlayerOneAnimationThread();
+		this.jumpPlayerTwoAnimationThread();
+
+		this.jLabelPlayerOneChanges.setText("Changes: " + this.playerOneChanges);
+		this.jLabelPlayerTwoChanges.setText("Changes: " + this.playerTwoChanges);
+
+		this.jProgressBar1.setValue(
+				(int) ((this.currentPlayerOnePokemon.getHealth() * 100) / this.currentPlayerOnePokemon.getMaxHeatlh()));
+		this.jProgressBar2.setValue(
+				(int) ((this.currentPlayerTwoPokemon.getHealth() * 100) / this.currentPlayerTwoPokemon.getMaxHeatlh()));
+	}
+
+	public PlayerVersusPlayer(List<Object> partyList)
+	{
+		initComponents();
+		this.mainTheme = this.startBattleTheme();
+		if (this.mainTheme != null)
+		{
+			this.mainTheme.start();
+		}
+
+		this.setResizable(false);
+		this.listPlayerOne = (DefaultListModel<Pokemon>) partyList.get(0);
+		this.listPlayerTwo = (DefaultListModel<Pokemon>) partyList.get(1);
+
+		this.jLabel3.setIcon(new ImageIcon("./images/versus.png"));
+
+		this.currentPlayerOnePokemon = (Pokemon) partyList.get(2);
+		this.currentPlayerTwoPokemon = (Pokemon) partyList.get(3);
+
+		this.iconPlayer1 = new ImageIcon(this.currentPlayerOnePokemon.getPokeImage());
+		this.iconPlayer2 = new ImageIcon(this.currentPlayerTwoPokemon.getPokeImage());
+
+		this.playerOneChanges = (int) partyList.get(4);
+		this.playerTwoChanges = (int) partyList.get(5);
+
+		this.jList1.setModel(listPlayerOne);
+		this.jList2.setModel(listPlayerTwo);
+
+		this.jLabel1.setText(this.currentPlayerOnePokemon.getName());
+		this.jLabel2.setText(this.currentPlayerTwoPokemon.getName());
+
+		this.jLabel1.setIcon(this.iconPlayer1);
+		this.jLabel2.setIcon(this.iconPlayer2);
+
+		this.jLabel4Player1Health.setText(currentPlayerOnePokemon.getHealth() + "");
+		this.jLabel5Player2Health.setText(currentPlayerTwoPokemon.getHealth() + "");
+
+		this.setLocationRelativeTo(null);
+
+		this.jLabelPokeball.setIcon(new ImageIcon("./images/pokeball.png"));
+
+		this.rotatePokeballThread();
+
+		this.jumpPlayerOneAnimationThread();
+		this.jumpPlayerTwoAnimationThread();
+
+		this.jLabelPlayerOneChanges.setText("Changes: " + this.playerOneChanges);
+		this.jLabelPlayerTwoChanges.setText("Changes: " + this.playerTwoChanges);
+
+		this.jProgressBar1.setValue(
+				(int) ((this.currentPlayerOnePokemon.getHealth() * 100) / this.currentPlayerOnePokemon.getMaxHeatlh()));
+		this.jProgressBar2.setValue(
+				(int) ((this.currentPlayerTwoPokemon.getHealth() * 100) / this.currentPlayerTwoPokemon.getMaxHeatlh()));
 	}
 
 	/**
@@ -103,6 +178,7 @@ public class PlayerVersusPlayer extends javax.swing.JFrame
 	 * regenerated by the Form Editor.
 	 */
 	@SuppressWarnings("unchecked")
+	// <editor-fold defaultstate="collapsed" desc="Generated
 	// <editor-fold defaultstate="collapsed" desc="Generated
 	// <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -131,6 +207,10 @@ public class PlayerVersusPlayer extends javax.swing.JFrame
         jLabelPlayerTwoChanges = new javax.swing.JLabel();
         jProgressBar1 = new javax.swing.JProgressBar();
         jProgressBar2 = new javax.swing.JProgressBar();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -252,6 +332,38 @@ public class PlayerVersusPlayer extends javax.swing.JFrame
 
         jProgressBar2.setForeground(new java.awt.Color(51, 204, 0));
 
+        jMenu1.setText("File");
+
+        jMenuItem1.setText("Save State");
+        jMenuItem1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuItem1MouseClicked(evt);
+            }
+        });
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+
+        jMenuItem2.setText("Load State");
+        jMenuItem2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuItem2MouseClicked(evt);
+            }
+        });
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem2);
+
+        jMenuBar1.add(jMenu1);
+
+        setJMenuBar(jMenuBar1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -372,44 +484,115 @@ public class PlayerVersusPlayer extends javax.swing.JFrame
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList1MouseClicked
-        this.selectButtonSound();
-    }//GEN-LAST:event_jList1MouseClicked
-    
-    private void jList2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList2MouseClicked
-         this.selectButtonSound();
-    }//GEN-LAST:event_jList2MouseClicked
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+       // GEN-FIRST:event_jMenuItem1ActionPerformed
+		/*
+		 * this.listPlayerOne=(DefaultListModel<Pokemon>) partyList.get(0);
+		 * this.listPlayerTwo=(DefaultListModel<Pokemon>) partyList.get(1);
+		 * 
+		 * this.currentPlayerOnePokemon = (Pokemon) partyList.get(4);
+		 * this.currentPlayerTwoPokemon = (Pokemon) partyList.get(5);
+		 * 
+		 * this.iconPlayer1= new ImageIcon(this.listPlayerOne.get(0).getPokeImage());
+		 * this.iconPlayer2= new ImageIcon(this.listPlayerTwo.get(0).getPokeImage());
+		 * 
+		 * this.playerOneChanges = (int) partyList.get(6); this.playerTwoChanges = (int)
+		 * partyList.get(6);
+		 */
+		System.out.println("GUARDAR ESTADO");
+		JOptionPane.showMessageDialog(null, "SAVING STATE!");
+		Application application = new Application();
 
-    private void jRadioButtonPlayerOnePhysicalAttackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButtonPlayerOnePhysicalAttackMouseClicked
-        this.selectButtonSound();
-    }//GEN-LAST:event_jRadioButtonPlayerOnePhysicalAttackMouseClicked
+		List<Object> partyList = new ArrayList<Object>();
 
-    private void jRadioButtonPlayerOneSpecialAttackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButtonPlayerOneSpecialAttackMouseClicked
-        this.selectButtonSound();
-    }//GEN-LAST:event_jRadioButtonPlayerOneSpecialAttackMouseClicked
+		partyList.add(listPlayerOne);
+		partyList.add(listPlayerTwo);
 
-    private void jRadioButtonPlayerTwoPhysicalAttackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButtonPlayerTwoPhysicalAttackMouseClicked
-        this.selectButtonSound();
-    }//GEN-LAST:event_jRadioButtonPlayerTwoPhysicalAttackMouseClicked
+		partyList.add(currentPlayerOnePokemon);
+		partyList.add(currentPlayerTwoPokemon);
 
-    private void jRadioButtonPlayerTwoSpecialAttackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButtonPlayerTwoSpecialAttackMouseClicked
-        this.selectButtonSound();
-    }//GEN-LAST:event_jRadioButtonPlayerTwoSpecialAttackMouseClicked
+		partyList.add(playerOneChanges);
+		partyList.add(playerTwoChanges);
+		System.out.println(partyList);
+		application.saveState(partyList);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    private void jLabel1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseEntered
-       this.jLabel1.setToolTipText("Attack: "+this.currentPlayerOnePokemon.getAttack()+" \n"
-               + "SpAttack: "+this.currentPlayerOnePokemon.getSpAttack()+" \n"
-               + "Defense: "+this.currentPlayerOnePokemon.getDefense()+" \n"
-               + "SpDefense: "+this.currentPlayerOnePokemon.getSpDefense()+" \n");
-    }//GEN-LAST:event_jLabel1MouseEntered
+    private void jMenuItem1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem1MouseClicked
+        
+    }//GEN-LAST:event_jMenuItem1MouseClicked
+    private void jMenuItem2MouseClicked(java.awt.event.MouseEvent evt) {                                        
+    } 
+	private void jList1MouseClicked(java.awt.event.MouseEvent evt)
+	{// GEN-FIRST:event_jList1MouseClicked
+		this.selectButtonSound();
+	}// GEN-LAST:event_jList1MouseClicked
 
-    private void jLabel2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseEntered
-        this.jLabel2.setToolTipText("Attack: "+this.currentPlayerTwoPokemon.getAttack()+" \n"
-               + "SpAttack: "+this.currentPlayerTwoPokemon.getSpAttack()+" \n"
-               + "Defense: "+this.currentPlayerTwoPokemon.getDefense()+" \n"
-               + "SpDefense: "+this.currentPlayerTwoPokemon.getSpDefense()+" \n");
-    }//GEN-LAST:event_jLabel2MouseEntered
+	private void jList2MouseClicked(java.awt.event.MouseEvent evt)
+	{// GEN-FIRST:event_jList2MouseClicked
+		this.selectButtonSound();
+	}// GEN-LAST:event_jList2MouseClicked
 
+	private void jRadioButtonPlayerOnePhysicalAttackMouseClicked(java.awt.event.MouseEvent evt)
+	{// GEN-FIRST:event_jRadioButtonPlayerOnePhysicalAttackMouseClicked
+		this.selectButtonSound();
+	}// GEN-LAST:event_jRadioButtonPlayerOnePhysicalAttackMouseClicked
+
+	private void jRadioButtonPlayerOneSpecialAttackMouseClicked(java.awt.event.MouseEvent evt)
+	{// GEN-FIRST:event_jRadioButtonPlayerOneSpecialAttackMouseClicked
+		this.selectButtonSound();
+	}// GEN-LAST:event_jRadioButtonPlayerOneSpecialAttackMouseClicked
+
+	private void jRadioButtonPlayerTwoPhysicalAttackMouseClicked(java.awt.event.MouseEvent evt)
+	{// GEN-FIRST:event_jRadioButtonPlayerTwoPhysicalAttackMouseClicked
+		this.selectButtonSound();
+	}// GEN-LAST:event_jRadioButtonPlayerTwoPhysicalAttackMouseClicked
+
+	private void jRadioButtonPlayerTwoSpecialAttackMouseClicked(java.awt.event.MouseEvent evt)
+	{// GEN-FIRST:event_jRadioButtonPlayerTwoSpecialAttackMouseClicked
+		this.selectButtonSound();
+	}// GEN-LAST:event_jRadioButtonPlayerTwoSpecialAttackMouseClicked
+
+	private void jLabel1MouseEntered(java.awt.event.MouseEvent evt)
+	{// GEN-FIRST:event_jLabel1MouseEntered
+		this.jLabel1.setToolTipText("Attack: " + this.currentPlayerOnePokemon.getAttack() + " \n" + "SpAttack: "
+				+ this.currentPlayerOnePokemon.getSpAttack() + " \n" + "Defense: "
+				+ this.currentPlayerOnePokemon.getDefense() + " \n" + "SpDefense: "
+				+ this.currentPlayerOnePokemon.getSpDefense() + " \n");
+	}// GEN-LAST:event_jLabel1MouseEntered
+
+	private void jLabel2MouseEntered(java.awt.event.MouseEvent evt)
+	{// GEN-FIRST:event_jLabel2MouseEntered
+		this.jLabel2.setToolTipText("Attack: " + this.currentPlayerTwoPokemon.getAttack() + " \n" + "SpAttack: "
+				+ this.currentPlayerTwoPokemon.getSpAttack() + " \n" + "Defense: "
+				+ this.currentPlayerTwoPokemon.getDefense() + " \n" + "SpDefense: "
+				+ this.currentPlayerTwoPokemon.getSpDefense() + " \n");
+	}// GEN-LAST:event_jLabel2MouseEntered
+
+	private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt)
+	{// GEN-FIRST:event_jMenuItem2ActionPerformed
+		
+		System.out.println("CARGAR ESTADO");
+		Application application = new Application();
+
+		List<Object> partyList = application.loadState();
+
+		if (partyList != null)
+		{
+			this.mainTheme.stop();
+			PlayerVersusPlayer loadedPlayerVersusPlayer = new PlayerVersusPlayer(partyList);
+			loadedPlayerVersusPlayer.setVisible(true);
+			System.out.println(partyList);
+			this.dispose();
+			JOptionPane.showMessageDialog(null, "STATE DATA LOADED!");
+
+		}
+		else
+		{
+			JOptionPane.showMessageDialog(null, "THE STATE IS CORRUPTED OR DONT EXISTS ANY STATE!");
+		}
+
+	}// GEN-LAST:event_jMenuItem2ActionPerformed
+        
 	/**
 	 * Method playerOneAttack
 	 */
@@ -493,9 +676,9 @@ public class PlayerVersusPlayer extends javax.swing.JFrame
 
 	private void jButtonREADYMouseClicked(java.awt.event.MouseEvent evt)
 	{// GEN-FIRST:event_jButtonREADYMouseClicked
-                
+
 		int randomNumber = (int) (Math.random() * 10 + 1);
-                
+
 		// this.launchPokemonPlayerOneAnimation();
 
 		// this.launchPokemonPlayerTwoAnimation();
@@ -567,7 +750,7 @@ public class PlayerVersusPlayer extends javax.swing.JFrame
 					}
 				}
 			}
-                        
+
 			this.repaint();
 		}
 		else if (this.currentPlayerOnePokemon.getSpeed() > this.currentPlayerTwoPokemon.getSpeed())
@@ -634,16 +817,19 @@ public class PlayerVersusPlayer extends javax.swing.JFrame
 				}
 			}
 		}
-                this.jProgressBar1.setValue((int) ((this.currentPlayerOnePokemon.getHealth()*100)/this.currentPlayerOnePokemon.getMaxHeatlh()));
-                this.jProgressBar2.setValue((int) ((this.currentPlayerTwoPokemon.getHealth()*100)/this.currentPlayerTwoPokemon.getMaxHeatlh()));
+		this.jProgressBar1.setValue(
+				(int) ((this.currentPlayerOnePokemon.getHealth() * 100) / this.currentPlayerOnePokemon.getMaxHeatlh()));
+		this.jProgressBar2.setValue(
+				(int) ((this.currentPlayerTwoPokemon.getHealth() * 100) / this.currentPlayerTwoPokemon.getMaxHeatlh()));
 	}// GEN-LAST:event_jButtonREADYMouseClicked
 
-	private void startBattleTheme()
+	private Clip startBattleTheme()
 	{
+		Clip clip = null;
 		try
 		{
 			AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("./audio/battle.wav"));
-			Clip clip = AudioSystem.getClip();
+			clip = AudioSystem.getClip();
 			clip.open(audioInputStream);
 			clip.loop(Clip.LOOP_CONTINUOUSLY);
 			clip.start();
@@ -663,6 +849,7 @@ public class PlayerVersusPlayer extends javax.swing.JFrame
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return clip;
 	}
 
 	/**
@@ -684,7 +871,7 @@ public class PlayerVersusPlayer extends javax.swing.JFrame
 				for (int i = 0; i < 300; i++)
 				{
 					jButtonREADY.setLocation(1000000000, 1000000000);
-                                        jLabel3.setVisible(false);
+					jLabel3.setVisible(false);
 					jLabel2.setLocation(jLabel2.getX() + speed, jLabel2.getY());
 					try
 					{
@@ -708,7 +895,7 @@ public class PlayerVersusPlayer extends javax.swing.JFrame
 				jLabel2.setText(initialText);
 
 				jButtonREADY.setLocation(readyButtonLocation);
-                                jLabel3.setVisible(true);
+				jLabel3.setVisible(true);
 			}
 		});
 		animationTwo.start();
@@ -734,7 +921,7 @@ public class PlayerVersusPlayer extends javax.swing.JFrame
 				for (int i = 0; i < 300; i++)
 				{
 					jButtonREADY.setLocation(1000000000, 1000000000);
-                                        jLabel3.setVisible(false);
+					jLabel3.setVisible(false);
 					jLabel1.setLocation(jLabel1.getX() + speed, jLabel1.getY());
 					try
 					{
@@ -758,7 +945,7 @@ public class PlayerVersusPlayer extends javax.swing.JFrame
 				jLabel1.setText(initialText);
 
 				jButtonREADY.setLocation(readyButtonLocation);
-                                jLabel3.setVisible(true);
+				jLabel3.setVisible(true);
 			}
 		});
 		animation.start();
@@ -774,7 +961,8 @@ public class PlayerVersusPlayer extends javax.swing.JFrame
 	{// GEN-FIRST:event_jButtonChangePokemonPlayerOneMouseClicked
 		this.selectButtonSound();
 		this.changeSelectedCurrentPlayerOnePokemon();
-                this.jProgressBar1.setValue((int) ((this.currentPlayerOnePokemon.getHealth()*100)/this.currentPlayerOnePokemon.getMaxHeatlh()));
+		this.jProgressBar1.setValue(
+				(int) ((this.currentPlayerOnePokemon.getHealth() * 100) / this.currentPlayerOnePokemon.getMaxHeatlh()));
 	}// GEN-LAST:event_jButtonChangePokemonPlayerOneMouseClicked
 
 	/**
@@ -783,52 +971,53 @@ public class PlayerVersusPlayer extends javax.swing.JFrame
 	private void changeSelectedCurrentPlayerOnePokemon()
 	{
 		Pokemon selectedPokemon = this.jList1.getSelectedValue();
-                if(this.playerOneChanges>0)
-                {
-                    this.playerOneChanges-=1;
-                    this.jLabelPlayerOneChanges.setText("Changes: "+this.playerOneChanges);
-                    if (selectedPokemon != null)
-                    {
-                            this.currentPlayerOnePokemon = selectedPokemon;
-                            this.iconPlayer1 = new ImageIcon(this.currentPlayerOnePokemon.getPokeImage());
-                            this.jLabel1.setText(this.currentPlayerOnePokemon.getName());
-                            this.jLabel1.setIcon(this.iconPlayer1);
-                            this.jLabel4Player1Health.setText(this.currentPlayerOnePokemon.getHealth() + "");
+		if (this.playerOneChanges > 0)
+		{
+			this.playerOneChanges -= 1;
+			this.jLabelPlayerOneChanges.setText("Changes: " + this.playerOneChanges);
+			if (selectedPokemon != null)
+			{
+				this.currentPlayerOnePokemon = selectedPokemon;
+				this.iconPlayer1 = new ImageIcon(this.currentPlayerOnePokemon.getPokeImage());
+				this.jLabel1.setText(this.currentPlayerOnePokemon.getName());
+				this.jLabel1.setIcon(this.iconPlayer1);
+				this.jLabel4Player1Health.setText(this.currentPlayerOnePokemon.getHealth() + "");
 
-                    }
-                }
+			}
+		}
 		this.repaint();
-                
+
 	}
 
 	private void jButtonChangePokemonPlayerTwoMouseClicked(java.awt.event.MouseEvent evt)
 	{// GEN-FIRST:event_jButtonChangePokemonPlayerTwoMouseClicked
 		this.selectButtonSound();
 		this.changeSelectedCurrentPlayerTwoPokemon();
-                this.jProgressBar2.setValue((int) ((this.currentPlayerTwoPokemon.getHealth()*100)/this.currentPlayerTwoPokemon.getMaxHeatlh()));
+		this.jProgressBar2.setValue(
+				(int) ((this.currentPlayerTwoPokemon.getHealth() * 100) / this.currentPlayerTwoPokemon.getMaxHeatlh()));
 	}// GEN-LAST:event_jButtonChangePokemonPlayerTwoMouseClicked
 
 	/**
 	 * Method changeSelectedCurrentPlayerTwoPokemon
 	 */
 	private void changeSelectedCurrentPlayerTwoPokemon()
-	{   
-               
-                
-		Pokemon selectedPokemon = this.jList2.getSelectedValue();
-                if(this.playerTwoChanges>0){
-                    this.playerTwoChanges-=1;
-                    this.jLabelPlayerTwoChanges.setText("Changes: "+this.playerTwoChanges);
-                    if (selectedPokemon != null)
-                    {
-                            this.currentPlayerTwoPokemon = selectedPokemon;
-                            this.iconPlayer2 = new ImageIcon(this.currentPlayerTwoPokemon.getPokeImage());
-                            this.jLabel2.setText(this.currentPlayerTwoPokemon.getName());
-                            this.jLabel2.setIcon(this.iconPlayer2);
-                            this.jLabel5Player2Health.setText(this.currentPlayerTwoPokemon.getHealth() + "");
+	{
 
-                    }
-                }
+		Pokemon selectedPokemon = this.jList2.getSelectedValue();
+		if (this.playerTwoChanges > 0)
+		{
+			this.playerTwoChanges -= 1;
+			this.jLabelPlayerTwoChanges.setText("Changes: " + this.playerTwoChanges);
+			if (selectedPokemon != null)
+			{
+				this.currentPlayerTwoPokemon = selectedPokemon;
+				this.iconPlayer2 = new ImageIcon(this.currentPlayerTwoPokemon.getPokeImage());
+				this.jLabel2.setText(this.currentPlayerTwoPokemon.getName());
+				this.jLabel2.setIcon(this.iconPlayer2);
+				this.jLabel5Player2Health.setText(this.currentPlayerTwoPokemon.getHealth() + "");
+
+			}
+		}
 		this.repaint();
 	}
 
@@ -909,6 +1098,10 @@ public class PlayerVersusPlayer extends javax.swing.JFrame
     private javax.swing.JLabel jLabelPokeball;
     private javax.swing.JList<Pokemon> jList1;
     private javax.swing.JList<Pokemon> jList2;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JProgressBar jProgressBar2;
     private javax.swing.JRadioButton jRadioButtonPlayerOnePhysicalAttack;
@@ -960,8 +1153,8 @@ public class PlayerVersusPlayer extends javax.swing.JFrame
 		});
 		rotatePokebal.start();
 	}
-        
-        private void jumpPlayerOneAnimationThread()
+
+	private void jumpPlayerOneAnimationThread()
 	{
 		Thread jumpThread = new Thread(new Runnable()
 		{
@@ -1002,8 +1195,8 @@ public class PlayerVersusPlayer extends javax.swing.JFrame
 		});
 		jumpThread.start();
 	}
-       
-        private void jumpPlayerTwoAnimationThread()
+
+	private void jumpPlayerTwoAnimationThread()
 	{
 		Thread jumpThread = new Thread(new Runnable()
 		{

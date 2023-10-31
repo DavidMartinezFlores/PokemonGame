@@ -2,6 +2,7 @@ package es.iesjandula.pokemon_game.models;
 
 import java.awt.Image;
 import java.io.File;
+import java.io.Serializable;
 import javax.swing.ImageIcon;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,7 +13,7 @@ import lombok.Data;
  */
 @Data
 @AllArgsConstructor
-public class Pokemon
+public class Pokemon implements Serializable
 {
 	/** Attribute pokedexNumber */
 	private int pokedexNumber;

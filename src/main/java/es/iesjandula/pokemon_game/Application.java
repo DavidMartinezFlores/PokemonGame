@@ -9,6 +9,13 @@ import java.util.List;
 import es.iesjandula.pokemon_game.utils.Constants;
 import lombok.Data;
 import es.iesjandula.pokemon_game.models.Pokemon;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * @author David Martinez
@@ -23,6 +30,105 @@ public class Application
 	public Application()
 	{
 		this.PokemonList = this.loadPokemonData();
+	}
+
+	public void saveState(List<Object> party)
+	{
+		FileOutputStream fileOutputStream = null;
+		ObjectOutputStream objectOutputStream = null;
+
+		try
+		{
+
+			fileOutputStream = new FileOutputStream("partyState.obj");
+			objectOutputStream = new ObjectOutputStream(fileOutputStream);
+
+			objectOutputStream.writeObject(party);
+
+		}
+		catch (IOException ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			if (objectOutputStream != null)
+			{
+				try
+				{
+					objectOutputStream.close();
+				}
+				catch (IOException ex)
+				{
+					ex.printStackTrace();
+				}
+			}
+			if (fileOutputStream != null)
+			{
+				try
+				{
+					fileOutputStream.close();
+				}
+				catch (IOException ex)
+				{
+					ex.printStackTrace();
+				}
+			}
+		}
+	}
+
+	public List<Object> loadState()
+	{
+		List<Object> partyList = null;
+		FileInputStream fileInputStream = null;
+		ObjectInputStream objectInputStream = null;
+
+		try
+		{
+			fileInputStream = new FileInputStream("partyState.obj");
+			objectInputStream = new ObjectInputStream(fileInputStream);
+			partyList = (List<Object>) objectInputStream.readObject();
+
+		}
+		catch (FileNotFoundException ex)
+		{
+			ex.printStackTrace();
+		}
+		catch (IOException ex)
+		{
+			ex.printStackTrace();
+		}
+		catch (ClassNotFoundException ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			if (objectInputStream != null)
+			{
+				try
+				{
+					objectInputStream.close();
+				}
+				catch (IOException ex)
+				{
+					Logger.getLogger(Application.class.getName()).log(Level.SEVERE, null, ex);
+				}
+			}
+			if (fileInputStream != null)
+			{
+				try
+				{
+					fileInputStream.close();
+				}
+				catch (IOException ex)
+				{
+					Logger.getLogger(Application.class.getName()).log(Level.SEVERE, null, ex);
+				}
+			}
+		}
+
+		return partyList;
 	}
 
 	private List<Pokemon> loadPokemonData()
