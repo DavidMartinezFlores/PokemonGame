@@ -52,6 +52,7 @@ public class PokemonGameIntro extends javax.swing.JFrame
 			clip = AudioSystem.getClip();
 			clip.open(audioInputStream);
 			clip.start();
+                        clip.loop(Clip.LOOP_CONTINUOUSLY);
 		}
 		catch (UnsupportedAudioFileException e)
 		{

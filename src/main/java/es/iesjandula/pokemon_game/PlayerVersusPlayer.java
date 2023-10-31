@@ -598,6 +598,7 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 	 */
 	private void playerOneAttackPhysical()
 	{
+            if(this.listPlayerTwo.size()>0 && this.listPlayerOne.size()>0){
 		int position = 0;
 		for (int i = 0; i < this.listPlayerTwo.size(); i++)
 		{
@@ -609,9 +610,10 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 		}
 
 		// Caculate the health
-		this.currentPlayerTwoPokemon
-				.setHealth(this.currentPlayerTwoPokemon.getHealth() + ((this.currentPlayerOnePokemon.getAttack() * -0.4)
+		double health = (this.currentPlayerTwoPokemon.getHealth() + ((this.currentPlayerOnePokemon.getAttack() * -0.4)
 						+ this.currentPlayerTwoPokemon.getDefense() * 0.1));
+                health = health<=0 ? 0:health;
+		this.currentPlayerTwoPokemon.setHealth(health);
 		// Setting the current poke with new values
 		this.listPlayerTwo.set(position, this.currentPlayerTwoPokemon);
 
@@ -620,18 +622,38 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 				&& (this.listPlayerTwo.size() > 0 && this.listPlayerOne.size() > 0))
 		{
 			this.listPlayerTwo.remove(position);
+                        if(this.listPlayerTwo.size()>0){
 			this.currentPlayerTwoPokemon = this.listPlayerTwo.get(this.listPlayerTwo.size() - 1);
 			this.jLabel2.setIcon(new ImageIcon(this.currentPlayerTwoPokemon.getPokeImage()));
+                        }
 		}
 		// Update the health text and repaint the PlayerVersusPlayer
 		this.jLabel2.setText(this.currentPlayerTwoPokemon.getName());
 
 		this.jLabel5Player2Health.setText(String.format("%.2f", currentPlayerTwoPokemon.getHealth()));
 		this.repaint();
+            }
+            if(this.listPlayerOne.size()<=0)
+            {
+                this.jProgressBar1.setValue(
+                            (int) ((this.currentPlayerOnePokemon.getHealth() * 100) / this.currentPlayerOnePokemon.getMaxHeatlh()));
+            this.jProgressBar2.setValue(
+                            (int) ((this.currentPlayerTwoPokemon.getHealth() * 100) / this.currentPlayerTwoPokemon.getMaxHeatlh()));
+                JOptionPane.showMessageDialog(null, "The player Two Wins!");
+            }
+            if(this.listPlayerTwo.size()<=0)
+            {
+                this.jProgressBar1.setValue(
+                            (int) ((this.currentPlayerOnePokemon.getHealth() * 100) / this.currentPlayerOnePokemon.getMaxHeatlh()));
+            this.jProgressBar2.setValue(
+                            (int) ((this.currentPlayerTwoPokemon.getHealth() * 100) / this.currentPlayerTwoPokemon.getMaxHeatlh()));
+                JOptionPane.showMessageDialog(null, "The player One Wins!");
+            }
 	}
 
 	private void playerOneAttackSpecial()
 	{
+            if(this.listPlayerTwo.size()>0 && this.listPlayerOne.size()>0){
 		int position = 0;
 		for (int i = 0; i < this.listPlayerTwo.size(); i++)
 		{
@@ -643,9 +665,10 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 		}
 
 		// Caculate the health
-		this.currentPlayerTwoPokemon.setHealth(
-				this.currentPlayerTwoPokemon.getHealth() + ((this.currentPlayerOnePokemon.getSpAttack() * -0.4)
-						+ this.currentPlayerTwoPokemon.getSpDefense() * 0.1));
+                double health =this.currentPlayerTwoPokemon.getHealth() + ((this.currentPlayerOnePokemon.getSpAttack() * -0.4)
+						+ this.currentPlayerTwoPokemon.getSpDefense() * 0.1);
+                health = health<=0 ? 0:health;
+		this.currentPlayerTwoPokemon.setHealth(health);
 		// Setting the current poke with new values
 		this.listPlayerTwo.set(position, this.currentPlayerTwoPokemon);
 
@@ -654,14 +677,35 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 				&& (this.listPlayerTwo.size() > 0 && this.listPlayerOne.size() > 0))
 		{
 			this.listPlayerTwo.remove(position);
-			this.currentPlayerTwoPokemon = this.listPlayerTwo.get(this.listPlayerTwo.size() - 1);
-			this.jLabel2.setIcon(new ImageIcon(this.currentPlayerTwoPokemon.getPokeImage()));
+                        if(this.listPlayerTwo.size()>0)
+                        {
+                            this.currentPlayerTwoPokemon = this.listPlayerTwo.get(this.listPlayerTwo.size() - 1);
+                        
+                            this.jLabel2.setIcon(new ImageIcon(this.currentPlayerTwoPokemon.getPokeImage()));
+                        }
 		}
 		// Update the health text and repaint the PlayerVersusPlayer
 		this.jLabel2.setText(this.currentPlayerTwoPokemon.getName());
 
 		this.jLabel5Player2Health.setText(String.format("%.2f", currentPlayerTwoPokemon.getHealth()));
 		this.repaint();
+            }
+            if(this.listPlayerOne.size()<=0)
+            {
+                this.jProgressBar1.setValue(
+                            (int) ((this.currentPlayerOnePokemon.getHealth() * 100) / this.currentPlayerOnePokemon.getMaxHeatlh()));
+            this.jProgressBar2.setValue(
+                            (int) ((this.currentPlayerTwoPokemon.getHealth() * 100) / this.currentPlayerTwoPokemon.getMaxHeatlh()));
+                JOptionPane.showMessageDialog(null, "The player Two Wins!");
+            }
+            if(this.listPlayerTwo.size()<=0)
+            {
+                this.jProgressBar1.setValue(
+                            (int) ((this.currentPlayerOnePokemon.getHealth() * 100) / this.currentPlayerOnePokemon.getMaxHeatlh()));
+            this.jProgressBar2.setValue(
+                            (int) ((this.currentPlayerTwoPokemon.getHealth() * 100) / this.currentPlayerTwoPokemon.getMaxHeatlh()));
+                JOptionPane.showMessageDialog(null, "The player One Wins!");
+            }
 	}
 
 	private void jButtonREADYActionPerformed(java.awt.event.ActionEvent evt)
@@ -821,6 +865,12 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 				(int) ((this.currentPlayerOnePokemon.getHealth() * 100) / this.currentPlayerOnePokemon.getMaxHeatlh()));
 		this.jProgressBar2.setValue(
 				(int) ((this.currentPlayerTwoPokemon.getHealth() * 100) / this.currentPlayerTwoPokemon.getMaxHeatlh()));
+                
+                if(this.listPlayerOne.size()<=0||this.listPlayerTwo.size()<=0)
+                {
+                    this.readyButtonEndPosition();
+                }
+                
 	}// GEN-LAST:event_jButtonREADYMouseClicked
 
 	private Clip startBattleTheme()
@@ -851,7 +901,19 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 		}
 		return clip;
 	}
-
+        
+        private void readyButtonEndPosition()
+        {
+            Thread buttonReadyEndPosition = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    while(true){
+                    jButtonREADY.setLocation(-1000000000, -1000000000);
+                    }
+                }
+            });
+            buttonReadyEndPosition.start();
+        }
 	/**
 	 * Method launchPokemonPlayerTwoAnimation
 	 */
@@ -1025,61 +1087,103 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 	 * Method playerTwoAttack
 	 */
 	private void playerTwoAttackSpecial()
-	{
-		int position = 0;
-		for (int i = 0; i < this.listPlayerOne.size(); i++)
-		{
-			if (this.currentPlayerOnePokemon.equals(this.listPlayerOne.get(i)))
-			{
-				position = i;
-				break;
-			}
-		}
+	{       if(this.listPlayerTwo.size()>0 && this.listPlayerOne.size()>0){
+                    int position = 0;
+                    for (int i = 0; i < this.listPlayerOne.size(); i++)
+                    {
+                            if (this.currentPlayerOnePokemon.equals(this.listPlayerOne.get(i)))
+                            {
+                                    position = i;
+                                    break;
+                            }
+                    }
 
-		this.currentPlayerOnePokemon.setHealth(
-				this.currentPlayerOnePokemon.getHealth() + ((this.currentPlayerTwoPokemon.getSpAttack() * -0.4)
-						+ this.currentPlayerOnePokemon.getSpDefense() * 0.1));
-		this.listPlayerOne.set(position, this.currentPlayerOnePokemon);
+                    double health =(this.currentPlayerOnePokemon.getHealth() + ((this.currentPlayerTwoPokemon.getSpAttack() * -0.4)
+                                                    + this.currentPlayerOnePokemon.getSpDefense() * 0.1));
+                    health = health<=0 ? 0:health;
+                    this.currentPlayerOnePokemon.setHealth(health);
+                    this.listPlayerOne.set(position, this.currentPlayerOnePokemon);
 
-		if (this.currentPlayerOnePokemon.getHealth() <= 0
-				&& (this.listPlayerTwo.size() > 0 && this.listPlayerOne.size() > 0))
-		{
-			this.listPlayerOne.remove(position);
-			this.currentPlayerOnePokemon = this.listPlayerOne.get(this.listPlayerOne.size() - 1);
-			this.jLabel1.setIcon(new ImageIcon(this.currentPlayerOnePokemon.getPokeImage()));
-		}
-		this.jLabel1.setText(this.currentPlayerOnePokemon.getName());
-		this.jLabel4Player1Health.setText(String.format("%.2f", currentPlayerOnePokemon.getHealth()));
-		this.repaint();
+                    if (this.currentPlayerOnePokemon.getHealth() <= 0
+                                    && (this.listPlayerTwo.size() > 0 && this.listPlayerOne.size() > 0))
+                    {
+                            this.listPlayerOne.remove(position);
+                            if(this.listPlayerOne.size()>0){
+                            this.currentPlayerOnePokemon = this.listPlayerOne.get(this.listPlayerOne.size() - 1);
+                            this.jLabel1.setIcon(new ImageIcon(this.currentPlayerOnePokemon.getPokeImage()));
+                            }
+                    }
+                    this.jLabel1.setText(this.currentPlayerOnePokemon.getName());
+                    this.jLabel4Player1Health.setText(String.format("%.2f", currentPlayerOnePokemon.getHealth()));
+                    this.repaint();
+                }
+                if(this.listPlayerOne.size()<=0)
+                {
+                    this.jProgressBar1.setValue(
+                                (int) ((this.currentPlayerOnePokemon.getHealth() * 100) / this.currentPlayerOnePokemon.getMaxHeatlh()));
+                this.jProgressBar2.setValue(
+                                (int) ((this.currentPlayerTwoPokemon.getHealth() * 100) / this.currentPlayerTwoPokemon.getMaxHeatlh()));
+                    JOptionPane.showMessageDialog(null, "The player Two Wins!");
+                }
+                if(this.listPlayerTwo.size()<=0)
+                {
+                    this.jProgressBar1.setValue(
+                                (int) ((this.currentPlayerOnePokemon.getHealth() * 100) / this.currentPlayerOnePokemon.getMaxHeatlh()));
+                this.jProgressBar2.setValue(
+                                (int) ((this.currentPlayerTwoPokemon.getHealth() * 100) / this.currentPlayerTwoPokemon.getMaxHeatlh()));
+                    JOptionPane.showMessageDialog(null, "The player One Wins!");
+                }
 	}
 
 	private void playerTwoAttackPhysical()
 	{
-		int position = 0;
-		for (int i = 0; i < this.listPlayerOne.size(); i++)
-		{
-			if (this.currentPlayerOnePokemon.equals(this.listPlayerOne.get(i)))
-			{
-				position = i;
-				break;
-			}
-		}
+                if(this.listPlayerTwo.size()>0 && this.listPlayerOne.size()>0){
+                    int position = 0;
+                    for (int i = 0; i < this.listPlayerOne.size(); i++)
+                    {
+                            if (this.currentPlayerOnePokemon.equals(this.listPlayerOne.get(i)))
+                            {
+                                    position = i;
+                                    break;
+                            }
+                    }
 
-		this.currentPlayerOnePokemon
-				.setHealth(this.currentPlayerOnePokemon.getHealth() + ((this.currentPlayerTwoPokemon.getAttack() * -0.4)
-						+ this.currentPlayerOnePokemon.getDefense() * 0.1));
-		this.listPlayerOne.set(position, this.currentPlayerOnePokemon);
+                   double health =(this.currentPlayerOnePokemon.getHealth() + ((this.currentPlayerTwoPokemon.getAttack() * -0.4)
+                                                    + this.currentPlayerOnePokemon.getDefense() * 0.1));
+                    
+                    health = health<=0 ? 0:health;
+                    this.currentPlayerOnePokemon.setHealth(health);
+                    this.listPlayerOne.set(position, this.currentPlayerOnePokemon);
 
-		if (this.currentPlayerOnePokemon.getHealth() <= 0
-				&& (this.listPlayerTwo.size() > 0 && this.listPlayerOne.size() > 0))
-		{
-			this.listPlayerOne.remove(position);
-			this.currentPlayerOnePokemon = this.listPlayerOne.get(this.listPlayerOne.size() - 1);
-			this.jLabel1.setIcon(new ImageIcon(this.currentPlayerOnePokemon.getPokeImage()));
-		}
-		this.jLabel1.setText(this.currentPlayerOnePokemon.getName());
-		this.jLabel4Player1Health.setText(String.format("%.2f", currentPlayerOnePokemon.getHealth()));
-		this.repaint();
+                    if (this.currentPlayerOnePokemon.getHealth() <= 0
+                                    && (this.listPlayerTwo.size() > 0 && this.listPlayerOne.size() > 0))
+                    {
+                            this.listPlayerOne.remove(position);
+                            if(this.listPlayerOne.size()>0){
+                            this.currentPlayerOnePokemon = this.listPlayerOne.get(this.listPlayerOne.size() - 1);
+                            this.jLabel1.setIcon(new ImageIcon(this.currentPlayerOnePokemon.getPokeImage()));
+                            }
+                    }
+                    this.jLabel1.setText(this.currentPlayerOnePokemon.getName());
+                    this.jLabel4Player1Health.setText(String.format("%.2f", currentPlayerOnePokemon.getHealth()));
+                    this.repaint();
+                }
+                if(this.listPlayerOne.size()<=0)
+                {
+                    this.jProgressBar1.setValue(
+                                (int) ((this.currentPlayerOnePokemon.getHealth() * 100) / this.currentPlayerOnePokemon.getMaxHeatlh()));
+                this.jProgressBar2.setValue(
+                                (int) ((this.currentPlayerTwoPokemon.getHealth() * 100) / this.currentPlayerTwoPokemon.getMaxHeatlh()));
+                    JOptionPane.showMessageDialog(null, "The player Two Wins!");
+                }
+                if(this.listPlayerTwo.size()<=0)
+                {
+                    this.jProgressBar1.setValue(
+                                (int) ((this.currentPlayerOnePokemon.getHealth() * 100) / this.currentPlayerOnePokemon.getMaxHeatlh()));
+                this.jProgressBar2.setValue(
+                                (int) ((this.currentPlayerTwoPokemon.getHealth() * 100) / this.currentPlayerTwoPokemon.getMaxHeatlh()));
+                    JOptionPane.showMessageDialog(null, "The player One Wins!");
+                }
 	}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
