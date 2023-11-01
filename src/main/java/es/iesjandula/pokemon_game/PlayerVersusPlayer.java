@@ -22,8 +22,10 @@ import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.DefaultListModel;
+import javax.swing.Icon;
 
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 /**
@@ -70,6 +72,9 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 		this.playerOneChanges = 8;
 		this.playerTwoChanges = 8;
 
+                this.SpriteSelectedPlayerOne.setIcon(playerTwoSelection.getPlayerOneSelection().getSpriteSelectedPlayerOne().getIcon());
+                this.SpriteSelectedPlayerTwo.setIcon(playerTwoSelection.getSpriteSelectedPlayerTwo().getIcon());
+                
 		this.jLabel3.setIcon(new ImageIcon("./images/versus.png"));
 
 		this.playerOneSelection = playerTwoSelection.getPlayerOneSelection();
@@ -136,7 +141,7 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 		{
 			this.mainTheme.start();
 		}
-
+                
 		this.setResizable(false);
 		this.listPlayerOne = (DefaultListModel<Pokemon>) partyList.get(0);
 		this.listPlayerTwo = (DefaultListModel<Pokemon>) partyList.get(1);
@@ -154,6 +159,9 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
                 
                 this.playerOneName = (String) partyList.get(6);
                 this.playerTwoName = (String) partyList.get(7);
+                
+                this.SpriteSelectedPlayerOne.setIcon((Icon) partyList.get(8));
+                this.SpriteSelectedPlayerTwo.setIcon((Icon) partyList.get(9));
                 
                 this.jLabel4.setText(playerOneName);
                 this.jLabel5.setText(playerTwoName);
@@ -233,6 +241,8 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        SpriteSelectedPlayerOne = new javax.swing.JLabel();
+        SpriteSelectedPlayerTwo = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -283,23 +293,23 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
                 jLabel1MouseEntered(evt);
             }
         });
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 150, 158));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, 150, 158));
 
         jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLabel2MouseEntered(evt);
             }
         });
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 60, 150, 150));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 60, 150, 150));
 
         jLabel3.setText("                ");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 130, 98, 94));
 
         jLabel4Player1Health.setText("jLabel4");
-        getContentPane().add(jLabel4Player1Health, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 270, -1, -1));
+        getContentPane().add(jLabel4Player1Health, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, -1, -1));
 
         jLabel5Player2Health.setText("jLabel5");
-        getContentPane().add(jLabel5Player2Health, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 270, -1, -1));
+        getContentPane().add(jLabel5Player2Health, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 270, -1, -1));
 
         buttonGroupPlayer1.add(jRadioButtonPlayerOnePhysicalAttack);
         jRadioButtonPlayerOnePhysicalAttack.setText("PHYSICAK ATTACK");
@@ -379,10 +389,10 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
         getContentPane().add(jLabelPlayerTwoChanges, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 560, -1, -1));
 
         jProgressBar1.setForeground(new java.awt.Color(0, 204, 0));
-        getContentPane().add(jProgressBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 130, 16));
+        getContentPane().add(jProgressBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, 130, 16));
 
         jProgressBar2.setForeground(new java.awt.Color(51, 204, 0));
-        getContentPane().add(jProgressBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 250, 130, 16));
+        getContentPane().add(jProgressBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 250, 130, 16));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel4.setText("jLabel4");
@@ -393,19 +403,25 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(701, 13, 162, 22));
 
         jLabel6.setText("jLabel6");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, -1, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 220, -1, -1));
 
         jLabel9.setText("jLabel9");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 220, -1, -1));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 220, -1, -1));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cards/basicCard.png"))); // NOI18N
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 60, -1, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 60, -1, -1));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cards/basicCard.png"))); // NOI18N
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, -1, -1));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, -1, -1));
 
         jLabel10.setText("v1.0.0");
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 680, 1020, 40));
+
+        SpriteSelectedPlayerOne.setText(" ");
+        getContentPane().add(SpriteSelectedPlayerOne, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 210, 90, 160));
+
+        SpriteSelectedPlayerTwo.setText(" ");
+        getContentPane().add(SpriteSelectedPlayerTwo, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 210, 90, 160));
 
         jMenu1.setText("File");
 
@@ -461,6 +477,10 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
                 
                 partyList.add(playerOneName);
                 partyList.add(playerTwoName);
+                
+                partyList.add(this.SpriteSelectedPlayerOne.getIcon());
+                partyList.add(this.SpriteSelectedPlayerTwo.getIcon());
+                
 		System.out.println(partyList);
 		application.saveState(partyList);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
@@ -1048,8 +1068,8 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
                     (int) ((this.currentPlayerOnePokemon.getHealth() * 100) / this.currentPlayerOnePokemon.getMaxHeatlh()));
             this.jProgressBar2.setValue(
                     (int) ((this.currentPlayerTwoPokemon.getHealth() * 100) / this.currentPlayerTwoPokemon.getMaxHeatlh()));
-            JOptionPane.showMessageDialog(null, "The player Two Wins!");
-            EndOfParty endOfParty = new EndOfParty(this.playerTwoName+" won the Game");
+            JOptionPane.showMessageDialog(null, ""+this.playerTwoName+" is the Winner!");
+            EndOfParty endOfParty = new EndOfParty(this.playerTwoName+" won the Game",this.SpriteSelectedPlayerTwo.getIcon());
             this.mainTheme.stop();
             endOfParty.setVisible(true);
             this.dispose();
@@ -1060,8 +1080,8 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
                     (int) ((this.currentPlayerOnePokemon.getHealth() * 100) / this.currentPlayerOnePokemon.getMaxHeatlh()));
             this.jProgressBar2.setValue(
                     (int) ((this.currentPlayerTwoPokemon.getHealth() * 100) / this.currentPlayerTwoPokemon.getMaxHeatlh()));
-            JOptionPane.showMessageDialog(null, "The player One Wins!");
-            EndOfParty endOfParty = new EndOfParty(this.playerOneName+" won the Game");
+            JOptionPane.showMessageDialog(null, ""+this.playerOneName+" is the Winner!");
+            EndOfParty endOfParty = new EndOfParty(this.playerOneName+" won the Game",this.SpriteSelectedPlayerOne.getIcon());
             this.mainTheme.stop();
             endOfParty.setVisible(true);
             this.dispose();
@@ -1105,6 +1125,8 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 	}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel SpriteSelectedPlayerOne;
+    private javax.swing.JLabel SpriteSelectedPlayerTwo;
     private javax.swing.ButtonGroup buttonGroupPlayer1;
     private javax.swing.ButtonGroup buttonGroupPlayer2;
     private javax.swing.JButton jButtonChangePokemonPlayerOne;
