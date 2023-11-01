@@ -28,6 +28,7 @@ import lombok.Data;
 @Data
 public class PlayerOneSelection extends javax.swing.JFrame implements Serializable
 {
+        private String playerOneName;
 	private Clip mainTheme;
         private DefaultListModel<Pokemon> temporalListModel = new DefaultListModel<>();
 	private DefaultListModel<Pokemon> listModel = new DefaultListModel<>();
@@ -40,6 +41,7 @@ public class PlayerOneSelection extends javax.swing.JFrame implements Serializab
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -47,6 +49,7 @@ public class PlayerOneSelection extends javax.swing.JFrame implements Serializab
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JList<Pokemon> jList1;
     private javax.swing.JList<Pokemon> jList2;
     private javax.swing.JMenu jMenu1;
@@ -55,6 +58,7 @@ public class PlayerOneSelection extends javax.swing.JFrame implements Serializab
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 
 	/**
@@ -63,6 +67,8 @@ public class PlayerOneSelection extends javax.swing.JFrame implements Serializab
 	public PlayerOneSelection(Clip clip)
 	{
 		this.initComponents();
+                this.playerOneName="Player One";
+                this.jLabel10.setText(playerOneName);
 		this.listModel.addAll(this.loadAllPokemons());
 		this.jList1.setModel(listModel);
 		this.setResizable(false);
@@ -109,6 +115,9 @@ public class PlayerOneSelection extends javax.swing.JFrame implements Serializab
         jTextField1 = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -226,6 +235,17 @@ public class PlayerOneSelection extends javax.swing.JFrame implements Serializab
             }
         });
 
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setText("Player One Name:");
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel10.setText("       ");
+
         jMenu1.setText("File");
 
         jMenuItem1.setText("Load State");
@@ -280,23 +300,36 @@ public class PlayerOneSelection extends javax.swing.JFrame implements Serializab
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel8)
-                .addGap(34, 34, 34)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
+                .addComponent(jLabel9)
+                .addGap(18, 18, 18)
+                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(54, 54, 54)
+                .addComponent(jLabel8)
+                .addGap(18, 18, 18)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jButton5)
-                .addGap(254, 254, 254))
+                .addGap(61, 61, 61)
+                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8)
-                    .addComponent(jButton5))
-                .addGap(9, 9, 9)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8)
+                            .addComponent(jButton5)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel9)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -347,6 +380,17 @@ public class PlayerOneSelection extends javax.swing.JFrame implements Serializab
         this.jList1.setModel(this.listModel);
         this.jTextField1.setText("");
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        this.playerOneName=this.jTextField2.getText().trim();
+        if(this.playerOneName.length()<=16&& !this.playerOneName.isEmpty())
+        {
+            this.jLabel10.setText(playerOneName);
+        }else
+        {
+            JOptionPane.showMessageDialog(null, "The selected name is too big or empty (16 chars max)");
+        }
+    }//GEN-LAST:event_jTextField2ActionPerformed
 
 	private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt)
 	{// GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -449,6 +493,7 @@ public class PlayerOneSelection extends javax.swing.JFrame implements Serializab
 		else
 		{
 			JOptionPane.showMessageDialog(this, "!OH , YOU NEED CHOOSE MINIMUM 1 POKEMON!");
+                        this.jLabel10.setText("Player One");
 		}
 	}// GEN-LAST:event_jButton4MouseClicked
 

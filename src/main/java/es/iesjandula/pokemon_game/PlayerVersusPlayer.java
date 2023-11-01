@@ -35,6 +35,9 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 {
 	private Clip mainTheme;
 
+        private String playerOneName;
+        private String playerTwoName;
+        
 	private PlayerOneSelection playerOneSelection;
 	private PlayerTwoSelection playerTwoSelection;
 
@@ -56,6 +59,7 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 	public PlayerVersusPlayer(PlayerTwoSelection playerTwoSelection)
 	{
 		playerTwoSelection.dispose();
+                
 		initComponents();
 		this.mainTheme = this.startBattleTheme();
 		if (this.mainTheme != null)
@@ -71,7 +75,13 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 
 		this.playerOneSelection = playerTwoSelection.getPlayerOneSelection();
 		this.playerTwoSelection = playerTwoSelection;
-
+               
+                this.playerOneName= playerOneSelection.getPlayerOneName();
+                this.playerTwoName= playerTwoSelection.getPlayerTwoName();
+                
+                this.jLabel4.setText(playerOneName);
+                this.jLabel5.setText(playerTwoName);
+                
 		this.listPlayerOne = this.playerOneSelection.getListModel2();
 		this.listPlayerTwo = this.playerTwoSelection.getListModel2();
 
@@ -142,7 +152,13 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 
 		this.playerOneChanges = (int) partyList.get(4);
 		this.playerTwoChanges = (int) partyList.get(5);
-
+                
+                this.playerOneName = (String) partyList.get(6);
+                this.playerTwoName = (String) partyList.get(7);
+                
+                this.jLabel4.setText(playerOneName);
+                this.jLabel5.setText(playerTwoName);
+                
 		this.jList1.setModel(listPlayerOne);
 		this.jList2.setModel(listPlayerTwo);
 
@@ -208,6 +224,8 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
         jLabelPlayerTwoChanges = new javax.swing.JLabel();
         jProgressBar1 = new javax.swing.JProgressBar();
         jProgressBar2 = new javax.swing.JProgressBar();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -333,6 +351,12 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 
         jProgressBar2.setForeground(new java.awt.Color(51, 204, 0));
 
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel4.setText("jLabel4");
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel5.setText("jLabel5");
+
         jMenu1.setText("File");
 
         jMenuItem1.setText("Save State");
@@ -424,21 +448,31 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
                                 .addComponent(jLabel5Player2Health))
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(42, 42, 42))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(93, 93, 93)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(115, 115, 115))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(14, 14, 14)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(13, 13, 13)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(14, 14, 14)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(40, 40, 40)
@@ -514,6 +548,9 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 
 		partyList.add(playerOneChanges);
 		partyList.add(playerTwoChanges);
+                
+                partyList.add(playerOneName);
+                partyList.add(playerTwoName);
 		System.out.println(partyList);
 		application.saveState(partyList);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
@@ -1099,7 +1136,7 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
             this.jProgressBar2.setValue(
                     (int) ((this.currentPlayerTwoPokemon.getHealth() * 100) / this.currentPlayerTwoPokemon.getMaxHeatlh()));
             JOptionPane.showMessageDialog(null, "The player Two Wins!");
-            EndOfParty endOfParty = new EndOfParty("Player Two");
+            EndOfParty endOfParty = new EndOfParty(this.playerTwoName+" won the Game");
             this.mainTheme.stop();
             endOfParty.setVisible(true);
             this.dispose();;
@@ -1111,7 +1148,7 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
             this.jProgressBar2.setValue(
                     (int) ((this.currentPlayerTwoPokemon.getHealth() * 100) / this.currentPlayerTwoPokemon.getMaxHeatlh()));
             JOptionPane.showMessageDialog(null, "The player One Wins!");
-            EndOfParty endOfParty = new EndOfParty("Player One");
+            EndOfParty endOfParty = new EndOfParty(this.playerOneName+" won the Game");
             this.mainTheme.stop();
             endOfParty.setVisible(true);
             this.dispose();;
@@ -1163,7 +1200,9 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel4Player1Health;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel5Player2Health;
     private javax.swing.JLabel jLabelPlayerOneChanges;
     private javax.swing.JLabel jLabelPlayerTwoChanges;
