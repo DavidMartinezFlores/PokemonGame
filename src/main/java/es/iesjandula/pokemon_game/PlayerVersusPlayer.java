@@ -75,6 +75,8 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
                 this.SpriteSelectedPlayerOne.setIcon(playerTwoSelection.getPlayerOneSelection().getSpriteSelectedPlayerOne().getIcon());
                 this.SpriteSelectedPlayerTwo.setIcon(playerTwoSelection.getSpriteSelectedPlayerTwo().getIcon());
                 
+                
+                this.jLabelBackground.setIcon(new ImageIcon("./images/selectionBack.jpg"));
 		this.jLabel3.setIcon(new ImageIcon("./images/versus.png"));
 
 		this.playerOneSelection = playerTwoSelection.getPlayerOneSelection();
@@ -147,7 +149,8 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 		this.listPlayerTwo = (DefaultListModel<Pokemon>) partyList.get(1);
 
 		this.jLabel3.setIcon(new ImageIcon("./images/versus.png"));
-
+                this.jLabelBackground.setIcon(new ImageIcon("./images/selectionBack.jpg"));
+                
 		this.currentPlayerOnePokemon = (Pokemon) partyList.get(2);
 		this.currentPlayerTwoPokemon = (Pokemon) partyList.get(3);
 
@@ -243,6 +246,7 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
         jLabel10 = new javax.swing.JLabel();
         SpriteSelectedPlayerOne = new javax.swing.JLabel();
         SpriteSelectedPlayerTwo = new javax.swing.JLabel();
+        jLabelBackground = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -252,9 +256,10 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButtonREADY.setBackground(new java.awt.Color(0, 204, 51));
-        jButtonREADY.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButtonREADY.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButtonREADY.setForeground(new java.awt.Color(255, 255, 255));
         jButtonREADY.setText("READY");
+        jButtonREADY.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jButtonREADY.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonREADYMouseClicked(evt);
@@ -312,6 +317,7 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
         getContentPane().add(jLabel5Player2Health, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 270, -1, -1));
 
         buttonGroupPlayer1.add(jRadioButtonPlayerOnePhysicalAttack);
+        jRadioButtonPlayerOnePhysicalAttack.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jRadioButtonPlayerOnePhysicalAttack.setText("PHYSICAK ATTACK");
         jRadioButtonPlayerOnePhysicalAttack.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -321,6 +327,7 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
         getContentPane().add(jRadioButtonPlayerOnePhysicalAttack, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 560, -1, -1));
 
         buttonGroupPlayer1.add(jRadioButtonPlayerOneSpecialAttack);
+        jRadioButtonPlayerOneSpecialAttack.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jRadioButtonPlayerOneSpecialAttack.setText("SPECIAL ATTACK");
         jRadioButtonPlayerOneSpecialAttack.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -335,6 +342,7 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
         getContentPane().add(jRadioButtonPlayerOneSpecialAttack, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 590, -1, -1));
 
         buttonGroupPlayer2.add(jRadioButtonPlayerTwoPhysicalAttack);
+        jRadioButtonPlayerTwoPhysicalAttack.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jRadioButtonPlayerTwoPhysicalAttack.setText("PHYSICAL ATTACK");
         jRadioButtonPlayerTwoPhysicalAttack.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -344,6 +352,7 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
         getContentPane().add(jRadioButtonPlayerTwoPhysicalAttack, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 560, -1, -1));
 
         buttonGroupPlayer2.add(jRadioButtonPlayerTwoSpecialAttack);
+        jRadioButtonPlayerTwoSpecialAttack.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jRadioButtonPlayerTwoSpecialAttack.setText("SPECIAL ATTACK");
         jRadioButtonPlayerTwoSpecialAttack.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -352,8 +361,8 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
         });
         getContentPane().add(jRadioButtonPlayerTwoSpecialAttack, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 590, -1, -1));
 
-        jButtonChangePokemonPlayerOne.setBackground(new java.awt.Color(51, 153, 255));
-        jButtonChangePokemonPlayerOne.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButtonChangePokemonPlayerOne.setBackground(new java.awt.Color(255, 51, 0));
+        jButtonChangePokemonPlayerOne.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButtonChangePokemonPlayerOne.setForeground(new java.awt.Color(255, 255, 255));
         jButtonChangePokemonPlayerOne.setText("CHANGE SELECTED POKEMON");
         jButtonChangePokemonPlayerOne.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -366,10 +375,10 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
                 jButtonChangePokemonPlayerOneActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonChangePokemonPlayerOne, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 650, 208, 29));
+        getContentPane().add(jButtonChangePokemonPlayerOne, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 650, 250, 29));
 
-        jButtonChangePokemonPlayerTwo.setBackground(new java.awt.Color(51, 153, 255));
-        jButtonChangePokemonPlayerTwo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButtonChangePokemonPlayerTwo.setBackground(new java.awt.Color(255, 51, 0));
+        jButtonChangePokemonPlayerTwo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButtonChangePokemonPlayerTwo.setForeground(new java.awt.Color(255, 255, 255));
         jButtonChangePokemonPlayerTwo.setText("CHANGE SELECTED POKEMON");
         jButtonChangePokemonPlayerTwo.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -377,16 +386,26 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
                 jButtonChangePokemonPlayerTwoMouseClicked(evt);
             }
         });
-        getContentPane().add(jButtonChangePokemonPlayerTwo, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 650, 208, 29));
+        getContentPane().add(jButtonChangePokemonPlayerTwo, new org.netbeans.lib.awtextra.AbsoluteConstraints(618, 650, 250, 29));
 
         jLabelPokeball.setText("         ");
         getContentPane().add(jLabelPokeball, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 390, 105, 114));
 
+        jLabelPlayerOneChanges.setBackground(new java.awt.Color(255, 153, 0));
+        jLabelPlayerOneChanges.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabelPlayerOneChanges.setForeground(new java.awt.Color(255, 255, 255));
         jLabelPlayerOneChanges.setText("Changes:");
-        getContentPane().add(jLabelPlayerOneChanges, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 560, -1, -1));
+        jLabelPlayerOneChanges.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabelPlayerOneChanges.setOpaque(true);
+        getContentPane().add(jLabelPlayerOneChanges, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 560, -1, -1));
 
+        jLabelPlayerTwoChanges.setBackground(new java.awt.Color(255, 153, 0));
+        jLabelPlayerTwoChanges.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabelPlayerTwoChanges.setForeground(new java.awt.Color(255, 255, 255));
         jLabelPlayerTwoChanges.setText("Changes:");
-        getContentPane().add(jLabelPlayerTwoChanges, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 560, -1, -1));
+        jLabelPlayerTwoChanges.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabelPlayerTwoChanges.setOpaque(true);
+        getContentPane().add(jLabelPlayerTwoChanges, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 560, -1, -1));
 
         jProgressBar1.setForeground(new java.awt.Color(0, 204, 0));
         getContentPane().add(jProgressBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, 130, 16));
@@ -396,11 +415,11 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel4.setText("jLabel4");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(93, 13, 162, 22));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, 162, 22));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel5.setText("jLabel5");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(701, 13, 162, 22));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 20, 162, 22));
 
         jLabel6.setText("jLabel6");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 220, -1, -1));
@@ -414,7 +433,8 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cards/basicCard.png"))); // NOI18N
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, -1, -1));
 
-        jLabel10.setText("v1.0.0");
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel10.setText("       v1.0.0");
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 680, 1020, 40));
 
         SpriteSelectedPlayerOne.setText(" ");
@@ -422,6 +442,9 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 
         SpriteSelectedPlayerTwo.setText(" ");
         getContentPane().add(SpriteSelectedPlayerTwo, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 210, 90, 160));
+
+        jLabelBackground.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        getContentPane().add(jLabelBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 740));
 
         jMenu1.setText("File");
 
@@ -895,7 +918,7 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 					Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null, ex);
 				}
 				jLabel2.setLocation(startPosition, jLabel2.getY());
-				jLabel2.setText(initialText);
+				jLabel2.setText("");
 
 				jButtonREADY.setLocation(readyButtonLocation);
 				jLabel3.setVisible(true);
@@ -915,15 +938,12 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 			@Override
 			public void run()
 			{
-				Point readyButtonLocation = jButtonREADY.getLocation();
-
-				String initialText = jLabel6.getText();
-				jLabel1.setText("");
+				
 				int startPosition = jLabel1.getX();
 				int speed = 1;
 				for (int i = 0; i < 300; i++)
 				{
-					jButtonREADY.setLocation(1000000000, 1000000000);
+					
 					jLabel3.setVisible(false);
 					jLabel1.setLocation(jLabel1.getX() + speed, jLabel1.getY());
 					try
@@ -945,9 +965,8 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 					Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null, ex);
 				}
 				jLabel1.setLocation(startPosition, jLabel1.getY());
-				jLabel1.setText(initialText);
+				
 
-				jButtonREADY.setLocation(readyButtonLocation);
 				jLabel3.setVisible(true);
 			}
 		});
@@ -1144,6 +1163,7 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelBackground;
     private javax.swing.JLabel jLabelPlayerOneChanges;
     private javax.swing.JLabel jLabelPlayerTwoChanges;
     private javax.swing.JLabel jLabelPokeball;
