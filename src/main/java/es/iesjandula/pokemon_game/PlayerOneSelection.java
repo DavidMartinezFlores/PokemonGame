@@ -124,6 +124,7 @@ public class PlayerOneSelection extends javax.swing.JFrame implements Serializab
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jList1.setBackground(new java.awt.Color(200, 252, 255));
         jList1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jList1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

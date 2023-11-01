@@ -4,7 +4,6 @@
  */
 package es.iesjandula.pokemon_game;
 
-import javax.swing.GroupLayout;
 import es.iesjandula.pokemon_game.models.Pokemon;
 import java.awt.HeadlessException;
 import java.awt.Point;
@@ -99,8 +98,8 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 		this.iconPlayer1 = new ImageIcon(this.listPlayerOne.get(0).getPokeImage());
 		this.iconPlayer2 = new ImageIcon(this.listPlayerTwo.get(0).getPokeImage());
 
-		this.jLabel1.setText(this.listPlayerOne.get(0).getName());
-		this.jLabel2.setText(this.listPlayerTwo.get(0).getName());
+		this.jLabel6.setText(this.listPlayerOne.get(0).getName());
+		this.jLabel9.setText(this.listPlayerTwo.get(0).getName());
 
 		this.jLabel1.setIcon(this.iconPlayer1);
 		this.jLabel2.setIcon(this.iconPlayer2);
@@ -162,8 +161,8 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 		this.jList1.setModel(listPlayerOne);
 		this.jList2.setModel(listPlayerTwo);
 
-		this.jLabel1.setText(this.currentPlayerOnePokemon.getName());
-		this.jLabel2.setText(this.currentPlayerTwoPokemon.getName());
+		this.jLabel6.setText(this.currentPlayerOnePokemon.getName());
+		this.jLabel9.setText(this.currentPlayerTwoPokemon.getName());
 
 		this.jLabel1.setIcon(this.iconPlayer1);
 		this.jLabel2.setIcon(this.iconPlayer2);
@@ -179,7 +178,10 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 
 		this.jumpPlayerOneAnimationThread();
 		this.jumpPlayerTwoAnimationThread();
-
+                
+                this.jLabel4Player1Health.setText(String.format("%.2f", Double.parseDouble(this.jLabel4Player1Health.getText())));
+                this.jLabel5Player2Health.setText(String.format("%.2f",Double.parseDouble(this.jLabel5Player2Health.getText())));
+                
 		this.jLabelPlayerOneChanges.setText("Changes: " + this.playerOneChanges);
 		this.jLabelPlayerTwoChanges.setText("Changes: " + this.playerTwoChanges);
 
@@ -203,6 +205,7 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 
         buttonGroupPlayer1 = new javax.swing.ButtonGroup();
         buttonGroupPlayer2 = new javax.swing.ButtonGroup();
+        jButtonREADY = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -212,7 +215,6 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
         jLabel3 = new javax.swing.JLabel();
         jLabel4Player1Health = new javax.swing.JLabel();
         jLabel5Player2Health = new javax.swing.JLabel();
-        jButtonREADY = new javax.swing.JButton();
         jRadioButtonPlayerOnePhysicalAttack = new javax.swing.JRadioButton();
         jRadioButtonPlayerOneSpecialAttack = new javax.swing.JRadioButton();
         jRadioButtonPlayerTwoPhysicalAttack = new javax.swing.JRadioButton();
@@ -226,49 +228,18 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
         jProgressBar2 = new javax.swing.JProgressBar();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jList1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jList1MouseClicked(evt);
-            }
-        });
-        jScrollPane1.setViewportView(jList1);
-
-        jList2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jList2MouseClicked(evt);
-            }
-        });
-        jScrollPane2.setViewportView(jList2);
-
-        jLabel1.setText("jLabel1");
-        jLabel1.setToolTipText("heyyy");
-        jLabel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel1MouseEntered(evt);
-            }
-        });
-
-        jLabel2.setText("jLabel2");
-        jLabel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel2MouseEntered(evt);
-            }
-        });
-
-        jLabel3.setText("                ");
-
-        jLabel4Player1Health.setText("jLabel4");
-
-        jLabel5Player2Health.setText("jLabel4");
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButtonREADY.setBackground(new java.awt.Color(0, 204, 51));
         jButtonREADY.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -284,6 +255,51 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
                 jButtonREADYActionPerformed(evt);
             }
         });
+        getContentPane().add(jButtonREADY, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 560, 105, 60));
+
+        jList1.setBackground(new java.awt.Color(200, 252, 255));
+        jList1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jList1MouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jList1);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, 352, -1));
+
+        jList2.setBackground(new java.awt.Color(255, 200, 200));
+        jList2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jList2MouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(jList2);
+
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 390, 359, -1));
+
+        jLabel1.setToolTipText("heyyy");
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel1MouseEntered(evt);
+            }
+        });
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 150, 158));
+
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel2MouseEntered(evt);
+            }
+        });
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 60, 150, 150));
+
+        jLabel3.setText("                ");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 130, 98, 94));
+
+        jLabel4Player1Health.setText("jLabel4");
+        getContentPane().add(jLabel4Player1Health, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 270, -1, -1));
+
+        jLabel5Player2Health.setText("jLabel5");
+        getContentPane().add(jLabel5Player2Health, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 270, -1, -1));
 
         buttonGroupPlayer1.add(jRadioButtonPlayerOnePhysicalAttack);
         jRadioButtonPlayerOnePhysicalAttack.setText("PHYSICAK ATTACK");
@@ -292,6 +308,7 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
                 jRadioButtonPlayerOnePhysicalAttackMouseClicked(evt);
             }
         });
+        getContentPane().add(jRadioButtonPlayerOnePhysicalAttack, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 560, -1, -1));
 
         buttonGroupPlayer1.add(jRadioButtonPlayerOneSpecialAttack);
         jRadioButtonPlayerOneSpecialAttack.setText("SPECIAL ATTACK");
@@ -305,6 +322,7 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
                 jRadioButtonPlayerOneSpecialAttackActionPerformed(evt);
             }
         });
+        getContentPane().add(jRadioButtonPlayerOneSpecialAttack, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 590, -1, -1));
 
         buttonGroupPlayer2.add(jRadioButtonPlayerTwoPhysicalAttack);
         jRadioButtonPlayerTwoPhysicalAttack.setText("PHYSICAL ATTACK");
@@ -313,6 +331,7 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
                 jRadioButtonPlayerTwoPhysicalAttackMouseClicked(evt);
             }
         });
+        getContentPane().add(jRadioButtonPlayerTwoPhysicalAttack, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 560, -1, -1));
 
         buttonGroupPlayer2.add(jRadioButtonPlayerTwoSpecialAttack);
         jRadioButtonPlayerTwoSpecialAttack.setText("SPECIAL ATTACK");
@@ -321,7 +340,11 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
                 jRadioButtonPlayerTwoSpecialAttackMouseClicked(evt);
             }
         });
+        getContentPane().add(jRadioButtonPlayerTwoSpecialAttack, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 590, -1, -1));
 
+        jButtonChangePokemonPlayerOne.setBackground(new java.awt.Color(51, 153, 255));
+        jButtonChangePokemonPlayerOne.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButtonChangePokemonPlayerOne.setForeground(new java.awt.Color(255, 255, 255));
         jButtonChangePokemonPlayerOne.setText("CHANGE SELECTED POKEMON");
         jButtonChangePokemonPlayerOne.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -333,29 +356,56 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
                 jButtonChangePokemonPlayerOneActionPerformed(evt);
             }
         });
+        getContentPane().add(jButtonChangePokemonPlayerOne, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 650, 208, 29));
 
+        jButtonChangePokemonPlayerTwo.setBackground(new java.awt.Color(51, 153, 255));
+        jButtonChangePokemonPlayerTwo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButtonChangePokemonPlayerTwo.setForeground(new java.awt.Color(255, 255, 255));
         jButtonChangePokemonPlayerTwo.setText("CHANGE SELECTED POKEMON");
         jButtonChangePokemonPlayerTwo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonChangePokemonPlayerTwoMouseClicked(evt);
             }
         });
+        getContentPane().add(jButtonChangePokemonPlayerTwo, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 650, 208, 29));
 
         jLabelPokeball.setText("         ");
+        getContentPane().add(jLabelPokeball, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 390, 105, 114));
 
         jLabelPlayerOneChanges.setText("Changes:");
+        getContentPane().add(jLabelPlayerOneChanges, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 560, -1, -1));
 
         jLabelPlayerTwoChanges.setText("Changes:");
+        getContentPane().add(jLabelPlayerTwoChanges, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 560, -1, -1));
 
         jProgressBar1.setForeground(new java.awt.Color(0, 204, 0));
+        getContentPane().add(jProgressBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 130, 16));
 
         jProgressBar2.setForeground(new java.awt.Color(51, 204, 0));
+        getContentPane().add(jProgressBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 250, 130, 16));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel4.setText("jLabel4");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(93, 13, 162, 22));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel5.setText("jLabel5");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(701, 13, 162, 22));
+
+        jLabel6.setText("jLabel6");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, -1, -1));
+
+        jLabel9.setText("jLabel9");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 220, -1, -1));
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cards/basicCard.png"))); // NOI18N
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 60, -1, -1));
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cards/basicCard.png"))); // NOI18N
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, -1, -1));
+
+        jLabel10.setText("v1.0.0");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 680, 1020, 40));
 
         jMenu1.setText("File");
 
@@ -389,151 +439,11 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 
         setJMenuBar(jMenuBar1);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(28, 28, 28)
-                                .addComponent(jLabelPlayerOneChanges)
-                                .addGap(36, 36, 36)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jRadioButtonPlayerOneSpecialAttack)
-                                    .addComponent(jRadioButtonPlayerOnePhysicalAttack)))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(92, 92, 92)
-                        .addComponent(jButtonChangePokemonPlayerOne, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel4Player1Health)
-                                .addGap(18, 18, 18)
-                                .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelPokeball, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonREADY, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButtonChangePokemonPlayerTwo, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jRadioButtonPlayerTwoPhysicalAttack)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addComponent(jRadioButtonPlayerTwoSpecialAttack)
-                                                .addGap(10, 10, 10)))
-                                        .addGap(52, 52, 52)
-                                        .addComponent(jLabelPlayerTwoChanges)))
-                                .addGap(53, 53, 53))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jProgressBar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel5Player2Health))
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(42, 42, 42))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(93, 93, 93)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(115, 115, 115))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(13, 13, 13)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(14, 14, 14)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(jLabelPokeball, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonREADY, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(111, 111, 111))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jProgressBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel5Player2Health)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jLabel4Player1Health))
-                            .addComponent(jProgressBar2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jRadioButtonPlayerOnePhysicalAttack)
-                                    .addComponent(jLabelPlayerOneChanges))
-                                .addGap(8, 8, 8)
-                                .addComponent(jRadioButtonPlayerOneSpecialAttack))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jRadioButtonPlayerTwoPhysicalAttack)
-                                    .addComponent(jLabelPlayerTwoChanges))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jRadioButtonPlayerTwoSpecialAttack)
-                                .addGap(27, 27, 27)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jButtonChangePokemonPlayerTwo, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButtonChangePokemonPlayerOne, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(64, 64, 64))))
-        );
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
        // GEN-FIRST:event_jMenuItem1ActionPerformed
-		/*
-		 * this.listPlayerOne=(DefaultListModel<Pokemon>) partyList.get(0);
-		 * this.listPlayerTwo=(DefaultListModel<Pokemon>) partyList.get(1);
-		 * 
-		 * this.currentPlayerOnePokemon = (Pokemon) partyList.get(4);
-		 * this.currentPlayerTwoPokemon = (Pokemon) partyList.get(5);
-		 * 
-		 * this.iconPlayer1= new ImageIcon(this.listPlayerOne.get(0).getPokeImage());
-		 * this.iconPlayer2= new ImageIcon(this.listPlayerTwo.get(0).getPokeImage());
-		 * 
-		 * this.playerOneChanges = (int) partyList.get(6); this.playerTwoChanges = (int)
-		 * partyList.get(6);
-		 */
 		System.out.println("GUARDAR ESTADO");
 		JOptionPane.showMessageDialog(null, "SAVING STATE!");
 		Application application = new Application();
@@ -666,7 +576,7 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
                         }
 		}
 		// Update the health text and repaint the PlayerVersusPlayer
-		this.jLabel2.setText(this.currentPlayerTwoPokemon.getName());
+		this.jLabel9.setText(this.currentPlayerTwoPokemon.getName());
 
 		this.jLabel5Player2Health.setText(String.format("%.2f", currentPlayerTwoPokemon.getHealth()));
 		this.repaint();
@@ -708,7 +618,7 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
                         }
 		}
 		// Update the health text and repaint the PlayerVersusPlayer
-		this.jLabel2.setText(this.currentPlayerTwoPokemon.getName());
+		this.jLabel9.setText(this.currentPlayerTwoPokemon.getName());
 
 		this.jLabel5Player2Health.setText(String.format("%.2f", currentPlayerTwoPokemon.getHealth()));
 		this.repaint();
@@ -736,7 +646,10 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 		// this.launchPokemonPlayerTwoAnimation();
 
 		this.selectButtonSound();
-
+                
+                Pokemon temporalAttackPlayerOnePoke = this.currentPlayerOnePokemon;
+                Pokemon temporalAttackPlayerTwoPoke = this.currentPlayerTwoPokemon;
+                
 		if (this.currentPlayerOnePokemon.getSpeed() == this.currentPlayerTwoPokemon.getSpeed())
 		{
 			if (randomNumber < 5)
@@ -758,8 +671,8 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 
 				this.launchPokemonPlayerTwoAnimation();
 				System.out.println("ATACA EL JUGADOR 2 SEGUNDO");
-
-				if (this.currentPlayerTwoPokemon.getHealth() > 0)
+                                
+				if (this.listPlayerTwo.size()>0 && this.currentPlayerTwoPokemon.getName().equals(temporalAttackPlayerTwoPoke.getName()))
 				{
 					if (this.jRadioButtonPlayerTwoPhysicalAttack.isSelected())
 					{
@@ -790,7 +703,7 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 				this.launchPokemonPlayerOneAnimation();
 				System.out.println("ATACA EL JUGADOR 1 SEGUNDO");
 
-				if (this.currentPlayerOnePokemon.getHealth() > 0)
+				if (this.listPlayerOne.size()>0 && this.currentPlayerOnePokemon.getName().equals(temporalAttackPlayerOnePoke.getName()))
 				{
 					if (this.jRadioButtonPlayerOnePhysicalAttack.isSelected())
 					{
@@ -824,8 +737,8 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 
 			this.launchPokemonPlayerTwoAnimation();
 			System.out.println("ATACA EL JUGADOR 2 SEGUNDO");
-
-			if (this.currentPlayerTwoPokemon.getHealth() > 0)
+                        
+			if (this.listPlayerTwo.size()>0 && this.currentPlayerTwoPokemon.getName().equals(temporalAttackPlayerTwoPoke.getName()))
 			{
 				if (this.jRadioButtonPlayerTwoPhysicalAttack.isSelected())
 				{
@@ -837,7 +750,7 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 				}
 			}
 		}
-		else
+		else if (this.currentPlayerOnePokemon.getSpeed() < this.currentPlayerTwoPokemon.getSpeed())
 		{
 			this.launchPokemonPlayerTwoAnimation();
 			System.out.println("ATACA EL JUGADOR 2 PRIMERO");
@@ -857,7 +770,7 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 			this.launchPokemonPlayerOneAnimation();
 			System.out.println("ATACA EL JUGADOR 1 SEGUNDO");
 
-			if (this.currentPlayerOnePokemon.getHealth() > 0)
+			if (this.listPlayerOne.size()>0 && this.currentPlayerOnePokemon.getName().equals(temporalAttackPlayerOnePoke.getName()))
 			{
 				if (this.jRadioButtonPlayerOnePhysicalAttack.isSelected())
 				{
@@ -934,7 +847,7 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 			{
 				Point readyButtonLocation = jButtonREADY.getLocation();
 
-				String initialText = jLabel2.getText();
+				String initialText = jLabel9.getText();
 				jLabel2.setText("");
 				int startPosition = jLabel2.getX();
 				int speed = -1;
@@ -984,7 +897,7 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 			{
 				Point readyButtonLocation = jButtonREADY.getLocation();
 
-				String initialText = jLabel1.getText();
+				String initialText = jLabel6.getText();
 				jLabel1.setText("");
 				int startPosition = jLabel1.getX();
 				int speed = 1;
@@ -1049,9 +962,9 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 			{
 				this.currentPlayerOnePokemon = selectedPokemon;
 				this.iconPlayer1 = new ImageIcon(this.currentPlayerOnePokemon.getPokeImage());
-				this.jLabel1.setText(this.currentPlayerOnePokemon.getName());
+				this.jLabel6.setText(this.currentPlayerOnePokemon.getName());
 				this.jLabel1.setIcon(this.iconPlayer1);
-				this.jLabel4Player1Health.setText(this.currentPlayerOnePokemon.getHealth() + "");
+				this.jLabel4Player1Health.setText(String.format("%.2f", currentPlayerOnePokemon.getHealth()));
 
 			}
 		}
@@ -1082,9 +995,9 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 			{
 				this.currentPlayerTwoPokemon = selectedPokemon;
 				this.iconPlayer2 = new ImageIcon(this.currentPlayerTwoPokemon.getPokeImage());
-				this.jLabel2.setText(this.currentPlayerTwoPokemon.getName());
+				this.jLabel9.setText(this.currentPlayerTwoPokemon.getName());
 				this.jLabel2.setIcon(this.iconPlayer2);
-				this.jLabel5Player2Health.setText(this.currentPlayerTwoPokemon.getHealth() + "");
+				this.jLabel5Player2Health.setText(String.format("%.2f", currentPlayerTwoPokemon.getHealth()));
 
 			}
 		}
@@ -1108,7 +1021,7 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 
                     double health =(this.currentPlayerOnePokemon.getHealth() + ((this.currentPlayerTwoPokemon.getSpAttack() * -0.4)
                                                     + this.currentPlayerOnePokemon.getSpDefense() * 0.1));
-                    health = health<=0 ? 0:health;
+                    health = health<=0 ? 0 : health;
                     this.currentPlayerOnePokemon.setHealth(health);
                     this.listPlayerOne.set(position, this.currentPlayerOnePokemon);
 
@@ -1121,7 +1034,7 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
                             this.jLabel1.setIcon(new ImageIcon(this.currentPlayerOnePokemon.getPokeImage()));
                             }
                     }
-                    this.jLabel1.setText(this.currentPlayerOnePokemon.getName());
+                    this.jLabel6.setText(this.currentPlayerOnePokemon.getName());
                     this.jLabel4Player1Health.setText(String.format("%.2f", currentPlayerOnePokemon.getHealth()));
                     this.repaint();
                 }
@@ -1139,9 +1052,9 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
             EndOfParty endOfParty = new EndOfParty(this.playerTwoName+" won the Game");
             this.mainTheme.stop();
             endOfParty.setVisible(true);
-            this.dispose();;
+            this.dispose();
         }
-        if(this.listPlayerTwo.size()<=0)
+        else if(this.listPlayerTwo.size()<=0)
         {
             this.jProgressBar1.setValue(
                     (int) ((this.currentPlayerOnePokemon.getHealth() * 100) / this.currentPlayerOnePokemon.getMaxHeatlh()));
@@ -1151,7 +1064,7 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
             EndOfParty endOfParty = new EndOfParty(this.playerOneName+" won the Game");
             this.mainTheme.stop();
             endOfParty.setVisible(true);
-            this.dispose();;
+            this.dispose();
         }
     }
 
@@ -1184,7 +1097,7 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
                             this.jLabel1.setIcon(new ImageIcon(this.currentPlayerOnePokemon.getPokeImage()));
                             }
                     }
-                    this.jLabel1.setText(this.currentPlayerOnePokemon.getName());
+                    this.jLabel6.setText(this.currentPlayerOnePokemon.getName());
                     this.jLabel4Player1Health.setText(String.format("%.2f", currentPlayerOnePokemon.getHealth()));
                     this.repaint();
                 }
@@ -1198,12 +1111,17 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
     private javax.swing.JButton jButtonChangePokemonPlayerTwo;
     private javax.swing.JButton jButtonREADY;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel4Player1Health;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel5Player2Health;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelPlayerOneChanges;
     private javax.swing.JLabel jLabelPlayerTwoChanges;
     private javax.swing.JLabel jLabelPokeball;
