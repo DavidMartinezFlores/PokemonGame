@@ -6,6 +6,7 @@ package es.iesjandula.pokemon_game;
 
 import javax.swing.GroupLayout;
 import es.iesjandula.pokemon_game.models.Pokemon;
+import java.awt.HeadlessException;
 import java.awt.Point;
 import java.io.File;
 
@@ -633,22 +634,7 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 		this.jLabel5Player2Health.setText(String.format("%.2f", currentPlayerTwoPokemon.getHealth()));
 		this.repaint();
             }
-            if(this.listPlayerOne.size()<=0)
-            {
-                this.jProgressBar1.setValue(
-                            (int) ((this.currentPlayerOnePokemon.getHealth() * 100) / this.currentPlayerOnePokemon.getMaxHeatlh()));
-            this.jProgressBar2.setValue(
-                            (int) ((this.currentPlayerTwoPokemon.getHealth() * 100) / this.currentPlayerTwoPokemon.getMaxHeatlh()));
-                JOptionPane.showMessageDialog(null, "The player Two Wins!");
-            }
-            if(this.listPlayerTwo.size()<=0)
-            {
-                this.jProgressBar1.setValue(
-                            (int) ((this.currentPlayerOnePokemon.getHealth() * 100) / this.currentPlayerOnePokemon.getMaxHeatlh()));
-            this.jProgressBar2.setValue(
-                            (int) ((this.currentPlayerTwoPokemon.getHealth() * 100) / this.currentPlayerTwoPokemon.getMaxHeatlh()));
-                JOptionPane.showMessageDialog(null, "The player One Wins!");
-            }
+        this.checkEndOfParty();
 	}
 
 	private void playerOneAttackSpecial()
@@ -690,22 +676,7 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 		this.jLabel5Player2Health.setText(String.format("%.2f", currentPlayerTwoPokemon.getHealth()));
 		this.repaint();
             }
-            if(this.listPlayerOne.size()<=0)
-            {
-                this.jProgressBar1.setValue(
-                            (int) ((this.currentPlayerOnePokemon.getHealth() * 100) / this.currentPlayerOnePokemon.getMaxHeatlh()));
-            this.jProgressBar2.setValue(
-                            (int) ((this.currentPlayerTwoPokemon.getHealth() * 100) / this.currentPlayerTwoPokemon.getMaxHeatlh()));
-                JOptionPane.showMessageDialog(null, "The player Two Wins!");
-            }
-            if(this.listPlayerTwo.size()<=0)
-            {
-                this.jProgressBar1.setValue(
-                            (int) ((this.currentPlayerOnePokemon.getHealth() * 100) / this.currentPlayerOnePokemon.getMaxHeatlh()));
-            this.jProgressBar2.setValue(
-                            (int) ((this.currentPlayerTwoPokemon.getHealth() * 100) / this.currentPlayerTwoPokemon.getMaxHeatlh()));
-                JOptionPane.showMessageDialog(null, "The player One Wins!");
-            }
+        this.checkEndOfParty();
 	}
 
 	private void jButtonREADYActionPerformed(java.awt.event.ActionEvent evt)
@@ -1117,23 +1088,35 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
                     this.jLabel4Player1Health.setText(String.format("%.2f", currentPlayerOnePokemon.getHealth()));
                     this.repaint();
                 }
-                if(this.listPlayerOne.size()<=0)
-                {
-                    this.jProgressBar1.setValue(
-                                (int) ((this.currentPlayerOnePokemon.getHealth() * 100) / this.currentPlayerOnePokemon.getMaxHeatlh()));
-                this.jProgressBar2.setValue(
-                                (int) ((this.currentPlayerTwoPokemon.getHealth() * 100) / this.currentPlayerTwoPokemon.getMaxHeatlh()));
-                    JOptionPane.showMessageDialog(null, "The player Two Wins!");
-                }
-                if(this.listPlayerTwo.size()<=0)
-                {
-                    this.jProgressBar1.setValue(
-                                (int) ((this.currentPlayerOnePokemon.getHealth() * 100) / this.currentPlayerOnePokemon.getMaxHeatlh()));
-                this.jProgressBar2.setValue(
-                                (int) ((this.currentPlayerTwoPokemon.getHealth() * 100) / this.currentPlayerTwoPokemon.getMaxHeatlh()));
-                    JOptionPane.showMessageDialog(null, "The player One Wins!");
-                }
+        this.checkEndOfParty();
 	}
+
+    private void checkEndOfParty() throws HeadlessException {
+        if(this.listPlayerOne.size()<=0)
+        {
+            this.jProgressBar1.setValue(
+                    (int) ((this.currentPlayerOnePokemon.getHealth() * 100) / this.currentPlayerOnePokemon.getMaxHeatlh()));
+            this.jProgressBar2.setValue(
+                    (int) ((this.currentPlayerTwoPokemon.getHealth() * 100) / this.currentPlayerTwoPokemon.getMaxHeatlh()));
+            JOptionPane.showMessageDialog(null, "The player Two Wins!");
+            EndOfParty endOfParty = new EndOfParty("Player Two");
+            this.mainTheme.stop();
+            endOfParty.setVisible(true);
+            this.dispose();;
+        }
+        if(this.listPlayerTwo.size()<=0)
+        {
+            this.jProgressBar1.setValue(
+                    (int) ((this.currentPlayerOnePokemon.getHealth() * 100) / this.currentPlayerOnePokemon.getMaxHeatlh()));
+            this.jProgressBar2.setValue(
+                    (int) ((this.currentPlayerTwoPokemon.getHealth() * 100) / this.currentPlayerTwoPokemon.getMaxHeatlh()));
+            JOptionPane.showMessageDialog(null, "The player One Wins!");
+            EndOfParty endOfParty = new EndOfParty("Player One");
+            this.mainTheme.stop();
+            endOfParty.setVisible(true);
+            this.dispose();;
+        }
+    }
 
 	private void playerTwoAttackPhysical()
 	{
@@ -1168,22 +1151,7 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
                     this.jLabel4Player1Health.setText(String.format("%.2f", currentPlayerOnePokemon.getHealth()));
                     this.repaint();
                 }
-                if(this.listPlayerOne.size()<=0)
-                {
-                    this.jProgressBar1.setValue(
-                                (int) ((this.currentPlayerOnePokemon.getHealth() * 100) / this.currentPlayerOnePokemon.getMaxHeatlh()));
-                this.jProgressBar2.setValue(
-                                (int) ((this.currentPlayerTwoPokemon.getHealth() * 100) / this.currentPlayerTwoPokemon.getMaxHeatlh()));
-                    JOptionPane.showMessageDialog(null, "The player Two Wins!");
-                }
-                if(this.listPlayerTwo.size()<=0)
-                {
-                    this.jProgressBar1.setValue(
-                                (int) ((this.currentPlayerOnePokemon.getHealth() * 100) / this.currentPlayerOnePokemon.getMaxHeatlh()));
-                this.jProgressBar2.setValue(
-                                (int) ((this.currentPlayerTwoPokemon.getHealth() * 100) / this.currentPlayerTwoPokemon.getMaxHeatlh()));
-                    JOptionPane.showMessageDialog(null, "The player One Wins!");
-                }
+        this.checkEndOfParty();
 	}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
