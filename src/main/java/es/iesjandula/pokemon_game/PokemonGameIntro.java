@@ -23,15 +23,15 @@ import javax.swing.ImageIcon;
 public class PokemonGameIntro extends javax.swing.JFrame
 {
 	private Clip mainTheme;
-	
+
 	/**
 	 * Creates new form PokemonGameIntro
 	 */
 	public PokemonGameIntro()
 	{
 		initComponents();
-                this.jumpStartButtonAnimationThread();
-		this.mainTheme=this.openingThemePlay();
+		this.jumpStartButtonAnimationThread();
+		this.mainTheme = this.openingThemePlay();
 		this.jLabel1.setIcon(new ImageIcon("./images/presentation.png"));
 		this.jLabel2.setIcon(new ImageIcon("./images/pokeball.png"));
 		this.jLabel3.setIcon(new ImageIcon("./images/pokeball.png"));
@@ -52,7 +52,7 @@ public class PokemonGameIntro extends javax.swing.JFrame
 			clip = AudioSystem.getClip();
 			clip.open(audioInputStream);
 			clip.start();
-                        clip.loop(Clip.LOOP_CONTINUOUSLY);
+			clip.loop(Clip.LOOP_CONTINUOUSLY);
 		}
 		catch (UnsupportedAudioFileException e)
 		{
@@ -69,9 +69,9 @@ public class PokemonGameIntro extends javax.swing.JFrame
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		return clip;
-		
+
 	}
 
 	/**
@@ -81,45 +81,51 @@ public class PokemonGameIntro extends javax.swing.JFrame
 	 */
 	@SuppressWarnings("unchecked")
 	// <editor-fold defaultstate="collapsed" desc="Generated
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+	// <editor-fold defaultstate="collapsed" desc="Generated
+	// Code">//GEN-BEGIN:initComponents
+	private void initComponents()
+	{
 
-        jButton1 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+		jButton1 = new javax.swing.JButton();
+		jLabel2 = new javax.swing.JLabel();
+		jLabel3 = new javax.swing.JLabel();
+		jLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+		getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setBackground(new java.awt.Color(1, 163, 28));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("START GAME");
-        jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
-            }
-        });
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 310, 370, 60));
+		jButton1.setBackground(new java.awt.Color(1, 163, 28));
+		jButton1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+		jButton1.setForeground(new java.awt.Color(255, 255, 255));
+		jButton1.setText("START GAME");
+		jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+		jButton1.addMouseListener(new java.awt.event.MouseAdapter()
+		{
+			public void mouseClicked(java.awt.event.MouseEvent evt)
+			{
+				jButton1MouseClicked(evt);
+			}
+		});
+		jButton1.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
+			{
+				jButton1ActionPerformed(evt);
+			}
+		});
+		getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 310, 370, 60));
 
-        jLabel2.setText("   ");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 270, 146, 114));
+		jLabel2.setText("   ");
+		getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 270, 146, 114));
 
-        jLabel3.setText("   ");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 270, 165, 104));
+		jLabel3.setText("   ");
+		getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 270, 165, 104));
 
-        jLabel1.setText("    ");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1156, 521));
+		jLabel1.setText("    ");
+		getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1156, 521));
 
-        pack();
-    }// </editor-fold>//GEN-END:initComponents
+		pack();
+	}// </editor-fold>//GEN-END:initComponents
 
 	private void jButton1ActionPerformed(java.awt.event.ActionEvent evt)
 	{// GEN-FIRST:event_jButton1ActionPerformed
@@ -134,12 +140,13 @@ public class PokemonGameIntro extends javax.swing.JFrame
 		this.dispose();
 	}// GEN-LAST:event_jButton1MouseClicked
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    // End of variables declaration//GEN-END:variables
+	// Variables declaration - do not modify//GEN-BEGIN:variables
+	private javax.swing.JButton jButton1;
+	private javax.swing.JLabel jLabel1;
+	private javax.swing.JLabel jLabel2;
+	private javax.swing.JLabel jLabel3;
+
+	// End of variables declaration//GEN-END:variables
 	private void rotatePokeballThreadOne()
 	{
 		Thread rotatePokebal = new Thread(new Runnable()
@@ -223,6 +230,7 @@ public class PokemonGameIntro extends javax.swing.JFrame
 		});
 		rotatePokebal.start();
 	}
+
 	private void selectButtonSound()
 	{
 
@@ -260,8 +268,8 @@ public class PokemonGameIntro extends javax.swing.JFrame
 			}
 		}
 	}
-        
-        private void jumpStartButtonAnimationThread()
+
+	private void jumpStartButtonAnimationThread()
 	{
 		Thread jumpThread = new Thread(new Runnable()
 		{

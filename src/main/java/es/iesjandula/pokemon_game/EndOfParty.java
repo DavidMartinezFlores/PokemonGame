@@ -24,7 +24,18 @@ import javax.swing.ImageIcon;
 public class EndOfParty extends javax.swing.JFrame
 {
 
+	/** Attribute mainTheme*/
 	private Clip mainTheme;
+	
+	// Variables declaration - do not modify//GEN-BEGIN:variables
+	private javax.swing.JButton jButton1;
+	private javax.swing.JButton jButton2;
+	private javax.swing.JLabel jLabel1;
+	private javax.swing.JLabel jLabel2;
+	private javax.swing.JLabel jLabel3;
+	private javax.swing.JLabel jLabel4;
+	private javax.swing.JLabel jLabel5;
+	// End of variables declaration//GEN-END:variables
 
 	/**
 	 * Creates new form EndOfParty
@@ -118,12 +129,20 @@ public class EndOfParty extends javax.swing.JFrame
 		pack();
 	}// </editor-fold>//GEN-END:initComponents
 
+	/**
+	 * Method jButton1ActionPerformed
+	 * @param evt
+	 */
 	private void jButton1ActionPerformed(java.awt.event.ActionEvent evt)
 	{// GEN-FIRST:event_jButton1ActionPerformed
 		this.dispose();
 		System.exit(0);
 	}// GEN-LAST:event_jButton1ActionPerformed
 
+	/**
+	 * Method jButton2ActionPerformed
+	 * @param evt
+	 */
 	private void jButton2ActionPerformed(java.awt.event.ActionEvent evt)
 	{// GEN-FIRST:event_jButton2ActionPerformed
 		PokemonGameIntro gameIntro = new PokemonGameIntro();
@@ -132,6 +151,9 @@ public class EndOfParty extends javax.swing.JFrame
 		this.dispose();
 	}// GEN-LAST:event_jButton2ActionPerformed
 
+	/**
+	 * Method rotatePokeballThreadOne
+	 */
 	private void rotatePokeballThreadOne()
 	{
 		Thread rotatePokebal = new Thread(new Runnable()
@@ -174,6 +196,9 @@ public class EndOfParty extends javax.swing.JFrame
 		rotatePokebal.start();
 	}
 
+	/**
+	 * Method rotatePokeballThreadTwo
+	 */
 	private void rotatePokeballThreadTwo()
 	{
 		Thread rotatePokebal = new Thread(new Runnable()
@@ -216,6 +241,9 @@ public class EndOfParty extends javax.swing.JFrame
 		rotatePokebal.start();
 	}
 
+	/**
+	 * Method buttonsAnimation
+	 */
 	private void buttonsAnimation()
 	{
 		Thread animation = new Thread(new Runnable()
@@ -258,16 +286,10 @@ public class EndOfParty extends javax.swing.JFrame
 		animation.start();
 	}
 
-	// Variables declaration - do not modify//GEN-BEGIN:variables
-	private javax.swing.JButton jButton1;
-	private javax.swing.JButton jButton2;
-	private javax.swing.JLabel jLabel1;
-	private javax.swing.JLabel jLabel2;
-	private javax.swing.JLabel jLabel3;
-	private javax.swing.JLabel jLabel4;
-	private javax.swing.JLabel jLabel5;
-	// End of variables declaration//GEN-END:variables
-
+	/**
+	 * Method getMainTheme
+	 * @return
+	 */
 	private Clip getMainTheme()
 	{
 		Clip clip = null;

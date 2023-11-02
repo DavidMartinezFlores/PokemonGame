@@ -24,8 +24,6 @@ public class Launcher
 	 */
 	private void run(String[] args)
 	{
-		// PlayerOneSelection playerOneSelection = new PlayerOneSelection();
-		// playerOneSelection.setVisible(true);
 		PokemonGameIntro gameIntro = new PokemonGameIntro();
 		gameIntro.setVisible(true);
 	}

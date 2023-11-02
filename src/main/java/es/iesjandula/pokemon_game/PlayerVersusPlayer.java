@@ -34,25 +34,78 @@ import javax.swing.JOptionPane;
  */
 public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializable
 {
+	/** Attribute mainTheme*/
 	private Clip mainTheme;
 
+	/** Attribute playerOneName*/
 	private String playerOneName;
+	/** Attribute playerTwoName*/
 	private String playerTwoName;
 
+	/** Attribute playerOneSelection*/
 	private PlayerOneSelection playerOneSelection;
+	/** Attribute playerTwoSelection*/
 	private PlayerTwoSelection playerTwoSelection;
 
+	/** Attribute listPlayerOne*/
 	private DefaultListModel<Pokemon> listPlayerOne = new DefaultListModel<>();
+	/** Attribute listPlayerTwo*/
 	private DefaultListModel<Pokemon> listPlayerTwo = new DefaultListModel<>();
 
+	/** Attribute iconPlayer1*/
 	private ImageIcon iconPlayer1;
+	/** Attribute iconPlayer2*/
 	private ImageIcon iconPlayer2;
 
+	/** Attribute currentPlayerOnePokemon*/
 	private Pokemon currentPlayerOnePokemon;
+	/** Attribute currentPlayerTwoPokemon*/
 	private Pokemon currentPlayerTwoPokemon;
 
+	/** Attribute playerOneChanges*/
 	private int playerOneChanges;
+	/** Attribute playerTwoChanges*/
 	private int playerTwoChanges;
+
+	// Variables declaration - do not modify//GEN-BEGIN:variables
+	private javax.swing.JLabel SpriteSelectedPlayerOne;
+	private javax.swing.JLabel SpriteSelectedPlayerTwo;
+	private javax.swing.ButtonGroup buttonGroupPlayer1;
+	private javax.swing.ButtonGroup buttonGroupPlayer2;
+	private javax.swing.JButton jButtonChangePokemonPlayerOne;
+	private javax.swing.JButton jButtonChangePokemonPlayerTwo;
+	private javax.swing.JButton jButtonREADY;
+	private javax.swing.JLabel jLabel1;
+	private javax.swing.JLabel jLabel10;
+	private javax.swing.JLabel jLabel2;
+	private javax.swing.JLabel jLabel3;
+	private javax.swing.JLabel jLabel4;
+	private javax.swing.JLabel jLabel4Player1Health;
+	private javax.swing.JLabel jLabel5;
+	private javax.swing.JLabel jLabel5Player2Health;
+	private javax.swing.JLabel jLabel6;
+	private javax.swing.JLabel jLabel7;
+	private javax.swing.JLabel jLabel8;
+	private javax.swing.JLabel jLabel9;
+	private javax.swing.JLabel jLabelBackground;
+	private javax.swing.JLabel jLabelPlayerOneChanges;
+	private javax.swing.JLabel jLabelPlayerTwoChanges;
+	private javax.swing.JLabel jLabelPokeball;
+	private javax.swing.JList<Pokemon> jList1;
+	private javax.swing.JList<Pokemon> jList2;
+	private javax.swing.JMenu jMenu1;
+	private javax.swing.JMenuBar jMenuBar1;
+	private javax.swing.JMenuItem jMenuItem1;
+	private javax.swing.JMenuItem jMenuItem2;
+	private javax.swing.JProgressBar jProgressBar1;
+	private javax.swing.JProgressBar jProgressBar2;
+	private javax.swing.JRadioButton jRadioButtonPlayerOnePhysicalAttack;
+	private javax.swing.JRadioButton jRadioButtonPlayerOneSpecialAttack;
+	private javax.swing.JRadioButton jRadioButtonPlayerTwoPhysicalAttack;
+	private javax.swing.JRadioButton jRadioButtonPlayerTwoSpecialAttack;
+	private javax.swing.JScrollPane jScrollPane1;
+	private javax.swing.JScrollPane jScrollPane2;
+	// End of variables declaration//GEN-END:variables
 
 	/**
 	 * Creates new form PlayerVersusPlayer
@@ -660,10 +713,35 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 			double health = (this.currentPlayerTwoPokemon.getHealth()
 					+ ((this.currentPlayerOnePokemon.getAttack() * -0.4)
 							+ this.currentPlayerTwoPokemon.getDefense() * 0.1));
-			int critical=(int)(Math.random()*100+1);
-			if(critical>=90) {
-				health+=(health * -0.25);
-				JOptionPane.showMessageDialog(null,this.playerOneName + "Critical hit");
+
+			// Calculating the weakness and the resistances
+			List<String> playerOneWeakness = this.currentPlayerTwoPokemon.getWeaknessTypes();
+			List<String> playerOneResistances = this.currentPlayerTwoPokemon.getResistantTypes();
+
+			if (playerOneWeakness.contains(this.currentPlayerOnePokemon.getType()))
+			{
+				health += (this.currentPlayerTwoPokemon.getMaxHeatlh() * -0.40);
+			}
+			if (playerOneWeakness.contains(this.currentPlayerOnePokemon.getTypeTwo()))
+			{
+				health += (this.currentPlayerTwoPokemon.getMaxHeatlh() * -0.40);
+			}
+
+			if (playerOneResistances.contains(this.currentPlayerOnePokemon.getType()))
+			{
+				health += (this.currentPlayerTwoPokemon.getMaxHeatlh() * +0.05);
+			}
+			if (playerOneResistances.contains(this.currentPlayerOnePokemon.getTypeTwo()))
+			{
+				health += (this.currentPlayerTwoPokemon.getMaxHeatlh() * +0.05);
+			}
+			// Calculating the weakness and the resistances
+
+			int critical = (int) (Math.random() * 100 + 1);
+			if (critical >= 90)
+			{
+				health += (this.currentPlayerTwoPokemon.getMaxHeatlh() * -0.25);
+				JOptionPane.showMessageDialog(null, this.playerOneName + "Critical hit");
 			}
 			health = health <= 0 ? 0 : health;
 			this.currentPlayerTwoPokemon.setHealth(health);
@@ -708,10 +786,34 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 			double health = this.currentPlayerTwoPokemon.getHealth()
 					+ ((this.currentPlayerOnePokemon.getSpAttack() * -0.4)
 							+ this.currentPlayerTwoPokemon.getSpDefense() * 0.1);
-			int critical=(int)(Math.random()*100+1);
-			if(critical>=90) {
-				health+=(health * -0.25);
-				JOptionPane.showMessageDialog(null,this.playerOneName + "Critical hit");
+			// Calculating the weakness and the resistances
+			List<String> playerOneWeakness = this.currentPlayerTwoPokemon.getWeaknessTypes();
+			List<String> playerOneResistances = this.currentPlayerTwoPokemon.getResistantTypes();
+
+			if (playerOneWeakness.contains(this.currentPlayerOnePokemon.getType()))
+			{
+				health += (this.currentPlayerTwoPokemon.getMaxHeatlh() * -0.40);
+			}
+			if (playerOneWeakness.contains(this.currentPlayerOnePokemon.getTypeTwo()))
+			{
+				health += (this.currentPlayerTwoPokemon.getMaxHeatlh() * -0.40);
+			}
+
+			if (playerOneResistances.contains(this.currentPlayerOnePokemon.getType()))
+			{
+				health += (this.currentPlayerTwoPokemon.getMaxHeatlh() * +0.05);
+			}
+			if (playerOneResistances.contains(this.currentPlayerOnePokemon.getTypeTwo()))
+			{
+				health += (this.currentPlayerTwoPokemon.getMaxHeatlh() * +0.05);
+			}
+			// Calculating the weakness and the resistances
+
+			int critical = (int) (Math.random() * 100 + 1);
+			if (critical >= 90)
+			{
+				health += (this.currentPlayerTwoPokemon.getMaxHeatlh() * -0.25);
+				JOptionPane.showMessageDialog(null, this.playerOneName + "Critical hit");
 			}
 			health = health <= 0 ? 0 : health;
 			this.currentPlayerTwoPokemon.setHealth(health);
@@ -1136,14 +1238,39 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 					break;
 				}
 			}
-			
+
 			double health = (this.currentPlayerOnePokemon.getHealth()
 					+ ((this.currentPlayerTwoPokemon.getSpAttack() * -0.4)
 							+ this.currentPlayerOnePokemon.getSpDefense() * 0.1));
-			int critical=(int)(Math.random()*100+1);
-			if(critical>=90) {
-				health+=(health * -0.25);
-				JOptionPane.showMessageDialog(null,this.playerTwoName + "Critical hit");
+
+			// Calculating the weakness and the resistances
+			List<String> playerOneWeakness = this.currentPlayerOnePokemon.getWeaknessTypes();
+			List<String> playerOneResistances = this.currentPlayerOnePokemon.getResistantTypes();
+
+			if (playerOneWeakness.contains(this.currentPlayerTwoPokemon.getType()))
+			{
+				health += (this.currentPlayerOnePokemon.getMaxHeatlh() * -0.40);
+			}
+			if (playerOneWeakness.contains(this.currentPlayerTwoPokemon.getTypeTwo()))
+			{
+				health += (this.currentPlayerOnePokemon.getMaxHeatlh() * -0.40);
+			}
+
+			if (playerOneResistances.contains(this.currentPlayerTwoPokemon.getType()))
+			{
+				health += (this.currentPlayerOnePokemon.getMaxHeatlh() * +0.05);
+			}
+			if (playerOneResistances.contains(this.currentPlayerTwoPokemon.getTypeTwo()))
+			{
+				health += (this.currentPlayerOnePokemon.getMaxHeatlh() * +0.05);
+			}
+			// Calculating the weakness and the resistances
+
+			int critical = (int) (Math.random() * 100 + 1);
+			if (critical >= 90)
+			{
+				health += (this.currentPlayerOnePokemon.getMaxHeatlh() * -0.25);
+				JOptionPane.showMessageDialog(null, this.playerTwoName + "Critical hit");
 			}
 			health = health <= 0 ? 0 : health;
 			this.currentPlayerOnePokemon.setHealth(health);
@@ -1198,6 +1325,7 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 
 	private void playerTwoAttackPhysical()
 	{
+
 		if (this.listPlayerTwo.size() > 0 && this.listPlayerOne.size() > 0)
 		{
 			int position = 0;
@@ -1213,12 +1341,39 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 			double health = (this.currentPlayerOnePokemon.getHealth()
 					+ ((this.currentPlayerTwoPokemon.getAttack() * -0.4)
 							+ this.currentPlayerOnePokemon.getDefense() * 0.1));
-			int critical=(int)(Math.random()*100+1);
-			if(critical>=90) {
-				health+=(health * -0.25);
-				JOptionPane.showMessageDialog(null,this.playerTwoName + "Critical hit");
+
+			// Calculating the weakness and the resistances
+			List<String> playerOneWeakness = this.currentPlayerOnePokemon.getWeaknessTypes();
+			List<String> playerOneResistances = this.currentPlayerOnePokemon.getResistantTypes();
+
+			if (playerOneWeakness.contains(this.currentPlayerTwoPokemon.getType()))
+			{
+				health += (this.currentPlayerOnePokemon.getMaxHeatlh() * -0.40);
 			}
+			if (playerOneWeakness.contains(this.currentPlayerTwoPokemon.getTypeTwo()))
+			{
+				health += (this.currentPlayerOnePokemon.getMaxHeatlh() * -0.40);
+			}
+
+			if (playerOneResistances.contains(this.currentPlayerTwoPokemon.getType()))
+			{
+				health += (this.currentPlayerOnePokemon.getMaxHeatlh() * +0.05);
+			}
+			if (playerOneResistances.contains(this.currentPlayerTwoPokemon.getTypeTwo()))
+			{
+				health += (this.currentPlayerOnePokemon.getMaxHeatlh() * +0.05);
+			}
+			// Calculating the weakness and the resistances
+
+			int critical = (int) (Math.random() * 100 + 1);
+			if (critical >= 90)
+			{
+				health += (this.currentPlayerOnePokemon.getMaxHeatlh() * -0.25);
+				JOptionPane.showMessageDialog(null, this.playerTwoName + "Critical hit");
+			}
+
 			health = health <= 0 ? 0 : health;
+
 			this.currentPlayerOnePokemon.setHealth(health);
 			this.listPlayerOne.set(position, this.currentPlayerOnePokemon);
 
@@ -1238,46 +1393,6 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 		}
 		this.checkEndOfParty();
 	}
-
-	// Variables declaration - do not modify//GEN-BEGIN:variables
-	private javax.swing.JLabel SpriteSelectedPlayerOne;
-	private javax.swing.JLabel SpriteSelectedPlayerTwo;
-	private javax.swing.ButtonGroup buttonGroupPlayer1;
-	private javax.swing.ButtonGroup buttonGroupPlayer2;
-	private javax.swing.JButton jButtonChangePokemonPlayerOne;
-	private javax.swing.JButton jButtonChangePokemonPlayerTwo;
-	private javax.swing.JButton jButtonREADY;
-	private javax.swing.JLabel jLabel1;
-	private javax.swing.JLabel jLabel10;
-	private javax.swing.JLabel jLabel2;
-	private javax.swing.JLabel jLabel3;
-	private javax.swing.JLabel jLabel4;
-	private javax.swing.JLabel jLabel4Player1Health;
-	private javax.swing.JLabel jLabel5;
-	private javax.swing.JLabel jLabel5Player2Health;
-	private javax.swing.JLabel jLabel6;
-	private javax.swing.JLabel jLabel7;
-	private javax.swing.JLabel jLabel8;
-	private javax.swing.JLabel jLabel9;
-	private javax.swing.JLabel jLabelBackground;
-	private javax.swing.JLabel jLabelPlayerOneChanges;
-	private javax.swing.JLabel jLabelPlayerTwoChanges;
-	private javax.swing.JLabel jLabelPokeball;
-	private javax.swing.JList<Pokemon> jList1;
-	private javax.swing.JList<Pokemon> jList2;
-	private javax.swing.JMenu jMenu1;
-	private javax.swing.JMenuBar jMenuBar1;
-	private javax.swing.JMenuItem jMenuItem1;
-	private javax.swing.JMenuItem jMenuItem2;
-	private javax.swing.JProgressBar jProgressBar1;
-	private javax.swing.JProgressBar jProgressBar2;
-	private javax.swing.JRadioButton jRadioButtonPlayerOnePhysicalAttack;
-	private javax.swing.JRadioButton jRadioButtonPlayerOneSpecialAttack;
-	private javax.swing.JRadioButton jRadioButtonPlayerTwoPhysicalAttack;
-	private javax.swing.JRadioButton jRadioButtonPlayerTwoSpecialAttack;
-	private javax.swing.JScrollPane jScrollPane1;
-	private javax.swing.JScrollPane jScrollPane2;
-	// End of variables declaration//GEN-END:variables
 
 	private void rotatePokeballThread()
 	{
