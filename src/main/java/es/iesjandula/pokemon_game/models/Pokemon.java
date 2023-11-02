@@ -56,7 +56,8 @@ public class Pokemon implements Serializable
         
         private double maxHeatlh;
 
-    public Pokemon(int pokedexNumber, String name, String type, String typeTwo, double total, double health, double attack, double defense, double spAttack, double spDefense, double speed, int generation, boolean legendary) {
+    
+        public Pokemon(int pokedexNumber, String name, String type, String typeTwo, double total, double health, double attack, double defense, double spAttack, double spDefense, double speed, int generation, boolean legendary) {
         this.pokedexNumber = pokedexNumber;
         this.name = name;
         this.type = type;
@@ -72,9 +73,9 @@ public class Pokemon implements Serializable
         this.legendary = legendary;
         this.maxHeatlh = this.health;
     }
-
-        
-        
+    
+    
+      
 	public Image getPokeImage()
 	{
 		File imageResource = new File("./images/");

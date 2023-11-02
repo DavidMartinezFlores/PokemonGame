@@ -660,6 +660,11 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 			double health = (this.currentPlayerTwoPokemon.getHealth()
 					+ ((this.currentPlayerOnePokemon.getAttack() * -0.4)
 							+ this.currentPlayerTwoPokemon.getDefense() * 0.1));
+			int critical=(int)(Math.random()*100+1);
+			if(critical>=90) {
+				health+=(health * -0.25);
+				JOptionPane.showMessageDialog(null,this.playerOneName + "Critical hit");
+			}
 			health = health <= 0 ? 0 : health;
 			this.currentPlayerTwoPokemon.setHealth(health);
 			// Setting the current poke with new values
@@ -703,6 +708,11 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 			double health = this.currentPlayerTwoPokemon.getHealth()
 					+ ((this.currentPlayerOnePokemon.getSpAttack() * -0.4)
 							+ this.currentPlayerTwoPokemon.getSpDefense() * 0.1);
+			int critical=(int)(Math.random()*100+1);
+			if(critical>=90) {
+				health+=(health * -0.25);
+				JOptionPane.showMessageDialog(null,this.playerOneName + "Critical hit");
+			}
 			health = health <= 0 ? 0 : health;
 			this.currentPlayerTwoPokemon.setHealth(health);
 			// Setting the current poke with new values
@@ -1126,10 +1136,15 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 					break;
 				}
 			}
-
+			
 			double health = (this.currentPlayerOnePokemon.getHealth()
 					+ ((this.currentPlayerTwoPokemon.getSpAttack() * -0.4)
 							+ this.currentPlayerOnePokemon.getSpDefense() * 0.1));
+			int critical=(int)(Math.random()*100+1);
+			if(critical>=90) {
+				health+=(health * -0.25);
+				JOptionPane.showMessageDialog(null,this.playerTwoName + "Critical hit");
+			}
 			health = health <= 0 ? 0 : health;
 			this.currentPlayerOnePokemon.setHealth(health);
 			this.listPlayerOne.set(position, this.currentPlayerOnePokemon);
@@ -1198,7 +1213,11 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 			double health = (this.currentPlayerOnePokemon.getHealth()
 					+ ((this.currentPlayerTwoPokemon.getAttack() * -0.4)
 							+ this.currentPlayerOnePokemon.getDefense() * 0.1));
-
+			int critical=(int)(Math.random()*100+1);
+			if(critical>=90) {
+				health+=(health * -0.25);
+				JOptionPane.showMessageDialog(null,this.playerTwoName + "Critical hit");
+			}
 			health = health <= 0 ? 0 : health;
 			this.currentPlayerOnePokemon.setHealth(health);
 			this.listPlayerOne.set(position, this.currentPlayerOnePokemon);
