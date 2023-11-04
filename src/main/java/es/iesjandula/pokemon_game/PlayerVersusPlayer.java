@@ -4,17 +4,13 @@
  */
 package es.iesjandula.pokemon_game;
 
-import es.iesjandula.pokemon_game.models.Pokemon;
 import java.awt.HeadlessException;
 import java.awt.Point;
 import java.io.File;
-
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -23,10 +19,14 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.DefaultListModel;
 import javax.swing.Icon;
-
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import es.iesjandula.pokemon_game.models.Pokemon;
+import es.iesjandula.pokemon_game.utils.PokemonException;
 
 /**
  *
@@ -34,87 +34,90 @@ import javax.swing.JOptionPane;
  */
 public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializable
 {
-	/** Attribute mainTheme*/
+	/** Attribute logger*/
+	private static final Logger logger = LogManager.getLogger();
+	
+	/** Attribute mainTheme */
 	private Clip mainTheme;
 
-	/** Attribute playerOneName*/
+	/** Attribute playerOneName */
 	private String playerOneName;
-	/** Attribute playerTwoName*/
+	/** Attribute playerTwoName */
 	private String playerTwoName;
 
-	/** Attribute playerOneSelection*/
+	/** Attribute playerOneSelection */
 	private PlayerOneSelection playerOneSelection;
-	/** Attribute playerTwoSelection*/
+	/** Attribute playerTwoSelection */
 	private PlayerTwoSelection playerTwoSelection;
 
-	/** Attribute listPlayerOne*/
+	/** Attribute listPlayerOne */
 	private DefaultListModel<Pokemon> listPlayerOne = new DefaultListModel<>();
-	/** Attribute listPlayerTwo*/
+	/** Attribute listPlayerTwo */
 	private DefaultListModel<Pokemon> listPlayerTwo = new DefaultListModel<>();
 
-	/** Attribute iconPlayer1*/
+	/** Attribute iconPlayer1 */
 	private ImageIcon iconPlayer1;
-	/** Attribute iconPlayer2*/
+	/** Attribute iconPlayer2 */
 	private ImageIcon iconPlayer2;
 
-	/** Attribute currentPlayerOnePokemon*/
+	/** Attribute currentPlayerOnePokemon */
 	private Pokemon currentPlayerOnePokemon;
-	/** Attribute currentPlayerTwoPokemon*/
+	/** Attribute currentPlayerTwoPokemon */
 	private Pokemon currentPlayerTwoPokemon;
 
-	/** Attribute playerOneChanges*/
+	/** Attribute playerOneChanges */
 	private int playerOneChanges;
-	/** Attribute playerTwoChanges*/
+	/** Attribute playerTwoChanges */
 	private int playerTwoChanges;
 
-	// Variables declaration - do not modify//GEN-BEGIN:variables
-	private javax.swing.JLabel SpriteSelectedPlayerOne;
-	private javax.swing.JLabel SpriteSelectedPlayerTwo;
-	private javax.swing.ButtonGroup buttonGroupPlayer1;
-	private javax.swing.ButtonGroup buttonGroupPlayer2;
-	private javax.swing.JButton jButtonChangePokemonPlayerOne;
-	private javax.swing.JButton jButtonChangePokemonPlayerTwo;
-	private javax.swing.JButton jButtonREADY;
-	private javax.swing.JLabel jLabel1;
-	private javax.swing.JLabel jLabel10;
-	private javax.swing.JLabel jLabel2;
-	private javax.swing.JLabel jLabel3;
-	private javax.swing.JLabel jLabel4;
-	private javax.swing.JLabel jLabel4Player1Health;
-	private javax.swing.JLabel jLabel5;
-	private javax.swing.JLabel jLabel5Player2Health;
-	private javax.swing.JLabel jLabel6;
-	private javax.swing.JLabel jLabel7;
-	private javax.swing.JLabel jLabel8;
-	private javax.swing.JLabel jLabel9;
-	private javax.swing.JLabel jLabelBackground;
-	private javax.swing.JLabel jLabelPlayerOneChanges;
-	private javax.swing.JLabel jLabelPlayerTwoChanges;
-	private javax.swing.JLabel jLabelPokeball;
-	private javax.swing.JList<Pokemon> jList1;
-	private javax.swing.JList<Pokemon> jList2;
-	private javax.swing.JMenu jMenu1;
-	private javax.swing.JMenuBar jMenuBar1;
-	private javax.swing.JMenuItem jMenuItem1;
-	private javax.swing.JMenuItem jMenuItem2;
-	private javax.swing.JProgressBar jProgressBar1;
-	private javax.swing.JProgressBar jProgressBar2;
-	private javax.swing.JRadioButton jRadioButtonPlayerOnePhysicalAttack;
-	private javax.swing.JRadioButton jRadioButtonPlayerOneSpecialAttack;
-	private javax.swing.JRadioButton jRadioButtonPlayerTwoPhysicalAttack;
-	private javax.swing.JRadioButton jRadioButtonPlayerTwoSpecialAttack;
-	private javax.swing.JScrollPane jScrollPane1;
-	private javax.swing.JScrollPane jScrollPane2;
-	// End of variables declaration//GEN-END:variables
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel SpriteSelectedPlayerOne;
+    private javax.swing.JLabel SpriteSelectedPlayerTwo;
+    private javax.swing.ButtonGroup buttonGroupPlayer1;
+    private javax.swing.ButtonGroup buttonGroupPlayer2;
+    private javax.swing.JButton jButtonChangePokemonPlayerOne;
+    private javax.swing.JButton jButtonChangePokemonPlayerTwo;
+    private javax.swing.JButton jButtonReady;
+    private javax.swing.JLabel jLabelBackground;
+    private javax.swing.JLabel jLabelCurrentPlayerOnePokemonName;
+    private javax.swing.JLabel jLabelGameVersion;
+    private javax.swing.JLabel jLabelPlayerOneCardImage;
+    private javax.swing.JLabel jLabelPlayerOneChanges;
+    private javax.swing.JLabel jLabelPlayerOneHealth;
+    private javax.swing.JLabel jLabelPlayerOneName;
+    private javax.swing.JLabel jLabelPlayerTwoCardImage;
+    private javax.swing.JLabel jLabelPlayerTwoChanges;
+    private javax.swing.JLabel jLabelPlayerTwoHealth;
+    private javax.swing.JLabel jLabelPlayerTwoName;
+    private javax.swing.JLabel jLabelPokeball;
+    private javax.swing.JLabel jLabelPokemonPlayerOne;
+    private javax.swing.JLabel jLabelPokemonPlayerTwo;
+    private javax.swing.JLabel jLabelVersus;
+    private javax.swing.JLabel jLabeljLabelCurrentPlayerTwoPokemonName;
+    private javax.swing.JList<Pokemon> jListPlayerOne;
+    private javax.swing.JList<Pokemon> jListPlayerTwo;
+    private javax.swing.JMenu jMenu;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItemLoadState;
+    private javax.swing.JMenuItem jMenuItemSaveState;
+    private javax.swing.JProgressBar jProgressBarPlayerOne;
+    private javax.swing.JProgressBar jProgressBarPlayerTwo;
+    private javax.swing.JRadioButton jRadioButtonPlayerOnePhysicalAttack;
+    private javax.swing.JRadioButton jRadioButtonPlayerOneSpecialAttack;
+    private javax.swing.JRadioButton jRadioButtonPlayerTwoPhysicalAttack;
+    private javax.swing.JRadioButton jRadioButtonPlayerTwoSpecialAttack;
+    private javax.swing.JScrollPane jScrollPaneOne;
+    private javax.swing.JScrollPane jScrollPaneTwo;
+    // End of variables declaration//GEN-END:variables
 
 	/**
 	 * Creates new form PlayerVersusPlayer
+	 * 
+	 * @param playerTwoSelection
 	 */
 	public PlayerVersusPlayer(PlayerTwoSelection playerTwoSelection)
 	{
-		playerTwoSelection.dispose();
-
-		initComponents();
+		this.initComponents();
 		this.mainTheme = this.startBattleTheme();
 		if (this.mainTheme != null)
 		{
@@ -130,16 +133,16 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 		this.SpriteSelectedPlayerTwo.setIcon(playerTwoSelection.getSpriteSelectedPlayerTwo().getIcon());
 
 		this.jLabelBackground.setIcon(new ImageIcon("./images/selectionBack.jpg"));
-		this.jLabel3.setIcon(new ImageIcon("./images/versus.png"));
+		this.jLabelVersus.setIcon(new ImageIcon("./images/versus.png"));
 
 		this.playerOneSelection = playerTwoSelection.getPlayerOneSelection();
 		this.playerTwoSelection = playerTwoSelection;
 
-		this.playerOneName = playerOneSelection.getPlayerOneName();
+		this.playerOneName = this.playerOneSelection.getPlayerOneName();
 		this.playerTwoName = playerTwoSelection.getPlayerTwoName();
 
-		this.jLabel4.setText(playerOneName);
-		this.jLabel5.setText(playerTwoName);
+		this.jLabelPlayerOneName.setText(this.playerOneName);
+		this.jLabelPlayerTwoName.setText(this.playerTwoName);
 
 		this.listPlayerOne = this.playerOneSelection.getListModel2();
 		this.listPlayerTwo = this.playerTwoSelection.getListModel2();
@@ -152,23 +155,23 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 	 */
 	private void initDefaultGraphics()
 	{
-		this.jList1.setModel(listPlayerOne);
-		this.jList2.setModel(listPlayerTwo);
+		this.jListPlayerOne.setModel(this.listPlayerOne);
+		this.jListPlayerTwo.setModel(this.listPlayerTwo);
 
 		this.iconPlayer1 = new ImageIcon(this.listPlayerOne.get(0).getPokeImage());
 		this.iconPlayer2 = new ImageIcon(this.listPlayerTwo.get(0).getPokeImage());
 
-		this.jLabel6.setText(this.listPlayerOne.get(0).getName());
-		this.jLabel9.setText(this.listPlayerTwo.get(0).getName());
+		this.jLabelCurrentPlayerOnePokemonName.setText(this.listPlayerOne.get(0).getName());
+		this.jLabeljLabelCurrentPlayerTwoPokemonName.setText(this.listPlayerTwo.get(0).getName());
 
-		this.jLabel1.setIcon(this.iconPlayer1);
-		this.jLabel2.setIcon(this.iconPlayer2);
+		this.jLabelPokemonPlayerOne.setIcon(this.iconPlayer1);
+		this.jLabelPokemonPlayerTwo.setIcon(this.iconPlayer2);
 
 		this.currentPlayerOnePokemon = this.listPlayerOne.get(0);
 		this.currentPlayerTwoPokemon = this.listPlayerTwo.get(0);
 
-		this.jLabel4Player1Health.setText(currentPlayerOnePokemon.getHealth() + "");
-		this.jLabel5Player2Health.setText(currentPlayerTwoPokemon.getHealth() + "");
+		this.jLabelPlayerOneHealth.setText(this.currentPlayerOnePokemon.getHealth() + "");
+		this.jLabelPlayerTwoHealth.setText(this.currentPlayerTwoPokemon.getHealth() + "");
 
 		this.setLocationRelativeTo(null);
 
@@ -182,15 +185,17 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 		this.jLabelPlayerOneChanges.setText("Changes: " + this.playerOneChanges);
 		this.jLabelPlayerTwoChanges.setText("Changes: " + this.playerTwoChanges);
 
-		this.jProgressBar1.setValue(
-				(int) ((this.currentPlayerOnePokemon.getHealth() * 100) / this.currentPlayerOnePokemon.getMaxHeatlh()));
-		this.jProgressBar2.setValue(
-				(int) ((this.currentPlayerTwoPokemon.getHealth() * 100) / this.currentPlayerTwoPokemon.getMaxHeatlh()));
+		this.updateProgressBars();
 	}
 
+	/**
+	 * Constructor for create new PlayerVersusPlayer
+	 *
+	 * @param partyList
+	 */
 	public PlayerVersusPlayer(List<Object> partyList)
 	{
-		initComponents();
+		this.initComponents();
 		this.mainTheme = this.startBattleTheme();
 		if (this.mainTheme != null)
 		{
@@ -201,7 +206,7 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 		this.listPlayerOne = (DefaultListModel<Pokemon>) partyList.get(0);
 		this.listPlayerTwo = (DefaultListModel<Pokemon>) partyList.get(1);
 
-		this.jLabel3.setIcon(new ImageIcon("./images/versus.png"));
+		this.jLabelVersus.setIcon(new ImageIcon("./images/versus.png"));
 		this.jLabelBackground.setIcon(new ImageIcon("./images/selectionBack.jpg"));
 
 		this.currentPlayerOnePokemon = (Pokemon) partyList.get(2);
@@ -219,20 +224,20 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 		this.SpriteSelectedPlayerOne.setIcon((Icon) partyList.get(8));
 		this.SpriteSelectedPlayerTwo.setIcon((Icon) partyList.get(9));
 
-		this.jLabel4.setText(playerOneName);
-		this.jLabel5.setText(playerTwoName);
+		this.jLabelPlayerOneName.setText(this.playerOneName);
+		this.jLabelPlayerTwoName.setText(this.playerTwoName);
 
-		this.jList1.setModel(listPlayerOne);
-		this.jList2.setModel(listPlayerTwo);
+		this.jListPlayerOne.setModel(this.listPlayerOne);
+		this.jListPlayerTwo.setModel(this.listPlayerTwo);
 
-		this.jLabel6.setText(this.currentPlayerOnePokemon.getName());
-		this.jLabel9.setText(this.currentPlayerTwoPokemon.getName());
+		this.jLabelCurrentPlayerOnePokemonName.setText(this.currentPlayerOnePokemon.getName());
+		this.jLabeljLabelCurrentPlayerTwoPokemonName.setText(this.currentPlayerTwoPokemon.getName());
 
-		this.jLabel1.setIcon(this.iconPlayer1);
-		this.jLabel2.setIcon(this.iconPlayer2);
+		this.jLabelPokemonPlayerOne.setIcon(this.iconPlayer1);
+		this.jLabelPokemonPlayerTwo.setIcon(this.iconPlayer2);
 
-		this.jLabel4Player1Health.setText(currentPlayerOnePokemon.getHealth() + "");
-		this.jLabel5Player2Health.setText(currentPlayerTwoPokemon.getHealth() + "");
+		this.jLabelPlayerOneHealth.setText(this.currentPlayerOnePokemon.getHealth() + "");
+		this.jLabelPlayerTwoHealth.setText(this.currentPlayerTwoPokemon.getHealth() + "");
 
 		this.setLocationRelativeTo(null);
 
@@ -243,18 +248,15 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 		this.jumpPlayerOneAnimationThread();
 		this.jumpPlayerTwoAnimationThread();
 
-		this.jLabel4Player1Health
-				.setText(String.format("%.2f", Double.parseDouble(this.jLabel4Player1Health.getText())));
-		this.jLabel5Player2Health
-				.setText(String.format("%.2f", Double.parseDouble(this.jLabel5Player2Health.getText())));
+		this.jLabelPlayerOneHealth
+				.setText(String.format("%.2f", Double.parseDouble(this.jLabelPlayerOneHealth.getText())));
+		this.jLabelPlayerTwoHealth
+				.setText(String.format("%.2f", Double.parseDouble(this.jLabelPlayerTwoHealth.getText())));
 
 		this.jLabelPlayerOneChanges.setText("Changes: " + this.playerOneChanges);
 		this.jLabelPlayerTwoChanges.setText("Changes: " + this.playerTwoChanges);
 
-		this.jProgressBar1.setValue(
-				(int) ((this.currentPlayerOnePokemon.getHealth() * 100) / this.currentPlayerOnePokemon.getMaxHeatlh()));
-		this.jProgressBar2.setValue(
-				(int) ((this.currentPlayerTwoPokemon.getHealth() * 100) / this.currentPlayerTwoPokemon.getMaxHeatlh()));
+		this.updateProgressBars();
 	}
 
 	/**
@@ -267,420 +269,399 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 	// <editor-fold defaultstate="collapsed" desc="Generated
 	// <editor-fold defaultstate="collapsed" desc="Generated
 	// <editor-fold defaultstate="collapsed" desc="Generated
-	// Code">//GEN-BEGIN:initComponents
-	private void initComponents()
-	{
+	// <editor-fold defaultstate="collapsed" desc="Generated
+	// <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
 
-		buttonGroupPlayer1 = new javax.swing.ButtonGroup();
-		buttonGroupPlayer2 = new javax.swing.ButtonGroup();
-		jButtonREADY = new javax.swing.JButton();
-		jScrollPane1 = new javax.swing.JScrollPane();
-		jList1 = new javax.swing.JList<>();
-		jScrollPane2 = new javax.swing.JScrollPane();
-		jList2 = new javax.swing.JList<>();
-		jLabel1 = new javax.swing.JLabel();
-		jLabel2 = new javax.swing.JLabel();
-		jLabel3 = new javax.swing.JLabel();
-		jLabel4Player1Health = new javax.swing.JLabel();
-		jLabel5Player2Health = new javax.swing.JLabel();
-		jRadioButtonPlayerOnePhysicalAttack = new javax.swing.JRadioButton();
-		jRadioButtonPlayerOneSpecialAttack = new javax.swing.JRadioButton();
-		jRadioButtonPlayerTwoPhysicalAttack = new javax.swing.JRadioButton();
-		jRadioButtonPlayerTwoSpecialAttack = new javax.swing.JRadioButton();
-		jButtonChangePokemonPlayerOne = new javax.swing.JButton();
-		jButtonChangePokemonPlayerTwo = new javax.swing.JButton();
-		jLabelPokeball = new javax.swing.JLabel();
-		jLabelPlayerOneChanges = new javax.swing.JLabel();
-		jLabelPlayerTwoChanges = new javax.swing.JLabel();
-		jProgressBar1 = new javax.swing.JProgressBar();
-		jProgressBar2 = new javax.swing.JProgressBar();
-		jLabel4 = new javax.swing.JLabel();
-		jLabel5 = new javax.swing.JLabel();
-		jLabel6 = new javax.swing.JLabel();
-		jLabel9 = new javax.swing.JLabel();
-		jLabel7 = new javax.swing.JLabel();
-		jLabel8 = new javax.swing.JLabel();
-		jLabel10 = new javax.swing.JLabel();
-		SpriteSelectedPlayerOne = new javax.swing.JLabel();
-		SpriteSelectedPlayerTwo = new javax.swing.JLabel();
-		jLabelBackground = new javax.swing.JLabel();
-		jMenuBar1 = new javax.swing.JMenuBar();
-		jMenu1 = new javax.swing.JMenu();
-		jMenuItem1 = new javax.swing.JMenuItem();
-		jMenuItem2 = new javax.swing.JMenuItem();
+        buttonGroupPlayer1 = new javax.swing.ButtonGroup();
+        buttonGroupPlayer2 = new javax.swing.ButtonGroup();
+        jButtonReady = new javax.swing.JButton();
+        jScrollPaneOne = new javax.swing.JScrollPane();
+        jListPlayerOne = new javax.swing.JList<>();
+        jScrollPaneTwo = new javax.swing.JScrollPane();
+        jListPlayerTwo = new javax.swing.JList<>();
+        jLabelPokemonPlayerOne = new javax.swing.JLabel();
+        jLabelPokemonPlayerTwo = new javax.swing.JLabel();
+        jLabelVersus = new javax.swing.JLabel();
+        jLabelPlayerOneHealth = new javax.swing.JLabel();
+        jLabelPlayerTwoHealth = new javax.swing.JLabel();
+        jRadioButtonPlayerOnePhysicalAttack = new javax.swing.JRadioButton();
+        jRadioButtonPlayerOneSpecialAttack = new javax.swing.JRadioButton();
+        jRadioButtonPlayerTwoPhysicalAttack = new javax.swing.JRadioButton();
+        jRadioButtonPlayerTwoSpecialAttack = new javax.swing.JRadioButton();
+        jButtonChangePokemonPlayerOne = new javax.swing.JButton();
+        jButtonChangePokemonPlayerTwo = new javax.swing.JButton();
+        jLabelPokeball = new javax.swing.JLabel();
+        jLabelPlayerOneChanges = new javax.swing.JLabel();
+        jLabelPlayerTwoChanges = new javax.swing.JLabel();
+        jProgressBarPlayerOne = new javax.swing.JProgressBar();
+        jProgressBarPlayerTwo = new javax.swing.JProgressBar();
+        jLabelPlayerOneName = new javax.swing.JLabel();
+        jLabelPlayerTwoName = new javax.swing.JLabel();
+        jLabelCurrentPlayerOnePokemonName = new javax.swing.JLabel();
+        jLabeljLabelCurrentPlayerTwoPokemonName = new javax.swing.JLabel();
+        jLabelPlayerTwoCardImage = new javax.swing.JLabel();
+        jLabelPlayerOneCardImage = new javax.swing.JLabel();
+        jLabelGameVersion = new javax.swing.JLabel();
+        SpriteSelectedPlayerOne = new javax.swing.JLabel();
+        SpriteSelectedPlayerTwo = new javax.swing.JLabel();
+        jLabelBackground = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu = new javax.swing.JMenu();
+        jMenuItemSaveState = new javax.swing.JMenuItem();
+        jMenuItemLoadState = new javax.swing.JMenuItem();
 
-		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-		getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-		jButtonREADY.setBackground(new java.awt.Color(0, 204, 51));
-		jButtonREADY.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-		jButtonREADY.setForeground(new java.awt.Color(255, 255, 255));
-		jButtonREADY.setText("READY");
-		jButtonREADY.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-		jButtonREADY.addMouseListener(new java.awt.event.MouseAdapter()
-		{
-			public void mouseClicked(java.awt.event.MouseEvent evt)
-			{
-				jButtonREADYMouseClicked(evt);
-			}
-		});
-		jButtonREADY.addActionListener(new java.awt.event.ActionListener()
-		{
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				jButtonREADYActionPerformed(evt);
-			}
-		});
-		getContentPane().add(jButtonREADY, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 560, 105, 60));
+        jButtonReady.setBackground(new java.awt.Color(0, 204, 51));
+        jButtonReady.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jButtonReady.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonReady.setText("READY");
+        jButtonReady.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jButtonReady.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonReadyMouseClicked(evt);
+            }
+        });
+        getContentPane().add(jButtonReady, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 560, 105, 60));
 
-		jList1.setBackground(new java.awt.Color(200, 252, 255));
-		jList1.addMouseListener(new java.awt.event.MouseAdapter()
-		{
-			public void mouseClicked(java.awt.event.MouseEvent evt)
-			{
-				jList1MouseClicked(evt);
-			}
-		});
-		jScrollPane1.setViewportView(jList1);
+        jListPlayerOne.setBackground(new java.awt.Color(200, 252, 255));
+        jListPlayerOne.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jListPlayerOneMouseClicked(evt);
+            }
+        });
+        jScrollPaneOne.setViewportView(jListPlayerOne);
 
-		getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, 352, -1));
+        getContentPane().add(jScrollPaneOne, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, 352, -1));
 
-		jList2.setBackground(new java.awt.Color(255, 200, 200));
-		jList2.addMouseListener(new java.awt.event.MouseAdapter()
-		{
-			public void mouseClicked(java.awt.event.MouseEvent evt)
-			{
-				jList2MouseClicked(evt);
-			}
-		});
-		jScrollPane2.setViewportView(jList2);
+        jListPlayerTwo.setBackground(new java.awt.Color(255, 200, 200));
+        jListPlayerTwo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jListPlayerTwoMouseClicked(evt);
+            }
+        });
+        jScrollPaneTwo.setViewportView(jListPlayerTwo);
 
-		getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 390, 359, -1));
+        getContentPane().add(jScrollPaneTwo, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 390, 359, -1));
 
-		jLabel1.setToolTipText("heyyy");
-		jLabel1.addMouseListener(new java.awt.event.MouseAdapter()
-		{
-			public void mouseEntered(java.awt.event.MouseEvent evt)
-			{
-				jLabel1MouseEntered(evt);
-			}
-		});
-		getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, 150, 158));
+        jLabelPokemonPlayerOne.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabelPokemonPlayerOneMouseEntered(evt);
+            }
+        });
+        getContentPane().add(jLabelPokemonPlayerOne, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, 150, 158));
 
-		jLabel2.addMouseListener(new java.awt.event.MouseAdapter()
-		{
-			public void mouseEntered(java.awt.event.MouseEvent evt)
-			{
-				jLabel2MouseEntered(evt);
-			}
-		});
-		getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 60, 150, 150));
+        jLabelPokemonPlayerTwo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabelPokemonPlayerTwoMouseEntered(evt);
+            }
+        });
+        getContentPane().add(jLabelPokemonPlayerTwo, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 60, 150, 150));
 
-		jLabel3.setText("                ");
-		getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 130, 98, 94));
+        jLabelVersus.setText("                ");
+        getContentPane().add(jLabelVersus, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 130, 98, 94));
 
-		jLabel4Player1Health.setText("jLabel4");
-		getContentPane().add(jLabel4Player1Health, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, -1, -1));
+        jLabelPlayerOneHealth.setText("jLabel4");
+        getContentPane().add(jLabelPlayerOneHealth, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, -1, -1));
 
-		jLabel5Player2Health.setText("jLabel5");
-		getContentPane().add(jLabel5Player2Health, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 270, -1, -1));
+        jLabelPlayerTwoHealth.setText("jLabel5");
+        getContentPane().add(jLabelPlayerTwoHealth, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 270, -1, -1));
 
-		buttonGroupPlayer1.add(jRadioButtonPlayerOnePhysicalAttack);
-		jRadioButtonPlayerOnePhysicalAttack.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-		jRadioButtonPlayerOnePhysicalAttack.setText("PHYSICAK ATTACK");
-		jRadioButtonPlayerOnePhysicalAttack.addMouseListener(new java.awt.event.MouseAdapter()
-		{
-			public void mouseClicked(java.awt.event.MouseEvent evt)
-			{
-				jRadioButtonPlayerOnePhysicalAttackMouseClicked(evt);
-			}
-		});
-		getContentPane().add(jRadioButtonPlayerOnePhysicalAttack,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 560, -1, -1));
+        buttonGroupPlayer1.add(jRadioButtonPlayerOnePhysicalAttack);
+        jRadioButtonPlayerOnePhysicalAttack.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jRadioButtonPlayerOnePhysicalAttack.setText("PHYSICAK ATTACK");
+        jRadioButtonPlayerOnePhysicalAttack.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jRadioButtonPlayerOnePhysicalAttackMouseClicked(evt);
+            }
+        });
+        getContentPane().add(jRadioButtonPlayerOnePhysicalAttack, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 560, -1, -1));
 
-		buttonGroupPlayer1.add(jRadioButtonPlayerOneSpecialAttack);
-		jRadioButtonPlayerOneSpecialAttack.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-		jRadioButtonPlayerOneSpecialAttack.setText("SPECIAL ATTACK");
-		jRadioButtonPlayerOneSpecialAttack.addMouseListener(new java.awt.event.MouseAdapter()
-		{
-			public void mouseClicked(java.awt.event.MouseEvent evt)
-			{
-				jRadioButtonPlayerOneSpecialAttackMouseClicked(evt);
-			}
-		});
-		jRadioButtonPlayerOneSpecialAttack.addActionListener(new java.awt.event.ActionListener()
-		{
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				jRadioButtonPlayerOneSpecialAttackActionPerformed(evt);
-			}
-		});
-		getContentPane().add(jRadioButtonPlayerOneSpecialAttack,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 590, -1, -1));
+        buttonGroupPlayer1.add(jRadioButtonPlayerOneSpecialAttack);
+        jRadioButtonPlayerOneSpecialAttack.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jRadioButtonPlayerOneSpecialAttack.setText("SPECIAL ATTACK");
+        jRadioButtonPlayerOneSpecialAttack.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jRadioButtonPlayerOneSpecialAttackMouseClicked(evt);
+            }
+        });
+        getContentPane().add(jRadioButtonPlayerOneSpecialAttack, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 590, -1, -1));
 
-		buttonGroupPlayer2.add(jRadioButtonPlayerTwoPhysicalAttack);
-		jRadioButtonPlayerTwoPhysicalAttack.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-		jRadioButtonPlayerTwoPhysicalAttack.setText("PHYSICAL ATTACK");
-		jRadioButtonPlayerTwoPhysicalAttack.addMouseListener(new java.awt.event.MouseAdapter()
-		{
-			public void mouseClicked(java.awt.event.MouseEvent evt)
-			{
-				jRadioButtonPlayerTwoPhysicalAttackMouseClicked(evt);
-			}
-		});
-		getContentPane().add(jRadioButtonPlayerTwoPhysicalAttack,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 560, -1, -1));
+        buttonGroupPlayer2.add(jRadioButtonPlayerTwoPhysicalAttack);
+        jRadioButtonPlayerTwoPhysicalAttack.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jRadioButtonPlayerTwoPhysicalAttack.setText("PHYSICAL ATTACK");
+        jRadioButtonPlayerTwoPhysicalAttack.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jRadioButtonPlayerTwoPhysicalAttackMouseClicked(evt);
+            }
+        });
+        getContentPane().add(jRadioButtonPlayerTwoPhysicalAttack, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 560, -1, -1));
 
-		buttonGroupPlayer2.add(jRadioButtonPlayerTwoSpecialAttack);
-		jRadioButtonPlayerTwoSpecialAttack.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-		jRadioButtonPlayerTwoSpecialAttack.setText("SPECIAL ATTACK");
-		jRadioButtonPlayerTwoSpecialAttack.addMouseListener(new java.awt.event.MouseAdapter()
-		{
-			public void mouseClicked(java.awt.event.MouseEvent evt)
-			{
-				jRadioButtonPlayerTwoSpecialAttackMouseClicked(evt);
-			}
-		});
-		getContentPane().add(jRadioButtonPlayerTwoSpecialAttack,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 590, -1, -1));
+        buttonGroupPlayer2.add(jRadioButtonPlayerTwoSpecialAttack);
+        jRadioButtonPlayerTwoSpecialAttack.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jRadioButtonPlayerTwoSpecialAttack.setText("SPECIAL ATTACK");
+        jRadioButtonPlayerTwoSpecialAttack.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jRadioButtonPlayerTwoSpecialAttackMouseClicked(evt);
+            }
+        });
+        getContentPane().add(jRadioButtonPlayerTwoSpecialAttack, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 590, -1, -1));
 
-		jButtonChangePokemonPlayerOne.setBackground(new java.awt.Color(255, 51, 0));
-		jButtonChangePokemonPlayerOne.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-		jButtonChangePokemonPlayerOne.setForeground(new java.awt.Color(255, 255, 255));
-		jButtonChangePokemonPlayerOne.setText("CHANGE SELECTED POKEMON");
-		jButtonChangePokemonPlayerOne.addMouseListener(new java.awt.event.MouseAdapter()
-		{
-			public void mouseClicked(java.awt.event.MouseEvent evt)
-			{
-				jButtonChangePokemonPlayerOneMouseClicked(evt);
-			}
-		});
-		jButtonChangePokemonPlayerOne.addActionListener(new java.awt.event.ActionListener()
-		{
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				jButtonChangePokemonPlayerOneActionPerformed(evt);
-			}
-		});
-		getContentPane().add(jButtonChangePokemonPlayerOne,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 650, 250, 29));
+        jButtonChangePokemonPlayerOne.setBackground(new java.awt.Color(255, 51, 0));
+        jButtonChangePokemonPlayerOne.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButtonChangePokemonPlayerOne.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonChangePokemonPlayerOne.setText("CHANGE SELECTED POKEMON");
+        jButtonChangePokemonPlayerOne.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonChangePokemonPlayerOneMouseClicked(evt);
+            }
+        });
+        getContentPane().add(jButtonChangePokemonPlayerOne, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 650, 250, 29));
 
-		jButtonChangePokemonPlayerTwo.setBackground(new java.awt.Color(255, 51, 0));
-		jButtonChangePokemonPlayerTwo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-		jButtonChangePokemonPlayerTwo.setForeground(new java.awt.Color(255, 255, 255));
-		jButtonChangePokemonPlayerTwo.setText("CHANGE SELECTED POKEMON");
-		jButtonChangePokemonPlayerTwo.addMouseListener(new java.awt.event.MouseAdapter()
-		{
-			public void mouseClicked(java.awt.event.MouseEvent evt)
-			{
-				jButtonChangePokemonPlayerTwoMouseClicked(evt);
-			}
-		});
-		getContentPane().add(jButtonChangePokemonPlayerTwo,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(618, 650, 250, 29));
+        jButtonChangePokemonPlayerTwo.setBackground(new java.awt.Color(255, 51, 0));
+        jButtonChangePokemonPlayerTwo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButtonChangePokemonPlayerTwo.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonChangePokemonPlayerTwo.setText("CHANGE SELECTED POKEMON");
+        jButtonChangePokemonPlayerTwo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonChangePokemonPlayerTwoMouseClicked(evt);
+            }
+        });
+        getContentPane().add(jButtonChangePokemonPlayerTwo, new org.netbeans.lib.awtextra.AbsoluteConstraints(618, 650, 250, 29));
 
-		jLabelPokeball.setText("         ");
-		getContentPane().add(jLabelPokeball, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 390, 105, 114));
+        jLabelPokeball.setText("         ");
+        getContentPane().add(jLabelPokeball, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 390, 105, 114));
 
-		jLabelPlayerOneChanges.setBackground(new java.awt.Color(255, 153, 0));
-		jLabelPlayerOneChanges.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-		jLabelPlayerOneChanges.setForeground(new java.awt.Color(255, 255, 255));
-		jLabelPlayerOneChanges.setText("Changes:");
-		jLabelPlayerOneChanges.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-		jLabelPlayerOneChanges.setOpaque(true);
-		getContentPane().add(jLabelPlayerOneChanges,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 560, -1, -1));
+        jLabelPlayerOneChanges.setBackground(new java.awt.Color(255, 153, 0));
+        jLabelPlayerOneChanges.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabelPlayerOneChanges.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelPlayerOneChanges.setText("Changes:");
+        jLabelPlayerOneChanges.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabelPlayerOneChanges.setOpaque(true);
+        getContentPane().add(jLabelPlayerOneChanges, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 560, -1, -1));
 
-		jLabelPlayerTwoChanges.setBackground(new java.awt.Color(255, 153, 0));
-		jLabelPlayerTwoChanges.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-		jLabelPlayerTwoChanges.setForeground(new java.awt.Color(255, 255, 255));
-		jLabelPlayerTwoChanges.setText("Changes:");
-		jLabelPlayerTwoChanges.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-		jLabelPlayerTwoChanges.setOpaque(true);
-		getContentPane().add(jLabelPlayerTwoChanges,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 560, -1, -1));
+        jLabelPlayerTwoChanges.setBackground(new java.awt.Color(255, 153, 0));
+        jLabelPlayerTwoChanges.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabelPlayerTwoChanges.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelPlayerTwoChanges.setText("Changes:");
+        jLabelPlayerTwoChanges.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabelPlayerTwoChanges.setOpaque(true);
+        getContentPane().add(jLabelPlayerTwoChanges, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 560, -1, -1));
 
-		jProgressBar1.setForeground(new java.awt.Color(0, 204, 0));
-		getContentPane().add(jProgressBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, 130, 16));
+        jProgressBarPlayerOne.setForeground(new java.awt.Color(0, 204, 0));
+        getContentPane().add(jProgressBarPlayerOne, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, 130, 16));
 
-		jProgressBar2.setForeground(new java.awt.Color(51, 204, 0));
-		getContentPane().add(jProgressBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 250, 130, 16));
+        jProgressBarPlayerTwo.setForeground(new java.awt.Color(51, 204, 0));
+        getContentPane().add(jProgressBarPlayerTwo, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 250, 130, 16));
 
-		jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-		jLabel4.setText("jLabel4");
-		getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, 162, 22));
+        jLabelPlayerOneName.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabelPlayerOneName.setText("jLabel4");
+        getContentPane().add(jLabelPlayerOneName, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, 162, 22));
 
-		jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-		jLabel5.setText("jLabel5");
-		getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 20, 162, 22));
+        jLabelPlayerTwoName.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabelPlayerTwoName.setText("jLabel5");
+        getContentPane().add(jLabelPlayerTwoName, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 20, 162, 22));
 
-		jLabel6.setText("jLabel6");
-		getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 220, -1, -1));
+        jLabelCurrentPlayerOnePokemonName.setText("jLabel6");
+        getContentPane().add(jLabelCurrentPlayerOnePokemonName, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 220, -1, -1));
 
-		jLabel9.setText("jLabel9");
-		getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 220, -1, -1));
+        jLabeljLabelCurrentPlayerTwoPokemonName.setText("jLabel9");
+        getContentPane().add(jLabeljLabelCurrentPlayerTwoPokemonName, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 220, -1, -1));
 
-		jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cards/basicCard.png"))); // NOI18N
-		getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 60, -1, -1));
+        jLabelPlayerTwoCardImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cards/basicCard.png"))); // NOI18N
+        getContentPane().add(jLabelPlayerTwoCardImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 60, -1, -1));
 
-		jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cards/basicCard.png"))); // NOI18N
-		getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, -1, -1));
+        jLabelPlayerOneCardImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cards/basicCard.png"))); // NOI18N
+        getContentPane().add(jLabelPlayerOneCardImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, -1, -1));
 
-		jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-		jLabel10.setText("       v1.0.0");
-		getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 680, 1020, 40));
+        jLabelGameVersion.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabelGameVersion.setText("       v1.0.0");
+        getContentPane().add(jLabelGameVersion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 680, 1020, 40));
 
-		SpriteSelectedPlayerOne.setText(" ");
-		getContentPane().add(SpriteSelectedPlayerOne,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 210, 90, 160));
+        SpriteSelectedPlayerOne.setText(" ");
+        getContentPane().add(SpriteSelectedPlayerOne, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 210, 90, 160));
 
-		SpriteSelectedPlayerTwo.setText(" ");
-		getContentPane().add(SpriteSelectedPlayerTwo,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 210, 90, 160));
+        SpriteSelectedPlayerTwo.setText(" ");
+        getContentPane().add(SpriteSelectedPlayerTwo, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 210, 90, 160));
 
-		jLabelBackground.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-		getContentPane().add(jLabelBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 740));
+        jLabelBackground.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        getContentPane().add(jLabelBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 740));
 
-		jMenu1.setText("File");
+        jMenu.setText("File");
 
-		jMenuItem1.setText("Save State");
-		jMenuItem1.addMouseListener(new java.awt.event.MouseAdapter()
-		{
-			public void mouseClicked(java.awt.event.MouseEvent evt)
-			{
-				jMenuItem1MouseClicked(evt);
-			}
-		});
-		jMenuItem1.addActionListener(new java.awt.event.ActionListener()
-		{
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				jMenuItem1ActionPerformed(evt);
-			}
-		});
-		jMenu1.add(jMenuItem1);
+        jMenuItemSaveState.setText("Save State");
+        jMenuItemSaveState.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemSaveStateActionPerformed(evt);
+            }
+        });
+        jMenu.add(jMenuItemSaveState);
 
-		jMenuItem2.setText("Load State");
-		jMenuItem2.addMouseListener(new java.awt.event.MouseAdapter()
-		{
-			public void mouseClicked(java.awt.event.MouseEvent evt)
-			{
-				jMenuItem2MouseClicked(evt);
-			}
-		});
-		jMenuItem2.addActionListener(new java.awt.event.ActionListener()
-		{
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				jMenuItem2ActionPerformed(evt);
-			}
-		});
-		jMenu1.add(jMenuItem2);
+        jMenuItemLoadState.setText("Load State");
+        jMenuItemLoadState.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemLoadStateActionPerformed(evt);
+            }
+        });
+        jMenu.add(jMenuItemLoadState);
 
-		jMenuBar1.add(jMenu1);
+        jMenuBar1.add(jMenu);
 
-		setJMenuBar(jMenuBar1);
+        setJMenuBar(jMenuBar1);
 
-		pack();
-	}// </editor-fold>//GEN-END:initComponents
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
 
-	private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt)
+	/**
+	 * Method jMenuItemSaveStateActionPerformed
+	 * 
+	 * @param evt
+	 */
+	private void jMenuItemSaveStateActionPerformed(java.awt.event.ActionEvent evt)
 	{// GEN-FIRST:event_jMenuItem1ActionPerformed
 		// GEN-FIRST:event_jMenuItem1ActionPerformed
-		System.out.println("GUARDAR ESTADO");
+		logger.info("GUARDAR ESTADO");
 		JOptionPane.showMessageDialog(null, "SAVING STATE!");
 		Application application = new Application();
 
-		List<Object> partyList = new ArrayList<Object>();
+		List<Object> partyList = new ArrayList<>();
 
-		partyList.add(listPlayerOne);
-		partyList.add(listPlayerTwo);
+		partyList.add(this.listPlayerOne);
+		partyList.add(this.listPlayerTwo);
 
-		partyList.add(currentPlayerOnePokemon);
-		partyList.add(currentPlayerTwoPokemon);
+		partyList.add(this.currentPlayerOnePokemon);
+		partyList.add(this.currentPlayerTwoPokemon);
 
-		partyList.add(playerOneChanges);
-		partyList.add(playerTwoChanges);
+		partyList.add(this.playerOneChanges);
+		partyList.add(this.playerTwoChanges);
 
-		partyList.add(playerOneName);
-		partyList.add(playerTwoName);
+		partyList.add(this.playerOneName);
+		partyList.add(this.playerTwoName);
 
 		partyList.add(this.SpriteSelectedPlayerOne.getIcon());
 		partyList.add(this.SpriteSelectedPlayerTwo.getIcon());
 
-		System.out.println(partyList);
+		logger.info(partyList);
 		application.saveState(partyList);
 	}// GEN-LAST:event_jMenuItem1ActionPerformed
 
-	private void jMenuItem1MouseClicked(java.awt.event.MouseEvent evt)
-	{// GEN-FIRST:event_jMenuItem1MouseClicked
-
-	}// GEN-LAST:event_jMenuItem1MouseClicked
-
-	private void jMenuItem2MouseClicked(java.awt.event.MouseEvent evt)
-	{
-	}
-
-	private void jList1MouseClicked(java.awt.event.MouseEvent evt)
+	/**
+	 * Method jListPlayerOneMouseClicked
+	 * 
+	 * @param evt
+	 */
+	private void jListPlayerOneMouseClicked(java.awt.event.MouseEvent evt)
 	{// GEN-FIRST:event_jList1MouseClicked
 		this.selectButtonSound();
 	}// GEN-LAST:event_jList1MouseClicked
 
-	private void jList2MouseClicked(java.awt.event.MouseEvent evt)
+	/**
+	 * Method jListPlayerTwoMouseClicked
+	 * 
+	 * @param evt
+	 */
+	private void jListPlayerTwoMouseClicked(java.awt.event.MouseEvent evt)
 	{// GEN-FIRST:event_jList2MouseClicked
 		this.selectButtonSound();
 	}// GEN-LAST:event_jList2MouseClicked
 
+	/**
+	 * Method jRadioButtonPlayerOnePhysicalAttackMouseClicked
+	 * 
+	 * @param evt
+	 */
 	private void jRadioButtonPlayerOnePhysicalAttackMouseClicked(java.awt.event.MouseEvent evt)
 	{// GEN-FIRST:event_jRadioButtonPlayerOnePhysicalAttackMouseClicked
 		this.selectButtonSound();
 	}// GEN-LAST:event_jRadioButtonPlayerOnePhysicalAttackMouseClicked
 
+	/**
+	 * Method jRadioButtonPlayerOneSpecialAttackMouseClicked
+	 * 
+	 * @param evt
+	 */
 	private void jRadioButtonPlayerOneSpecialAttackMouseClicked(java.awt.event.MouseEvent evt)
 	{// GEN-FIRST:event_jRadioButtonPlayerOneSpecialAttackMouseClicked
 		this.selectButtonSound();
 	}// GEN-LAST:event_jRadioButtonPlayerOneSpecialAttackMouseClicked
 
+	/**
+	 * Method jRadioButtonPlayerTwoPhysicalAttackMouseClicked
+	 * 
+	 * @param evt
+	 */
 	private void jRadioButtonPlayerTwoPhysicalAttackMouseClicked(java.awt.event.MouseEvent evt)
 	{// GEN-FIRST:event_jRadioButtonPlayerTwoPhysicalAttackMouseClicked
 		this.selectButtonSound();
 	}// GEN-LAST:event_jRadioButtonPlayerTwoPhysicalAttackMouseClicked
 
+	/**
+	 * Method jRadioButtonPlayerTwoSpecialAttackMouseClicked
+	 * 
+	 * @param evt
+	 */
 	private void jRadioButtonPlayerTwoSpecialAttackMouseClicked(java.awt.event.MouseEvent evt)
 	{// GEN-FIRST:event_jRadioButtonPlayerTwoSpecialAttackMouseClicked
 		this.selectButtonSound();
 	}// GEN-LAST:event_jRadioButtonPlayerTwoSpecialAttackMouseClicked
 
-	private void jLabel1MouseEntered(java.awt.event.MouseEvent evt)
+	/**
+	 * Method jLabelPokemonPlayerOneMouseEntered
+	 * 
+	 * @param evt
+	 */
+	private void jLabelPokemonPlayerOneMouseEntered(java.awt.event.MouseEvent evt)
 	{// GEN-FIRST:event_jLabel1MouseEntered
-		this.jLabel1.setToolTipText("Attack: " + this.currentPlayerOnePokemon.getAttack() + " \n" + "SpAttack: "
-				+ this.currentPlayerOnePokemon.getSpAttack() + " \n" + "Defense: "
+		this.jLabelPokemonPlayerOne.setToolTipText("Attack: " + this.currentPlayerOnePokemon.getAttack() + " \n"
+				+ "SpAttack: " + this.currentPlayerOnePokemon.getSpAttack() + " \n" + "Defense: "
 				+ this.currentPlayerOnePokemon.getDefense() + " \n" + "SpDefense: "
 				+ this.currentPlayerOnePokemon.getSpDefense() + " \n");
 	}// GEN-LAST:event_jLabel1MouseEntered
 
-	private void jLabel2MouseEntered(java.awt.event.MouseEvent evt)
+	/**
+	 * Method jLabelPokemonPlayerTwoMouseEntered
+	 * 
+	 * @param evt
+	 */
+	private void jLabelPokemonPlayerTwoMouseEntered(java.awt.event.MouseEvent evt)
 	{// GEN-FIRST:event_jLabel2MouseEntered
-		this.jLabel2.setToolTipText("Attack: " + this.currentPlayerTwoPokemon.getAttack() + " \n" + "SpAttack: "
-				+ this.currentPlayerTwoPokemon.getSpAttack() + " \n" + "Defense: "
+		this.jLabelPokemonPlayerTwo.setToolTipText("Attack: " + this.currentPlayerTwoPokemon.getAttack() + " \n"
+				+ "SpAttack: " + this.currentPlayerTwoPokemon.getSpAttack() + " \n" + "Defense: "
 				+ this.currentPlayerTwoPokemon.getDefense() + " \n" + "SpDefense: "
 				+ this.currentPlayerTwoPokemon.getSpDefense() + " \n");
 	}// GEN-LAST:event_jLabel2MouseEntered
 
-	private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt)
+	/**
+	 * Method jMenuItemLoadStateActionPerformed
+	 * 
+	 * @param evt
+	 */
+	private void jMenuItemLoadStateActionPerformed(java.awt.event.ActionEvent evt)
 	{// GEN-FIRST:event_jMenuItem2ActionPerformed
 
-		System.out.println("CARGAR ESTADO");
+		logger.info("CARGAR ESTADO");
 		Application application = new Application();
 
-		List<Object> partyList = application.loadState();
+		List<Object> partyList=null;
+		try
+		{
+			partyList = application.loadState();
+		}
+		catch (PokemonException exception)
+		{
+			String error = "An error occurred loading state";
+			logger.error(error,exception);
+		}
 
 		if (partyList != null)
 		{
 			this.mainTheme.stop();
 			PlayerVersusPlayer loadedPlayerVersusPlayer = new PlayerVersusPlayer(partyList);
 			loadedPlayerVersusPlayer.setVisible(true);
-			System.out.println(partyList);
+			logger.info(partyList);
 			this.dispose();
 			JOptionPane.showMessageDialog(null, "STATE DATA LOADED!");
 
@@ -697,7 +678,7 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 	 */
 	private void playerOneAttackPhysical()
 	{
-		if (this.listPlayerTwo.size() > 0 && this.listPlayerOne.size() > 0)
+		if ((this.listPlayerTwo.size() > 0) && (this.listPlayerOne.size() > 0))
 		{
 			int position = 0;
 			for (int i = 0; i < this.listPlayerTwo.size(); i++)
@@ -712,65 +693,104 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 			// Caculate the health
 			double health = (this.currentPlayerTwoPokemon.getHealth()
 					+ ((this.currentPlayerOnePokemon.getAttack() * -0.4)
-							+ this.currentPlayerTwoPokemon.getDefense() * 0.1));
+							+ (this.currentPlayerTwoPokemon.getDefense() * 0.1)));
 
 			// Calculating the weakness and the resistances
-			List<String> playerOneWeakness = this.currentPlayerTwoPokemon.getWeaknessTypes();
-			List<String> playerOneResistances = this.currentPlayerTwoPokemon.getResistantTypes();
-
-			if (playerOneWeakness.contains(this.currentPlayerOnePokemon.getType()))
-			{
-				health += (this.currentPlayerTwoPokemon.getMaxHeatlh() * -0.40);
-			}
-			if (playerOneWeakness.contains(this.currentPlayerOnePokemon.getTypeTwo()))
-			{
-				health += (this.currentPlayerTwoPokemon.getMaxHeatlh() * -0.40);
-			}
-
-			if (playerOneResistances.contains(this.currentPlayerOnePokemon.getType()))
-			{
-				health += (this.currentPlayerTwoPokemon.getMaxHeatlh() * +0.05);
-			}
-			if (playerOneResistances.contains(this.currentPlayerOnePokemon.getTypeTwo()))
-			{
-				health += (this.currentPlayerTwoPokemon.getMaxHeatlh() * +0.05);
-			}
+			health = this.playerOneAttackElements(health);
 			// Calculating the weakness and the resistances
 
-			int critical = (int) (Math.random() * 100 + 1);
-			if (critical >= 90)
-			{
-				health += (this.currentPlayerTwoPokemon.getMaxHeatlh() * -0.25);
-				JOptionPane.showMessageDialog(null, this.playerOneName + "Critical hit");
-			}
+			health = this.playerOneAttackCritical(health);
+
 			health = health <= 0 ? 0 : health;
+
 			this.currentPlayerTwoPokemon.setHealth(health);
 			// Setting the current poke with new values
 			this.listPlayerTwo.set(position, this.currentPlayerTwoPokemon);
 
 			// If the poke die, get automaticaly the last poke
-			if (this.currentPlayerTwoPokemon.getHealth() <= 0
-					&& (this.listPlayerTwo.size() > 0 && this.listPlayerOne.size() > 0))
-			{
-				this.listPlayerTwo.remove(position);
-				if (this.listPlayerTwo.size() > 0)
-				{
-					this.currentPlayerTwoPokemon = this.listPlayerTwo.get(this.listPlayerTwo.size() - 1);
-					this.jLabel2.setIcon(new ImageIcon(this.currentPlayerTwoPokemon.getPokeImage()));
-				}
-			}
+			this.playerOneAttackDieNextPokemon(position);
 			// Update the health text and repaint the PlayerVersusPlayer
-			this.jLabel9.setText(this.currentPlayerTwoPokemon.getName());
+			this.jLabeljLabelCurrentPlayerTwoPokemonName.setText(this.currentPlayerTwoPokemon.getName());
 
-			this.jLabel5Player2Health.setText(String.format("%.2f", currentPlayerTwoPokemon.getHealth()));
+			this.jLabelPlayerTwoHealth.setText(String.format("%.2f", this.currentPlayerTwoPokemon.getHealth()));
 			this.repaint();
 		}
 		this.checkEndOfParty();
 	}
 
+	/**
+	 * Method playerOneAttackDieNextPokemon
+	 *
+	 * @param position
+	 */
+	private void playerOneAttackDieNextPokemon(int position)
+	{
+		if ((this.currentPlayerTwoPokemon.getHealth() <= 0)
+				&& ((this.listPlayerTwo.size() > 0) && (this.listPlayerOne.size() > 0)))
+		{
+			this.listPlayerTwo.remove(position);
+			if (this.listPlayerTwo.size() > 0)
+			{
+				this.currentPlayerTwoPokemon = this.listPlayerTwo.get(this.listPlayerTwo.size() - 1);
+				this.jLabelPokemonPlayerTwo.setIcon(new ImageIcon(this.currentPlayerTwoPokemon.getPokeImage()));
+			}
+		}
+	}
+
+	/**
+	 * Method playerOneAttackCritical
+	 *
+	 * @param health
+	 * @return
+	 */
+	private double playerOneAttackCritical(double health)
+	{
+		int critical = (int) ((Math.random() * 100) + 1);
+		if (critical >= 90)
+		{
+			health += (this.currentPlayerTwoPokemon.getMaxHeatlh() * -0.25);
+			JOptionPane.showMessageDialog(null, this.playerOneName + "Critical hit");
+		}
+		return health;
+	}
+
+	/**
+	 * Method playerOneAttackElements
+	 *
+	 * @param health
+	 * @return
+	 */
+	private double playerOneAttackElements(double health)
+	{
+		List<String> playerOneWeakness = this.currentPlayerTwoPokemon.getWeaknessTypes();
+		List<String> playerOneResistances = this.currentPlayerTwoPokemon.getResistantTypes();
+
+		if (playerOneWeakness.contains(this.currentPlayerOnePokemon.getType()))
+		{
+			health += (this.currentPlayerTwoPokemon.getMaxHeatlh() * -0.40);
+		}
+		if (playerOneWeakness.contains(this.currentPlayerOnePokemon.getTypeTwo()))
+		{
+			health += (this.currentPlayerTwoPokemon.getMaxHeatlh() * -0.40);
+		}
+
+		if (playerOneResistances.contains(this.currentPlayerOnePokemon.getType()))
+		{
+			health += (this.currentPlayerTwoPokemon.getMaxHeatlh() * +0.05);
+		}
+		if (playerOneResistances.contains(this.currentPlayerOnePokemon.getTypeTwo()))
+		{
+			health += (this.currentPlayerTwoPokemon.getMaxHeatlh() * +0.05);
+		}
+		return health;
+	}
+
+	/**
+	 * Method playerOneAttackSpecial
+	 */
 	private void playerOneAttackSpecial()
 	{
-		if (this.listPlayerTwo.size() > 0 && this.listPlayerOne.size() > 0)
+		if ((this.listPlayerTwo.size() > 0) && (this.listPlayerOne.size() > 0))
 		{
 			int position = 0;
 			for (int i = 0; i < this.listPlayerTwo.size(); i++)
@@ -785,81 +805,28 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 			// Caculate the health
 			double health = this.currentPlayerTwoPokemon.getHealth()
 					+ ((this.currentPlayerOnePokemon.getSpAttack() * -0.4)
-							+ this.currentPlayerTwoPokemon.getSpDefense() * 0.1);
-			// Calculating the weakness and the resistances
-			List<String> playerOneWeakness = this.currentPlayerTwoPokemon.getWeaknessTypes();
-			List<String> playerOneResistances = this.currentPlayerTwoPokemon.getResistantTypes();
+							+ (this.currentPlayerTwoPokemon.getSpDefense() * 0.1));
+			health = this.playerOneAttackElements(health);
 
-			if (playerOneWeakness.contains(this.currentPlayerOnePokemon.getType()))
-			{
-				health += (this.currentPlayerTwoPokemon.getMaxHeatlh() * -0.40);
-			}
-			if (playerOneWeakness.contains(this.currentPlayerOnePokemon.getTypeTwo()))
-			{
-				health += (this.currentPlayerTwoPokemon.getMaxHeatlh() * -0.40);
-			}
-
-			if (playerOneResistances.contains(this.currentPlayerOnePokemon.getType()))
-			{
-				health += (this.currentPlayerTwoPokemon.getMaxHeatlh() * +0.05);
-			}
-			if (playerOneResistances.contains(this.currentPlayerOnePokemon.getTypeTwo()))
-			{
-				health += (this.currentPlayerTwoPokemon.getMaxHeatlh() * +0.05);
-			}
-			// Calculating the weakness and the resistances
-
-			int critical = (int) (Math.random() * 100 + 1);
-			if (critical >= 90)
-			{
-				health += (this.currentPlayerTwoPokemon.getMaxHeatlh() * -0.25);
-				JOptionPane.showMessageDialog(null, this.playerOneName + "Critical hit");
-			}
+			health = this.playerOneAttackCritical(health);
 			health = health <= 0 ? 0 : health;
+
 			this.currentPlayerTwoPokemon.setHealth(health);
 			// Setting the current poke with new values
 			this.listPlayerTwo.set(position, this.currentPlayerTwoPokemon);
 
-			// If the poke die, get automaticaly the last poke
-			if (this.currentPlayerTwoPokemon.getHealth() <= 0
-					&& (this.listPlayerTwo.size() > 0 && this.listPlayerOne.size() > 0))
-			{
-				this.listPlayerTwo.remove(position);
-				if (this.listPlayerTwo.size() > 0)
-				{
-					this.currentPlayerTwoPokemon = this.listPlayerTwo.get(this.listPlayerTwo.size() - 1);
-
-					this.jLabel2.setIcon(new ImageIcon(this.currentPlayerTwoPokemon.getPokeImage()));
-				}
-			}
+			this.playerOneAttackDieNextPokemon(position);
 			// Update the health text and repaint the PlayerVersusPlayer
-			this.jLabel9.setText(this.currentPlayerTwoPokemon.getName());
+			this.jLabeljLabelCurrentPlayerTwoPokemonName.setText(this.currentPlayerTwoPokemon.getName());
 
-			this.jLabel5Player2Health.setText(String.format("%.2f", currentPlayerTwoPokemon.getHealth()));
+			this.jLabelPlayerTwoHealth.setText(String.format("%.2f", this.currentPlayerTwoPokemon.getHealth()));
 			this.repaint();
 		}
 		this.checkEndOfParty();
 	}
 
-	private void jButtonREADYActionPerformed(java.awt.event.ActionEvent evt)
-	{// GEN-FIRST:event_jButtonREADYActionPerformed
-		// TODO add your handling code here:
-	}// GEN-LAST:event_jButtonREADYActionPerformed
-
-	private void jRadioButtonPlayerOneSpecialAttackActionPerformed(java.awt.event.ActionEvent evt)
-	{// GEN-FIRST:event_jRadioButtonPlayerOneSpecialAttackActionPerformed
-		// TODO add your handling code here:
-	}// GEN-LAST:event_jRadioButtonPlayerOneSpecialAttackActionPerformed
-
-	private void jButtonREADYMouseClicked(java.awt.event.MouseEvent evt)
+	private void jButtonReadyMouseClicked(java.awt.event.MouseEvent evt)
 	{// GEN-FIRST:event_jButtonREADYMouseClicked
-
-		int randomNumber = (int) (Math.random() * 10 + 1);
-
-		// this.launchPokemonPlayerOneAnimation();
-
-		// this.launchPokemonPlayerTwoAnimation();
-
 		this.selectButtonSound();
 
 		Pokemon temporalAttackPlayerOnePoke = this.currentPlayerOnePokemon;
@@ -867,152 +834,141 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 
 		if (this.currentPlayerOnePokemon.getSpeed() == this.currentPlayerTwoPokemon.getSpeed())
 		{
-			if (randomNumber < 5)
-			{
-				this.launchPokemonPlayerOneAnimation();
-				System.out.println("ATACA EL JUGADOR 1 PRIMERO");
-
-				if (this.currentPlayerOnePokemon.getHealth() > 0)
-				{
-					if (this.jRadioButtonPlayerOnePhysicalAttack.isSelected())
-					{
-						this.playerOneAttackPhysical();
-					}
-					else if (this.jRadioButtonPlayerOneSpecialAttack.isSelected())
-					{
-						this.playerOneAttackSpecial();
-					}
-				}
-
-				this.launchPokemonPlayerTwoAnimation();
-				System.out.println("ATACA EL JUGADOR 2 SEGUNDO");
-
-				if (this.listPlayerTwo.size() > 0
-						&& this.currentPlayerTwoPokemon.getName().equals(temporalAttackPlayerTwoPoke.getName()))
-				{
-					if (this.jRadioButtonPlayerTwoPhysicalAttack.isSelected())
-					{
-						this.playerTwoAttackPhysical();
-					}
-					else if (this.jRadioButtonPlayerTwoSpecialAttack.isSelected())
-					{
-						this.playerTwoAttackSpecial();
-					}
-				}
-			}
-			else
-			{
-				this.launchPokemonPlayerTwoAnimation();
-				System.out.println("ATACA EL JUGADOR 2 PRIMERO");
-
-				if (this.currentPlayerTwoPokemon.getHealth() > 0)
-				{
-					if (this.jRadioButtonPlayerTwoPhysicalAttack.isSelected())
-					{
-						this.playerTwoAttackPhysical();
-					}
-					else if (this.jRadioButtonPlayerTwoSpecialAttack.isSelected())
-					{
-						this.playerTwoAttackSpecial();
-					}
-				}
-				this.launchPokemonPlayerOneAnimation();
-				System.out.println("ATACA EL JUGADOR 1 SEGUNDO");
-
-				if (this.listPlayerOne.size() > 0
-						&& this.currentPlayerOnePokemon.getName().equals(temporalAttackPlayerOnePoke.getName()))
-				{
-					if (this.jRadioButtonPlayerOnePhysicalAttack.isSelected())
-					{
-						this.playerOneAttackPhysical();
-					}
-					else if (this.jRadioButtonPlayerOneSpecialAttack.isSelected())
-					{
-						this.playerOneAttackSpecial();
-					}
-				}
-			}
-
-			this.repaint();
+			this.equalSpeedAttackTurns(temporalAttackPlayerOnePoke, temporalAttackPlayerTwoPoke);
 		}
 		else if (this.currentPlayerOnePokemon.getSpeed() > this.currentPlayerTwoPokemon.getSpeed())
 		{
-			this.launchPokemonPlayerOneAnimation();
-			System.out.println("ATACA EL JUGADOR 1 PRIMERO");
-
-			if (this.currentPlayerOnePokemon.getHealth() > 0)
-			{
-				if (this.jRadioButtonPlayerOnePhysicalAttack.isSelected())
-				{
-					this.playerOneAttackPhysical();
-				}
-				else if (this.jRadioButtonPlayerOneSpecialAttack.isSelected())
-				{
-					this.playerOneAttackSpecial();
-				}
-			}
-
-			this.launchPokemonPlayerTwoAnimation();
-			System.out.println("ATACA EL JUGADOR 2 SEGUNDO");
-
-			if (this.listPlayerTwo.size() > 0
-					&& this.currentPlayerTwoPokemon.getName().equals(temporalAttackPlayerTwoPoke.getName()))
-			{
-				if (this.jRadioButtonPlayerTwoPhysicalAttack.isSelected())
-				{
-					this.playerTwoAttackPhysical();
-				}
-				else if (this.jRadioButtonPlayerTwoSpecialAttack.isSelected())
-				{
-					this.playerTwoAttackSpecial();
-				}
-			}
+			this.playerOneMoreSpeedTurn(temporalAttackPlayerTwoPoke);
 		}
 		else if (this.currentPlayerOnePokemon.getSpeed() < this.currentPlayerTwoPokemon.getSpeed())
 		{
-			this.launchPokemonPlayerTwoAnimation();
-			System.out.println("ATACA EL JUGADOR 2 PRIMERO");
-
-			if (this.currentPlayerTwoPokemon.getHealth() > 0)
-			{
-				if (this.jRadioButtonPlayerTwoPhysicalAttack.isSelected())
-				{
-					this.playerTwoAttackPhysical();
-				}
-				else if (this.jRadioButtonPlayerTwoSpecialAttack.isSelected())
-				{
-					this.playerTwoAttackSpecial();
-				}
-			}
-
-			this.launchPokemonPlayerOneAnimation();
-			System.out.println("ATACA EL JUGADOR 1 SEGUNDO");
-
-			if (this.listPlayerOne.size() > 0
-					&& this.currentPlayerOnePokemon.getName().equals(temporalAttackPlayerOnePoke.getName()))
-			{
-				if (this.jRadioButtonPlayerOnePhysicalAttack.isSelected())
-				{
-					this.playerOneAttackPhysical();
-				}
-				else if (this.jRadioButtonPlayerOneSpecialAttack.isSelected())
-				{
-					this.playerOneAttackSpecial();
-				}
-			}
+			this.playerTwoMoreSpeedTurn(temporalAttackPlayerOnePoke);
 		}
-		this.jProgressBar1.setValue(
-				(int) ((this.currentPlayerOnePokemon.getHealth() * 100) / this.currentPlayerOnePokemon.getMaxHeatlh()));
-		this.jProgressBar2.setValue(
-				(int) ((this.currentPlayerTwoPokemon.getHealth() * 100) / this.currentPlayerTwoPokemon.getMaxHeatlh()));
 
-		if (this.listPlayerOne.size() <= 0 || this.listPlayerTwo.size() <= 0)
+		this.updateProgressBars();
+
+		if ((this.listPlayerOne.size() <= 0) || (this.listPlayerTwo.size() <= 0))
 		{
 			this.readyButtonEndPosition();
 		}
 
 	}// GEN-LAST:event_jButtonREADYMouseClicked
 
+	/**
+	 * Method updateProgressBars
+	 */
+	private void updateProgressBars()
+	{
+		this.jProgressBarPlayerOne.setValue(
+				(int) ((this.currentPlayerOnePokemon.getHealth() * 100) / this.currentPlayerOnePokemon.getMaxHeatlh()));
+		this.jProgressBarPlayerTwo.setValue(
+				(int) ((this.currentPlayerTwoPokemon.getHealth() * 100) / this.currentPlayerTwoPokemon.getMaxHeatlh()));
+	}
+
+	/**
+	 * Method playerTwoMoreSpeedTurn
+	 *
+	 * @param temporalAttackPlayerOnePoke
+	 */
+	private void playerTwoMoreSpeedTurn(Pokemon temporalAttackPlayerOnePoke)
+	{
+		this.launchPokemonPlayerTwoAnimation();
+		logger.info("ATACA EL JUGADOR 2 PRIMERO");
+
+		if (this.currentPlayerTwoPokemon.getHealth() > 0)
+		{
+			if (this.jRadioButtonPlayerTwoPhysicalAttack.isSelected())
+			{
+				this.playerTwoAttackPhysical();
+			}
+			else if (this.jRadioButtonPlayerTwoSpecialAttack.isSelected())
+			{
+				this.playerTwoAttackSpecial();
+			}
+		}
+
+		this.launchPokemonPlayerOneAnimation();
+		logger.info("ATACA EL JUGADOR 1 SEGUNDO");
+
+		if ((this.listPlayerOne.size() > 0)
+				&& this.currentPlayerOnePokemon.getName().equals(temporalAttackPlayerOnePoke.getName()))
+		{
+			if (this.jRadioButtonPlayerOnePhysicalAttack.isSelected())
+			{
+				this.playerOneAttackPhysical();
+			}
+			else if (this.jRadioButtonPlayerOneSpecialAttack.isSelected())
+			{
+				this.playerOneAttackSpecial();
+			}
+		}
+	}
+
+	/**
+	 * Method playerOneMoreSpeedTurn
+	 *
+	 * @param temporalAttackPlayerTwoPoke
+	 */
+	private void playerOneMoreSpeedTurn(Pokemon temporalAttackPlayerTwoPoke)
+	{
+		this.launchPokemonPlayerOneAnimation();
+		logger.info("ATACA EL JUGADOR 1 PRIMERO");
+
+		if (this.currentPlayerOnePokemon.getHealth() > 0)
+		{
+			if (this.jRadioButtonPlayerOnePhysicalAttack.isSelected())
+			{
+				this.playerOneAttackPhysical();
+			}
+			else if (this.jRadioButtonPlayerOneSpecialAttack.isSelected())
+			{
+				this.playerOneAttackSpecial();
+			}
+		}
+
+		this.launchPokemonPlayerTwoAnimation();
+		logger.info("ATACA EL JUGADOR 2 SEGUNDO");
+
+		if ((this.listPlayerTwo.size() > 0)
+				&& this.currentPlayerTwoPokemon.getName().equals(temporalAttackPlayerTwoPoke.getName()))
+		{
+			if (this.jRadioButtonPlayerTwoPhysicalAttack.isSelected())
+			{
+				this.playerTwoAttackPhysical();
+			}
+			else if (this.jRadioButtonPlayerTwoSpecialAttack.isSelected())
+			{
+				this.playerTwoAttackSpecial();
+			}
+		}
+	}
+
+	/**
+	 * Method equalSpeedAttackTurns
+	 *
+	 * @param temporalAttackPlayerOnePoke
+	 * @param temporalAttackPlayerTwoPoke
+	 */
+	private void equalSpeedAttackTurns(Pokemon temporalAttackPlayerOnePoke, Pokemon temporalAttackPlayerTwoPoke)
+	{
+		int randomNumber = (int) ((Math.random() * 10) + 1);
+		if (randomNumber < 5)
+		{
+			this.playerOneMoreSpeedTurn(temporalAttackPlayerTwoPoke);
+		}
+		else
+		{
+			this.playerTwoMoreSpeedTurn(temporalAttackPlayerOnePoke);
+		}
+
+		this.repaint();
+	}
+
+	/**
+	 * Method startBattleTheme
+	 *
+	 * @return
+	 */
 	private Clip startBattleTheme()
 	{
 		Clip clip = null;
@@ -1042,6 +998,9 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 		return clip;
 	}
 
+	/**
+	 * Method readyButtonEndPosition
+	 */
 	private void readyButtonEndPosition()
 	{
 		Thread buttonReadyEndPosition = new Thread(new Runnable()
@@ -1051,7 +1010,7 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 			{
 				while (true)
 				{
-					jButtonREADY.setLocation(-1000000000, -1000000000);
+					PlayerVersusPlayer.this.jButtonReady.setLocation(-1000000000, -1000000000);
 				}
 			}
 		});
@@ -1068,40 +1027,44 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 			@Override
 			public void run()
 			{
-				Point readyButtonLocation = jButtonREADY.getLocation();
+				Point readyButtonLocation = PlayerVersusPlayer.this.jButtonReady.getLocation();
 
-				String initialText = jLabel9.getText();
-				jLabel2.setText("");
-				int startPosition = jLabel2.getX();
+				String initialText = PlayerVersusPlayer.this.jLabeljLabelCurrentPlayerTwoPokemonName.getText();
+				PlayerVersusPlayer.this.jLabelPokemonPlayerTwo.setText("");
+				int startPosition = PlayerVersusPlayer.this.jLabelPokemonPlayerTwo.getX();
 				int speed = -1;
 				for (int i = 0; i < 300; i++)
 				{
-					jButtonREADY.setLocation(1000000000, 1000000000);
-					jLabel3.setVisible(false);
-					jLabel2.setLocation(jLabel2.getX() + speed, jLabel2.getY());
+					PlayerVersusPlayer.this.jButtonReady.setLocation(1000000000, 1000000000);
+					PlayerVersusPlayer.this.jLabelVersus.setVisible(false);
+					PlayerVersusPlayer.this.jLabelPokemonPlayerTwo.setLocation(
+							PlayerVersusPlayer.this.jLabelPokemonPlayerTwo.getX() + speed,
+							PlayerVersusPlayer.this.jLabelPokemonPlayerTwo.getY());
 					try
 					{
 						Thread.sleep(2);
 					}
-					catch (InterruptedException ex)
+					catch (InterruptedException exception)
 					{
 						// Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null,
-						// ex);
+						// exception);
 					}
 				}
 				try
 				{
 					Thread.sleep(500);
 				}
-				catch (InterruptedException ex)
+				catch (InterruptedException exception)
 				{
-					Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null, ex);
+					String error = "InterruptedException";
+					logger.error(error,exception);
 				}
-				jLabel2.setLocation(startPosition, jLabel2.getY());
-				jLabel2.setText("");
+				PlayerVersusPlayer.this.jLabelPokemonPlayerTwo.setLocation(startPosition,
+						PlayerVersusPlayer.this.jLabelPokemonPlayerTwo.getY());
+				PlayerVersusPlayer.this.jLabelPokemonPlayerTwo.setText("");
 
-				jButtonREADY.setLocation(readyButtonLocation);
-				jLabel3.setVisible(true);
+				PlayerVersusPlayer.this.jButtonReady.setLocation(readyButtonLocation);
+				PlayerVersusPlayer.this.jLabelVersus.setVisible(true);
 			}
 		});
 		animationTwo.start();
@@ -1119,50 +1082,54 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 			public void run()
 			{
 
-				int startPosition = jLabel1.getX();
+				int startPosition = PlayerVersusPlayer.this.jLabelPokemonPlayerOne.getX();
 				int speed = 1;
 				for (int i = 0; i < 300; i++)
 				{
 
-					jLabel3.setVisible(false);
-					jLabel1.setLocation(jLabel1.getX() + speed, jLabel1.getY());
+					PlayerVersusPlayer.this.jLabelVersus.setVisible(false);
+					PlayerVersusPlayer.this.jLabelPokemonPlayerOne.setLocation(
+							PlayerVersusPlayer.this.jLabelPokemonPlayerOne.getX() + speed,
+							PlayerVersusPlayer.this.jLabelPokemonPlayerOne.getY());
 					try
 					{
 						Thread.sleep(2);
 					}
-					catch (InterruptedException ex)
+					catch (InterruptedException exception)
 					{
 						// Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null,
-						// ex);
+						// exception);
 					}
 				}
 				try
 				{
 					Thread.sleep(500);
 				}
-				catch (InterruptedException ex)
+				catch (InterruptedException exception)
 				{
-					Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null, ex);
+					String error = "InterruptedException";
+					logger.error(error,exception);
 				}
-				jLabel1.setLocation(startPosition, jLabel1.getY());
+				PlayerVersusPlayer.this.jLabelPokemonPlayerOne.setLocation(startPosition,
+						PlayerVersusPlayer.this.jLabelPokemonPlayerOne.getY());
 
-				jLabel3.setVisible(true);
+				PlayerVersusPlayer.this.jLabelVersus.setVisible(true);
 			}
 		});
 		animation.start();
 		animation.interrupt();
 	}
 
-	private void jButtonChangePokemonPlayerOneActionPerformed(java.awt.event.ActionEvent evt)
-	{// GEN-FIRST:event_jButtonChangePokemonPlayerOneActionPerformed
-		// TODO add your handling code here:
-	}// GEN-LAST:event_jButtonChangePokemonPlayerOneActionPerformed
-
+	/**
+	 * Method jButtonChangePokemonPlayerOneMouseClicked
+	 * 
+	 * @param evt
+	 */
 	private void jButtonChangePokemonPlayerOneMouseClicked(java.awt.event.MouseEvent evt)
 	{// GEN-FIRST:event_jButtonChangePokemonPlayerOneMouseClicked
 		this.selectButtonSound();
 		this.changeSelectedCurrentPlayerOnePokemon();
-		this.jProgressBar1.setValue(
+		this.jProgressBarPlayerOne.setValue(
 				(int) ((this.currentPlayerOnePokemon.getHealth() * 100) / this.currentPlayerOnePokemon.getMaxHeatlh()));
 	}// GEN-LAST:event_jButtonChangePokemonPlayerOneMouseClicked
 
@@ -1171,7 +1138,7 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 	 */
 	private void changeSelectedCurrentPlayerOnePokemon()
 	{
-		Pokemon selectedPokemon = this.jList1.getSelectedValue();
+		Pokemon selectedPokemon = this.jListPlayerOne.getSelectedValue();
 		if (this.playerOneChanges > 0)
 		{
 			this.playerOneChanges -= 1;
@@ -1180,9 +1147,9 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 			{
 				this.currentPlayerOnePokemon = selectedPokemon;
 				this.iconPlayer1 = new ImageIcon(this.currentPlayerOnePokemon.getPokeImage());
-				this.jLabel6.setText(this.currentPlayerOnePokemon.getName());
-				this.jLabel1.setIcon(this.iconPlayer1);
-				this.jLabel4Player1Health.setText(String.format("%.2f", currentPlayerOnePokemon.getHealth()));
+				this.jLabelCurrentPlayerOnePokemonName.setText(this.currentPlayerOnePokemon.getName());
+				this.jLabelPokemonPlayerOne.setIcon(this.iconPlayer1);
+				this.jLabelPlayerOneHealth.setText(String.format("%.2f", this.currentPlayerOnePokemon.getHealth()));
 
 			}
 		}
@@ -1190,11 +1157,16 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 
 	}
 
+	/**
+	 * Method jButtonChangePokemonPlayerTwoMouseClicked
+	 * 
+	 * @param evt
+	 */
 	private void jButtonChangePokemonPlayerTwoMouseClicked(java.awt.event.MouseEvent evt)
 	{// GEN-FIRST:event_jButtonChangePokemonPlayerTwoMouseClicked
 		this.selectButtonSound();
 		this.changeSelectedCurrentPlayerTwoPokemon();
-		this.jProgressBar2.setValue(
+		this.jProgressBarPlayerTwo.setValue(
 				(int) ((this.currentPlayerTwoPokemon.getHealth() * 100) / this.currentPlayerTwoPokemon.getMaxHeatlh()));
 	}// GEN-LAST:event_jButtonChangePokemonPlayerTwoMouseClicked
 
@@ -1204,7 +1176,7 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 	private void changeSelectedCurrentPlayerTwoPokemon()
 	{
 
-		Pokemon selectedPokemon = this.jList2.getSelectedValue();
+		Pokemon selectedPokemon = this.jListPlayerTwo.getSelectedValue();
 		if (this.playerTwoChanges > 0)
 		{
 			this.playerTwoChanges -= 1;
@@ -1213,9 +1185,9 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 			{
 				this.currentPlayerTwoPokemon = selectedPokemon;
 				this.iconPlayer2 = new ImageIcon(this.currentPlayerTwoPokemon.getPokeImage());
-				this.jLabel9.setText(this.currentPlayerTwoPokemon.getName());
-				this.jLabel2.setIcon(this.iconPlayer2);
-				this.jLabel5Player2Health.setText(String.format("%.2f", currentPlayerTwoPokemon.getHealth()));
+				this.jLabeljLabelCurrentPlayerTwoPokemonName.setText(this.currentPlayerTwoPokemon.getName());
+				this.jLabelPokemonPlayerTwo.setIcon(this.iconPlayer2);
+				this.jLabelPlayerTwoHealth.setText(String.format("%.2f", this.currentPlayerTwoPokemon.getHealth()));
 
 			}
 		}
@@ -1227,7 +1199,7 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 	 */
 	private void playerTwoAttackSpecial()
 	{
-		if (this.listPlayerTwo.size() > 0 && this.listPlayerOne.size() > 0)
+		if ((this.listPlayerTwo.size() > 0) && (this.listPlayerOne.size() > 0))
 		{
 			int position = 0;
 			for (int i = 0; i < this.listPlayerOne.size(); i++)
@@ -1241,66 +1213,42 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 
 			double health = (this.currentPlayerOnePokemon.getHealth()
 					+ ((this.currentPlayerTwoPokemon.getSpAttack() * -0.4)
-							+ this.currentPlayerOnePokemon.getSpDefense() * 0.1));
+							+ (this.currentPlayerOnePokemon.getSpDefense() * 0.1)));
 
-			// Calculating the weakness and the resistances
-			List<String> playerOneWeakness = this.currentPlayerOnePokemon.getWeaknessTypes();
-			List<String> playerOneResistances = this.currentPlayerOnePokemon.getResistantTypes();
+			health = this.playerTwoAttackElements(health);
 
-			if (playerOneWeakness.contains(this.currentPlayerTwoPokemon.getType()))
-			{
-				health += (this.currentPlayerOnePokemon.getMaxHeatlh() * -0.40);
-			}
-			if (playerOneWeakness.contains(this.currentPlayerTwoPokemon.getTypeTwo()))
-			{
-				health += (this.currentPlayerOnePokemon.getMaxHeatlh() * -0.40);
-			}
-
-			if (playerOneResistances.contains(this.currentPlayerTwoPokemon.getType()))
-			{
-				health += (this.currentPlayerOnePokemon.getMaxHeatlh() * +0.05);
-			}
-			if (playerOneResistances.contains(this.currentPlayerTwoPokemon.getTypeTwo()))
-			{
-				health += (this.currentPlayerOnePokemon.getMaxHeatlh() * +0.05);
-			}
-			// Calculating the weakness and the resistances
-
-			int critical = (int) (Math.random() * 100 + 1);
-			if (critical >= 90)
-			{
-				health += (this.currentPlayerOnePokemon.getMaxHeatlh() * -0.25);
-				JOptionPane.showMessageDialog(null, this.playerTwoName + "Critical hit");
-			}
+			health = this.playerTwoAttackCritial(health);
 			health = health <= 0 ? 0 : health;
 			this.currentPlayerOnePokemon.setHealth(health);
 			this.listPlayerOne.set(position, this.currentPlayerOnePokemon);
 
-			if (this.currentPlayerOnePokemon.getHealth() <= 0
-					&& (this.listPlayerTwo.size() > 0 && this.listPlayerOne.size() > 0))
+			if ((this.currentPlayerOnePokemon.getHealth() <= 0)
+					&& ((this.listPlayerTwo.size() > 0) && (this.listPlayerOne.size() > 0)))
 			{
 				this.listPlayerOne.remove(position);
 				if (this.listPlayerOne.size() > 0)
 				{
 					this.currentPlayerOnePokemon = this.listPlayerOne.get(this.listPlayerOne.size() - 1);
-					this.jLabel1.setIcon(new ImageIcon(this.currentPlayerOnePokemon.getPokeImage()));
+					this.jLabelPokemonPlayerOne.setIcon(new ImageIcon(this.currentPlayerOnePokemon.getPokeImage()));
 				}
 			}
-			this.jLabel6.setText(this.currentPlayerOnePokemon.getName());
-			this.jLabel4Player1Health.setText(String.format("%.2f", currentPlayerOnePokemon.getHealth()));
+			this.jLabelCurrentPlayerOnePokemonName.setText(this.currentPlayerOnePokemon.getName());
+			this.jLabelPlayerOneHealth.setText(String.format("%.2f", this.currentPlayerOnePokemon.getHealth()));
 			this.repaint();
 		}
 		this.checkEndOfParty();
 	}
 
+	/**
+	 * Method checkEndOfParty
+	 * 
+	 * @throws HeadlessException
+	 */
 	private void checkEndOfParty() throws HeadlessException
 	{
 		if (this.listPlayerOne.size() <= 0)
 		{
-			this.jProgressBar1.setValue((int) ((this.currentPlayerOnePokemon.getHealth() * 100)
-					/ this.currentPlayerOnePokemon.getMaxHeatlh()));
-			this.jProgressBar2.setValue((int) ((this.currentPlayerTwoPokemon.getHealth() * 100)
-					/ this.currentPlayerTwoPokemon.getMaxHeatlh()));
+			this.updateProgressBars();
 			JOptionPane.showMessageDialog(null, "" + this.playerTwoName + " is the Winner!");
 			EndOfParty endOfParty = new EndOfParty(this.playerTwoName + " won the Game",
 					this.SpriteSelectedPlayerTwo.getIcon());
@@ -1310,10 +1258,7 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 		}
 		else if (this.listPlayerTwo.size() <= 0)
 		{
-			this.jProgressBar1.setValue((int) ((this.currentPlayerOnePokemon.getHealth() * 100)
-					/ this.currentPlayerOnePokemon.getMaxHeatlh()));
-			this.jProgressBar2.setValue((int) ((this.currentPlayerTwoPokemon.getHealth() * 100)
-					/ this.currentPlayerTwoPokemon.getMaxHeatlh()));
+			this.updateProgressBars();
 			JOptionPane.showMessageDialog(null, "" + this.playerOneName + " is the Winner!");
 			EndOfParty endOfParty = new EndOfParty(this.playerOneName + " won the Game",
 					this.SpriteSelectedPlayerOne.getIcon());
@@ -1323,10 +1268,13 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 		}
 	}
 
+	/**
+	 * Method playerTwoAttackPhysical
+	 */
 	private void playerTwoAttackPhysical()
 	{
 
-		if (this.listPlayerTwo.size() > 0 && this.listPlayerOne.size() > 0)
+		if ((this.listPlayerTwo.size() > 0) && (this.listPlayerOne.size() > 0))
 		{
 			int position = 0;
 			for (int i = 0; i < this.listPlayerOne.size(); i++)
@@ -1340,60 +1288,87 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 
 			double health = (this.currentPlayerOnePokemon.getHealth()
 					+ ((this.currentPlayerTwoPokemon.getAttack() * -0.4)
-							+ this.currentPlayerOnePokemon.getDefense() * 0.1));
+							+ (this.currentPlayerOnePokemon.getDefense() * 0.1)));
 
 			// Calculating the weakness and the resistances
-			List<String> playerOneWeakness = this.currentPlayerOnePokemon.getWeaknessTypes();
-			List<String> playerOneResistances = this.currentPlayerOnePokemon.getResistantTypes();
-
-			if (playerOneWeakness.contains(this.currentPlayerTwoPokemon.getType()))
-			{
-				health += (this.currentPlayerOnePokemon.getMaxHeatlh() * -0.40);
-			}
-			if (playerOneWeakness.contains(this.currentPlayerTwoPokemon.getTypeTwo()))
-			{
-				health += (this.currentPlayerOnePokemon.getMaxHeatlh() * -0.40);
-			}
-
-			if (playerOneResistances.contains(this.currentPlayerTwoPokemon.getType()))
-			{
-				health += (this.currentPlayerOnePokemon.getMaxHeatlh() * +0.05);
-			}
-			if (playerOneResistances.contains(this.currentPlayerTwoPokemon.getTypeTwo()))
-			{
-				health += (this.currentPlayerOnePokemon.getMaxHeatlh() * +0.05);
-			}
+			health = this.playerTwoAttackElements(health);
 			// Calculating the weakness and the resistances
 
-			int critical = (int) (Math.random() * 100 + 1);
-			if (critical >= 90)
-			{
-				health += (this.currentPlayerOnePokemon.getMaxHeatlh() * -0.25);
-				JOptionPane.showMessageDialog(null, this.playerTwoName + "Critical hit");
-			}
+			health = this.playerTwoAttackCritial(health);
 
 			health = health <= 0 ? 0 : health;
 
 			this.currentPlayerOnePokemon.setHealth(health);
 			this.listPlayerOne.set(position, this.currentPlayerOnePokemon);
 
-			if (this.currentPlayerOnePokemon.getHealth() <= 0
-					&& (this.listPlayerTwo.size() > 0 && this.listPlayerOne.size() > 0))
+			if ((this.currentPlayerOnePokemon.getHealth() <= 0)
+					&& ((this.listPlayerTwo.size() > 0) && (this.listPlayerOne.size() > 0)))
 			{
 				this.listPlayerOne.remove(position);
 				if (this.listPlayerOne.size() > 0)
 				{
 					this.currentPlayerOnePokemon = this.listPlayerOne.get(this.listPlayerOne.size() - 1);
-					this.jLabel1.setIcon(new ImageIcon(this.currentPlayerOnePokemon.getPokeImage()));
+					this.jLabelPokemonPlayerOne.setIcon(new ImageIcon(this.currentPlayerOnePokemon.getPokeImage()));
 				}
 			}
-			this.jLabel6.setText(this.currentPlayerOnePokemon.getName());
-			this.jLabel4Player1Health.setText(String.format("%.2f", currentPlayerOnePokemon.getHealth()));
+			this.jLabelCurrentPlayerOnePokemonName.setText(this.currentPlayerOnePokemon.getName());
+			this.jLabelPlayerOneHealth.setText(String.format("%.2f", this.currentPlayerOnePokemon.getHealth()));
 			this.repaint();
 		}
 		this.checkEndOfParty();
 	}
 
+	/**
+	 * Method playerTwoAttackCritial
+	 *
+	 * @param health
+	 * @return
+	 */
+	private double playerTwoAttackCritial(double health)
+	{
+		int critical = (int) ((Math.random() * 100) + 1);
+		if (critical >= 90)
+		{
+			health += (this.currentPlayerOnePokemon.getMaxHeatlh() * -0.25);
+			JOptionPane.showMessageDialog(null, this.playerTwoName + "Critical hit");
+		}
+		return health;
+	}
+
+	/**
+	 * Method playerTwoAttackElements
+	 *
+	 * @param health
+	 * @return
+	 */
+	private double playerTwoAttackElements(double health)
+	{
+		List<String> playerOneWeakness = this.currentPlayerOnePokemon.getWeaknessTypes();
+		List<String> playerOneResistances = this.currentPlayerOnePokemon.getResistantTypes();
+
+		if (playerOneWeakness.contains(this.currentPlayerTwoPokemon.getType()))
+		{
+			health += (this.currentPlayerOnePokemon.getMaxHeatlh() * -0.40);
+		}
+		if (playerOneWeakness.contains(this.currentPlayerTwoPokemon.getTypeTwo()))
+		{
+			health += (this.currentPlayerOnePokemon.getMaxHeatlh() * -0.40);
+		}
+
+		if (playerOneResistances.contains(this.currentPlayerTwoPokemon.getType()))
+		{
+			health += (this.currentPlayerOnePokemon.getMaxHeatlh() * +0.05);
+		}
+		if (playerOneResistances.contains(this.currentPlayerTwoPokemon.getTypeTwo()))
+		{
+			health += (this.currentPlayerOnePokemon.getMaxHeatlh() * +0.05);
+		}
+		return health;
+	}
+
+	/**
+	 * Method rotatePokeballThread
+	 */
 	private void rotatePokeballThread()
 	{
 		Thread rotatePokebal = new Thread(new Runnable()
@@ -1407,27 +1382,33 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 					for (int i = 0; i < 40; i++)
 					{
 
-						jLabelPokeball.setLocation(jLabelPokeball.getX(), jLabelPokeball.getY() + speed);
+						PlayerVersusPlayer.this.jLabelPokeball.setLocation(
+								PlayerVersusPlayer.this.jLabelPokeball.getX(),
+								PlayerVersusPlayer.this.jLabelPokeball.getY() + speed);
 						try
 						{
 							Thread.sleep(15);
 						}
-						catch (InterruptedException ex)
+						catch (InterruptedException exception)
 						{
-							Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null, ex);
+							String error = "InterruptedException";
+							logger.error(error,exception);
 						}
 					}
 					for (int i = 0; i < 40; i++)
 					{
 
-						jLabelPokeball.setLocation(jLabelPokeball.getX(), jLabelPokeball.getY() + (speed * -1));
+						PlayerVersusPlayer.this.jLabelPokeball.setLocation(
+								PlayerVersusPlayer.this.jLabelPokeball.getX(),
+								PlayerVersusPlayer.this.jLabelPokeball.getY() + (speed * -1));
 						try
 						{
 							Thread.sleep(15);
 						}
-						catch (InterruptedException ex)
+						catch (InterruptedException exception)
 						{
-							Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null, ex);
+							String error = "InterruptedException";
+							logger.error(error,exception);
 						}
 					}
 				}
@@ -1436,6 +1417,9 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 		rotatePokebal.start();
 	}
 
+	/**
+	 * Method jumpPlayerOneAnimationThread
+	 */
 	private void jumpPlayerOneAnimationThread()
 	{
 		Thread jumpThread = new Thread(new Runnable()
@@ -1449,27 +1433,33 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 					for (int i = 0; i < 10; i++)
 					{
 
-						jLabel1.setLocation(jLabel1.getX(), jLabel1.getY() + speed);
+						PlayerVersusPlayer.this.jLabelPokemonPlayerOne.setLocation(
+								PlayerVersusPlayer.this.jLabelPokemonPlayerOne.getX(),
+								PlayerVersusPlayer.this.jLabelPokemonPlayerOne.getY() + speed);
 						try
 						{
 							Thread.sleep(100);
 						}
-						catch (InterruptedException ex)
+						catch (InterruptedException exception)
 						{
-							Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null, ex);
+							String error = "InterruptedException";
+							logger.error(error,exception);
 						}
 					}
 					for (int i = 0; i < 10; i++)
 					{
 
-						jLabel1.setLocation(jLabel1.getX(), jLabel1.getY() + (speed * -1));
+						PlayerVersusPlayer.this.jLabelPokemonPlayerOne.setLocation(
+								PlayerVersusPlayer.this.jLabelPokemonPlayerOne.getX(),
+								PlayerVersusPlayer.this.jLabelPokemonPlayerOne.getY() + (speed * -1));
 						try
 						{
 							Thread.sleep(100);
 						}
-						catch (InterruptedException ex)
+						catch (InterruptedException exception)
 						{
-							Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null, ex);
+							String error = "InterruptedException";
+							logger.error(error,exception);
 						}
 					}
 				}
@@ -1478,6 +1468,9 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 		jumpThread.start();
 	}
 
+	/**
+	 * Method jumpPlayerTwoAnimationThread
+	 */
 	private void jumpPlayerTwoAnimationThread()
 	{
 		Thread jumpThread = new Thread(new Runnable()
@@ -1491,27 +1484,33 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 					for (int i = 0; i < 10; i++)
 					{
 
-						jLabel2.setLocation(jLabel2.getX(), jLabel2.getY() + speed);
+						PlayerVersusPlayer.this.jLabelPokemonPlayerTwo.setLocation(
+								PlayerVersusPlayer.this.jLabelPokemonPlayerTwo.getX(),
+								PlayerVersusPlayer.this.jLabelPokemonPlayerTwo.getY() + speed);
 						try
 						{
 							Thread.sleep(100);
 						}
-						catch (InterruptedException ex)
+						catch (InterruptedException exception)
 						{
-							Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null, ex);
+							String error = "InterruptedException";
+							logger.error(error,exception);
 						}
 					}
 					for (int i = 0; i < 10; i++)
 					{
 
-						jLabel2.setLocation(jLabel2.getX(), jLabel2.getY() + (speed * -1));
+						PlayerVersusPlayer.this.jLabelPokemonPlayerTwo.setLocation(
+								PlayerVersusPlayer.this.jLabelPokemonPlayerTwo.getX(),
+								PlayerVersusPlayer.this.jLabelPokemonPlayerTwo.getY() + (speed * -1));
 						try
 						{
 							Thread.sleep(100);
 						}
-						catch (InterruptedException ex)
+						catch (InterruptedException exception)
 						{
-							Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null, ex);
+							String error = "InterruptedException";
+							logger.error(error,exception);
 						}
 					}
 				}
@@ -1520,6 +1519,9 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 		jumpThread.start();
 	}
 
+	/**
+	 * Method selectButtonSound
+	 */
 	private void selectButtonSound()
 	{
 
@@ -1533,17 +1535,20 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 			clip.start();
 
 		}
-		catch (UnsupportedAudioFileException ex)
+		catch (UnsupportedAudioFileException exception)
 		{
-			Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null, ex);
+			String error = "UnsupportedAudioFileException";
+			logger.error(error,exception);
 		}
-		catch (IOException ex)
+		catch (IOException exception)
 		{
-			Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null, ex);
+			String error = "IOException";
+			logger.error(error,exception);
 		}
-		catch (LineUnavailableException ex)
+		catch (LineUnavailableException exception)
 		{
-			Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null, ex);
+			String error = "LineUnavailableException";
+			logger.error(error,exception);
 		}
 		finally
 		{
@@ -1551,9 +1556,10 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 			{
 				audioInputStream.close();
 			}
-			catch (IOException ex)
+			catch (IOException exception)
 			{
-				Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null, ex);
+				String error = "IOException";
+				logger.error(error,exception);
 			}
 		}
 	}

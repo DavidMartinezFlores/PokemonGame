@@ -8,7 +8,7 @@ public class Launcher
 {
 	/**
 	 * Method main
-	 * 
+	 *
 	 * @param args
 	 */
 	public static void main(String[] args)
@@ -19,7 +19,7 @@ public class Launcher
 
 	/**
 	 * Method run
-	 * 
+	 *
 	 * @param args
 	 */
 	private void run(String[] args)

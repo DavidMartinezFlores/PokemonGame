@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.swing.ImageIcon;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -72,6 +73,7 @@ public class Pokemon implements Serializable
 
 	/**
 	 * Constructor for create new Pokemon
+	 *
 	 * @param pokedexNumber
 	 * @param name
 	 * @param type
@@ -111,6 +113,7 @@ public class Pokemon implements Serializable
 
 	/**
 	 * Method getTypesAdvantagesProcess
+	 *
 	 * @return
 	 */
 	private Map<String, List<List<String>>> getTypesAdvantagesProcess()
@@ -147,12 +150,12 @@ public class Pokemon implements Serializable
 
 	/**
 	 * Method getResistantTypesProcess
-	 * 
+	 *
 	 * @return
 	 */
 	private List<String> getResistantTypesProcess()
 	{
-		List<String> resistancesList = new ArrayList<String>();
+		List<String> resistancesList = new ArrayList<>();
 
 		resistancesList.addAll(this.typeAdvantages.get(this.type).get(1));
 
@@ -161,12 +164,12 @@ public class Pokemon implements Serializable
 
 	/**
 	 * Method getWeaknessTypesProcess
-	 * 
+	 *
 	 * @return
 	 */
 	private List<String> getWeaknessTypesProcess()
 	{
-		List<String> weaknessList = new ArrayList<String>();
+		List<String> weaknessList = new ArrayList<>();
 
 		weaknessList.addAll(this.typeAdvantages.get(this.type).get(0));
 
@@ -175,6 +178,7 @@ public class Pokemon implements Serializable
 
 	/**
 	 * Method getPokeImage
+	 *
 	 * @return
 	 */
 	public Image getPokeImage()
@@ -192,11 +196,11 @@ public class Pokemon implements Serializable
 			}
 		}
 		return image;
-		// image = new ImageIcon("./images/generic.png").getImage();
 	}
 
 	/**
 	 * Method toString
+	 *
 	 * @return
 	 */
 	@Override

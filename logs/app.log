@@ -1,0 +1,98 @@
+[INFO ] 2023-11-04 21:48:23.366 [AWT-EventQueue-0] PlayerOneSelection - [ Pokedex Nº: 3 VenusaurMega Venusaur - Grass Poison - ]
+[INFO ] 2023-11-04 21:49:17.108 [AWT-EventQueue-0] PlayerOneSelection - 713
+[INFO ] 2023-11-04 21:50:05.848 [AWT-EventQueue-0] PlayerOneSelection - 512
+[INFO ] 2023-11-04 21:51:31.066 [AWT-EventQueue-0] PlayerOneSelection - 334
+[INFO ] 2023-11-04 21:51:48.628 [AWT-EventQueue-0] PlayerOneSelection - 28
+[INFO ] 2023-11-04 21:52:16.111 [AWT-EventQueue-0] PlayerOneSelection - 411
+[INFO ] 2023-11-04 21:52:52.132 [AWT-EventQueue-0] PlayerOneSelection - 570
+[INFO ] 2023-11-04 21:54:10.500 [AWT-EventQueue-0] PlayerOneSelection - 520
+[INFO ] 2023-11-04 21:54:23.102 [AWT-EventQueue-0] PlayerOneSelection - 680
+[INFO ] 2023-11-04 21:54:38.582 [AWT-EventQueue-0] PlayerVersusPlayer - GUARDAR ESTADO
+[INFO ] 2023-11-04 21:54:39.683 [AWT-EventQueue-0] PlayerVersusPlayer - [[ Pokedex Nº: 632 Durant - Bug Steel - ,  Pokedex Nº: 28 Sandslash - Ground  - ,  Pokedex Nº: 492 ShayminLand Forme - Grass  - ,  Pokedex Nº: 96 Drowzee - Psychic  - ,  Pokedex Nº: 282 GardevoirMega Gardevoir - Psychic Fairy - ], [ Pokedex Nº: 590 Foongus - Grass Poison - ,  Pokedex Nº: 244 Entei - Fire  - ,  Pokedex Nº: 6 Charizard - Fire Flying - ,  Pokedex Nº: 565 Carracosta - Water Rock - ,  Pokedex Nº: 308 MedichamMega Medicham - Fighting Psychic - ],  Pokedex Nº: 632 Durant - Bug Steel - ,  Pokedex Nº: 590 Foongus - Grass Poison - , 8, 8, Player One, Player Two, ./images/red.png, ./images/red.png]
+[INFO ] 2023-11-04 21:54:44.481 [AWT-EventQueue-0] PlayerOneSelection - CARGAR ESTADO
+[INFO ] 2023-11-04 21:55:10.731 [AWT-EventQueue-0] PlayerOneSelection - CARGAR ESTADO
+[INFO ] 2023-11-04 21:55:34.743 [AWT-EventQueue-0] PlayerOneSelection - CARGAR ESTADO
+[INFO ] 2023-11-04 21:55:36.452 [AWT-EventQueue-0] PlayerOneSelection - 232
+[INFO ] 2023-11-04 21:55:36.699 [AWT-EventQueue-0] PlayerOneSelection - 102
+[INFO ] 2023-11-04 21:55:40.676 [AWT-EventQueue-0] PlayerVersusPlayer - GUARDAR ESTADO
+[INFO ] 2023-11-04 21:55:41.556 [AWT-EventQueue-0] PlayerVersusPlayer - [[ Pokedex Nº: 94 GengarMega Gengar - Ghost Poison - ,  Pokedex Nº: 540 Sewaddle - Bug Grass - ,  Pokedex Nº: 420 Cherubi - Grass  - ,  Pokedex Nº: 584 Vanilluxe - Ice  - ,  Pokedex Nº: 27 Sandshrew - Ground  - ], [ Pokedex Nº: 478 Froslass - Ice Ghost - ,  Pokedex Nº: 208 Steelix - Steel Ground - ,  Pokedex Nº: 383 Groudon - Ground  - ,  Pokedex Nº: 455 Carnivine - Grass  - ,  Pokedex Nº: 180 Flaaffy - Electric  - ],  Pokedex Nº: 94 GengarMega Gengar - Ghost Poison - ,  Pokedex Nº: 478 Froslass - Ice Ghost - , 8, 8, Player One, Player Two, ./images/red.png, ./images/red.png]
+[INFO ] 2023-11-04 21:55:42.557 [AWT-EventQueue-0] PlayerVersusPlayer - CARGAR ESTADO
+[INFO ] 2023-11-04 21:55:42.604 [AWT-EventQueue-0] PlayerVersusPlayer - [[ Pokedex Nº: 94 GengarMega Gengar - Ghost Poison - ,  Pokedex Nº: 540 Sewaddle - Bug Grass - ,  Pokedex Nº: 420 Cherubi - Grass  - ,  Pokedex Nº: 584 Vanilluxe - Ice  - ,  Pokedex Nº: 27 Sandshrew - Ground  - ], [ Pokedex Nº: 478 Froslass - Ice Ghost - ,  Pokedex Nº: 208 Steelix - Steel Ground - ,  Pokedex Nº: 383 Groudon - Ground  - ,  Pokedex Nº: 455 Carnivine - Grass  - ,  Pokedex Nº: 180 Flaaffy - Electric  - ],  Pokedex Nº: 94 GengarMega Gengar - Ghost Poison - ,  Pokedex Nº: 478 Froslass - Ice Ghost - , 8, 8, Player One, Player Two, ./images/red.png, ./images/red.png]
+[INFO ] 2023-11-04 21:55:48.768 [AWT-EventQueue-0] PlayerOneSelection - CARGAR ESTADO
+[INFO ] 2023-11-04 21:55:48.908 [AWT-EventQueue-0] PlayerOneSelection - [[ Pokedex Nº: 94 GengarMega Gengar - Ghost Poison - ,  Pokedex Nº: 540 Sewaddle - Bug Grass - ,  Pokedex Nº: 420 Cherubi - Grass  - ,  Pokedex Nº: 584 Vanilluxe - Ice  - ,  Pokedex Nº: 27 Sandshrew - Ground  - ], [ Pokedex Nº: 478 Froslass - Ice Ghost - ,  Pokedex Nº: 208 Steelix - Steel Ground - ,  Pokedex Nº: 383 Groudon - Ground  - ,  Pokedex Nº: 455 Carnivine - Grass  - ,  Pokedex Nº: 180 Flaaffy - Electric  - ],  Pokedex Nº: 94 GengarMega Gengar - Ghost Poison - ,  Pokedex Nº: 478 Froslass - Ice Ghost - , 8, 8, Player One, Player Two, ./images/red.png, ./images/red.png]
+[INFO ] 2023-11-04 21:55:55.584 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 1 PRIMERO
+[INFO ] 2023-11-04 21:55:56.755 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 2 SEGUNDO
+[INFO ] 2023-11-04 21:55:58.711 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 1 PRIMERO
+[INFO ] 2023-11-04 21:55:58.711 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 2 SEGUNDO
+[INFO ] 2023-11-04 21:56:00.583 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 1 PRIMERO
+[INFO ] 2023-11-04 21:56:00.585 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 2 SEGUNDO
+[INFO ] 2023-11-04 21:56:02.183 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 1 PRIMERO
+[INFO ] 2023-11-04 21:56:02.185 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 2 SEGUNDO
+[INFO ] 2023-11-04 21:56:07.280 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 1 PRIMERO
+[INFO ] 2023-11-04 21:56:07.280 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 2 SEGUNDO
+[INFO ] 2023-11-04 21:56:11.729 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 2 PRIMERO
+[INFO ] 2023-11-04 21:56:11.731 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 1 SEGUNDO
+[INFO ] 2023-11-04 21:56:13.752 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 2 PRIMERO
+[INFO ] 2023-11-04 21:56:13.753 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 1 SEGUNDO
+[INFO ] 2023-11-04 21:56:20.890 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 1 PRIMERO
+[INFO ] 2023-11-04 21:56:20.890 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 2 SEGUNDO
+[INFO ] 2023-11-04 21:56:22.633 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 1 PRIMERO
+[INFO ] 2023-11-04 21:56:22.634 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 2 SEGUNDO
+[INFO ] 2023-11-04 21:56:24.305 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 1 PRIMERO
+[INFO ] 2023-11-04 21:56:24.306 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 2 SEGUNDO
+[INFO ] 2023-11-04 21:56:25.939 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 1 PRIMERO
+[INFO ] 2023-11-04 21:56:28.336 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 2 SEGUNDO
+[INFO ] 2023-11-04 21:56:42.996 [AWT-EventQueue-0] PlayerOneSelection - [ Pokedex Nº: 6 CharizardMega Charizard Y - Fire Flying - ]
+[INFO ] 2023-11-04 21:56:45.614 [AWT-EventQueue-0] PlayerOneSelection - Presiono Enter
+[INFO ] 2023-11-04 21:56:53.885 [AWT-EventQueue-0] PlayerOneSelection - [ Pokedex Nº: 150 MewtwoMega Mewtwo Y - Psychic  - ,  Pokedex Nº: 6 CharizardMega Charizard Y - Fire Flying - ]
+[INFO ] 2023-11-04 21:57:25.255 [AWT-EventQueue-0] PlayerVersusPlayer - GUARDAR ESTADO
+[INFO ] 2023-11-04 21:57:26.205 [AWT-EventQueue-0] PlayerVersusPlayer - [[ Pokedex Nº: 150 MewtwoMega Mewtwo Y - Psychic  - ,  Pokedex Nº: 6 CharizardMega Charizard Y - Fire Flying - ], [ Pokedex Nº: 149 Dragonite - Dragon Flying - ,  Pokedex Nº: 9 BlastoiseMega Blastoise - Water  - ],  Pokedex Nº: 150 MewtwoMega Mewtwo Y - Psychic  - ,  Pokedex Nº: 149 Dragonite - Dragon Flying - , 8, 8, Red, Player Two, ./images/red.png, ./images/blue.png]
+[INFO ] 2023-11-04 21:57:29.111 [AWT-EventQueue-0] PlayerVersusPlayer - CARGAR ESTADO
+[INFO ] 2023-11-04 21:57:29.145 [AWT-EventQueue-0] PlayerVersusPlayer - [[ Pokedex Nº: 150 MewtwoMega Mewtwo Y - Psychic  - ,  Pokedex Nº: 6 CharizardMega Charizard Y - Fire Flying - ], [ Pokedex Nº: 149 Dragonite - Dragon Flying - ,  Pokedex Nº: 9 BlastoiseMega Blastoise - Water  - ],  Pokedex Nº: 150 MewtwoMega Mewtwo Y - Psychic  - ,  Pokedex Nº: 149 Dragonite - Dragon Flying - , 8, 8, Red, Player Two, ./images/red.png, ./images/blue.png]
+[INFO ] 2023-11-04 21:58:01.157 [AWT-EventQueue-0] PlayerOneSelection - 192
+[INFO ] 2023-11-04 21:58:07.598 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 1 PRIMERO
+[INFO ] 2023-11-04 21:58:07.600 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 2 SEGUNDO
+[INFO ] 2023-11-04 21:58:09.933 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 1 PRIMERO
+[INFO ] 2023-11-04 21:58:09.936 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 2 SEGUNDO
+[INFO ] 2023-11-04 21:58:12.093 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 2 PRIMERO
+[INFO ] 2023-11-04 21:58:12.094 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 1 SEGUNDO
+[INFO ] 2023-11-04 21:58:13.886 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 2 PRIMERO
+[INFO ] 2023-11-04 21:58:13.888 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 1 SEGUNDO
+[INFO ] 2023-11-04 21:58:15.446 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 1 PRIMERO
+[INFO ] 2023-11-04 21:58:15.447 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 2 SEGUNDO
+[INFO ] 2023-11-04 21:58:17.062 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 1 PRIMERO
+[INFO ] 2023-11-04 21:58:17.064 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 2 SEGUNDO
+[INFO ] 2023-11-04 21:58:18.910 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 1 PRIMERO
+[INFO ] 2023-11-04 21:58:18.912 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 2 SEGUNDO
+[INFO ] 2023-11-04 21:58:20.622 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 1 PRIMERO
+[INFO ] 2023-11-04 21:58:20.622 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 2 SEGUNDO
+[INFO ] 2023-11-04 21:58:23.223 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 1 PRIMERO
+[INFO ] 2023-11-04 21:58:23.225 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 2 SEGUNDO
+[INFO ] 2023-11-04 21:58:25.047 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 1 PRIMERO
+[INFO ] 2023-11-04 21:58:26.428 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 2 SEGUNDO
+[INFO ] 2023-11-04 21:58:48.483 [AWT-EventQueue-0] PlayerOneSelection - 342
+[INFO ] 2023-11-04 21:59:51.193 [AWT-EventQueue-0] PlayerOneSelection - 99
+[INFO ] 2023-11-04 22:00:00.266 [AWT-EventQueue-0] PlayerVersusPlayer - CARGAR ESTADO
+[INFO ] 2023-11-04 22:00:00.329 [AWT-EventQueue-0] PlayerVersusPlayer - [[ Pokedex Nº: 150 MewtwoMega Mewtwo Y - Psychic  - ,  Pokedex Nº: 6 CharizardMega Charizard Y - Fire Flying - ], [ Pokedex Nº: 149 Dragonite - Dragon Flying - ,  Pokedex Nº: 9 BlastoiseMega Blastoise - Water  - ],  Pokedex Nº: 150 MewtwoMega Mewtwo Y - Psychic  - ,  Pokedex Nº: 149 Dragonite - Dragon Flying - , 8, 8, Red, Player Two, ./images/red.png, ./images/blue.png]
+[INFO ] 2023-11-04 22:00:03.226 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 1 PRIMERO
+[INFO ] 2023-11-04 22:00:03.227 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 2 SEGUNDO
+[INFO ] 2023-11-04 22:00:05.043 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 1 PRIMERO
+[INFO ] 2023-11-04 22:00:05.919 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 2 SEGUNDO
+[INFO ] 2023-11-04 22:00:07.819 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 1 PRIMERO
+[INFO ] 2023-11-04 22:00:07.819 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 2 SEGUNDO
+[INFO ] 2023-11-04 22:00:09.667 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 1 PRIMERO
+[INFO ] 2023-11-04 22:00:11.123 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 2 SEGUNDO
+[INFO ] 2023-11-04 22:00:20.606 [AWT-EventQueue-0] PlayerOneSelection - Presiono Enter
+[INFO ] 2023-11-04 22:00:24.926 [AWT-EventQueue-0] PlayerOneSelection - Presiono Enter
+[INFO ] 2023-11-04 22:00:32.990 [AWT-EventQueue-0] PlayerOneSelection - Presiono Enter
+[INFO ] 2023-11-04 22:00:34.165 [AWT-EventQueue-0] PlayerOneSelection - Presiono Enter
+[INFO ] 2023-11-04 22:00:34.381 [AWT-EventQueue-0] PlayerOneSelection - Presiono Enter
+[INFO ] 2023-11-04 22:00:34.525 [AWT-EventQueue-0] PlayerOneSelection - Presiono Enter
+[INFO ] 2023-11-04 22:00:34.669 [AWT-EventQueue-0] PlayerOneSelection - Presiono Enter
+[INFO ] 2023-11-04 22:00:34.822 [AWT-EventQueue-0] PlayerOneSelection - Presiono Enter
+[INFO ] 2023-11-04 22:00:34.982 [AWT-EventQueue-0] PlayerOneSelection - Presiono Enter
+[INFO ] 2023-11-04 22:00:35.150 [AWT-EventQueue-0] PlayerOneSelection - Presiono Enter
+[INFO ] 2023-11-04 22:00:35.318 [AWT-EventQueue-0] PlayerOneSelection - Presiono Enter
+[INFO ] 2023-11-04 22:00:35.502 [AWT-EventQueue-0] PlayerOneSelection - Presiono Enter
+[INFO ] 2023-11-04 22:00:35.710 [AWT-EventQueue-0] PlayerOneSelection - Presiono Enter
+[INFO ] 2023-11-04 22:00:35.902 [AWT-EventQueue-0] PlayerOneSelection - Presiono Enter

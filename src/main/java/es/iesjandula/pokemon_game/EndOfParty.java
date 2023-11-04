@@ -7,8 +7,8 @@ package es.iesjandula.pokemon_game;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
+
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
@@ -17,16 +17,21 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 /**
  *
  * @author USUARIO
  */
 public class EndOfParty extends javax.swing.JFrame
 {
-
-	/** Attribute mainTheme*/
-	private Clip mainTheme;
+	/** Attribute logger*/
+	private static final Logger logger = LogManager.getLogger();
 	
+	/** Attribute mainTheme */
+	private Clip mainTheme;
+
 	// Variables declaration - do not modify//GEN-BEGIN:variables
 	private javax.swing.JButton jButton1;
 	private javax.swing.JButton jButton2;
@@ -39,10 +44,13 @@ public class EndOfParty extends javax.swing.JFrame
 
 	/**
 	 * Creates new form EndOfParty
+	 * 
+	 * @param winner
+	 * @param icon
 	 */
 	public EndOfParty(String winner, Icon icon)
 	{
-		initComponents();
+		this.initComponents();
 		this.mainTheme = this.getMainTheme();
 		if (this.mainTheme != null)
 		{
@@ -74,63 +82,66 @@ public class EndOfParty extends javax.swing.JFrame
 	private void initComponents()
 	{
 
-		jLabel1 = new javax.swing.JLabel();
-		jButton1 = new javax.swing.JButton();
-		jButton2 = new javax.swing.JButton();
-		jLabel2 = new javax.swing.JLabel();
-		jLabel3 = new javax.swing.JLabel();
-		jLabel4 = new javax.swing.JLabel();
-		jLabel5 = new javax.swing.JLabel();
+		this.jLabel1 = new javax.swing.JLabel();
+		this.jButton1 = new javax.swing.JButton();
+		this.jButton2 = new javax.swing.JButton();
+		this.jLabel2 = new javax.swing.JLabel();
+		this.jLabel3 = new javax.swing.JLabel();
+		this.jLabel4 = new javax.swing.JLabel();
+		this.jLabel5 = new javax.swing.JLabel();
 
-		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-		getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+		this.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+		this.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-		jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-		jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-		jLabel1.setForeground(new java.awt.Color(0, 188, 49));
-		jLabel1.setText("jLabel1");
-		jLabel1.setOpaque(true);
-		getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(204, 74, 445, 73));
+		this.jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+		this.jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+		this.jLabel1.setForeground(new java.awt.Color(0, 188, 49));
+		this.jLabel1.setText("jLabel1");
+		this.jLabel1.setOpaque(true);
+		this.getContentPane().add(this.jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(204, 74, 445, 73));
 
-		jButton1.setBackground(new java.awt.Color(204, 0, 0));
-		jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-		jButton1.setForeground(new java.awt.Color(255, 255, 255));
-		jButton1.setText("EXIT GAME");
-		jButton1.addActionListener(new java.awt.event.ActionListener()
+		this.jButton1.setBackground(new java.awt.Color(204, 0, 0));
+		this.jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+		this.jButton1.setForeground(new java.awt.Color(255, 255, 255));
+		this.jButton1.setText("EXIT GAME");
+		this.jButton1.addActionListener(new java.awt.event.ActionListener()
 		{
+			@Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				jButton1ActionPerformed(evt);
+				EndOfParty.this.jButton1ActionPerformed(evt);
 			}
 		});
-		getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(251, 260, 182, 76));
+		this.getContentPane().add(this.jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(251, 260, 182, 76));
 
-		jButton2.setBackground(new java.awt.Color(7, 139, 220));
-		jButton2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-		jButton2.setForeground(new java.awt.Color(255, 255, 255));
-		jButton2.setText("RESTART GAME");
-		jButton2.addActionListener(new java.awt.event.ActionListener()
+		this.jButton2.setBackground(new java.awt.Color(7, 139, 220));
+		this.jButton2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+		this.jButton2.setForeground(new java.awt.Color(255, 255, 255));
+		this.jButton2.setText("RESTART GAME");
+		this.jButton2.addActionListener(new java.awt.event.ActionListener()
 		{
+			@Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				jButton2ActionPerformed(evt);
+				EndOfParty.this.jButton2ActionPerformed(evt);
 			}
 		});
-		getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(251, 153, 182, 76));
+		this.getContentPane().add(this.jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(251, 153, 182, 76));
 
-		jLabel2.setText("      ");
-		getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 182, 124, 111));
+		this.jLabel2.setText("      ");
+		this.getContentPane().add(this.jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 182, 124, 111));
 
-		jLabel3.setText("      ");
-		getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(525, 198, 124, 111));
-		getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(62, 17, 103, 159));
-		getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 380));
+		this.jLabel3.setText("      ");
+		this.getContentPane().add(this.jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(525, 198, 124, 111));
+		this.getContentPane().add(this.jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(62, 17, 103, 159));
+		this.getContentPane().add(this.jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 380));
 
-		pack();
+		this.pack();
 	}// </editor-fold>//GEN-END:initComponents
 
 	/**
 	 * Method jButton1ActionPerformed
+	 *
 	 * @param evt
 	 */
 	private void jButton1ActionPerformed(java.awt.event.ActionEvent evt)
@@ -141,6 +152,7 @@ public class EndOfParty extends javax.swing.JFrame
 
 	/**
 	 * Method jButton2ActionPerformed
+	 *
 	 * @param evt
 	 */
 	private void jButton2ActionPerformed(java.awt.event.ActionEvent evt)
@@ -167,27 +179,31 @@ public class EndOfParty extends javax.swing.JFrame
 					for (int i = 0; i < 30; i++)
 					{
 
-						jLabel2.setLocation(jLabel2.getX(), jLabel2.getY() + speed);
+						EndOfParty.this.jLabel2.setLocation(EndOfParty.this.jLabel2.getX(),
+								EndOfParty.this.jLabel2.getY() + speed);
 						try
 						{
 							Thread.sleep(35);
 						}
-						catch (InterruptedException ex)
+						catch (InterruptedException exception)
 						{
-							Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null, ex);
+							String error = "InterruptedException";
+							logger.error(error,exception);
 						}
 					}
 					for (int i = 0; i < 30; i++)
 					{
 
-						jLabel2.setLocation(jLabel2.getX(), jLabel2.getY() + (speed * -1));
+						EndOfParty.this.jLabel2.setLocation(EndOfParty.this.jLabel2.getX(),
+								EndOfParty.this.jLabel2.getY() + (speed * -1));
 						try
 						{
 							Thread.sleep(35);
 						}
-						catch (InterruptedException ex)
+						catch (InterruptedException exception)
 						{
-							Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null, ex);
+							String error = "InterruptedException";
+							logger.error(error,exception);
 						}
 					}
 				}
@@ -212,27 +228,31 @@ public class EndOfParty extends javax.swing.JFrame
 					for (int i = 0; i < 30; i++)
 					{
 
-						jLabel3.setLocation(jLabel3.getX(), jLabel3.getY() + speed);
+						EndOfParty.this.jLabel3.setLocation(EndOfParty.this.jLabel3.getX(),
+								EndOfParty.this.jLabel3.getY() + speed);
 						try
 						{
 							Thread.sleep(35);
 						}
-						catch (InterruptedException ex)
+						catch (InterruptedException exception)
 						{
-							Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null, ex);
+							String error = "InterruptedException";
+							logger.error(error,exception);
 						}
 					}
 					for (int i = 0; i < 30; i++)
 					{
 
-						jLabel3.setLocation(jLabel3.getX(), jLabel3.getY() + (speed * -1));
+						EndOfParty.this.jLabel3.setLocation(EndOfParty.this.jLabel3.getX(),
+								EndOfParty.this.jLabel3.getY() + (speed * -1));
 						try
 						{
 							Thread.sleep(35);
 						}
-						catch (InterruptedException ex)
+						catch (InterruptedException exception)
 						{
-							Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null, ex);
+							String error = "InterruptedException";
+							logger.error(error,exception);
 						}
 					}
 				}
@@ -256,28 +276,34 @@ public class EndOfParty extends javax.swing.JFrame
 					int speed = 1;
 					for (int i = 0; i < 10; i++)
 					{
-						jButton2.setLocation(jButton2.getX(), jButton2.getY() + speed);
-						jButton1.setLocation(jButton1.getX(), jButton1.getY() + speed);
+						EndOfParty.this.jButton2.setLocation(EndOfParty.this.jButton2.getX(),
+								EndOfParty.this.jButton2.getY() + speed);
+						EndOfParty.this.jButton1.setLocation(EndOfParty.this.jButton1.getX(),
+								EndOfParty.this.jButton1.getY() + speed);
 						try
 						{
 							Thread.sleep(120);
 						}
-						catch (InterruptedException ex)
+						catch (InterruptedException exception)
 						{
-							Logger.getLogger(EndOfParty.class.getName()).log(Level.SEVERE, null, ex);
+							String error = "InterruptedException";
+							logger.error(error,exception);
 						}
 					}
 					for (int i = 0; i < 10; i++)
 					{
-						jButton2.setLocation(jButton2.getX(), jButton2.getY() + (speed * -1));
-						jButton1.setLocation(jButton1.getX(), jButton1.getY() + (speed * -1));
+						EndOfParty.this.jButton2.setLocation(EndOfParty.this.jButton2.getX(),
+								EndOfParty.this.jButton2.getY() + (speed * -1));
+						EndOfParty.this.jButton1.setLocation(EndOfParty.this.jButton1.getX(),
+								EndOfParty.this.jButton1.getY() + (speed * -1));
 						try
 						{
 							Thread.sleep(120);
 						}
-						catch (InterruptedException ex)
+						catch (InterruptedException exception)
 						{
-							Logger.getLogger(EndOfParty.class.getName()).log(Level.SEVERE, null, ex);
+							String error = "InterruptedException";
+							logger.error(error,exception);
 						}
 					}
 				}
@@ -288,6 +314,7 @@ public class EndOfParty extends javax.swing.JFrame
 
 	/**
 	 * Method getMainTheme
+	 *
 	 * @return
 	 */
 	private Clip getMainTheme()
@@ -301,21 +328,25 @@ public class EndOfParty extends javax.swing.JFrame
 			clip.open(audioInputStream);
 
 		}
-		catch (FileNotFoundException ex)
+		catch (FileNotFoundException exception)
 		{
-			Logger.getLogger(EndOfParty.class.getName()).log(Level.SEVERE, null, ex);
+			String error = "FileNotFoundException";
+			logger.error(error,exception);
 		}
-		catch (UnsupportedAudioFileException ex)
+		catch (UnsupportedAudioFileException exception)
 		{
-			Logger.getLogger(EndOfParty.class.getName()).log(Level.SEVERE, null, ex);
+			String error = "UnsupportedAudioFileException";
+			logger.error(error,exception);
 		}
-		catch (IOException ex)
+		catch (IOException exception)
 		{
-			Logger.getLogger(EndOfParty.class.getName()).log(Level.SEVERE, null, ex);
+			String error = "IOException";
+			logger.error(error,exception);
 		}
-		catch (LineUnavailableException ex)
+		catch (LineUnavailableException exception)
 		{
-			Logger.getLogger(EndOfParty.class.getName()).log(Level.SEVERE, null, ex);
+			String error = "LineUnavailableException";
+			logger.error(error,exception);
 		}
 
 		return clip;

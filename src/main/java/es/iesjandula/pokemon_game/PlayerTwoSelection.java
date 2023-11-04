@@ -4,14 +4,12 @@
  */
 package es.iesjandula.pokemon_game;
 
-import es.iesjandula.pokemon_game.models.Pokemon;
 import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
@@ -20,6 +18,12 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import es.iesjandula.pokemon_game.models.Pokemon;
+import es.iesjandula.pokemon_game.utils.PokemonException;
 import lombok.Data;
 
 /**
@@ -29,79 +33,82 @@ import lombok.Data;
 @Data
 public class PlayerTwoSelection extends javax.swing.JFrame implements Serializable
 {
+	/** Attribute logger*/
+	private static final Logger logger = LogManager.getLogger();
+	
 	/** Attribute mainTheme */
 	private Clip mainTheme;
-	
+
 	/** Attribute playerTwoName */
 	private String playerTwoName;
-	
+
 	/** Attribute temporalListModel */
 	private DefaultListModel<Pokemon> temporalListModel = new DefaultListModel<>();
-	
+
 	/** Attribute playerOneSelection */
 	private PlayerOneSelection playerOneSelection;
-	
+
 	/** Attribute listModel */
 	private DefaultListModel<Pokemon> listModel = new DefaultListModel<>();
-	
+
 	/** Attribute listModel2 */
 	private DefaultListModel<Pokemon> listModel2 = new DefaultListModel<>();
 
-	// Variables declaration - do not modify//GEN-BEGIN:variables
-	private javax.swing.JLabel SpriteSelectedPlayerTwo;
-	private javax.swing.ButtonGroup buttonGroupPlayerTwoSprites;
-	private javax.swing.JButton jButton1;
-	private javax.swing.JButton jButton2;
-	private javax.swing.JButton jButton3;
-	private javax.swing.JButton jButton4;
-	private javax.swing.JButton jButton5;
-	private javax.swing.JButton jButton6;
-	private javax.swing.JLabel jLabel1;
-	private javax.swing.JLabel jLabel10;
-	private javax.swing.JLabel jLabel2;
-	private javax.swing.JLabel jLabel3;
-	private javax.swing.JLabel jLabel4;
-	private javax.swing.JLabel jLabel5;
-	private javax.swing.JLabel jLabel6;
-	private javax.swing.JLabel jLabel7;
-	private javax.swing.JLabel jLabel8;
-	private javax.swing.JLabel jLabel9;
-	private javax.swing.JLabel jLabelBackground;
-	private javax.swing.JList<Pokemon> jList1;
-	private javax.swing.JList<Pokemon> jList2;
-	private javax.swing.JMenu jMenu1;
-	private javax.swing.JMenuBar jMenuBar1;
-	private javax.swing.JMenuItem jMenuItem1;
-	private javax.swing.JRadioButton jRadioButton1;
-	private javax.swing.JRadioButton jRadioButton2;
-	private javax.swing.JRadioButton jRadioButton3;
-	private javax.swing.JRadioButton jRadioButton4;
-	private javax.swing.JRadioButton jRadioButton5;
-	private javax.swing.JScrollPane jScrollPane1;
-	private javax.swing.JScrollPane jScrollPane2;
-	private javax.swing.JTextField jTextField1;
-	private javax.swing.JTextField jTextField2;
-
-	// End of variables declaration//GEN-END:variables
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel SpriteSelectedPlayerTwo;
+    private javax.swing.ButtonGroup buttonGroupPlayerTwoSprites;
+    private javax.swing.JButton jButtonRandom;
+    private javax.swing.JButton jButtonRemove;
+    private javax.swing.JButton jButtonRemoveAll;
+    private javax.swing.JButton jButtonResetFilter;
+    private javax.swing.JButton jButtonSelect;
+    private javax.swing.JButton jButtonSelectionComplete;
+    private javax.swing.JLabel jLabelAttack;
+    private javax.swing.JLabel jLabelBackground;
+    private javax.swing.JLabel jLabelChoseYourPokemon;
+    private javax.swing.JLabel jLabelDefense;
+    private javax.swing.JLabel jLabelFilter;
+    private javax.swing.JLabel jLabelHealth;
+    private javax.swing.JLabel jLabelPlayerName;
+    private javax.swing.JLabel jLabelPlayerTwoName;
+    private javax.swing.JLabel jLabelSpAttack;
+    private javax.swing.JLabel jLabelSpDefense;
+    private javax.swing.JLabel jLabelSpeed;
+    private javax.swing.JList<Pokemon> jListAllPokemons;
+    private javax.swing.JList<Pokemon> jListPlayerPokemons;
+    private javax.swing.JMenu jMenu;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItemLoad;
+    private javax.swing.JRadioButton jRadioButtonBlue;
+    private javax.swing.JRadioButton jRadioButtonFemaleRanger;
+    private javax.swing.JRadioButton jRadioButtonNormalFemale;
+    private javax.swing.JRadioButton jRadioButtonRanger;
+    private javax.swing.JRadioButton jRadioButtonRed;
+    private javax.swing.JScrollPane jScrollPane;
+    private javax.swing.JScrollPane jScrollPaneTwo;
+    private javax.swing.JTextField jTextFieldFilter;
+    private javax.swing.JTextField jTextFieldPlayerName;
+    // End of variables declaration//GEN-END:variables
 	/**
 	 * Creates new form PlayerTwoSelection
+	 * 
+	 * @param playerOneSelection
 	 */
 	public PlayerTwoSelection(PlayerOneSelection playerOneSelection)
 	{
-		initComponents();
-		playerOneSelection.dispose();
+		this.initComponents();
 		this.jLabelBackground.setIcon(new ImageIcon("./images/selectionBack2.jpg"));
 		this.SpriteSelectedPlayerTwo.setIcon(new ImageIcon("./images/red.png"));
 		this.playerTwoName = "Player Two";
-		this.jLabel10.setText(this.playerTwoName);
+		this.jLabelPlayerName.setText(this.playerTwoName);
 
 		this.mainTheme = playerOneSelection.getMainTheme();
 		this.playerOneSelection = playerOneSelection;
 
 		this.setResizable(false);
 		this.listModel.addAll(new Application().getPokemonList());
-		this.jList1.setModel(listModel);
-		this.jList2.setModel(listModel2);
+		this.jListAllPokemons.setModel(this.listModel);
+		this.jListPlayerPokemons.setModel(this.listModel2);
 
 		this.jumpPokemonAnimationThread();
 
@@ -118,367 +125,347 @@ public class PlayerTwoSelection extends javax.swing.JFrame implements Serializab
 	// <editor-fold defaultstate="collapsed" desc="Generated
 	// <editor-fold defaultstate="collapsed" desc="Generated
 	// <editor-fold defaultstate="collapsed" desc="Generated
-	// Code">//GEN-BEGIN:initComponents
-	private void initComponents()
-	{
+	// <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
 
-		buttonGroupPlayerTwoSprites = new javax.swing.ButtonGroup();
-		jLabel1 = new javax.swing.JLabel();
-		jButton4 = new javax.swing.JButton();
-		jButton2 = new javax.swing.JButton();
-		jButton3 = new javax.swing.JButton();
-		jLabel2 = new javax.swing.JLabel();
-		jLabel3 = new javax.swing.JLabel();
-		jLabel4 = new javax.swing.JLabel();
-		jScrollPane1 = new javax.swing.JScrollPane();
-		jList1 = new javax.swing.JList<>();
-		jLabel5 = new javax.swing.JLabel();
-		jLabel6 = new javax.swing.JLabel();
-		jButton1 = new javax.swing.JButton();
-		jLabel7 = new javax.swing.JLabel();
-		jScrollPane2 = new javax.swing.JScrollPane();
-		jList2 = new javax.swing.JList<>();
-		jTextField1 = new javax.swing.JTextField();
-		jLabel8 = new javax.swing.JLabel();
-		jButton5 = new javax.swing.JButton();
-		jTextField2 = new javax.swing.JTextField();
-		jLabel9 = new javax.swing.JLabel();
-		jLabel10 = new javax.swing.JLabel();
-		jRadioButton1 = new javax.swing.JRadioButton();
-		jRadioButton2 = new javax.swing.JRadioButton();
-		SpriteSelectedPlayerTwo = new javax.swing.JLabel();
-		jRadioButton3 = new javax.swing.JRadioButton();
-		jRadioButton4 = new javax.swing.JRadioButton();
-		jRadioButton5 = new javax.swing.JRadioButton();
-		jButton6 = new javax.swing.JButton();
-		jLabelBackground = new javax.swing.JLabel();
-		jMenuBar1 = new javax.swing.JMenuBar();
-		jMenu1 = new javax.swing.JMenu();
-		jMenuItem1 = new javax.swing.JMenuItem();
+        buttonGroupPlayerTwoSprites = new javax.swing.ButtonGroup();
+        jLabelChoseYourPokemon = new javax.swing.JLabel();
+        jButtonSelectionComplete = new javax.swing.JButton();
+        jButtonRemove = new javax.swing.JButton();
+        jButtonRemoveAll = new javax.swing.JButton();
+        jLabelHealth = new javax.swing.JLabel();
+        jLabelAttack = new javax.swing.JLabel();
+        jLabelDefense = new javax.swing.JLabel();
+        jScrollPane = new javax.swing.JScrollPane();
+        jListAllPokemons = new javax.swing.JList<>();
+        jLabelSpAttack = new javax.swing.JLabel();
+        jLabelSpDefense = new javax.swing.JLabel();
+        jButtonSelect = new javax.swing.JButton();
+        jLabelSpeed = new javax.swing.JLabel();
+        jScrollPaneTwo = new javax.swing.JScrollPane();
+        jListPlayerPokemons = new javax.swing.JList<>();
+        jTextFieldFilter = new javax.swing.JTextField();
+        jLabelFilter = new javax.swing.JLabel();
+        jButtonResetFilter = new javax.swing.JButton();
+        jTextFieldPlayerName = new javax.swing.JTextField();
+        jLabelPlayerTwoName = new javax.swing.JLabel();
+        jLabelPlayerName = new javax.swing.JLabel();
+        jRadioButtonRed = new javax.swing.JRadioButton();
+        jRadioButtonBlue = new javax.swing.JRadioButton();
+        SpriteSelectedPlayerTwo = new javax.swing.JLabel();
+        jRadioButtonRanger = new javax.swing.JRadioButton();
+        jRadioButtonFemaleRanger = new javax.swing.JRadioButton();
+        jRadioButtonNormalFemale = new javax.swing.JRadioButton();
+        jButtonRandom = new javax.swing.JButton();
+        jLabelBackground = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu = new javax.swing.JMenu();
+        jMenuItemLoad = new javax.swing.JMenuItem();
 
-		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-		getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-		jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-		jLabel1.setText("         CHOOSE YOUR POKEMON!");
-		jLabel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-		getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(295, 355, 363, 165));
+        jLabelChoseYourPokemon.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabelChoseYourPokemon.setText("         CHOOSE YOUR POKEMON!");
+        jLabelChoseYourPokemon.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        getContentPane().add(jLabelChoseYourPokemon, new org.netbeans.lib.awtextra.AbsoluteConstraints(295, 355, 363, 165));
 
-		jButton4.setBackground(new java.awt.Color(51, 204, 0));
-		jButton4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-		jButton4.setForeground(new java.awt.Color(255, 255, 255));
-		jButton4.setText("SELECTION COMPLETE");
-		jButton4.addMouseListener(new java.awt.event.MouseAdapter()
-		{
-			public void mouseClicked(java.awt.event.MouseEvent evt)
-			{
-				jButton4MouseClicked(evt);
-			}
-		});
-		jButton4.addActionListener(new java.awt.event.ActionListener()
-		{
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				jButton4ActionPerformed(evt);
-			}
-		});
-		getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(415, 526, -1, 47));
+        jButtonSelectionComplete.setBackground(new java.awt.Color(51, 204, 0));
+        jButtonSelectionComplete.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButtonSelectionComplete.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonSelectionComplete.setText("SELECTION COMPLETE");
+        jButtonSelectionComplete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSelectionCompleteActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonSelectionComplete, new org.netbeans.lib.awtextra.AbsoluteConstraints(415, 526, -1, 47));
 
-		jButton2.setBackground(new java.awt.Color(255, 153, 102));
-		jButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-		jButton2.setForeground(new java.awt.Color(255, 255, 255));
-		jButton2.setText("REMOVE");
-		jButton2.addMouseListener(new java.awt.event.MouseAdapter()
-		{
-			public void mouseClicked(java.awt.event.MouseEvent evt)
-			{
-				jButton2MouseClicked(evt);
-			}
-		});
-		getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(664, 326, -1, -1));
+        jButtonRemove.setBackground(new java.awt.Color(255, 153, 102));
+        jButtonRemove.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButtonRemove.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonRemove.setText("REMOVE");
+        jButtonRemove.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonRemoveMouseClicked(evt);
+            }
+        });
+        getContentPane().add(jButtonRemove, new org.netbeans.lib.awtextra.AbsoluteConstraints(664, 326, -1, -1));
 
-		jButton3.setBackground(new java.awt.Color(255, 0, 51));
-		jButton3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-		jButton3.setForeground(new java.awt.Color(255, 255, 255));
-		jButton3.setText("REMOVE ALL");
-		jButton3.addMouseListener(new java.awt.event.MouseAdapter()
-		{
-			public void mouseClicked(java.awt.event.MouseEvent evt)
-			{
-				jButton3MouseClicked(evt);
-			}
-		});
-		getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(799, 326, -1, -1));
+        jButtonRemoveAll.setBackground(new java.awt.Color(255, 0, 51));
+        jButtonRemoveAll.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButtonRemoveAll.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonRemoveAll.setText("REMOVE ALL");
+        jButtonRemoveAll.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonRemoveAllMouseClicked(evt);
+            }
+        });
+        getContentPane().add(jButtonRemoveAll, new org.netbeans.lib.awtextra.AbsoluteConstraints(799, 326, -1, -1));
 
-		jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-		jLabel2.setForeground(new java.awt.Color(0, 117, 0));
-		jLabel2.setText("HEALTH");
-		jLabel2.setBorder(javax.swing.BorderFactory.createCompoundBorder());
-		jLabel2.setOpaque(true);
-		getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(664, 355, 111, -1));
+        jLabelHealth.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabelHealth.setForeground(new java.awt.Color(0, 117, 0));
+        jLabelHealth.setText("HEALTH");
+        jLabelHealth.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        jLabelHealth.setOpaque(true);
+        getContentPane().add(jLabelHealth, new org.netbeans.lib.awtextra.AbsoluteConstraints(664, 355, 111, -1));
 
-		jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-		jLabel3.setForeground(new java.awt.Color(255, 0, 0));
-		jLabel3.setText("ATTACK");
-		jLabel3.setBorder(javax.swing.BorderFactory.createCompoundBorder());
-		jLabel3.setOpaque(true);
-		getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(664, 381, 94, -1));
+        jLabelAttack.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabelAttack.setForeground(new java.awt.Color(255, 0, 0));
+        jLabelAttack.setText("ATTACK");
+        jLabelAttack.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        jLabelAttack.setOpaque(true);
+        getContentPane().add(jLabelAttack, new org.netbeans.lib.awtextra.AbsoluteConstraints(664, 381, 94, -1));
 
-		jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-		jLabel4.setForeground(new java.awt.Color(51, 51, 255));
-		jLabel4.setText("DEFENSE");
-		jLabel4.setBorder(javax.swing.BorderFactory.createCompoundBorder());
-		jLabel4.setOpaque(true);
-		getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(664, 433, 111, -1));
+        jLabelDefense.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabelDefense.setForeground(new java.awt.Color(51, 51, 255));
+        jLabelDefense.setText("DEFENSE");
+        jLabelDefense.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        jLabelDefense.setOpaque(true);
+        getContentPane().add(jLabelDefense, new org.netbeans.lib.awtextra.AbsoluteConstraints(664, 433, 111, -1));
 
-		jList1.setBackground(new java.awt.Color(255, 200, 200));
-		jList1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-		jList1.addMouseListener(new java.awt.event.MouseAdapter()
-		{
-			public void mouseClicked(java.awt.event.MouseEvent evt)
-			{
-				jList1MouseClicked(evt);
-			}
-		});
-		jScrollPane1.setViewportView(jList1);
+        jListAllPokemons.setBackground(new java.awt.Color(255, 200, 200));
+        jListAllPokemons.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jListAllPokemons.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jListAllPokemonsMouseClicked(evt);
+            }
+        });
+        jScrollPane.setViewportView(jListAllPokemons);
 
-		getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 41, 421, 273));
+        getContentPane().add(jScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 41, 421, 273));
 
-		jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-		jLabel5.setForeground(new java.awt.Color(255, 102, 0));
-		jLabel5.setText("SP-ATTACK");
-		jLabel5.setBorder(javax.swing.BorderFactory.createCompoundBorder());
-		jLabel5.setOpaque(true);
-		getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(664, 407, 111, -1));
+        jLabelSpAttack.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabelSpAttack.setForeground(new java.awt.Color(255, 102, 0));
+        jLabelSpAttack.setText("SP-ATTACK");
+        jLabelSpAttack.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        jLabelSpAttack.setOpaque(true);
+        getContentPane().add(jLabelSpAttack, new org.netbeans.lib.awtextra.AbsoluteConstraints(664, 407, 111, -1));
 
-		jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-		jLabel6.setForeground(new java.awt.Color(0, 204, 204));
-		jLabel6.setText("SP-DEFENSE");
-		jLabel6.setBorder(javax.swing.BorderFactory.createCompoundBorder());
-		jLabel6.setOpaque(true);
-		getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(664, 459, 130, -1));
+        jLabelSpDefense.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabelSpDefense.setForeground(new java.awt.Color(0, 204, 204));
+        jLabelSpDefense.setText("SP-DEFENSE");
+        jLabelSpDefense.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        jLabelSpDefense.setOpaque(true);
+        getContentPane().add(jLabelSpDefense, new org.netbeans.lib.awtextra.AbsoluteConstraints(664, 459, 130, -1));
 
-		jButton1.setBackground(new java.awt.Color(51, 153, 0));
-		jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-		jButton1.setForeground(new java.awt.Color(255, 255, 255));
-		jButton1.setText("SELECT");
-		jButton1.addMouseListener(new java.awt.event.MouseAdapter()
-		{
-			public void mouseClicked(java.awt.event.MouseEvent evt)
-			{
-				jButton1MouseClicked(evt);
-			}
-		});
-		getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(169, 326, -1, -1));
+        jButtonSelect.setBackground(new java.awt.Color(51, 153, 0));
+        jButtonSelect.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButtonSelect.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonSelect.setText("SELECT");
+        jButtonSelect.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonSelectMouseClicked(evt);
+            }
+        });
+        getContentPane().add(jButtonSelect, new org.netbeans.lib.awtextra.AbsoluteConstraints(169, 326, -1, -1));
 
-		jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-		jLabel7.setForeground(new java.awt.Color(248, 0, 243));
-		jLabel7.setText("SPEED");
-		jLabel7.setBorder(javax.swing.BorderFactory.createCompoundBorder());
-		jLabel7.setOpaque(true);
-		getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(664, 485, 111, -1));
+        jLabelSpeed.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabelSpeed.setForeground(new java.awt.Color(248, 0, 243));
+        jLabelSpeed.setText("SPEED");
+        jLabelSpeed.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        jLabelSpeed.setOpaque(true);
+        getContentPane().add(jLabelSpeed, new org.netbeans.lib.awtextra.AbsoluteConstraints(664, 485, 111, -1));
 
-		jList2.setBackground(new java.awt.Color(227, 227, 227));
-		jList2.setForeground(new java.awt.Color(0, 102, 0));
-		jList2.addMouseListener(new java.awt.event.MouseAdapter()
-		{
-			public void mouseClicked(java.awt.event.MouseEvent evt)
-			{
-				jList2MouseClicked(evt);
-			}
-		});
-		jScrollPane2.setViewportView(jList2);
+        jListPlayerPokemons.setBackground(new java.awt.Color(227, 227, 227));
+        jListPlayerPokemons.setForeground(new java.awt.Color(0, 102, 0));
+        jListPlayerPokemons.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jListPlayerPokemonsMouseClicked(evt);
+            }
+        });
+        jScrollPaneTwo.setViewportView(jListPlayerPokemons);
 
-		getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(484, 41, 419, 273));
+        getContentPane().add(jScrollPaneTwo, new org.netbeans.lib.awtextra.AbsoluteConstraints(484, 41, 419, 273));
 
-		jTextField1.addActionListener(new java.awt.event.ActionListener()
-		{
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				jTextField1ActionPerformed(evt);
-			}
-		});
-		getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(359, 6, 136, -1));
+        jTextFieldFilter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldFilterActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTextFieldFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(359, 6, 136, -1));
 
-		jLabel8.setBackground(new java.awt.Color(255, 204, 102));
-		jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-		jLabel8.setText("FILTER:");
-		jLabel8.setOpaque(true);
-		getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 9, -1, -1));
+        jLabelFilter.setBackground(new java.awt.Color(255, 204, 102));
+        jLabelFilter.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabelFilter.setText("FILTER:");
+        jLabelFilter.setOpaque(true);
+        getContentPane().add(jLabelFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 9, -1, -1));
 
-		jButton5.setText("RESET FILTER");
-		jButton5.addActionListener(new java.awt.event.ActionListener()
-		{
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				jButton5ActionPerformed(evt);
-			}
-		});
-		getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(534, 6, -1, -1));
+        jButtonResetFilter.setText("RESET FILTER");
+        jButtonResetFilter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonResetFilterActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonResetFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(534, 6, -1, -1));
 
-		jTextField2.addActionListener(new java.awt.event.ActionListener()
-		{
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				jTextField2ActionPerformed(evt);
-			}
-		});
-		getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(138, 6, 116, -1));
+        jTextFieldPlayerName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldPlayerNameActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTextFieldPlayerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(138, 6, 116, -1));
 
-		jLabel9.setBackground(new java.awt.Color(255, 204, 102));
-		jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-		jLabel9.setText("Player Two Name:");
-		jLabel9.setOpaque(true);
-		getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 9, -1, -1));
+        jLabelPlayerTwoName.setBackground(new java.awt.Color(255, 204, 102));
+        jLabelPlayerTwoName.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabelPlayerTwoName.setText("Player Two Name:");
+        jLabelPlayerTwoName.setOpaque(true);
+        getContentPane().add(jLabelPlayerTwoName, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 9, -1, -1));
 
-		jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-		jLabel10.setText("       ");
-		getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(682, 9, 207, 20));
+        jLabelPlayerName.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabelPlayerName.setText("       ");
+        getContentPane().add(jLabelPlayerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(682, 9, 207, 20));
 
-		buttonGroupPlayerTwoSprites.add(jRadioButton1);
-		jRadioButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-		jRadioButton1.setSelected(true);
-		jRadioButton1.setText("Red");
-		jRadioButton1.addActionListener(new java.awt.event.ActionListener()
-		{
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				jRadioButton1ActionPerformed(evt);
-			}
-		});
-		getContentPane().add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 381, -1, -1));
+        buttonGroupPlayerTwoSprites.add(jRadioButtonRed);
+        jRadioButtonRed.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jRadioButtonRed.setSelected(true);
+        jRadioButtonRed.setText("Red");
+        jRadioButtonRed.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonRedActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jRadioButtonRed, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 381, -1, -1));
 
-		buttonGroupPlayerTwoSprites.add(jRadioButton2);
-		jRadioButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-		jRadioButton2.setText("Blue");
-		jRadioButton2.addActionListener(new java.awt.event.ActionListener()
-		{
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				jRadioButton2ActionPerformed(evt);
-			}
-		});
-		getContentPane().add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 414, -1, -1));
+        buttonGroupPlayerTwoSprites.add(jRadioButtonBlue);
+        jRadioButtonBlue.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jRadioButtonBlue.setText("Blue");
+        jRadioButtonBlue.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonBlueActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jRadioButtonBlue, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 414, -1, -1));
 
-		SpriteSelectedPlayerTwo.setText(" ");
-		getContentPane().add(SpriteSelectedPlayerTwo,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(153, 355, 136, 196));
+        SpriteSelectedPlayerTwo.setText(" ");
+        getContentPane().add(SpriteSelectedPlayerTwo, new org.netbeans.lib.awtextra.AbsoluteConstraints(153, 355, 136, 196));
 
-		buttonGroupPlayerTwoSprites.add(jRadioButton3);
-		jRadioButton3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-		jRadioButton3.setText("Ranger");
-		jRadioButton3.addActionListener(new java.awt.event.ActionListener()
-		{
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				jRadioButton3ActionPerformed(evt);
-			}
-		});
-		getContentPane().add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 443, -1, -1));
+        buttonGroupPlayerTwoSprites.add(jRadioButtonRanger);
+        jRadioButtonRanger.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jRadioButtonRanger.setText("Ranger");
+        jRadioButtonRanger.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonRangerActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jRadioButtonRanger, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 443, -1, -1));
 
-		buttonGroupPlayerTwoSprites.add(jRadioButton4);
-		jRadioButton4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-		jRadioButton4.setText("Female Ranger");
-		jRadioButton4.addActionListener(new java.awt.event.ActionListener()
-		{
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				jRadioButton4ActionPerformed(evt);
-			}
-		});
-		getContentPane().add(jRadioButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 472, -1, -1));
+        buttonGroupPlayerTwoSprites.add(jRadioButtonFemaleRanger);
+        jRadioButtonFemaleRanger.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jRadioButtonFemaleRanger.setText("Female Ranger");
+        jRadioButtonFemaleRanger.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonFemaleRangerActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jRadioButtonFemaleRanger, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 472, -1, -1));
 
-		buttonGroupPlayerTwoSprites.add(jRadioButton5);
-		jRadioButton5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-		jRadioButton5.setText("Normal Female");
-		jRadioButton5.addActionListener(new java.awt.event.ActionListener()
-		{
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				jRadioButton5ActionPerformed(evt);
-			}
-		});
-		getContentPane().add(jRadioButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 499, -1, -1));
+        buttonGroupPlayerTwoSprites.add(jRadioButtonNormalFemale);
+        jRadioButtonNormalFemale.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jRadioButtonNormalFemale.setText("Normal Female");
+        jRadioButtonNormalFemale.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonNormalFemaleActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jRadioButtonNormalFemale, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 499, -1, -1));
 
-		jButton6.setBackground(new java.awt.Color(255, 0, 255));
-		jButton6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-		jButton6.setForeground(new java.awt.Color(255, 255, 255));
-		jButton6.setText("RANDOM");
-		jButton6.addActionListener(new java.awt.event.ActionListener()
-		{
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				jButton6ActionPerformed(evt);
-			}
-		});
-		getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 90, 30));
+        jButtonRandom.setBackground(new java.awt.Color(255, 0, 255));
+        jButtonRandom.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButtonRandom.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonRandom.setText("RANDOM");
+        jButtonRandom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRandomActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonRandom, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 90, 30));
 
-		jLabelBackground.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-		getContentPane().add(jLabelBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(-7, -4, 920, 600));
+        jLabelBackground.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        getContentPane().add(jLabelBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(-7, -4, 920, 600));
 
-		jMenu1.setText("File");
+        jMenu.setText("File");
 
-		jMenuItem1.setText("Load State");
-		jMenuItem1.addActionListener(new java.awt.event.ActionListener()
-		{
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				jMenuItem1ActionPerformed(evt);
-			}
-		});
-		jMenu1.add(jMenuItem1);
+        jMenuItemLoad.setText("Load State");
+        jMenuItemLoad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemLoadActionPerformed(evt);
+            }
+        });
+        jMenu.add(jMenuItemLoad);
 
-		jMenuBar1.add(jMenu1);
+        jMenuBar1.add(jMenu);
 
-		setJMenuBar(jMenuBar1);
+        setJMenuBar(jMenuBar1);
 
-		pack();
-	}// </editor-fold>//GEN-END:initComponents
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
 
-	private void jButton6ActionPerformed(java.awt.event.ActionEvent evt)
+	/**
+	 * Method jButtonRandomActionPerformed
+	 * 
+	 * @param evt
+	 */
+	private void jButtonRandomActionPerformed(java.awt.event.ActionEvent evt)
 	{// GEN-FIRST:event_jButton6ActionPerformed
-		int random = (int) (Math.random() * 721 + 1);
+		int random = (int) ((Math.random() * 721) + 1);
 		System.out.println(random);
-		List<Pokemon> randomList = new ArrayList<Pokemon>();
+		List<Pokemon> randomList = new ArrayList<>();
 
 		for (int i = 0; i < 5; i++)
 		{
-			random = (int) (Math.random() * 721 + 1);
+			random = (int) ((Math.random() * 721) + 1);
 			randomList.add(this.listModel.get(random));
 		}
 		this.listModel2 = new DefaultListModel<>();
 		this.listModel2.addAll(randomList);
-		this.jList2.setModel(listModel2);
+		this.jListPlayerPokemons.setModel(this.listModel2);
 	}// GEN-LAST:event_jButton6ActionPerformed
 
-	private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt)
+	/**
+	 * Method jTextFieldFilterActionPerformed
+	 * 
+	 * @param evt
+	 */
+	private void jTextFieldFilterActionPerformed(java.awt.event.ActionEvent evt)
 	{// GEN-FIRST:event_jTextField1ActionPerformed
 		System.out.println("Presiono Enter");
 		this.temporalListModel = new DefaultListModel<>();
 
-		for (int i = 0; i < listModel.size(); i++)
+		for (int i = 0; i < this.listModel.size(); i++)
 		{
-			if (listModel.get(i).getName().toLowerCase().contains(this.jTextField1.getText().toLowerCase()))
+			if (this.listModel.get(i).getName().toLowerCase().contains(this.jTextFieldFilter.getText().toLowerCase()))
 			{
-				this.temporalListModel.add(0, listModel.get(i));
+				this.temporalListModel.add(0, this.listModel.get(i));
 			}
 		}
 
-		this.jList1.setModel(temporalListModel);
+		this.jListAllPokemons.setModel(this.temporalListModel);
 	}// GEN-LAST:event_jTextField1ActionPerformed
 
-	private void jButton5ActionPerformed(java.awt.event.ActionEvent evt)
+	/**
+	 * Method jButtonResetFilterActionPerformed
+	 * 
+	 * @param evt
+	 */
+	private void jButtonResetFilterActionPerformed(java.awt.event.ActionEvent evt)
 	{// GEN-FIRST:event_jButton5ActionPerformed
-		this.jList1.setModel(this.listModel);
-		this.jTextField1.setText("");
+		this.jListAllPokemons.setModel(this.listModel);
+		this.jTextFieldFilter.setText("");
 	}// GEN-LAST:event_jButton5ActionPerformed
 
-	private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt)
+	/**
+	 * Method jTextFieldPlayerNameActionPerformed
+	 * 
+	 * @param evt
+	 */
+	private void jTextFieldPlayerNameActionPerformed(java.awt.event.ActionEvent evt)
 	{// GEN-FIRST:event_jTextField2ActionPerformed
-		this.playerTwoName = this.jTextField2.getText().trim();
-		if (this.playerTwoName.length() <= 16 && !this.playerTwoName.isEmpty())
+		this.playerTwoName = this.jTextFieldPlayerName.getText().trim();
+		if ((this.playerTwoName.length() <= 16) && !this.playerTwoName.isEmpty())
 		{
-			this.jLabel10.setText(playerTwoName);
+			this.jLabelPlayerName.setText(this.playerTwoName);
 		}
 		else
 		{
@@ -487,37 +474,76 @@ public class PlayerTwoSelection extends javax.swing.JFrame implements Serializab
 
 	}// GEN-LAST:event_jTextField2ActionPerformed
 
-	private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt)
+	/**
+	 * Method jRadioButtonRedActionPerformed
+	 * 
+	 * @param evt
+	 */
+	private void jRadioButtonRedActionPerformed(java.awt.event.ActionEvent evt)
 	{// GEN-FIRST:event_jRadioButton1ActionPerformed
 		this.SpriteSelectedPlayerTwo.setIcon(new ImageIcon("./images/red.png"));
 	}// GEN-LAST:event_jRadioButton1ActionPerformed
 
-	private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt)
+	/**
+	 * Method jRadioButtonBlueActionPerformed
+	 * 
+	 * @param evt
+	 */
+	private void jRadioButtonBlueActionPerformed(java.awt.event.ActionEvent evt)
 	{// GEN-FIRST:event_jRadioButton2ActionPerformed
 		this.SpriteSelectedPlayerTwo.setIcon(new ImageIcon("./images/blue.png"));
 	}// GEN-LAST:event_jRadioButton2ActionPerformed
 
-	private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt)
+	/**
+	 * Method jRadioButtonRangerActionPerformed
+	 * 
+	 * @param evt
+	 */
+	private void jRadioButtonRangerActionPerformed(java.awt.event.ActionEvent evt)
 	{// GEN-FIRST:event_jRadioButton3ActionPerformed
 		this.SpriteSelectedPlayerTwo.setIcon(new ImageIcon("./images/ranger.png"));
 	}// GEN-LAST:event_jRadioButton3ActionPerformed
 
-	private void jRadioButton4ActionPerformed(java.awt.event.ActionEvent evt)
+	/**
+	 * Method jRadioButtonFemaleRangerActionPerformed
+	 * 
+	 * @param evt
+	 */
+	private void jRadioButtonFemaleRangerActionPerformed(java.awt.event.ActionEvent evt)
 	{// GEN-FIRST:event_jRadioButton4ActionPerformed
 		this.SpriteSelectedPlayerTwo.setIcon(new ImageIcon("./images/femaleRanger.png"));
 	}// GEN-LAST:event_jRadioButton4ActionPerformed
 
-	private void jRadioButton5ActionPerformed(java.awt.event.ActionEvent evt)
+	/**
+	 * Method jRadioButtonNormalFemaleActionPerformed
+	 * 
+	 * @param evt
+	 */
+	private void jRadioButtonNormalFemaleActionPerformed(java.awt.event.ActionEvent evt)
 	{// GEN-FIRST:event_jRadioButton5ActionPerformed
 		this.SpriteSelectedPlayerTwo.setIcon(new ImageIcon("./images/normalFemale.png"));
 	}// GEN-LAST:event_jRadioButton5ActionPerformed
 
-	private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt)
+	/**
+	 * Method jMenuItemLoadActionPerformed
+	 * 
+	 * @param evt
+	 */
+	private void jMenuItemLoadActionPerformed(java.awt.event.ActionEvent evt)
 	{// GEN-FIRST:event_jMenuItem1ActionPerformed
 		System.out.println("CARGAR ESTADO");
 		Application application = new Application();
 
-		List<Object> partyList = application.loadState();
+		List<Object> partyList=null;
+		try
+		{
+			partyList = application.loadState();
+		}
+		catch (PokemonException exception)
+		{
+			String error = "InterruptedException";
+			logger.error(error,exception);
+		}
 
 		if (partyList != null)
 		{
@@ -535,7 +561,12 @@ public class PlayerTwoSelection extends javax.swing.JFrame implements Serializab
 		}
 	}// GEN-LAST:event_jMenuItem1ActionPerformed
 
-	private void jButton4ActionPerformed(java.awt.event.ActionEvent evt)
+	/**
+	 * Method jButtonSelectionCompleteActionPerformed
+	 * 
+	 * @param evt
+	 */
+	private void jButtonSelectionCompleteActionPerformed(java.awt.event.ActionEvent evt)
 	{// GEN-FIRST:event_jButton4ActionPerformed
 		this.selectButtonSound();
 		if (this.listModel2.size() > 0)
@@ -543,6 +574,7 @@ public class PlayerTwoSelection extends javax.swing.JFrame implements Serializab
 			this.mainTheme.stop();
 			PlayerVersusPlayer playerVersusPlayer = new PlayerVersusPlayer(this);
 			playerVersusPlayer.setVisible(true);
+			this.dispose();
 		}
 		else
 		{
@@ -550,10 +582,15 @@ public class PlayerTwoSelection extends javax.swing.JFrame implements Serializab
 		}
 	}// GEN-LAST:event_jButton4ActionPerformed
 
-	private void jButton2MouseClicked(java.awt.event.MouseEvent evt)
+	/**
+	 * Method jButtonRemoveMouseClicked
+	 * 
+	 * @param evt
+	 */
+	private void jButtonRemoveMouseClicked(java.awt.event.MouseEvent evt)
 	{// GEN-FIRST:event_jButton2MouseClicked
 		this.selectButtonSound();
-		Pokemon selectedPokemon = this.jList2.getSelectedValue();
+		Pokemon selectedPokemon = this.jListPlayerPokemons.getSelectedValue();
 
 		if (this.listModel2.contains(selectedPokemon))
 		{
@@ -568,44 +605,59 @@ public class PlayerTwoSelection extends javax.swing.JFrame implements Serializab
 		}
 	}// GEN-LAST:event_jButton2MouseClicked
 
-	private void jButton3MouseClicked(java.awt.event.MouseEvent evt)
+	/**
+	 * Method jButtonRemoveAllMouseClicked
+	 * 
+	 * @param evt
+	 */
+	private void jButtonRemoveAllMouseClicked(java.awt.event.MouseEvent evt)
 	{// GEN-FIRST:event_jButton3MouseClicked
 		this.selectButtonSound();
 		this.listModel2.removeAllElements();
 	}// GEN-LAST:event_jButton3MouseClicked
 
-	private void jList1MouseClicked(java.awt.event.MouseEvent evt)
+	/**
+	 * Method jListAllPokemonsMouseClicked
+	 * 
+	 * @param evt
+	 */
+	private void jListAllPokemonsMouseClicked(java.awt.event.MouseEvent evt)
 	{// GEN-FIRST:event_jList1MouseClicked
 		this.selectButtonSound();
-		Pokemon selectedPokemon = this.jList1.getSelectedValue();
+		Pokemon selectedPokemon = this.jListAllPokemons.getSelectedValue();
 		ImageIcon icon = new ImageIcon(selectedPokemon.getPokeImage());
-		this.jLabel1.setIcon(icon);
-		this.jLabel1.setText(selectedPokemon.getName());
+		this.jLabelChoseYourPokemon.setIcon(icon);
+		this.jLabelChoseYourPokemon.setText(selectedPokemon.getName());
 
-		this.jLabel2.setText("Health: " + selectedPokemon.getHealth());
-		this.jLabel3.setText("Attack: " + selectedPokemon.getAttack());
-		this.jLabel4.setText("SP-Attack: " + selectedPokemon.getSpAttack());
-		this.jLabel5.setText("Defense: " + selectedPokemon.getDefense());
-		this.jLabel6.setText("SP-Defense: " + selectedPokemon.getSpDefense());
-		this.jLabel7.setText("Speed: " + selectedPokemon.getSpeed());
+		this.jLabelHealth.setText("Health: " + selectedPokemon.getHealth());
+		this.jLabelAttack.setText("Attack: " + selectedPokemon.getAttack());
+		this.jLabelDefense.setText("SP-Attack: " + selectedPokemon.getSpAttack());
+		this.jLabelSpAttack.setText("Defense: " + selectedPokemon.getDefense());
+		this.jLabelSpDefense.setText("SP-Defense: " + selectedPokemon.getSpDefense());
+		this.jLabelSpeed.setText("Speed: " + selectedPokemon.getSpeed());
 		this.repaint();
 
 	}// GEN-LAST:event_jList1MouseClicked
 
-	private void jButton1MouseClicked(java.awt.event.MouseEvent evt)
+	/**
+	 * Method jButtonSelectMouseClicked
+	 * 
+	 * @param evt
+	 */
+	private void jButtonSelectMouseClicked(java.awt.event.MouseEvent evt)
 	{// GEN-FIRST:event_jButton1MouseClicked
 		this.selectButtonSound();
-		Pokemon selectedPokemon = this.jList1.getSelectedValue();
+		Pokemon selectedPokemon = this.jListAllPokemons.getSelectedValue();
 
-		if (listModel2.contains(selectedPokemon))
+		if (this.listModel2.contains(selectedPokemon))
 		{
 			JOptionPane.showMessageDialog(this, "You alrready select " + selectedPokemon.getName());
 		}
 		else if (this.listModel2.size() < 5)
 		{
 			this.listModel2.add(0, selectedPokemon);
-			this.jList2.setModel(listModel2);
-			System.out.println(listModel2);
+			this.jListPlayerPokemons.setModel(this.listModel2);
+			System.out.println(this.listModel2);
 		}
 		else
 		{
@@ -613,31 +665,34 @@ public class PlayerTwoSelection extends javax.swing.JFrame implements Serializab
 		}
 	}// GEN-LAST:event_jButton1MouseClicked
 
-	private void jList2MouseClicked(java.awt.event.MouseEvent evt)
+	/**
+	 * Method jListPlayerPokemonsMouseClicked
+	 * 
+	 * @param evt
+	 */
+	private void jListPlayerPokemonsMouseClicked(java.awt.event.MouseEvent evt)
 	{// GEN-FIRST:event_jList2MouseClicked
 		this.selectButtonSound();
-		Pokemon selectedPokemon = this.jList2.getSelectedValue();
+		Pokemon selectedPokemon = this.jListPlayerPokemons.getSelectedValue();
 		if (selectedPokemon != null)
 		{
 			ImageIcon icon = new ImageIcon(selectedPokemon.getPokeImage());
-			this.jLabel1.setIcon(icon);
-			this.jLabel1.setText(selectedPokemon.getName());
+			this.jLabelChoseYourPokemon.setIcon(icon);
+			this.jLabelChoseYourPokemon.setText(selectedPokemon.getName());
 
-			this.jLabel2.setText("Health: " + selectedPokemon.getHealth());
-			this.jLabel3.setText("Attack: " + selectedPokemon.getAttack());
-			this.jLabel4.setText("SP-Attack: " + selectedPokemon.getSpAttack());
-			this.jLabel5.setText("Defense: " + selectedPokemon.getDefense());
-			this.jLabel6.setText("SP-Defense: " + selectedPokemon.getSpDefense());
-			this.jLabel7.setText("Speed: " + selectedPokemon.getSpeed());
+			this.jLabelHealth.setText("Health: " + selectedPokemon.getHealth());
+			this.jLabelAttack.setText("Attack: " + selectedPokemon.getAttack());
+			this.jLabelDefense.setText("SP-Attack: " + selectedPokemon.getSpAttack());
+			this.jLabelSpAttack.setText("Defense: " + selectedPokemon.getDefense());
+			this.jLabelSpDefense.setText("SP-Defense: " + selectedPokemon.getSpDefense());
+			this.jLabelSpeed.setText("Speed: " + selectedPokemon.getSpeed());
 			this.repaint();
 		}
 	}// GEN-LAST:event_jList2MouseClicked
 
-	private void jButton4MouseClicked(java.awt.event.MouseEvent evt)
-	{// GEN-FIRST:event_jButton4MouseClicked
-		// VENTANA DE PELEA
-	}// GEN-LAST:event_jButton4MouseClicked
-
+	/**
+	 * Method selectButtonSound
+	 */
 	private void selectButtonSound()
 	{
 
@@ -651,17 +706,20 @@ public class PlayerTwoSelection extends javax.swing.JFrame implements Serializab
 			clip.start();
 
 		}
-		catch (UnsupportedAudioFileException ex)
+		catch (UnsupportedAudioFileException exception)
 		{
-			Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null, ex);
+			String error = "UnsupportedAudioFileException";
+			logger.error(error,exception);
 		}
-		catch (IOException ex)
+		catch (IOException exception)
 		{
-			Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null, ex);
+			String error = "IOException";
+			logger.error(error,exception);
 		}
-		catch (LineUnavailableException ex)
+		catch (LineUnavailableException exception)
 		{
-			Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null, ex);
+			String error = "LineUnavailableException";
+			logger.error(error,exception);
 		}
 		finally
 		{
@@ -669,13 +727,17 @@ public class PlayerTwoSelection extends javax.swing.JFrame implements Serializab
 			{
 				audioInputStream.close();
 			}
-			catch (IOException ex)
+			catch (IOException exception)
 			{
-				Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null, ex);
+				String error = "IOException";
+				logger.error(error,exception);
 			}
 		}
 	}
 
+	/**
+	 * Method jumpPokemonAnimationThread
+	 */
 	private void jumpPokemonAnimationThread()
 	{
 		Thread jumpThread = new Thread(new Runnable()
@@ -689,27 +751,33 @@ public class PlayerTwoSelection extends javax.swing.JFrame implements Serializab
 					for (int i = 0; i < 10; i++)
 					{
 
-						jLabel1.setLocation(jLabel1.getX(), jLabel1.getY() + speed);
+						PlayerTwoSelection.this.jLabelChoseYourPokemon.setLocation(
+								PlayerTwoSelection.this.jLabelChoseYourPokemon.getX(),
+								PlayerTwoSelection.this.jLabelChoseYourPokemon.getY() + speed);
 						try
 						{
 							Thread.sleep(100);
 						}
-						catch (InterruptedException ex)
+						catch (InterruptedException exception)
 						{
-							Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null, ex);
+							String error = "InterruptedException";
+							logger.error(error,exception);
 						}
 					}
 					for (int i = 0; i < 10; i++)
 					{
 
-						jLabel1.setLocation(jLabel1.getX(), jLabel1.getY() + (speed * -1));
+						PlayerTwoSelection.this.jLabelChoseYourPokemon.setLocation(
+								PlayerTwoSelection.this.jLabelChoseYourPokemon.getX(),
+								PlayerTwoSelection.this.jLabelChoseYourPokemon.getY() + (speed * -1));
 						try
 						{
 							Thread.sleep(100);
 						}
-						catch (InterruptedException ex)
+						catch (InterruptedException exception)
 						{
-							Logger.getLogger(PlayerVersusPlayer.class.getName()).log(Level.SEVERE, null, ex);
+							String error = "InterruptedException";
+							logger.error(error,exception);
 						}
 					}
 				}
