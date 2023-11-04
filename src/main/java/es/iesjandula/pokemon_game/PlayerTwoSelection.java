@@ -169,12 +169,14 @@ public class PlayerTwoSelection extends javax.swing.JFrame implements Serializab
         jLabelChoseYourPokemon.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabelChoseYourPokemon.setText("         CHOOSE YOUR POKEMON!");
         jLabelChoseYourPokemon.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabelChoseYourPokemon.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
         getContentPane().add(jLabelChoseYourPokemon, new org.netbeans.lib.awtextra.AbsoluteConstraints(295, 355, 363, 165));
 
         jButtonSelectionComplete.setBackground(new java.awt.Color(51, 204, 0));
         jButtonSelectionComplete.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButtonSelectionComplete.setForeground(new java.awt.Color(255, 255, 255));
         jButtonSelectionComplete.setText("SELECTION COMPLETE");
+        jButtonSelectionComplete.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonSelectionComplete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonSelectionCompleteActionPerformed(evt);
@@ -186,6 +188,7 @@ public class PlayerTwoSelection extends javax.swing.JFrame implements Serializab
         jButtonRemove.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButtonRemove.setForeground(new java.awt.Color(255, 255, 255));
         jButtonRemove.setText("REMOVE");
+        jButtonRemove.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonRemove.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonRemoveMouseClicked(evt);
@@ -197,6 +200,7 @@ public class PlayerTwoSelection extends javax.swing.JFrame implements Serializab
         jButtonRemoveAll.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButtonRemoveAll.setForeground(new java.awt.Color(255, 255, 255));
         jButtonRemoveAll.setText("REMOVE ALL");
+        jButtonRemoveAll.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonRemoveAll.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonRemoveAllMouseClicked(evt);
@@ -227,6 +231,7 @@ public class PlayerTwoSelection extends javax.swing.JFrame implements Serializab
 
         jListAllPokemons.setBackground(new java.awt.Color(255, 200, 200));
         jListAllPokemons.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jListAllPokemons.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jListAllPokemons.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jListAllPokemonsMouseClicked(evt);
@@ -254,6 +259,7 @@ public class PlayerTwoSelection extends javax.swing.JFrame implements Serializab
         jButtonSelect.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButtonSelect.setForeground(new java.awt.Color(255, 255, 255));
         jButtonSelect.setText("SELECT");
+        jButtonSelect.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonSelect.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonSelectMouseClicked(evt);
@@ -270,6 +276,7 @@ public class PlayerTwoSelection extends javax.swing.JFrame implements Serializab
 
         jListPlayerPokemons.setBackground(new java.awt.Color(227, 227, 227));
         jListPlayerPokemons.setForeground(new java.awt.Color(0, 102, 0));
+        jListPlayerPokemons.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jListPlayerPokemons.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jListPlayerPokemonsMouseClicked(evt);
@@ -293,6 +300,7 @@ public class PlayerTwoSelection extends javax.swing.JFrame implements Serializab
         getContentPane().add(jLabelFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 9, -1, -1));
 
         jButtonResetFilter.setText("RESET FILTER");
+        jButtonResetFilter.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonResetFilter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonResetFilterActionPerformed(evt);
@@ -321,6 +329,7 @@ public class PlayerTwoSelection extends javax.swing.JFrame implements Serializab
         jRadioButtonRed.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jRadioButtonRed.setSelected(true);
         jRadioButtonRed.setText("Red");
+        jRadioButtonRed.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jRadioButtonRed.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButtonRedActionPerformed(evt);
@@ -331,6 +340,7 @@ public class PlayerTwoSelection extends javax.swing.JFrame implements Serializab
         buttonGroupPlayerTwoSprites.add(jRadioButtonBlue);
         jRadioButtonBlue.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jRadioButtonBlue.setText("Blue");
+        jRadioButtonBlue.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jRadioButtonBlue.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButtonBlueActionPerformed(evt);
@@ -344,6 +354,7 @@ public class PlayerTwoSelection extends javax.swing.JFrame implements Serializab
         buttonGroupPlayerTwoSprites.add(jRadioButtonRanger);
         jRadioButtonRanger.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jRadioButtonRanger.setText("Ranger");
+        jRadioButtonRanger.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jRadioButtonRanger.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButtonRangerActionPerformed(evt);
@@ -354,6 +365,7 @@ public class PlayerTwoSelection extends javax.swing.JFrame implements Serializab
         buttonGroupPlayerTwoSprites.add(jRadioButtonFemaleRanger);
         jRadioButtonFemaleRanger.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jRadioButtonFemaleRanger.setText("Female Ranger");
+        jRadioButtonFemaleRanger.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jRadioButtonFemaleRanger.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButtonFemaleRangerActionPerformed(evt);
@@ -364,6 +376,7 @@ public class PlayerTwoSelection extends javax.swing.JFrame implements Serializab
         buttonGroupPlayerTwoSprites.add(jRadioButtonNormalFemale);
         jRadioButtonNormalFemale.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jRadioButtonNormalFemale.setText("Normal Female");
+        jRadioButtonNormalFemale.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jRadioButtonNormalFemale.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButtonNormalFemaleActionPerformed(evt);
@@ -375,6 +388,7 @@ public class PlayerTwoSelection extends javax.swing.JFrame implements Serializab
         jButtonRandom.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButtonRandom.setForeground(new java.awt.Color(255, 255, 255));
         jButtonRandom.setText("RANDOM");
+        jButtonRandom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonRandom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonRandomActionPerformed(evt);
@@ -383,6 +397,7 @@ public class PlayerTwoSelection extends javax.swing.JFrame implements Serializab
         getContentPane().add(jButtonRandom, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 90, 30));
 
         jLabelBackground.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabelBackground.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
         getContentPane().add(jLabelBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(-7, -4, 920, 600));
 
         jMenu.setText("File");

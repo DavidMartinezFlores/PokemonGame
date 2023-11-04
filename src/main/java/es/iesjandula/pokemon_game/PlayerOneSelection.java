@@ -171,10 +171,12 @@ public class PlayerOneSelection extends javax.swing.JFrame implements Serializab
         jMenuItemLoad = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jListAllPokes.setBackground(new java.awt.Color(200, 252, 255));
         jListAllPokes.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jListAllPokes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jListAllPokes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jListAllPokesMouseClicked(evt);
@@ -188,6 +190,7 @@ public class PlayerOneSelection extends javax.swing.JFrame implements Serializab
         jButtonSelect.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButtonSelect.setForeground(new java.awt.Color(255, 255, 255));
         jButtonSelect.setText("SELECT");
+        jButtonSelect.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonSelect.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonSelectMouseClicked(evt);
@@ -197,6 +200,7 @@ public class PlayerOneSelection extends javax.swing.JFrame implements Serializab
 
         jListSelectedPokes.setBackground(new java.awt.Color(227, 227, 227));
         jListSelectedPokes.setForeground(new java.awt.Color(0, 102, 0));
+        jListSelectedPokes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jListSelectedPokes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jListSelectedPokesMouseClicked(evt);
@@ -209,12 +213,14 @@ public class PlayerOneSelection extends javax.swing.JFrame implements Serializab
         jLabelChoseYourPokemon.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabelChoseYourPokemon.setText("         CHOOSE YOUR POKEMON!");
         jLabelChoseYourPokemon.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabelChoseYourPokemon.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
         getContentPane().add(jLabelChoseYourPokemon, new org.netbeans.lib.awtextra.AbsoluteConstraints(295, 355, 363, 165));
 
         jButtonRemove.setBackground(new java.awt.Color(255, 153, 102));
         jButtonRemove.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButtonRemove.setForeground(new java.awt.Color(255, 255, 255));
         jButtonRemove.setText("REMOVE");
+        jButtonRemove.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonRemove.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonRemoveMouseClicked(evt);
@@ -226,6 +232,7 @@ public class PlayerOneSelection extends javax.swing.JFrame implements Serializab
         jButtonRemoveAll.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButtonRemoveAll.setForeground(new java.awt.Color(255, 255, 255));
         jButtonRemoveAll.setText("REMOVE ALL");
+        jButtonRemoveAll.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonRemoveAll.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonRemoveAllMouseClicked(evt);
@@ -279,6 +286,7 @@ public class PlayerOneSelection extends javax.swing.JFrame implements Serializab
         jButtonSelectionComplete.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButtonSelectionComplete.setForeground(new java.awt.Color(255, 255, 255));
         jButtonSelectionComplete.setText("SELECTION COMPLETE");
+        jButtonSelectionComplete.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonSelectionComplete.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonSelectionCompleteMouseClicked(evt);
@@ -300,6 +308,7 @@ public class PlayerOneSelection extends javax.swing.JFrame implements Serializab
         getContentPane().add(jLabelFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(312, 9, -1, -1));
 
         jButtonResetFilter.setText("RESET FILTER");
+        jButtonResetFilter.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonResetFilter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonResetFilterActionPerformed(evt);
@@ -328,6 +337,7 @@ public class PlayerOneSelection extends javax.swing.JFrame implements Serializab
         jRadioButtonRed.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jRadioButtonRed.setSelected(true);
         jRadioButtonRed.setText("Red");
+        jRadioButtonRed.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jRadioButtonRed.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButtonRedActionPerformed(evt);
@@ -338,6 +348,7 @@ public class PlayerOneSelection extends javax.swing.JFrame implements Serializab
         buttonGroupPlayerOneSprite.add(jRadioButtonBlue);
         jRadioButtonBlue.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jRadioButtonBlue.setText("Blue");
+        jRadioButtonBlue.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jRadioButtonBlue.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButtonBlueActionPerformed(evt);
@@ -351,6 +362,7 @@ public class PlayerOneSelection extends javax.swing.JFrame implements Serializab
         buttonGroupPlayerOneSprite.add(jRadioButtonRanger);
         jRadioButtonRanger.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jRadioButtonRanger.setText("Ranger");
+        jRadioButtonRanger.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jRadioButtonRanger.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButtonRangerActionPerformed(evt);
@@ -361,6 +373,7 @@ public class PlayerOneSelection extends javax.swing.JFrame implements Serializab
         buttonGroupPlayerOneSprite.add(jRadioButtonFemaleRanger);
         jRadioButtonFemaleRanger.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jRadioButtonFemaleRanger.setText("Female Ranger");
+        jRadioButtonFemaleRanger.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jRadioButtonFemaleRanger.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButtonFemaleRangerActionPerformed(evt);
@@ -371,6 +384,7 @@ public class PlayerOneSelection extends javax.swing.JFrame implements Serializab
         buttonGroupPlayerOneSprite.add(jRadioButtonNormalFemale);
         jRadioButtonNormalFemale.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jRadioButtonNormalFemale.setText("Normal Female");
+        jRadioButtonNormalFemale.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jRadioButtonNormalFemale.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButtonNormalFemaleActionPerformed(evt);
@@ -382,6 +396,7 @@ public class PlayerOneSelection extends javax.swing.JFrame implements Serializab
         jButtonRandom.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButtonRandom.setForeground(new java.awt.Color(255, 255, 255));
         jButtonRandom.setText("RANDOM");
+        jButtonRandom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonRandom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonRandomActionPerformed(evt);

@@ -31,6 +31,10 @@ public class EndOfParty extends javax.swing.JFrame
 	
 	/** Attribute mainTheme */
 	private Clip mainTheme;
+        
+        private PlayerOneKills playerOneKills;
+        
+        private PlayerTwoKills playerTwoKills;
 
 	// Variables declaration - do not modify//GEN-BEGIN:variables
 	private javax.swing.JButton jButton1;
@@ -48,9 +52,12 @@ public class EndOfParty extends javax.swing.JFrame
 	 * @param winner
 	 * @param icon
 	 */
-	public EndOfParty(String winner, Icon icon)
-	{
-		this.initComponents();
+	public EndOfParty(String winner, Icon icon, PlayerOneKills playerOneKills, PlayerTwoKills playerTwoKills)
+	{       
+                this.initComponents();
+                this.playerOneKills = playerOneKills;
+                this.playerTwoKills = playerTwoKills;
+		
 		this.mainTheme = this.getMainTheme();
 		if (this.mainTheme != null)
 		{
@@ -161,6 +168,8 @@ public class EndOfParty extends javax.swing.JFrame
 		gameIntro.setVisible(true);
 		this.mainTheme.stop();
 		this.dispose();
+                this.playerOneKills.dispose();
+                this.playerTwoKills.dispose();
 	}// GEN-LAST:event_jButton2ActionPerformed
 
 	/**

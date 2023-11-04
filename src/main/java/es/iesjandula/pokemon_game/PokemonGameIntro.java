@@ -30,13 +30,12 @@ public class PokemonGameIntro extends javax.swing.JFrame
 	/** Attribute mainTheme */
 	private Clip mainTheme;
 
-	// Variables declaration - do not modify//GEN-BEGIN:variables
-	private javax.swing.JButton jButtonStrarGame;
-	private javax.swing.JLabel jLabelBackground;
-	private javax.swing.JLabel jLabelPokeballOne;
-	private javax.swing.JLabel jLabelPokeballTwo;
-
-	// End of variables declaration//GEN-END:variables
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonStrarGame;
+    private javax.swing.JLabel jLabelBackground;
+    private javax.swing.JLabel jLabelPokeballOne;
+    private javax.swing.JLabel jLabelPokeballTwo;
+    // End of variables declaration//GEN-END:variables
 	/**
 	 * Creates new form PokemonGameIntro
 	 */
@@ -101,56 +100,46 @@ public class PokemonGameIntro extends javax.swing.JFrame
 	// <editor-fold defaultstate="collapsed" desc="Generated
 	// <editor-fold defaultstate="collapsed" desc="Generated
 	// <editor-fold defaultstate="collapsed" desc="Generated
-	// Code">//GEN-BEGIN:initComponents
-	private void initComponents()
-	{
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
 
-		this.jButtonStrarGame = new javax.swing.JButton();
-		this.jLabelPokeballOne = new javax.swing.JLabel();
-		this.jLabelPokeballTwo = new javax.swing.JLabel();
-		this.jLabelBackground = new javax.swing.JLabel();
+        jButtonStrarGame = new javax.swing.JButton();
+        jLabelPokeballOne = new javax.swing.JLabel();
+        jLabelPokeballTwo = new javax.swing.JLabel();
+        jLabelBackground = new javax.swing.JLabel();
 
-		this.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-		this.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-		this.jButtonStrarGame.setBackground(new java.awt.Color(1, 163, 28));
-		this.jButtonStrarGame.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-		this.jButtonStrarGame.setForeground(new java.awt.Color(255, 255, 255));
-		this.jButtonStrarGame.setText("START GAME");
-		this.jButtonStrarGame.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-		this.jButtonStrarGame.addMouseListener(new java.awt.event.MouseAdapter()
-		{
-			@Override
-			public void mouseClicked(java.awt.event.MouseEvent evt)
-			{
-				PokemonGameIntro.this.jButtonStrarGameMouseClicked(evt);
-			}
-		});
-		this.jButtonStrarGame.addActionListener(new java.awt.event.ActionListener()
-		{
-			@Override
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				PokemonGameIntro.this.jButtonStrarGameActionPerformed(evt);
-			}
-		});
-		this.getContentPane().add(this.jButtonStrarGame,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 310, 370, 60));
+        jButtonStrarGame.setBackground(new java.awt.Color(1, 163, 28));
+        jButtonStrarGame.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jButtonStrarGame.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonStrarGame.setText("START GAME");
+        jButtonStrarGame.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButtonStrarGame.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonStrarGame.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonStrarGameMouseClicked(evt);
+            }
+        });
+        jButtonStrarGame.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonStrarGameActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonStrarGame, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 310, 370, 60));
 
-		this.jLabelPokeballOne.setText("   ");
-		this.getContentPane().add(this.jLabelPokeballOne,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 270, 146, 114));
+        jLabelPokeballOne.setText("   ");
+        getContentPane().add(jLabelPokeballOne, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 270, 146, 114));
 
-		this.jLabelPokeballTwo.setText("   ");
-		this.getContentPane().add(this.jLabelPokeballTwo,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 270, 165, 104));
+        jLabelPokeballTwo.setText("   ");
+        getContentPane().add(jLabelPokeballTwo, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 270, 165, 104));
 
-		this.jLabelBackground.setText("    ");
-		this.getContentPane().add(this.jLabelBackground,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1156, 521));
+        jLabelBackground.setText("    ");
+        getContentPane().add(jLabelBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1156, 521));
 
-		this.pack();
-	}// </editor-fold>//GEN-END:initComponents
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
 
 	/**
 	 * Method jButtonStrarGameActionPerformed
