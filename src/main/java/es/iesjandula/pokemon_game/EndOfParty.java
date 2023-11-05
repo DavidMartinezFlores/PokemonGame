@@ -32,8 +32,10 @@ public class EndOfParty extends javax.swing.JFrame
 	/** Attribute mainTheme */
 	private Clip mainTheme;
 
+	/** Attribute playerOneKills */
 	private PlayerOneKills playerOneKills;
 
+	/** Attribute playerTwoKills */
 	private PlayerTwoKills playerTwoKills;
 
 	// Variables declaration - do not modify//GEN-BEGIN:variables
@@ -54,13 +56,14 @@ public class EndOfParty extends javax.swing.JFrame
 	 */
 	public EndOfParty(String winner, Icon icon, PlayerOneKills playerOneKills, PlayerTwoKills playerTwoKills)
 	{
+		// -------THE ORDER IS IMPORTANT-----------
 		this.initComponents();
 		this.playerOneKills = playerOneKills;
 		this.playerTwoKills = playerTwoKills;
-		
+
 		this.setTitle("End Of Party");
 		this.setIconImage(Toolkit.getDefaultToolkit().getImage("./images/pokeball.png"));
-		
+
 		this.mainTheme = this.getMainTheme();
 		if (this.mainTheme != null)
 		{
@@ -176,7 +179,7 @@ public class EndOfParty extends javax.swing.JFrame
 	}// GEN-LAST:event_jButton2ActionPerformed
 
 	/**
-	 * Method rotatePokeballThreadOne
+	 * Method rotatePokeballThreadOne Pokeball animation one
 	 */
 	private void rotatePokeballThreadOne()
 	{
@@ -185,6 +188,7 @@ public class EndOfParty extends javax.swing.JFrame
 			@Override
 			public void run()
 			{
+				// Speed of the animation
 				int speed = 1;
 				while (true)
 				{
@@ -225,7 +229,7 @@ public class EndOfParty extends javax.swing.JFrame
 	}
 
 	/**
-	 * Method rotatePokeballThreadTwo
+	 * Method rotatePokeballThreadTwo Pokeball animation two
 	 */
 	private void rotatePokeballThreadTwo()
 	{
@@ -234,6 +238,7 @@ public class EndOfParty extends javax.swing.JFrame
 			@Override
 			public void run()
 			{
+				// Speed of the animation
 				int speed = 1;
 				while (true)
 				{
@@ -274,7 +279,7 @@ public class EndOfParty extends javax.swing.JFrame
 	}
 
 	/**
-	 * Method buttonsAnimation
+	 * Method buttonsAnimation Buttons animation
 	 */
 	private void buttonsAnimation()
 	{
@@ -285,6 +290,7 @@ public class EndOfParty extends javax.swing.JFrame
 			{
 				while (true)
 				{
+					// Speed of the animation
 					int speed = 1;
 					for (int i = 0; i < 10; i++)
 					{
@@ -325,12 +331,13 @@ public class EndOfParty extends javax.swing.JFrame
 	}
 
 	/**
-	 * Method getMainTheme
-	 *
-	 * @return
+	 * Method getMainTheme Obtains the main theme on clip
+	 * 
+	 * @return Clip
 	 */
 	private Clip getMainTheme()
 	{
+		// Using Clip object to get the main theme
 		Clip clip = null;
 
 		try

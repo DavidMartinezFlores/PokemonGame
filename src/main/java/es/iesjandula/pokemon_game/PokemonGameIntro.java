@@ -8,7 +8,6 @@ import java.awt.Toolkit;
 import java.io.File;
 import java.io.IOException;
 
-
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
@@ -27,7 +26,7 @@ public class PokemonGameIntro extends javax.swing.JFrame
 {
 	/** Attribute logger*/
 	private static final Logger logger = LogManager.getLogger();
-	
+
 	/** Attribute mainTheme */
 	private Clip mainTheme;
 
@@ -43,10 +42,10 @@ public class PokemonGameIntro extends javax.swing.JFrame
 	public PokemonGameIntro()
 	{
 		this.initComponents();
-		
+
 		this.setTitle("Pokemon Game Intro");
 		this.setIconImage(Toolkit.getDefaultToolkit().getImage("./images/pokeball.png"));
-		
+
 		this.jumpStartButtonAnimationThread();
 		this.mainTheme = this.openingThemePlay();
 		this.jLabelBackground.setIcon(new ImageIcon("./images/presentation.png"));
@@ -62,8 +61,8 @@ public class PokemonGameIntro extends javax.swing.JFrame
 
 	/**
 	 * Method openingThemePlay
-	 * 
-	 * @return
+	 * Used for the opening sound
+	 * @return Clip
 	 */
 	private Clip openingThemePlay()
 	{
@@ -79,17 +78,17 @@ public class PokemonGameIntro extends javax.swing.JFrame
 		catch (UnsupportedAudioFileException exception)
 		{
 			String error = "UnsupportedAudioFileException";
-			logger.error(error,exception);
+			PokemonGameIntro.logger.error(error,exception);
 		}
 		catch (IOException exception)
 		{
 			String error = "IOException";
-			logger.error(error,exception);
+			PokemonGameIntro.logger.error(error,exception);
 		}
 		catch (LineUnavailableException exception)
 		{
 			String error = "LineUnavailableException";
-			logger.error(error,exception);
+			PokemonGameIntro.logger.error(error,exception);
 		}
 
 		return clip;
@@ -108,47 +107,49 @@ public class PokemonGameIntro extends javax.swing.JFrame
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButtonStrarGame = new javax.swing.JButton();
-        jLabelPokeballOne = new javax.swing.JLabel();
-        jLabelPokeballTwo = new javax.swing.JLabel();
-        jLabelBackground = new javax.swing.JLabel();
+        this.jButtonStrarGame = new javax.swing.JButton();
+        this.jLabelPokeballOne = new javax.swing.JLabel();
+        this.jLabelPokeballTwo = new javax.swing.JLabel();
+        this.jLabelBackground = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        this.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        this.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButtonStrarGame.setBackground(new java.awt.Color(1, 163, 28));
-        jButtonStrarGame.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jButtonStrarGame.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonStrarGame.setText("START GAME");
-        jButtonStrarGame.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButtonStrarGame.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButtonStrarGame.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButtonStrarGameMouseClicked(evt);
+        this.jButtonStrarGame.setBackground(new java.awt.Color(1, 163, 28));
+        this.jButtonStrarGame.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        this.jButtonStrarGame.setForeground(new java.awt.Color(255, 255, 255));
+        this.jButtonStrarGame.setText("START GAME");
+        this.jButtonStrarGame.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        this.jButtonStrarGame.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        this.jButtonStrarGame.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+			public void mouseClicked(java.awt.event.MouseEvent evt) {
+                PokemonGameIntro.this.jButtonStrarGameMouseClicked(evt);
             }
         });
-        jButtonStrarGame.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonStrarGameActionPerformed(evt);
+        this.jButtonStrarGame.addActionListener(new java.awt.event.ActionListener() {
+            @Override
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PokemonGameIntro.this.jButtonStrarGameActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonStrarGame, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 310, 370, 60));
+        this.getContentPane().add(this.jButtonStrarGame, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 310, 370, 60));
 
-        jLabelPokeballOne.setText("   ");
-        getContentPane().add(jLabelPokeballOne, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 270, 146, 114));
+        this.jLabelPokeballOne.setText("   ");
+        this.getContentPane().add(this.jLabelPokeballOne, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 270, 146, 114));
 
-        jLabelPokeballTwo.setText("   ");
-        getContentPane().add(jLabelPokeballTwo, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 270, 165, 104));
+        this.jLabelPokeballTwo.setText("   ");
+        this.getContentPane().add(this.jLabelPokeballTwo, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 270, 165, 104));
 
-        jLabelBackground.setText("    ");
-        getContentPane().add(jLabelBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1156, 521));
+        this.jLabelBackground.setText("    ");
+        this.getContentPane().add(this.jLabelBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1156, 521));
 
-        pack();
+        this.pack();
     }// </editor-fold>//GEN-END:initComponents
 
 	/**
 	 * Method jButtonStrarGameActionPerformed
-	 * 
+	 *
 	 * @param evt
 	 */
 	private void jButtonStrarGameActionPerformed(java.awt.event.ActionEvent evt)
@@ -158,7 +159,7 @@ public class PokemonGameIntro extends javax.swing.JFrame
 
 	/**
 	 * Method jButtonStrarGameMouseClicked
-	 * 
+	 *
 	 * @param evt
 	 */
 	private void jButtonStrarGameMouseClicked(java.awt.event.MouseEvent evt)
@@ -171,6 +172,7 @@ public class PokemonGameIntro extends javax.swing.JFrame
 
 	/**
 	 * Method rotatePokeballThreadOne
+	 * Used for the pokeball one animation
 	 */
 	private void rotatePokeballThreadOne()
 	{
@@ -179,7 +181,9 @@ public class PokemonGameIntro extends javax.swing.JFrame
 			@Override
 			public void run()
 			{
+				//--SPEED--
 				int speed = 1;
+				//---INFINITE LOOP FOR INFINITE ANIMATION---
 				while (true)
 				{
 					for (int i = 0; i < 30; i++)
@@ -195,7 +199,7 @@ public class PokemonGameIntro extends javax.swing.JFrame
 						catch (InterruptedException exception)
 						{
 							String error = "UnsupportedAudioFileException";
-							logger.error(error,exception);
+							PokemonGameIntro.logger.error(error,exception);
 						}
 					}
 					for (int i = 0; i < 30; i++)
@@ -211,7 +215,7 @@ public class PokemonGameIntro extends javax.swing.JFrame
 						catch (InterruptedException exception)
 						{
 							String error = "InterruptedException";
-							logger.error(error,exception);
+							PokemonGameIntro.logger.error(error,exception);
 						}
 					}
 				}
@@ -222,6 +226,7 @@ public class PokemonGameIntro extends javax.swing.JFrame
 
 	/**
 	 * Method rotatePokeballThreadTwo
+	 * Used for the pokeball two animation
 	 */
 	private void rotatePokeballThreadTwo()
 	{
@@ -230,7 +235,9 @@ public class PokemonGameIntro extends javax.swing.JFrame
 			@Override
 			public void run()
 			{
+				//--SPEED--
 				int speed = 1;
+				//---INFINITE LOOP FOR INFINITE ANIMATION---
 				while (true)
 				{
 					for (int i = 0; i < 30; i++)
@@ -246,7 +253,7 @@ public class PokemonGameIntro extends javax.swing.JFrame
 						catch (InterruptedException exception)
 						{
 							String error = "InterruptedException";
-							logger.error(error,exception);
+							PokemonGameIntro.logger.error(error,exception);
 						}
 					}
 					for (int i = 0; i < 30; i++)
@@ -262,7 +269,7 @@ public class PokemonGameIntro extends javax.swing.JFrame
 						catch (InterruptedException exception)
 						{
 							String error = "InterruptedException";
-							logger.error(error,exception);
+							PokemonGameIntro.logger.error(error,exception);
 						}
 					}
 				}
@@ -273,6 +280,7 @@ public class PokemonGameIntro extends javax.swing.JFrame
 
 	/**
 	 * Method selectButtonSound
+	 * Used for the buttons sound
 	 */
 	private void selectButtonSound()
 	{
@@ -280,7 +288,6 @@ public class PokemonGameIntro extends javax.swing.JFrame
 		AudioInputStream audioInputStream = null;
 		try
 		{
-
 			audioInputStream = AudioSystem.getAudioInputStream(new File("./audio/butonSelect.wav"));
 			Clip clip = AudioSystem.getClip();
 			clip.open(audioInputStream);
@@ -290,17 +297,17 @@ public class PokemonGameIntro extends javax.swing.JFrame
 		catch (UnsupportedAudioFileException exception)
 		{
 			String error = "UnsupportedAudioFileException";
-			logger.error(error,exception);
+			PokemonGameIntro.logger.error(error,exception);
 		}
 		catch (IOException exception)
 		{
 			String error = "IOException";
-			logger.error(error,exception);
+			PokemonGameIntro.logger.error(error,exception);
 		}
 		catch (LineUnavailableException exception)
 		{
 			String error = "LineUnavailableException";
-			logger.error(error,exception);
+			PokemonGameIntro.logger.error(error,exception);
 		}
 		finally
 		{
@@ -311,13 +318,14 @@ public class PokemonGameIntro extends javax.swing.JFrame
 			catch (IOException exception)
 			{
 				String error = "IOException";
-				logger.error(error,exception);
+				PokemonGameIntro.logger.error(error,exception);
 			}
 		}
 	}
 
 	/**
 	 * Method jumpStartButtonAnimationThread
+	 * Used for the button animation jump
 	 */
 	private void jumpStartButtonAnimationThread()
 	{
@@ -326,7 +334,9 @@ public class PokemonGameIntro extends javax.swing.JFrame
 			@Override
 			public void run()
 			{
+				//--SPEED--
 				int speed = 1;
+				//---INFINITE LOOP FOR INFINITE ANIMATION---
 				while (true)
 				{
 					for (int i = 0; i < 10; i++)
@@ -342,7 +352,7 @@ public class PokemonGameIntro extends javax.swing.JFrame
 						catch (InterruptedException exception)
 						{
 							String error = "InterruptedException";
-							logger.error(error,exception);
+							PokemonGameIntro.logger.error(error,exception);
 						}
 					}
 					for (int i = 0; i < 10; i++)
@@ -358,7 +368,7 @@ public class PokemonGameIntro extends javax.swing.JFrame
 						catch (InterruptedException exception)
 						{
 							String error = "InterruptedException";
-							logger.error(error,exception);
+							PokemonGameIntro.logger.error(error,exception);
 						}
 					}
 				}

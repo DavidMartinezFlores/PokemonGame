@@ -11,8 +11,6 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -28,32 +26,34 @@ import lombok.Data;
 @Data
 public class Application
 {
-	/** Attribute logger*/
+	/** Attribute logger */
 	private static final Logger logger = LogManager.getLogger();
-	
+
 	/** Attribute player1PokemonList */
 	private List<Pokemon> PokemonList;
 
 	/**
 	 * Constructor for create new Application
-	 * @throws PokemonException 
+	 *
+	 * @throws PokemonException
 	 */
 	public Application()
 	{
 		try
 		{
+			// ------LOADING ALL THE POKEMONS FROM THE FILE----------
 			this.PokemonList = this.loadPokemonData();
 		}
 		catch (PokemonException exception)
 		{
 			String error = "An Error Ocurred on the application loading data";
-			logger.error(error,exception);
+			Application.logger.error(error, exception);
 		}
 	}
 
 	/**
-	 * Method saveState
-	 * 
+	 * Method saveState Save the party state
+	 *
 	 * @param party
 	 */
 	public void saveState(List<Object> party)
@@ -72,7 +72,8 @@ public class Application
 		}
 		catch (IOException exception)
 		{
-			exception.printStackTrace();
+			String error = "In Out Exception";
+			Application.logger.error(error, exception);
 		}
 		finally
 		{
@@ -81,7 +82,7 @@ public class Application
 	}
 
 	/**
-	 * Method saveStateCloseAll
+	 * Method saveStateCloseAll Close all on save state
 	 *
 	 * @param fileOutputStream
 	 * @param objectOutputStream
@@ -96,7 +97,8 @@ public class Application
 			}
 			catch (IOException exception)
 			{
-				exception.printStackTrace();
+				String error = "In Out Exception";
+				Application.logger.error(error, exception);
 			}
 		}
 		if (fileOutputStream != null)
@@ -107,19 +109,21 @@ public class Application
 			}
 			catch (IOException exception)
 			{
-				exception.printStackTrace();
+				String error = "In Out Exception";
+				Application.logger.error(error, exception);
 			}
 		}
 	}
 
 	/**
-	 * Method loadState
+	 * Method loadState Load the state on a list
 	 *
-	 * @return
-	 * @throws PokemonException 
+	 * @return List<Object>
+	 * @throws PokemonException
 	 */
 	public List<Object> loadState() throws PokemonException
 	{
+		// ---USE List<Object> BECAUSE THT LIST STORES DIFFERENT OBJECTS-----
 		List<Object> partyList = null;
 		FileInputStream fileInputStream = null;
 		ObjectInputStream objectInputStream = null;
@@ -133,15 +137,21 @@ public class Application
 		}
 		catch (FileNotFoundException exception)
 		{
-			exception.printStackTrace();
+			String error = "File not found exception";
+			Application.logger.error(error, exception);
+			throw new PokemonException(error, exception);
 		}
 		catch (IOException exception)
 		{
-			exception.printStackTrace();
+			String error = "In ou exception";
+			Application.logger.error(error, exception);
+			throw new PokemonException(error, exception);
 		}
 		catch (ClassNotFoundException exception)
 		{
-			exception.printStackTrace();
+			String error = "Class Not Found Exception";
+			Application.logger.error(error, exception);
+			throw new PokemonException(error, exception);
 		}
 		finally
 		{
@@ -152,13 +162,14 @@ public class Application
 	}
 
 	/**
-	 * Method loadStateCloseAll
+	 * Method loadStateCloseAll Close all on load state
 	 *
 	 * @param fileInputStream
 	 * @param objectInputStream
-	 * @throws PokemonException 
+	 * @throws PokemonException
 	 */
-	private void loadStateCloseAll(FileInputStream fileInputStream, ObjectInputStream objectInputStream) throws PokemonException
+	private void loadStateCloseAll(FileInputStream fileInputStream, ObjectInputStream objectInputStream)
+			throws PokemonException
 	{
 		if (objectInputStream != null)
 		{
@@ -169,7 +180,7 @@ public class Application
 			catch (IOException exception)
 			{
 				String error = "In Out Exception";
-				logger.error(error,exception);
+				Application.logger.error(error, exception);
 				throw new PokemonException(error, exception);
 			}
 		}
@@ -182,7 +193,7 @@ public class Application
 			catch (IOException exception)
 			{
 				String error = "In Out Exception";
-				logger.error(error,exception);
+				Application.logger.error(error, exception);
 				throw new PokemonException(error, exception);
 			}
 		}
@@ -190,9 +201,9 @@ public class Application
 
 	/**
 	 * Method loadPokemonData
-	 * 
+	 *
 	 * @return
-	 * @throws PokemonException 
+	 * @throws PokemonException
 	 */
 	private List<Pokemon> loadPokemonData() throws PokemonException
 	{
@@ -210,15 +221,20 @@ public class Application
 
 			while (subString != null)
 			{
+				// ----GETTING THE POKEMONS AND THE SUBSTRING WITH THE INFO
 				String[] subStringArray = subString.split(",");
+
+				// ---CREATING POKEMON AND PARSING------
 				Pokemon loadedPoke = new Pokemon(Integer.parseInt(subStringArray[0]), subStringArray[1],
 						subStringArray[2], subStringArray[3], Double.parseDouble(subStringArray[4]),
 						Double.parseDouble(subStringArray[5]), Double.parseDouble(subStringArray[6]),
 						Double.parseDouble(subStringArray[7]), Double.parseDouble(subStringArray[8]),
 						Double.parseDouble(subStringArray[9]), Double.parseDouble(subStringArray[10]),
 						Integer.parseInt(subStringArray[11]), Boolean.parseBoolean(subStringArray[12]));
+
+				// --ADD POKEMON TO LIST---
 				pokemonLoadedList.add(loadedPoke);
-				
+
 				subString = bufferedReader.readLine();
 			}
 
@@ -226,16 +242,16 @@ public class Application
 		catch (FileNotFoundException exception)
 		{
 			String error = "File not found";
-			logger.error(error,exception);
+			Application.logger.error(error, exception);
 			throw new PokemonException(error, exception);
 		}
 		catch (IOException exception)
 		{
 			String error = "In Out Exception";
-			logger.error(error,exception);
+			Application.logger.error(error, exception);
 			throw new PokemonException(error, exception);
 		}
-		finally 
+		finally
 		{
 			this.loadDataCloseAll(fileReader, bufferedReader);
 		}
@@ -244,14 +260,15 @@ public class Application
 	}
 
 	/**
-	 * Method loadDataCloseAll
+	 * Method loadDataCloseAll Close all on the data load
+	 *
 	 * @param fileReader
 	 * @param bufferedReader
 	 * @throws PokemonException
 	 */
 	private void loadDataCloseAll(FileReader fileReader, BufferedReader bufferedReader) throws PokemonException
 	{
-		if(bufferedReader!=null) 
+		if (bufferedReader != null)
 		{
 			try
 			{
@@ -260,11 +277,11 @@ public class Application
 			catch (IOException exception)
 			{
 				String error = "In Out Exception";
-				logger.error(error,exception);
+				Application.logger.error(error, exception);
 				throw new PokemonException(error, exception);
 			}
 		}
-		if(fileReader!=null) 
+		if (fileReader != null)
 		{
 			try
 			{
@@ -273,7 +290,7 @@ public class Application
 			catch (IOException exception)
 			{
 				String error = "In Out Exception";
-				logger.error(error,exception);
+				Application.logger.error(error, exception);
 				throw new PokemonException(error, exception);
 			}
 		}
