@@ -4,6 +4,7 @@
  */
 package es.iesjandula.pokemon_game;
 
+import java.awt.Toolkit;
 import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
@@ -97,6 +98,9 @@ public class PlayerTwoSelection extends javax.swing.JFrame implements Serializab
 	public PlayerTwoSelection(PlayerOneSelection playerOneSelection)
 	{
 		this.initComponents();
+		this.setTitle("Player Two Selection");
+		this.setIconImage(Toolkit.getDefaultToolkit().getImage("./images/pokeball.png"));
+		
 		this.jLabelBackground.setIcon(new ImageIcon("./images/selectionBack2.jpg"));
 		this.SpriteSelectedPlayerTwo.setIcon(new ImageIcon("./images/red.png"));
 		this.playerTwoName = "Player Two";

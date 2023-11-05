@@ -4,10 +4,10 @@
  */
 package es.iesjandula.pokemon_game;
 
+import java.awt.Toolkit;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-
 
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -26,15 +26,15 @@ import org.apache.logging.log4j.Logger;
  */
 public class EndOfParty extends javax.swing.JFrame
 {
-	/** Attribute logger*/
+	/** Attribute logger */
 	private static final Logger logger = LogManager.getLogger();
-	
+
 	/** Attribute mainTheme */
 	private Clip mainTheme;
-        
-        private PlayerOneKills playerOneKills;
-        
-        private PlayerTwoKills playerTwoKills;
+
+	private PlayerOneKills playerOneKills;
+
+	private PlayerTwoKills playerTwoKills;
 
 	// Variables declaration - do not modify//GEN-BEGIN:variables
 	private javax.swing.JButton jButton1;
@@ -53,10 +53,13 @@ public class EndOfParty extends javax.swing.JFrame
 	 * @param icon
 	 */
 	public EndOfParty(String winner, Icon icon, PlayerOneKills playerOneKills, PlayerTwoKills playerTwoKills)
-	{       
-                this.initComponents();
-                this.playerOneKills = playerOneKills;
-                this.playerTwoKills = playerTwoKills;
+	{
+		this.initComponents();
+		this.playerOneKills = playerOneKills;
+		this.playerTwoKills = playerTwoKills;
+		
+		this.setTitle("End Of Party");
+		this.setIconImage(Toolkit.getDefaultToolkit().getImage("./images/pokeball.png"));
 		
 		this.mainTheme = this.getMainTheme();
 		if (this.mainTheme != null)
@@ -168,8 +171,8 @@ public class EndOfParty extends javax.swing.JFrame
 		gameIntro.setVisible(true);
 		this.mainTheme.stop();
 		this.dispose();
-                this.playerOneKills.dispose();
-                this.playerTwoKills.dispose();
+		this.playerOneKills.dispose();
+		this.playerTwoKills.dispose();
 	}// GEN-LAST:event_jButton2ActionPerformed
 
 	/**
@@ -197,7 +200,7 @@ public class EndOfParty extends javax.swing.JFrame
 						catch (InterruptedException exception)
 						{
 							String error = "InterruptedException";
-							logger.error(error,exception);
+							logger.error(error, exception);
 						}
 					}
 					for (int i = 0; i < 30; i++)
@@ -212,7 +215,7 @@ public class EndOfParty extends javax.swing.JFrame
 						catch (InterruptedException exception)
 						{
 							String error = "InterruptedException";
-							logger.error(error,exception);
+							logger.error(error, exception);
 						}
 					}
 				}
@@ -246,7 +249,7 @@ public class EndOfParty extends javax.swing.JFrame
 						catch (InterruptedException exception)
 						{
 							String error = "InterruptedException";
-							logger.error(error,exception);
+							logger.error(error, exception);
 						}
 					}
 					for (int i = 0; i < 30; i++)
@@ -261,7 +264,7 @@ public class EndOfParty extends javax.swing.JFrame
 						catch (InterruptedException exception)
 						{
 							String error = "InterruptedException";
-							logger.error(error,exception);
+							logger.error(error, exception);
 						}
 					}
 				}
@@ -296,7 +299,7 @@ public class EndOfParty extends javax.swing.JFrame
 						catch (InterruptedException exception)
 						{
 							String error = "InterruptedException";
-							logger.error(error,exception);
+							logger.error(error, exception);
 						}
 					}
 					for (int i = 0; i < 10; i++)
@@ -312,7 +315,7 @@ public class EndOfParty extends javax.swing.JFrame
 						catch (InterruptedException exception)
 						{
 							String error = "InterruptedException";
-							logger.error(error,exception);
+							logger.error(error, exception);
 						}
 					}
 				}
@@ -340,22 +343,22 @@ public class EndOfParty extends javax.swing.JFrame
 		catch (FileNotFoundException exception)
 		{
 			String error = "FileNotFoundException";
-			logger.error(error,exception);
+			logger.error(error, exception);
 		}
 		catch (UnsupportedAudioFileException exception)
 		{
 			String error = "UnsupportedAudioFileException";
-			logger.error(error,exception);
+			logger.error(error, exception);
 		}
 		catch (IOException exception)
 		{
 			String error = "IOException";
-			logger.error(error,exception);
+			logger.error(error, exception);
 		}
 		catch (LineUnavailableException exception)
 		{
 			String error = "LineUnavailableException";
-			logger.error(error,exception);
+			logger.error(error, exception);
 		}
 
 		return clip;

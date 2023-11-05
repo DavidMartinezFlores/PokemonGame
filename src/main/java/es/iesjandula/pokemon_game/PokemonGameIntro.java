@@ -4,6 +4,7 @@
  */
 package es.iesjandula.pokemon_game;
 
+import java.awt.Toolkit;
 import java.io.File;
 import java.io.IOException;
 
@@ -42,6 +43,10 @@ public class PokemonGameIntro extends javax.swing.JFrame
 	public PokemonGameIntro()
 	{
 		this.initComponents();
+		
+		this.setTitle("Pokemon Game Intro");
+		this.setIconImage(Toolkit.getDefaultToolkit().getImage("./images/pokeball.png"));
+		
 		this.jumpStartButtonAnimationThread();
 		this.mainTheme = this.openingThemePlay();
 		this.jLabelBackground.setIcon(new ImageIcon("./images/presentation.png"));

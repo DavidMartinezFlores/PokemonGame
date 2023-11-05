@@ -4,6 +4,7 @@
  */
 package es.iesjandula.pokemon_game;
 
+import java.awt.Toolkit;
 import java.util.List;
 
 import javax.swing.ImageIcon;
@@ -32,6 +33,9 @@ public class PlayerTwoKills extends javax.swing.JFrame
 	public PlayerTwoKills(List<Pokemon> listPlayer, int x, int y)
 	{
 		this.initComponents();
+		this.setTitle("Player Two Cards Defeated");
+		this.setIconImage(Toolkit.getDefaultToolkit().getImage("./images/pokeball.png"));
+		
 		this.setResizable(false);
 		this.setLocation(x, y);
 		this.jLabelPokemonOne.setIcon(new ImageIcon("./images/0.png"));
