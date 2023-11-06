@@ -38,15 +38,15 @@ public class EndOfParty extends javax.swing.JFrame
 	/** Attribute playerTwoKills */
 	private PlayerTwoKills playerTwoKills;
 
-	// Variables declaration - do not modify//GEN-BEGIN:variables
-	private javax.swing.JButton jButton1;
-	private javax.swing.JButton jButton2;
-	private javax.swing.JLabel jLabel1;
-	private javax.swing.JLabel jLabel2;
-	private javax.swing.JLabel jLabel3;
-	private javax.swing.JLabel jLabel4;
-	private javax.swing.JLabel jLabel5;
-	// End of variables declaration//GEN-END:variables
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    // End of variables declaration//GEN-END:variables
 
 	/**
 	 * Creates new form EndOfParty
@@ -91,66 +91,55 @@ public class EndOfParty extends javax.swing.JFrame
 	 */
 	@SuppressWarnings("unchecked")
 	// <editor-fold defaultstate="collapsed" desc="Generated
-	// Code">//GEN-BEGIN:initComponents
-	private void initComponents()
-	{
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
 
-		this.jLabel1 = new javax.swing.JLabel();
-		this.jButton1 = new javax.swing.JButton();
-		this.jButton2 = new javax.swing.JButton();
-		this.jLabel2 = new javax.swing.JLabel();
-		this.jLabel3 = new javax.swing.JLabel();
-		this.jLabel4 = new javax.swing.JLabel();
-		this.jLabel5 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
-		this.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-		this.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-		this.jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-		this.jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-		this.jLabel1.setForeground(new java.awt.Color(0, 188, 49));
-		this.jLabel1.setText("jLabel1");
-		this.jLabel1.setOpaque(true);
-		this.getContentPane().add(this.jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(204, 74, 445, 73));
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 188, 49));
+        jLabel1.setText("jLabel1");
+        jLabel1.setOpaque(true);
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(204, 74, 445, 73));
 
-		this.jButton1.setBackground(new java.awt.Color(204, 0, 0));
-		this.jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-		this.jButton1.setForeground(new java.awt.Color(255, 255, 255));
-		this.jButton1.setText("EXIT GAME");
-		this.jButton1.addActionListener(new java.awt.event.ActionListener()
-		{
-			@Override
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				EndOfParty.this.jButton1ActionPerformed(evt);
-			}
-		});
-		this.getContentPane().add(this.jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(251, 260, 182, 76));
+        jButton1.setBackground(new java.awt.Color(204, 0, 0));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("EXIT GAME");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(251, 260, 210, 76));
 
-		this.jButton2.setBackground(new java.awt.Color(7, 139, 220));
-		this.jButton2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-		this.jButton2.setForeground(new java.awt.Color(255, 255, 255));
-		this.jButton2.setText("RESTART GAME");
-		this.jButton2.addActionListener(new java.awt.event.ActionListener()
-		{
-			@Override
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				EndOfParty.this.jButton2ActionPerformed(evt);
-			}
-		});
-		this.getContentPane().add(this.jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(251, 153, 182, 76));
+        jButton2.setBackground(new java.awt.Color(7, 139, 220));
+        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("RESTART GAME");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(251, 153, 210, 76));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 182, 124, 111));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(525, 198, 124, 111));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(62, 17, 103, 159));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 380));
 
-		this.jLabel2.setText("      ");
-		this.getContentPane().add(this.jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 182, 124, 111));
-
-		this.jLabel3.setText("      ");
-		this.getContentPane().add(this.jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(525, 198, 124, 111));
-		this.getContentPane().add(this.jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(62, 17, 103, 159));
-		this.getContentPane().add(this.jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 380));
-
-		this.pack();
-	}// </editor-fold>//GEN-END:initComponents
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
 
 	/**
 	 * Method jButton1ActionPerformed

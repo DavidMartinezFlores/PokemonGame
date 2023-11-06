@@ -113,8 +113,8 @@ public class Pokemon implements Serializable
 
 	/**
 	 * Method getTypesAdvantagesProcess
-	 *
-	 * @return
+	 * Used for get all the types
+	 * @return Map<String, List<List<String>>>
 	 */
 	private Map<String, List<List<String>>> getTypesAdvantagesProcess()
 	{
@@ -150,8 +150,8 @@ public class Pokemon implements Serializable
 
 	/**
 	 * Method getResistantTypesProcess
-	 *
-	 * @return
+	 * Used for get the resistances
+	 * @return List<String>
 	 */
 	private List<String> getResistantTypesProcess()
 	{
@@ -164,8 +164,8 @@ public class Pokemon implements Serializable
 
 	/**
 	 * Method getWeaknessTypesProcess
-	 *
-	 * @return
+	 * Used for get the weakness
+	 * @return List<String>
 	 */
 	private List<String> getWeaknessTypesProcess()
 	{
@@ -178,18 +178,66 @@ public class Pokemon implements Serializable
 
 	/**
 	 * Method getPokeImage
-	 *
-	 * @return
+	 * That method use a personalized algorithm for generate every pokemon image
+	 * @return Image
 	 */
 	public Image getPokeImage()
 	{
 		File imageResource = new File("./images/");
-		String path = "";
 		Image image = new ImageIcon("./images/0.png").getImage();
-
+		
 		for (File imageTmp : imageResource.listFiles())
 		{
-			if (imageTmp.getName().startsWith(String.valueOf(this.pokedexNumber)))
+			
+			//--SPECIAL CASES-----
+			if(this.name.equalsIgnoreCase("Yanmega")) 
+			{
+				image = new ImageIcon("./images/469.png").getImage();
+				break;
+			}
+			if(this.name.equalsIgnoreCase("SteelixMega Steelix")) 
+			{
+				image = new ImageIcon("./images/208-mega.png").getImage();
+				break;
+			}
+			if(this.name.equalsIgnoreCase("HoopaHoopa Unbound")) 
+			{
+				image = new ImageIcon("./images/720-unbound.png").getImage();
+				break;
+			}
+                        if(this.name.equalsIgnoreCase("HoopaHoopa Unbound")) 
+			{
+				image = new ImageIcon("./images/720-unbound.png").getImage();
+				break;
+			}
+                        if(this.name.equalsIgnoreCase("GiratinaOrigin Forme")) 
+			{
+				image = new ImageIcon("./images/487-origin.png").getImage();
+				break;
+			}
+			//--SPECIAL CASES-----
+			
+			
+			//--MEGA X OPTIONS---
+			if(this.name.toLowerCase().contains("mega") && this.name.toLowerCase().contains("x")) 
+			{
+				if (imageTmp.getName().startsWith(String.valueOf(this.pokedexNumber+"-"))&&imageTmp.getName().toLowerCase().contains("mega")&&imageTmp.getName().toLowerCase().contains("-x"))
+				{
+					image = new ImageIcon(imageTmp.getAbsolutePath()).getImage();
+					break;
+				}
+			}
+			//--NORMAL MEGAS AND Y MEGAS---
+			else if(this.name.toLowerCase().contains("mega")) 
+			{
+				if (imageTmp.getName().startsWith(String.valueOf(this.pokedexNumber+"-"))&&imageTmp.getName().toLowerCase().contains("mega"))
+				{
+					image = new ImageIcon(imageTmp.getAbsolutePath()).getImage();
+					break;
+				}
+			}
+			//--NORMAL POKEMON---
+			else if (imageTmp.getName().startsWith(String.valueOf(this.pokedexNumber+".png")))
 			{
 				image = new ImageIcon(imageTmp.getAbsolutePath()).getImage();
 				break;
@@ -200,8 +248,8 @@ public class Pokemon implements Serializable
 
 	/**
 	 * Method toString
-	 *
-	 * @return
+	 * Personalized toString for special impression on lists
+	 * @return String
 	 */
 	@Override
 	public String toString()

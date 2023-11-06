@@ -52,41 +52,41 @@ public class PlayerOneSelection extends javax.swing.JFrame implements Serializab
 	/** Attribute listModel2 */
 	private DefaultListModel<Pokemon> listModel2 = new DefaultListModel<>();
 
-	// Variables declaration - do not modify//GEN-BEGIN:variables
-	private javax.swing.JLabel SpriteSelectedPlayerOne;
-	private javax.swing.ButtonGroup buttonGroupPlayerOneSprite;
-	private javax.swing.JButton jButtonRandom;
-	private javax.swing.JButton jButtonRemove;
-	private javax.swing.JButton jButtonRemoveAll;
-	private javax.swing.JButton jButtonResetFilter;
-	private javax.swing.JButton jButtonSelect;
-	private javax.swing.JButton jButtonSelectionComplete;
-	private javax.swing.JLabel jLabelAttack;
-	private javax.swing.JLabel jLabelBackground;
-	private javax.swing.JLabel jLabelChoseYourPokemon;
-	private javax.swing.JLabel jLabelDeffense;
-	private javax.swing.JLabel jLabelFilter;
-	private javax.swing.JLabel jLabelHelath;
-	private javax.swing.JLabel jLabelPlayerName;
-	private javax.swing.JLabel jLabelPlayerOneName;
-	private javax.swing.JLabel jLabelSpAttack;
-	private javax.swing.JLabel jLabelSpDefense;
-	private javax.swing.JLabel jLabelSpeed;
-	private javax.swing.JList<Pokemon> jListAllPokes;
-	private javax.swing.JList<Pokemon> jListSelectedPokes;
-	private javax.swing.JMenu jMenu;
-	private javax.swing.JMenuBar jMenuBar1;
-	private javax.swing.JMenuItem jMenuItemLoad;
-	private javax.swing.JRadioButton jRadioButtonBlue;
-	private javax.swing.JRadioButton jRadioButtonFemaleRanger;
-	private javax.swing.JRadioButton jRadioButtonNormalFemale;
-	private javax.swing.JRadioButton jRadioButtonRanger;
-	private javax.swing.JRadioButton jRadioButtonRed;
-	private javax.swing.JScrollPane jScrollPane;
-	private javax.swing.JScrollPane jScrollPaneTwo;
-	private javax.swing.JTextField jTextFieldFilter;
-	private javax.swing.JTextField jTextFieldPlayerName;
-	// End of variables declaration//GEN-END:variables
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel SpriteSelectedPlayerOne;
+    private javax.swing.ButtonGroup buttonGroupPlayerOneSprite;
+    private javax.swing.JButton jButtonRandom;
+    private javax.swing.JButton jButtonRemove;
+    private javax.swing.JButton jButtonRemoveAll;
+    private javax.swing.JButton jButtonResetFilter;
+    private javax.swing.JButton jButtonSelect;
+    private javax.swing.JButton jButtonSelectionComplete;
+    private javax.swing.JLabel jLabelAttack;
+    private javax.swing.JLabel jLabelBackground;
+    private javax.swing.JLabel jLabelChoseYourPokemon;
+    private javax.swing.JLabel jLabelDeffense;
+    private javax.swing.JLabel jLabelFilter;
+    private javax.swing.JLabel jLabelHelath;
+    private javax.swing.JLabel jLabelPlayerName;
+    private javax.swing.JLabel jLabelPlayerOneName;
+    private javax.swing.JLabel jLabelSpAttack;
+    private javax.swing.JLabel jLabelSpDefense;
+    private javax.swing.JLabel jLabelSpeed;
+    private javax.swing.JList<Pokemon> jListAllPokes;
+    private javax.swing.JList<Pokemon> jListSelectedPokes;
+    private javax.swing.JMenu jMenu;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItemLoad;
+    private javax.swing.JRadioButton jRadioButtonBlue;
+    private javax.swing.JRadioButton jRadioButtonFemaleRanger;
+    private javax.swing.JRadioButton jRadioButtonNormalFemale;
+    private javax.swing.JRadioButton jRadioButtonRanger;
+    private javax.swing.JRadioButton jRadioButtonRed;
+    private javax.swing.JScrollPane jScrollPane;
+    private javax.swing.JScrollPane jScrollPaneTwo;
+    private javax.swing.JTextField jTextFieldFilter;
+    private javax.swing.JTextField jTextFieldPlayerName;
+    // End of variables declaration//GEN-END:variables
 
 	/**
 	 * Creates new form MainJFrmae
@@ -139,349 +139,294 @@ public class PlayerOneSelection extends javax.swing.JFrame implements Serializab
 	// <editor-fold defaultstate="collapsed" desc="Generated
 	// <editor-fold defaultstate="collapsed" desc="Generated
 	// <editor-fold defaultstate="collapsed" desc="Generated
-	// Code">//GEN-BEGIN:initComponents
-	private void initComponents()
-	{
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
 
-		this.buttonGroupPlayerOneSprite = new javax.swing.ButtonGroup();
-		this.jScrollPane = new javax.swing.JScrollPane();
-		this.jListAllPokes = new javax.swing.JList<>();
-		this.jButtonSelect = new javax.swing.JButton();
-		this.jScrollPaneTwo = new javax.swing.JScrollPane();
-		this.jListSelectedPokes = new javax.swing.JList<>();
-		this.jLabelChoseYourPokemon = new javax.swing.JLabel();
-		this.jButtonRemove = new javax.swing.JButton();
-		this.jButtonRemoveAll = new javax.swing.JButton();
-		this.jLabelHelath = new javax.swing.JLabel();
-		this.jLabelAttack = new javax.swing.JLabel();
-		this.jLabelDeffense = new javax.swing.JLabel();
-		this.jLabelSpAttack = new javax.swing.JLabel();
-		this.jLabelSpDefense = new javax.swing.JLabel();
-		this.jLabelSpeed = new javax.swing.JLabel();
-		this.jButtonSelectionComplete = new javax.swing.JButton();
-		this.jTextFieldFilter = new javax.swing.JTextField();
-		this.jLabelFilter = new javax.swing.JLabel();
-		this.jButtonResetFilter = new javax.swing.JButton();
-		this.jTextFieldPlayerName = new javax.swing.JTextField();
-		this.jLabelPlayerOneName = new javax.swing.JLabel();
-		this.jLabelPlayerName = new javax.swing.JLabel();
-		this.jRadioButtonRed = new javax.swing.JRadioButton();
-		this.jRadioButtonBlue = new javax.swing.JRadioButton();
-		this.SpriteSelectedPlayerOne = new javax.swing.JLabel();
-		this.jRadioButtonRanger = new javax.swing.JRadioButton();
-		this.jRadioButtonFemaleRanger = new javax.swing.JRadioButton();
-		this.jRadioButtonNormalFemale = new javax.swing.JRadioButton();
-		this.jButtonRandom = new javax.swing.JButton();
-		this.jLabelBackground = new javax.swing.JLabel();
-		this.jMenuBar1 = new javax.swing.JMenuBar();
-		this.jMenu = new javax.swing.JMenu();
-		this.jMenuItemLoad = new javax.swing.JMenuItem();
+        buttonGroupPlayerOneSprite = new javax.swing.ButtonGroup();
+        jScrollPane = new javax.swing.JScrollPane();
+        jListAllPokes = new javax.swing.JList<>();
+        jButtonSelect = new javax.swing.JButton();
+        jScrollPaneTwo = new javax.swing.JScrollPane();
+        jListSelectedPokes = new javax.swing.JList<>();
+        jLabelChoseYourPokemon = new javax.swing.JLabel();
+        jButtonRemove = new javax.swing.JButton();
+        jButtonRemoveAll = new javax.swing.JButton();
+        jLabelHelath = new javax.swing.JLabel();
+        jLabelAttack = new javax.swing.JLabel();
+        jLabelDeffense = new javax.swing.JLabel();
+        jLabelSpAttack = new javax.swing.JLabel();
+        jLabelSpDefense = new javax.swing.JLabel();
+        jLabelSpeed = new javax.swing.JLabel();
+        jButtonSelectionComplete = new javax.swing.JButton();
+        jTextFieldFilter = new javax.swing.JTextField();
+        jLabelFilter = new javax.swing.JLabel();
+        jButtonResetFilter = new javax.swing.JButton();
+        jTextFieldPlayerName = new javax.swing.JTextField();
+        jLabelPlayerOneName = new javax.swing.JLabel();
+        jLabelPlayerName = new javax.swing.JLabel();
+        jRadioButtonRed = new javax.swing.JRadioButton();
+        jRadioButtonBlue = new javax.swing.JRadioButton();
+        SpriteSelectedPlayerOne = new javax.swing.JLabel();
+        jRadioButtonRanger = new javax.swing.JRadioButton();
+        jRadioButtonFemaleRanger = new javax.swing.JRadioButton();
+        jRadioButtonNormalFemale = new javax.swing.JRadioButton();
+        jButtonRandom = new javax.swing.JButton();
+        jLabelBackground = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu = new javax.swing.JMenu();
+        jMenuItemLoad = new javax.swing.JMenuItem();
 
-		this.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-		this.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
-		this.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-		this.jListAllPokes.setBackground(new java.awt.Color(200, 252, 255));
-		this.jListAllPokes.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-		this.jListAllPokes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		this.jListAllPokes.addMouseListener(new java.awt.event.MouseAdapter()
-		{
-			@Override
-			public void mouseClicked(java.awt.event.MouseEvent evt)
-			{
-				PlayerOneSelection.this.jListAllPokesMouseClicked(evt);
-			}
-		});
-		this.jScrollPane.setViewportView(this.jListAllPokes);
+        jListAllPokes.setBackground(new java.awt.Color(200, 252, 255));
+        jListAllPokes.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jListAllPokes.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jListAllPokes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jListAllPokesMouseClicked(evt);
+            }
+        });
+        jScrollPane.setViewportView(jListAllPokes);
 
-		this.getContentPane().add(this.jScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 41, 421, 273));
+        getContentPane().add(jScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 41, 421, 273));
 
-		this.jButtonSelect.setBackground(new java.awt.Color(51, 153, 0));
-		this.jButtonSelect.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-		this.jButtonSelect.setForeground(new java.awt.Color(255, 255, 255));
-		this.jButtonSelect.setText("SELECT");
-		this.jButtonSelect.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		this.jButtonSelect.addMouseListener(new java.awt.event.MouseAdapter()
-		{
-			@Override
-			public void mouseClicked(java.awt.event.MouseEvent evt)
-			{
-				PlayerOneSelection.this.jButtonSelectMouseClicked(evt);
-			}
-		});
-		this.getContentPane().add(this.jButtonSelect, new org.netbeans.lib.awtextra.AbsoluteConstraints(169, 326, -1, -1));
+        jButtonSelect.setBackground(new java.awt.Color(51, 153, 0));
+        jButtonSelect.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButtonSelect.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonSelect.setText("SELECT");
+        jButtonSelect.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButtonSelect.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonSelectMouseClicked(evt);
+            }
+        });
+        getContentPane().add(jButtonSelect, new org.netbeans.lib.awtextra.AbsoluteConstraints(169, 326, -1, -1));
 
-		this.jListSelectedPokes.setBackground(new java.awt.Color(227, 227, 227));
-		this.jListSelectedPokes.setForeground(new java.awt.Color(0, 102, 0));
-		this.jListSelectedPokes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		this.jListSelectedPokes.addMouseListener(new java.awt.event.MouseAdapter()
-		{
-			@Override
-			public void mouseClicked(java.awt.event.MouseEvent evt)
-			{
-				PlayerOneSelection.this.jListSelectedPokesMouseClicked(evt);
-			}
-		});
-		this.jScrollPaneTwo.setViewportView(this.jListSelectedPokes);
+        jListSelectedPokes.setBackground(new java.awt.Color(227, 227, 227));
+        jListSelectedPokes.setForeground(new java.awt.Color(0, 102, 0));
+        jListSelectedPokes.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jListSelectedPokes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jListSelectedPokesMouseClicked(evt);
+            }
+        });
+        jScrollPaneTwo.setViewportView(jListSelectedPokes);
 
-		this.getContentPane().add(this.jScrollPaneTwo, new org.netbeans.lib.awtextra.AbsoluteConstraints(516, 41, 419, 273));
+        getContentPane().add(jScrollPaneTwo, new org.netbeans.lib.awtextra.AbsoluteConstraints(516, 41, 419, 273));
 
-		this.jLabelChoseYourPokemon.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-		this.jLabelChoseYourPokemon.setText("         CHOOSE YOUR POKEMON!");
-		this.jLabelChoseYourPokemon
-				.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-		this.jLabelChoseYourPokemon.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
-		this.getContentPane().add(this.jLabelChoseYourPokemon,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(295, 355, 363, 165));
+        jLabelChoseYourPokemon.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabelChoseYourPokemon.setText("         CHOOSE YOUR POKEMON!");
+        jLabelChoseYourPokemon.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabelChoseYourPokemon.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        getContentPane().add(jLabelChoseYourPokemon, new org.netbeans.lib.awtextra.AbsoluteConstraints(295, 355, 363, 165));
 
-		this.jButtonRemove.setBackground(new java.awt.Color(255, 153, 102));
-		this.jButtonRemove.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-		this.jButtonRemove.setForeground(new java.awt.Color(255, 255, 255));
-		this.jButtonRemove.setText("REMOVE");
-		this.jButtonRemove.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		this.jButtonRemove.addMouseListener(new java.awt.event.MouseAdapter()
-		{
-			@Override
-			public void mouseClicked(java.awt.event.MouseEvent evt)
-			{
-				PlayerOneSelection.this.jButtonRemoveMouseClicked(evt);
-			}
-		});
-		this.getContentPane().add(this.jButtonRemove, new org.netbeans.lib.awtextra.AbsoluteConstraints(581, 326, -1, -1));
+        jButtonRemove.setBackground(new java.awt.Color(255, 153, 102));
+        jButtonRemove.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButtonRemove.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonRemove.setText("REMOVE");
+        jButtonRemove.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButtonRemove.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonRemoveMouseClicked(evt);
+            }
+        });
+        getContentPane().add(jButtonRemove, new org.netbeans.lib.awtextra.AbsoluteConstraints(581, 326, -1, -1));
 
-		this.jButtonRemoveAll.setBackground(new java.awt.Color(255, 0, 51));
-		this.jButtonRemoveAll.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-		this.jButtonRemoveAll.setForeground(new java.awt.Color(255, 255, 255));
-		this.jButtonRemoveAll.setText("REMOVE ALL");
-		this.jButtonRemoveAll.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		this.jButtonRemoveAll.addMouseListener(new java.awt.event.MouseAdapter()
-		{
-			@Override
-			public void mouseClicked(java.awt.event.MouseEvent evt)
-			{
-				PlayerOneSelection.this.jButtonRemoveAllMouseClicked(evt);
-			}
-		});
-		this.getContentPane().add(this.jButtonRemoveAll, new org.netbeans.lib.awtextra.AbsoluteConstraints(716, 326, -1, -1));
+        jButtonRemoveAll.setBackground(new java.awt.Color(255, 0, 51));
+        jButtonRemoveAll.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButtonRemoveAll.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonRemoveAll.setText("REMOVE ALL");
+        jButtonRemoveAll.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButtonRemoveAll.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonRemoveAllMouseClicked(evt);
+            }
+        });
+        getContentPane().add(jButtonRemoveAll, new org.netbeans.lib.awtextra.AbsoluteConstraints(716, 326, -1, -1));
 
-		this.jLabelHelath.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-		this.jLabelHelath.setForeground(new java.awt.Color(0, 117, 0));
-		this.jLabelHelath.setText("HEALTH");
-		this.jLabelHelath.setBorder(javax.swing.BorderFactory.createCompoundBorder());
-		this.jLabelHelath.setOpaque(true);
-		this.getContentPane().add(this.jLabelHelath, new org.netbeans.lib.awtextra.AbsoluteConstraints(664, 355, 111, -1));
+        jLabelHelath.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabelHelath.setForeground(new java.awt.Color(0, 117, 0));
+        jLabelHelath.setText("HEALTH");
+        jLabelHelath.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        jLabelHelath.setOpaque(true);
+        getContentPane().add(jLabelHelath, new org.netbeans.lib.awtextra.AbsoluteConstraints(664, 355, 170, -1));
 
-		this.jLabelAttack.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-		this.jLabelAttack.setForeground(new java.awt.Color(255, 0, 0));
-		this.jLabelAttack.setText("ATTACK");
-		this.jLabelAttack.setBorder(javax.swing.BorderFactory.createCompoundBorder());
-		this.jLabelAttack.setOpaque(true);
-		this.getContentPane().add(this.jLabelAttack, new org.netbeans.lib.awtextra.AbsoluteConstraints(664, 381, 94, -1));
+        jLabelAttack.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabelAttack.setForeground(new java.awt.Color(255, 0, 0));
+        jLabelAttack.setText("ATTACK");
+        jLabelAttack.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        jLabelAttack.setOpaque(true);
+        getContentPane().add(jLabelAttack, new org.netbeans.lib.awtextra.AbsoluteConstraints(664, 381, 160, -1));
 
-		this.jLabelDeffense.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-		this.jLabelDeffense.setForeground(new java.awt.Color(51, 51, 255));
-		this.jLabelDeffense.setText("DEFENSE");
-		this.jLabelDeffense.setBorder(javax.swing.BorderFactory.createCompoundBorder());
-		this.jLabelDeffense.setOpaque(true);
-		this.getContentPane().add(this.jLabelDeffense, new org.netbeans.lib.awtextra.AbsoluteConstraints(664, 433, 111, -1));
+        jLabelDeffense.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabelDeffense.setForeground(new java.awt.Color(51, 51, 255));
+        jLabelDeffense.setText("DEFENSE");
+        jLabelDeffense.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        jLabelDeffense.setOpaque(true);
+        getContentPane().add(jLabelDeffense, new org.netbeans.lib.awtextra.AbsoluteConstraints(664, 433, 170, -1));
 
-		this.jLabelSpAttack.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-		this.jLabelSpAttack.setForeground(new java.awt.Color(255, 102, 0));
-		this.jLabelSpAttack.setText("SP-ATTACK");
-		this.jLabelSpAttack.setBorder(javax.swing.BorderFactory.createCompoundBorder());
-		this.jLabelSpAttack.setOpaque(true);
-		this.getContentPane().add(this.jLabelSpAttack, new org.netbeans.lib.awtextra.AbsoluteConstraints(664, 407, 111, -1));
+        jLabelSpAttack.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabelSpAttack.setForeground(new java.awt.Color(255, 102, 0));
+        jLabelSpAttack.setText("SP-ATTACK");
+        jLabelSpAttack.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        jLabelSpAttack.setOpaque(true);
+        getContentPane().add(jLabelSpAttack, new org.netbeans.lib.awtextra.AbsoluteConstraints(664, 407, 170, -1));
 
-		this.jLabelSpDefense.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-		this.jLabelSpDefense.setForeground(new java.awt.Color(0, 204, 204));
-		this.jLabelSpDefense.setText("SP-DEFENSE");
-		this.jLabelSpDefense.setBorder(javax.swing.BorderFactory.createCompoundBorder());
-		this.jLabelSpDefense.setOpaque(true);
-		this.getContentPane().add(this.jLabelSpDefense, new org.netbeans.lib.awtextra.AbsoluteConstraints(664, 459, 140, -1));
+        jLabelSpDefense.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabelSpDefense.setForeground(new java.awt.Color(0, 204, 204));
+        jLabelSpDefense.setText("SP-DEFENSE");
+        jLabelSpDefense.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        jLabelSpDefense.setOpaque(true);
+        getContentPane().add(jLabelSpDefense, new org.netbeans.lib.awtextra.AbsoluteConstraints(664, 459, 170, -1));
 
-		this.jLabelSpeed.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-		this.jLabelSpeed.setForeground(new java.awt.Color(248, 0, 243));
-		this.jLabelSpeed.setText("SPEED");
-		this.jLabelSpeed.setBorder(javax.swing.BorderFactory.createCompoundBorder());
-		this.jLabelSpeed.setOpaque(true);
-		this.getContentPane().add(this.jLabelSpeed, new org.netbeans.lib.awtextra.AbsoluteConstraints(664, 485, 111, -1));
+        jLabelSpeed.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabelSpeed.setForeground(new java.awt.Color(248, 0, 243));
+        jLabelSpeed.setText("SPEED");
+        jLabelSpeed.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        jLabelSpeed.setOpaque(true);
+        getContentPane().add(jLabelSpeed, new org.netbeans.lib.awtextra.AbsoluteConstraints(664, 485, 170, -1));
 
-		this.jButtonSelectionComplete.setBackground(new java.awt.Color(51, 204, 0));
-		this.jButtonSelectionComplete.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-		this.jButtonSelectionComplete.setForeground(new java.awt.Color(255, 255, 255));
-		this.jButtonSelectionComplete.setText("SELECTION COMPLETE");
-		this.jButtonSelectionComplete.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		this.jButtonSelectionComplete.addMouseListener(new java.awt.event.MouseAdapter()
-		{
-			@Override
-			public void mouseClicked(java.awt.event.MouseEvent evt)
-			{
-				PlayerOneSelection.this.jButtonSelectionCompleteMouseClicked(evt);
-			}
-		});
-		this.getContentPane().add(this.jButtonSelectionComplete,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(489, 526, -1, 46));
+        jButtonSelectionComplete.setBackground(new java.awt.Color(51, 204, 0));
+        jButtonSelectionComplete.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButtonSelectionComplete.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonSelectionComplete.setText("SELECTION COMPLETE");
+        jButtonSelectionComplete.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButtonSelectionComplete.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonSelectionCompleteMouseClicked(evt);
+            }
+        });
+        getContentPane().add(jButtonSelectionComplete, new org.netbeans.lib.awtextra.AbsoluteConstraints(489, 526, -1, 46));
 
-		this.jTextFieldFilter.addActionListener(new java.awt.event.ActionListener()
-		{
-			@Override
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				PlayerOneSelection.this.jTextFieldFilterActionPerformed(evt);
-			}
-		});
-		this.getContentPane().add(this.jTextFieldFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(367, 6, 136, -1));
+        jTextFieldFilter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldFilterActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTextFieldFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(367, 6, 136, -1));
 
-		this.jLabelFilter.setBackground(new java.awt.Color(255, 204, 102));
-		this.jLabelFilter.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-		this.jLabelFilter.setText("FILTER:");
-		this.jLabelFilter.setOpaque(true);
-		this.getContentPane().add(this.jLabelFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(312, 9, -1, -1));
+        jLabelFilter.setBackground(new java.awt.Color(255, 204, 102));
+        jLabelFilter.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabelFilter.setText("FILTER:");
+        jLabelFilter.setOpaque(true);
+        getContentPane().add(jLabelFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(312, 9, -1, -1));
 
-		this.jButtonResetFilter.setText("RESET FILTER");
-		this.jButtonResetFilter.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		this.jButtonResetFilter.addActionListener(new java.awt.event.ActionListener()
-		{
-			@Override
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				PlayerOneSelection.this.jButtonResetFilterActionPerformed(evt);
-			}
-		});
-		this.getContentPane().add(this.jButtonResetFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(521, 6, -1, -1));
+        jButtonResetFilter.setText("RESET FILTER");
+        jButtonResetFilter.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButtonResetFilter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonResetFilterActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonResetFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(521, 6, -1, -1));
 
-		this.jTextFieldPlayerName.addActionListener(new java.awt.event.ActionListener()
-		{
-			@Override
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				PlayerOneSelection.this.jTextFieldPlayerNameActionPerformed(evt);
-			}
-		});
-		this.getContentPane().add(this.jTextFieldPlayerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(142, 6, 116, -1));
+        jTextFieldPlayerName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldPlayerNameActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTextFieldPlayerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(142, 6, 116, -1));
 
-		this.jLabelPlayerOneName.setBackground(new java.awt.Color(255, 204, 102));
-		this.jLabelPlayerOneName.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-		this.jLabelPlayerOneName.setText("Player One Name:");
-		this.jLabelPlayerOneName.setOpaque(true);
-		this.getContentPane().add(this.jLabelPlayerOneName, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 9, -1, -1));
+        jLabelPlayerOneName.setBackground(new java.awt.Color(255, 204, 102));
+        jLabelPlayerOneName.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabelPlayerOneName.setText("Player One Name:");
+        jLabelPlayerOneName.setOpaque(true);
+        getContentPane().add(jLabelPlayerOneName, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-		this.jLabelPlayerName.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-		this.jLabelPlayerName.setText("       ");
-		this.getContentPane().add(this.jLabelPlayerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 9, 207, 20));
+        jLabelPlayerName.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabelPlayerName.setText("       ");
+        getContentPane().add(jLabelPlayerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 9, 207, 20));
 
-		this.buttonGroupPlayerOneSprite.add(this.jRadioButtonRed);
-		this.jRadioButtonRed.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-		this.jRadioButtonRed.setSelected(true);
-		this.jRadioButtonRed.setText("Red");
-		this.jRadioButtonRed.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		this.jRadioButtonRed.addActionListener(new java.awt.event.ActionListener()
-		{
-			@Override
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				PlayerOneSelection.this.jRadioButtonRedActionPerformed(evt);
-			}
-		});
-		this.getContentPane().add(this.jRadioButtonRed, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 381, -1, -1));
+        buttonGroupPlayerOneSprite.add(jRadioButtonRed);
+        jRadioButtonRed.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jRadioButtonRed.setSelected(true);
+        jRadioButtonRed.setText("Red");
+        jRadioButtonRed.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jRadioButtonRed.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonRedActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jRadioButtonRed, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 381, -1, -1));
 
-		this.buttonGroupPlayerOneSprite.add(this.jRadioButtonBlue);
-		this.jRadioButtonBlue.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-		this.jRadioButtonBlue.setText("Blue");
-		this.jRadioButtonBlue.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		this.jRadioButtonBlue.addActionListener(new java.awt.event.ActionListener()
-		{
-			@Override
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				PlayerOneSelection.this.jRadioButtonBlueActionPerformed(evt);
-			}
-		});
-		this.getContentPane().add(this.jRadioButtonBlue, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 414, -1, -1));
+        buttonGroupPlayerOneSprite.add(jRadioButtonBlue);
+        jRadioButtonBlue.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jRadioButtonBlue.setText("Blue");
+        jRadioButtonBlue.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jRadioButtonBlue.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonBlueActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jRadioButtonBlue, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 414, -1, -1));
 
-		this.SpriteSelectedPlayerOne.setText(" ");
-		this.getContentPane().add(this.SpriteSelectedPlayerOne,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(153, 355, 136, 196));
+        SpriteSelectedPlayerOne.setText(" ");
+        getContentPane().add(SpriteSelectedPlayerOne, new org.netbeans.lib.awtextra.AbsoluteConstraints(153, 355, 136, 196));
 
-		this.buttonGroupPlayerOneSprite.add(this.jRadioButtonRanger);
-		this.jRadioButtonRanger.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-		this.jRadioButtonRanger.setText("Ranger");
-		this.jRadioButtonRanger.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		this.jRadioButtonRanger.addActionListener(new java.awt.event.ActionListener()
-		{
-			@Override
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				PlayerOneSelection.this.jRadioButtonRangerActionPerformed(evt);
-			}
-		});
-		this.getContentPane().add(this.jRadioButtonRanger, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 443, -1, -1));
+        buttonGroupPlayerOneSprite.add(jRadioButtonRanger);
+        jRadioButtonRanger.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jRadioButtonRanger.setText("Ranger");
+        jRadioButtonRanger.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jRadioButtonRanger.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonRangerActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jRadioButtonRanger, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 443, -1, -1));
 
-		this.buttonGroupPlayerOneSprite.add(this.jRadioButtonFemaleRanger);
-		this.jRadioButtonFemaleRanger.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-		this.jRadioButtonFemaleRanger.setText("Female Ranger");
-		this.jRadioButtonFemaleRanger.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		this.jRadioButtonFemaleRanger.addActionListener(new java.awt.event.ActionListener()
-		{
-			@Override
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				PlayerOneSelection.this.jRadioButtonFemaleRangerActionPerformed(evt);
-			}
-		});
-		this.getContentPane().add(this.jRadioButtonFemaleRanger,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 472, -1, -1));
+        buttonGroupPlayerOneSprite.add(jRadioButtonFemaleRanger);
+        jRadioButtonFemaleRanger.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jRadioButtonFemaleRanger.setText("Female Ranger");
+        jRadioButtonFemaleRanger.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jRadioButtonFemaleRanger.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonFemaleRangerActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jRadioButtonFemaleRanger, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 472, -1, -1));
 
-		this.buttonGroupPlayerOneSprite.add(this.jRadioButtonNormalFemale);
-		this.jRadioButtonNormalFemale.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-		this.jRadioButtonNormalFemale.setText("Normal Female");
-		this.jRadioButtonNormalFemale.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		this.jRadioButtonNormalFemale.addActionListener(new java.awt.event.ActionListener()
-		{
-			@Override
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				PlayerOneSelection.this.jRadioButtonNormalFemaleActionPerformed(evt);
-			}
-		});
-		this.getContentPane().add(this.jRadioButtonNormalFemale,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 499, -1, -1));
+        buttonGroupPlayerOneSprite.add(jRadioButtonNormalFemale);
+        jRadioButtonNormalFemale.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jRadioButtonNormalFemale.setText("Normal Female");
+        jRadioButtonNormalFemale.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jRadioButtonNormalFemale.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonNormalFemaleActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jRadioButtonNormalFemale, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 499, -1, -1));
 
-		this.jButtonRandom.setBackground(new java.awt.Color(255, 0, 255));
-		this.jButtonRandom.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-		this.jButtonRandom.setForeground(new java.awt.Color(255, 255, 255));
-		this.jButtonRandom.setText("RANDOM");
-		this.jButtonRandom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		this.jButtonRandom.addActionListener(new java.awt.event.ActionListener()
-		{
-			@Override
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				PlayerOneSelection.this.jButtonRandomActionPerformed(evt);
-			}
-		});
-		this.getContentPane().add(this.jButtonRandom, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 90, 30));
-		this.getContentPane().add(this.jLabelBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 940, 610));
+        jButtonRandom.setBackground(new java.awt.Color(255, 0, 255));
+        jButtonRandom.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButtonRandom.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonRandom.setText("RANDOM");
+        jButtonRandom.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButtonRandom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRandomActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonRandom, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 100, 30));
+        getContentPane().add(jLabelBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 940, 610));
 
-		this.jMenu.setText("File");
+        jMenu.setText("File");
 
-		this.jMenuItemLoad.setText("Load State");
-		this.jMenuItemLoad.addActionListener(new java.awt.event.ActionListener()
-		{
-			@Override
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				PlayerOneSelection.this.jMenuItemLoadActionPerformed(evt);
-			}
-		});
-		this.jMenu.add(this.jMenuItemLoad);
+        jMenuItemLoad.setText("Load State");
+        jMenuItemLoad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemLoadActionPerformed(evt);
+            }
+        });
+        jMenu.add(jMenuItemLoad);
 
-		this.jMenuBar1.add(this.jMenu);
+        jMenuBar1.add(jMenu);
 
-		this.setJMenuBar(this.jMenuBar1);
+        setJMenuBar(jMenuBar1);
 
-		this.pack();
-	}// </editor-fold>//GEN-END:initComponents
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
 
 	/**
 	 * Method jButtonRandomActionPerformed Generate five random pokemons to the

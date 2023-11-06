@@ -83,45 +83,45 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 	/** Attribute playerTwoChanges */
 	private int playerTwoChanges;
 
-	// Variables declaration - do not modify//GEN-BEGIN:variables
-	private javax.swing.JLabel SpriteSelectedPlayerOne;
-	private javax.swing.JLabel SpriteSelectedPlayerTwo;
-	private javax.swing.ButtonGroup buttonGroupPlayer1;
-	private javax.swing.ButtonGroup buttonGroupPlayer2;
-	private javax.swing.JButton jButtonChangePokemonPlayerOne;
-	private javax.swing.JButton jButtonChangePokemonPlayerTwo;
-	private javax.swing.JButton jButtonReady;
-	private javax.swing.JLabel jLabelBackground;
-	private javax.swing.JLabel jLabelCurrentPlayerOnePokemonName;
-	private javax.swing.JLabel jLabelGameVersion;
-	private javax.swing.JLabel jLabelPlayerOneCardImage;
-	private javax.swing.JLabel jLabelPlayerOneChanges;
-	private javax.swing.JLabel jLabelPlayerOneHealth;
-	private javax.swing.JLabel jLabelPlayerOneName;
-	private javax.swing.JLabel jLabelPlayerTwoCardImage;
-	private javax.swing.JLabel jLabelPlayerTwoChanges;
-	private javax.swing.JLabel jLabelPlayerTwoHealth;
-	private javax.swing.JLabel jLabelPlayerTwoName;
-	private javax.swing.JLabel jLabelPokeball;
-	private javax.swing.JLabel jLabelPokemonPlayerOne;
-	private javax.swing.JLabel jLabelPokemonPlayerTwo;
-	private javax.swing.JLabel jLabelVersus;
-	private javax.swing.JLabel jLabeljLabelCurrentPlayerTwoPokemonName;
-	private javax.swing.JList<Pokemon> jListPlayerOne;
-	private javax.swing.JList<Pokemon> jListPlayerTwo;
-	private javax.swing.JMenu jMenu;
-	private javax.swing.JMenuBar jMenuBar1;
-	private javax.swing.JMenuItem jMenuItemLoadState;
-	private javax.swing.JMenuItem jMenuItemSaveState;
-	private javax.swing.JProgressBar jProgressBarPlayerOne;
-	private javax.swing.JProgressBar jProgressBarPlayerTwo;
-	private javax.swing.JRadioButton jRadioButtonPlayerOnePhysicalAttack;
-	private javax.swing.JRadioButton jRadioButtonPlayerOneSpecialAttack;
-	private javax.swing.JRadioButton jRadioButtonPlayerTwoPhysicalAttack;
-	private javax.swing.JRadioButton jRadioButtonPlayerTwoSpecialAttack;
-	private javax.swing.JScrollPane jScrollPaneOne;
-	private javax.swing.JScrollPane jScrollPaneTwo;
-	// End of variables declaration//GEN-END:variables
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel SpriteSelectedPlayerOne;
+    private javax.swing.JLabel SpriteSelectedPlayerTwo;
+    private javax.swing.ButtonGroup buttonGroupPlayer1;
+    private javax.swing.ButtonGroup buttonGroupPlayer2;
+    private javax.swing.JButton jButtonChangePokemonPlayerOne;
+    private javax.swing.JButton jButtonChangePokemonPlayerTwo;
+    private javax.swing.JButton jButtonReady;
+    private javax.swing.JLabel jLabelBackground;
+    private javax.swing.JLabel jLabelCurrentPlayerOnePokemonName;
+    private javax.swing.JLabel jLabelGameVersion;
+    private javax.swing.JLabel jLabelPlayerOneCardImage;
+    private javax.swing.JLabel jLabelPlayerOneChanges;
+    private javax.swing.JLabel jLabelPlayerOneHealth;
+    private javax.swing.JLabel jLabelPlayerOneName;
+    private javax.swing.JLabel jLabelPlayerTwoCardImage;
+    private javax.swing.JLabel jLabelPlayerTwoChanges;
+    private javax.swing.JLabel jLabelPlayerTwoHealth;
+    private javax.swing.JLabel jLabelPlayerTwoName;
+    private javax.swing.JLabel jLabelPokeball;
+    private javax.swing.JLabel jLabelPokemonPlayerOne;
+    private javax.swing.JLabel jLabelPokemonPlayerTwo;
+    private javax.swing.JLabel jLabelVersus;
+    private javax.swing.JLabel jLabeljLabelCurrentPlayerTwoPokemonName;
+    private javax.swing.JList<Pokemon> jListPlayerOne;
+    private javax.swing.JList<Pokemon> jListPlayerTwo;
+    private javax.swing.JMenu jMenu;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItemLoadState;
+    private javax.swing.JMenuItem jMenuItemSaveState;
+    private javax.swing.JProgressBar jProgressBarPlayerOne;
+    private javax.swing.JProgressBar jProgressBarPlayerTwo;
+    private javax.swing.JRadioButton jRadioButtonPlayerOnePhysicalAttack;
+    private javax.swing.JRadioButton jRadioButtonPlayerOneSpecialAttack;
+    private javax.swing.JRadioButton jRadioButtonPlayerTwoPhysicalAttack;
+    private javax.swing.JRadioButton jRadioButtonPlayerTwoSpecialAttack;
+    private javax.swing.JScrollPane jScrollPaneOne;
+    private javax.swing.JScrollPane jScrollPaneTwo;
+    // End of variables declaration//GEN-END:variables
 
 	/**
 	 * Creates new form PlayerVersusPlayer
@@ -313,328 +313,268 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 	// <editor-fold defaultstate="collapsed" desc="Generated
 	// <editor-fold defaultstate="collapsed" desc="Generated
 	// <editor-fold defaultstate="collapsed" desc="Generated
-	// Code">//GEN-BEGIN:initComponents
-	private void initComponents()
-	{
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
 
-		this.buttonGroupPlayer1 = new javax.swing.ButtonGroup();
-		this.buttonGroupPlayer2 = new javax.swing.ButtonGroup();
-		this.jButtonReady = new javax.swing.JButton();
-		this.jScrollPaneOne = new javax.swing.JScrollPane();
-		this.jListPlayerOne = new javax.swing.JList<>();
-		this.jScrollPaneTwo = new javax.swing.JScrollPane();
-		this.jListPlayerTwo = new javax.swing.JList<>();
-		this.jLabelPokemonPlayerOne = new javax.swing.JLabel();
-		this.jLabelPokemonPlayerTwo = new javax.swing.JLabel();
-		this.jLabelVersus = new javax.swing.JLabel();
-		this.jLabelPlayerOneHealth = new javax.swing.JLabel();
-		this.jLabelPlayerTwoHealth = new javax.swing.JLabel();
-		this.jRadioButtonPlayerOnePhysicalAttack = new javax.swing.JRadioButton();
-		this.jRadioButtonPlayerOneSpecialAttack = new javax.swing.JRadioButton();
-		this.jRadioButtonPlayerTwoPhysicalAttack = new javax.swing.JRadioButton();
-		this.jRadioButtonPlayerTwoSpecialAttack = new javax.swing.JRadioButton();
-		this.jButtonChangePokemonPlayerOne = new javax.swing.JButton();
-		this.jButtonChangePokemonPlayerTwo = new javax.swing.JButton();
-		this.jLabelPokeball = new javax.swing.JLabel();
-		this.jLabelPlayerOneChanges = new javax.swing.JLabel();
-		this.jLabelPlayerTwoChanges = new javax.swing.JLabel();
-		this.jProgressBarPlayerOne = new javax.swing.JProgressBar();
-		this.jProgressBarPlayerTwo = new javax.swing.JProgressBar();
-		this.jLabelPlayerOneName = new javax.swing.JLabel();
-		this.jLabelPlayerTwoName = new javax.swing.JLabel();
-		this.jLabelCurrentPlayerOnePokemonName = new javax.swing.JLabel();
-		this.jLabeljLabelCurrentPlayerTwoPokemonName = new javax.swing.JLabel();
-		this.jLabelPlayerTwoCardImage = new javax.swing.JLabel();
-		this.jLabelPlayerOneCardImage = new javax.swing.JLabel();
-		this.jLabelGameVersion = new javax.swing.JLabel();
-		this.SpriteSelectedPlayerOne = new javax.swing.JLabel();
-		this.SpriteSelectedPlayerTwo = new javax.swing.JLabel();
-		this.jLabelBackground = new javax.swing.JLabel();
-		this.jMenuBar1 = new javax.swing.JMenuBar();
-		this.jMenu = new javax.swing.JMenu();
-		this.jMenuItemSaveState = new javax.swing.JMenuItem();
-		this.jMenuItemLoadState = new javax.swing.JMenuItem();
+        buttonGroupPlayer1 = new javax.swing.ButtonGroup();
+        buttonGroupPlayer2 = new javax.swing.ButtonGroup();
+        jButtonReady = new javax.swing.JButton();
+        jScrollPaneOne = new javax.swing.JScrollPane();
+        jListPlayerOne = new javax.swing.JList<>();
+        jScrollPaneTwo = new javax.swing.JScrollPane();
+        jListPlayerTwo = new javax.swing.JList<>();
+        jLabelPokemonPlayerOne = new javax.swing.JLabel();
+        jLabelPokemonPlayerTwo = new javax.swing.JLabel();
+        jLabelVersus = new javax.swing.JLabel();
+        jLabelPlayerOneHealth = new javax.swing.JLabel();
+        jLabelPlayerTwoHealth = new javax.swing.JLabel();
+        jRadioButtonPlayerOnePhysicalAttack = new javax.swing.JRadioButton();
+        jRadioButtonPlayerOneSpecialAttack = new javax.swing.JRadioButton();
+        jRadioButtonPlayerTwoPhysicalAttack = new javax.swing.JRadioButton();
+        jRadioButtonPlayerTwoSpecialAttack = new javax.swing.JRadioButton();
+        jButtonChangePokemonPlayerOne = new javax.swing.JButton();
+        jButtonChangePokemonPlayerTwo = new javax.swing.JButton();
+        jLabelPokeball = new javax.swing.JLabel();
+        jLabelPlayerOneChanges = new javax.swing.JLabel();
+        jLabelPlayerTwoChanges = new javax.swing.JLabel();
+        jProgressBarPlayerOne = new javax.swing.JProgressBar();
+        jProgressBarPlayerTwo = new javax.swing.JProgressBar();
+        jLabelPlayerOneName = new javax.swing.JLabel();
+        jLabelPlayerTwoName = new javax.swing.JLabel();
+        jLabelCurrentPlayerOnePokemonName = new javax.swing.JLabel();
+        jLabeljLabelCurrentPlayerTwoPokemonName = new javax.swing.JLabel();
+        jLabelPlayerTwoCardImage = new javax.swing.JLabel();
+        jLabelPlayerOneCardImage = new javax.swing.JLabel();
+        jLabelGameVersion = new javax.swing.JLabel();
+        SpriteSelectedPlayerOne = new javax.swing.JLabel();
+        SpriteSelectedPlayerTwo = new javax.swing.JLabel();
+        jLabelBackground = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu = new javax.swing.JMenu();
+        jMenuItemSaveState = new javax.swing.JMenuItem();
+        jMenuItemLoadState = new javax.swing.JMenuItem();
 
-		this.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-		this.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-		this.jButtonReady.setBackground(new java.awt.Color(0, 204, 51));
-		this.jButtonReady.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-		this.jButtonReady.setForeground(new java.awt.Color(255, 255, 255));
-		this.jButtonReady.setText("READY");
-		this.jButtonReady.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-		this.jButtonReady.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		this.jButtonReady.addMouseListener(new java.awt.event.MouseAdapter()
-		{
-			@Override
-			public void mouseClicked(java.awt.event.MouseEvent evt)
-			{
-				PlayerVersusPlayer.this.jButtonReadyMouseClicked(evt);
-			}
-		});
-		this.getContentPane().add(this.jButtonReady, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 560, 105, 60));
+        jButtonReady.setBackground(new java.awt.Color(0, 204, 51));
+        jButtonReady.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jButtonReady.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonReady.setText("READY");
+        jButtonReady.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jButtonReady.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButtonReady.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonReadyMouseClicked(evt);
+            }
+        });
+        getContentPane().add(jButtonReady, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 560, 105, 60));
 
-		this.jListPlayerOne.setBackground(new java.awt.Color(200, 252, 255));
-		this.jListPlayerOne.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		this.jListPlayerOne.addMouseListener(new java.awt.event.MouseAdapter()
-		{
-			@Override
-			public void mouseClicked(java.awt.event.MouseEvent evt)
-			{
-				PlayerVersusPlayer.this.jListPlayerOneMouseClicked(evt);
-			}
-		});
-		this.jScrollPaneOne.setViewportView(this.jListPlayerOne);
+        jListPlayerOne.setBackground(new java.awt.Color(200, 252, 255));
+        jListPlayerOne.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jListPlayerOne.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jListPlayerOneMouseClicked(evt);
+            }
+        });
+        jScrollPaneOne.setViewportView(jListPlayerOne);
 
-		this.getContentPane().add(this.jScrollPaneOne, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, 352, -1));
+        getContentPane().add(jScrollPaneOne, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, 352, -1));
 
-		this.jListPlayerTwo.setBackground(new java.awt.Color(255, 200, 200));
-		this.jListPlayerTwo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		this.jListPlayerTwo.addMouseListener(new java.awt.event.MouseAdapter()
-		{
-			@Override
-			public void mouseClicked(java.awt.event.MouseEvent evt)
-			{
-				PlayerVersusPlayer.this.jListPlayerTwoMouseClicked(evt);
-			}
-		});
-		this.jScrollPaneTwo.setViewportView(this.jListPlayerTwo);
+        jListPlayerTwo.setBackground(new java.awt.Color(255, 200, 200));
+        jListPlayerTwo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jListPlayerTwo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jListPlayerTwoMouseClicked(evt);
+            }
+        });
+        jScrollPaneTwo.setViewportView(jListPlayerTwo);
 
-		this.getContentPane().add(this.jScrollPaneTwo, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 390, 359, -1));
+        getContentPane().add(jScrollPaneTwo, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 390, 359, -1));
 
-		this.jLabelPokemonPlayerOne.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
-		this.jLabelPokemonPlayerOne.addMouseListener(new java.awt.event.MouseAdapter()
-		{
-			@Override
-			public void mouseEntered(java.awt.event.MouseEvent evt)
-			{
-				PlayerVersusPlayer.this.jLabelPokemonPlayerOneMouseEntered(evt);
-			}
-		});
-		this.getContentPane().add(this.jLabelPokemonPlayerOne,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, 150, 158));
+        jLabelPokemonPlayerOne.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabelPokemonPlayerOne.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabelPokemonPlayerOneMouseEntered(evt);
+            }
+        });
+        getContentPane().add(jLabelPokemonPlayerOne, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, 150, 158));
 
-		this.jLabelPokemonPlayerTwo.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
-		this.jLabelPokemonPlayerTwo.addMouseListener(new java.awt.event.MouseAdapter()
-		{
-			@Override
-			public void mouseEntered(java.awt.event.MouseEvent evt)
-			{
-				PlayerVersusPlayer.this.jLabelPokemonPlayerTwoMouseEntered(evt);
-			}
-		});
-		this.getContentPane().add(this.jLabelPokemonPlayerTwo,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 60, 150, 150));
+        jLabelPokemonPlayerTwo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabelPokemonPlayerTwo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabelPokemonPlayerTwoMouseEntered(evt);
+            }
+        });
+        getContentPane().add(jLabelPokemonPlayerTwo, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 60, 150, 150));
 
-		this.jLabelVersus.setText("                ");
-		this.getContentPane().add(this.jLabelVersus, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 130, 98, 94));
+        jLabelVersus.setText("                ");
+        getContentPane().add(jLabelVersus, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 130, 98, 94));
 
-		this.jLabelPlayerOneHealth.setText("jLabel4");
-		this.jLabelPlayerOneHealth.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
-		this.getContentPane().add(this.jLabelPlayerOneHealth,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, -1, -1));
+        jLabelPlayerOneHealth.setText("jLabel4");
+        jLabelPlayerOneHealth.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        getContentPane().add(jLabelPlayerOneHealth, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, -1, -1));
 
-		this.jLabelPlayerTwoHealth.setText("jLabel5");
-		this.jLabelPlayerTwoHealth.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
-		this.getContentPane().add(this.jLabelPlayerTwoHealth,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 270, -1, -1));
+        jLabelPlayerTwoHealth.setText("jLabel5");
+        jLabelPlayerTwoHealth.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        getContentPane().add(jLabelPlayerTwoHealth, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 270, -1, -1));
 
-		this.buttonGroupPlayer1.add(this.jRadioButtonPlayerOnePhysicalAttack);
-		this.jRadioButtonPlayerOnePhysicalAttack.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-		this.jRadioButtonPlayerOnePhysicalAttack.setText("PHYSICAK ATTACK");
-		this.jRadioButtonPlayerOnePhysicalAttack.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		this.jRadioButtonPlayerOnePhysicalAttack.addMouseListener(new java.awt.event.MouseAdapter()
-		{
-			@Override
-			public void mouseClicked(java.awt.event.MouseEvent evt)
-			{
-				PlayerVersusPlayer.this.jRadioButtonPlayerOnePhysicalAttackMouseClicked(evt);
-			}
-		});
-		this.getContentPane().add(this.jRadioButtonPlayerOnePhysicalAttack,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 560, -1, -1));
+        buttonGroupPlayer1.add(jRadioButtonPlayerOnePhysicalAttack);
+        jRadioButtonPlayerOnePhysicalAttack.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jRadioButtonPlayerOnePhysicalAttack.setText("PHYSICAK ATTACK");
+        jRadioButtonPlayerOnePhysicalAttack.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jRadioButtonPlayerOnePhysicalAttack.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jRadioButtonPlayerOnePhysicalAttackMouseClicked(evt);
+            }
+        });
+        getContentPane().add(jRadioButtonPlayerOnePhysicalAttack, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 560, -1, -1));
 
-		this.buttonGroupPlayer1.add(this.jRadioButtonPlayerOneSpecialAttack);
-		this.jRadioButtonPlayerOneSpecialAttack.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-		this.jRadioButtonPlayerOneSpecialAttack.setText("SPECIAL ATTACK");
-		this.jRadioButtonPlayerOneSpecialAttack.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		this.jRadioButtonPlayerOneSpecialAttack.addMouseListener(new java.awt.event.MouseAdapter()
-		{
-			@Override
-			public void mouseClicked(java.awt.event.MouseEvent evt)
-			{
-				PlayerVersusPlayer.this.jRadioButtonPlayerOneSpecialAttackMouseClicked(evt);
-			}
-		});
-		this.getContentPane().add(this.jRadioButtonPlayerOneSpecialAttack,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 590, -1, -1));
+        buttonGroupPlayer1.add(jRadioButtonPlayerOneSpecialAttack);
+        jRadioButtonPlayerOneSpecialAttack.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jRadioButtonPlayerOneSpecialAttack.setText("SPECIAL ATTACK");
+        jRadioButtonPlayerOneSpecialAttack.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jRadioButtonPlayerOneSpecialAttack.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jRadioButtonPlayerOneSpecialAttackMouseClicked(evt);
+            }
+        });
+        getContentPane().add(jRadioButtonPlayerOneSpecialAttack, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 590, -1, -1));
 
-		this.buttonGroupPlayer2.add(this.jRadioButtonPlayerTwoPhysicalAttack);
-		this.jRadioButtonPlayerTwoPhysicalAttack.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-		this.jRadioButtonPlayerTwoPhysicalAttack.setText("PHYSICAL ATTACK");
-		this.jRadioButtonPlayerTwoPhysicalAttack.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		this.jRadioButtonPlayerTwoPhysicalAttack.addMouseListener(new java.awt.event.MouseAdapter()
-		{
-			@Override
-			public void mouseClicked(java.awt.event.MouseEvent evt)
-			{
-				PlayerVersusPlayer.this.jRadioButtonPlayerTwoPhysicalAttackMouseClicked(evt);
-			}
-		});
-		this.getContentPane().add(this.jRadioButtonPlayerTwoPhysicalAttack,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 560, -1, -1));
+        buttonGroupPlayer2.add(jRadioButtonPlayerTwoPhysicalAttack);
+        jRadioButtonPlayerTwoPhysicalAttack.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jRadioButtonPlayerTwoPhysicalAttack.setText("PHYSICAL ATTACK");
+        jRadioButtonPlayerTwoPhysicalAttack.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jRadioButtonPlayerTwoPhysicalAttack.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jRadioButtonPlayerTwoPhysicalAttackMouseClicked(evt);
+            }
+        });
+        getContentPane().add(jRadioButtonPlayerTwoPhysicalAttack, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 560, -1, -1));
 
-		this.buttonGroupPlayer2.add(this.jRadioButtonPlayerTwoSpecialAttack);
-		this.jRadioButtonPlayerTwoSpecialAttack.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-		this.jRadioButtonPlayerTwoSpecialAttack.setText("SPECIAL ATTACK");
-		this.jRadioButtonPlayerTwoSpecialAttack.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		this.jRadioButtonPlayerTwoSpecialAttack.addMouseListener(new java.awt.event.MouseAdapter()
-		{
-			@Override
-			public void mouseClicked(java.awt.event.MouseEvent evt)
-			{
-				PlayerVersusPlayer.this.jRadioButtonPlayerTwoSpecialAttackMouseClicked(evt);
-			}
-		});
-		this.getContentPane().add(this.jRadioButtonPlayerTwoSpecialAttack,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 590, -1, -1));
+        buttonGroupPlayer2.add(jRadioButtonPlayerTwoSpecialAttack);
+        jRadioButtonPlayerTwoSpecialAttack.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jRadioButtonPlayerTwoSpecialAttack.setText("SPECIAL ATTACK");
+        jRadioButtonPlayerTwoSpecialAttack.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jRadioButtonPlayerTwoSpecialAttack.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jRadioButtonPlayerTwoSpecialAttackMouseClicked(evt);
+            }
+        });
+        getContentPane().add(jRadioButtonPlayerTwoSpecialAttack, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 590, -1, -1));
 
-		this.jButtonChangePokemonPlayerOne.setBackground(new java.awt.Color(255, 51, 0));
-		this.jButtonChangePokemonPlayerOne.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-		this.jButtonChangePokemonPlayerOne.setForeground(new java.awt.Color(255, 255, 255));
-		this.jButtonChangePokemonPlayerOne.setText("CHANGE SELECTED POKEMON");
-		this.jButtonChangePokemonPlayerOne.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		this.jButtonChangePokemonPlayerOne.addMouseListener(new java.awt.event.MouseAdapter()
-		{
-			@Override
-			public void mouseClicked(java.awt.event.MouseEvent evt)
-			{
-				PlayerVersusPlayer.this.jButtonChangePokemonPlayerOneMouseClicked(evt);
-			}
-		});
-		this.getContentPane().add(this.jButtonChangePokemonPlayerOne,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 650, 250, 29));
+        jButtonChangePokemonPlayerOne.setBackground(new java.awt.Color(255, 51, 0));
+        jButtonChangePokemonPlayerOne.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButtonChangePokemonPlayerOne.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonChangePokemonPlayerOne.setText("CHANGE SELECTED POKEMON");
+        jButtonChangePokemonPlayerOne.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButtonChangePokemonPlayerOne.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonChangePokemonPlayerOneMouseClicked(evt);
+            }
+        });
+        getContentPane().add(jButtonChangePokemonPlayerOne, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 650, 270, 29));
 
-		this.jButtonChangePokemonPlayerTwo.setBackground(new java.awt.Color(255, 51, 0));
-		this.jButtonChangePokemonPlayerTwo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-		this.jButtonChangePokemonPlayerTwo.setForeground(new java.awt.Color(255, 255, 255));
-		this.jButtonChangePokemonPlayerTwo.setText("CHANGE SELECTED POKEMON");
-		this.jButtonChangePokemonPlayerTwo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		this.jButtonChangePokemonPlayerTwo.addMouseListener(new java.awt.event.MouseAdapter()
-		{
-			@Override
-			public void mouseClicked(java.awt.event.MouseEvent evt)
-			{
-				PlayerVersusPlayer.this.jButtonChangePokemonPlayerTwoMouseClicked(evt);
-			}
-		});
-		this.getContentPane().add(this.jButtonChangePokemonPlayerTwo,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(618, 650, 250, 29));
+        jButtonChangePokemonPlayerTwo.setBackground(new java.awt.Color(255, 51, 0));
+        jButtonChangePokemonPlayerTwo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButtonChangePokemonPlayerTwo.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonChangePokemonPlayerTwo.setText("CHANGE SELECTED POKEMON");
+        jButtonChangePokemonPlayerTwo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButtonChangePokemonPlayerTwo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonChangePokemonPlayerTwoMouseClicked(evt);
+            }
+        });
+        getContentPane().add(jButtonChangePokemonPlayerTwo, new org.netbeans.lib.awtextra.AbsoluteConstraints(618, 650, 270, 29));
 
-		this.jLabelPokeball.setText("         ");
-		this.getContentPane().add(this.jLabelPokeball, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 390, 105, 114));
+        jLabelPokeball.setText("         ");
+        getContentPane().add(jLabelPokeball, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 390, 105, 114));
 
-		this.jLabelPlayerOneChanges.setBackground(new java.awt.Color(255, 153, 0));
-		this.jLabelPlayerOneChanges.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-		this.jLabelPlayerOneChanges.setForeground(new java.awt.Color(255, 255, 255));
-		this.jLabelPlayerOneChanges.setText("Changes:");
-		this.jLabelPlayerOneChanges.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-		this.jLabelPlayerOneChanges.setOpaque(true);
-		this.getContentPane().add(this.jLabelPlayerOneChanges,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 560, -1, -1));
+        jLabelPlayerOneChanges.setBackground(new java.awt.Color(255, 153, 0));
+        jLabelPlayerOneChanges.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabelPlayerOneChanges.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelPlayerOneChanges.setText("Changes:");
+        jLabelPlayerOneChanges.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabelPlayerOneChanges.setOpaque(true);
+        getContentPane().add(jLabelPlayerOneChanges, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 560, -1, -1));
 
-		this.jLabelPlayerTwoChanges.setBackground(new java.awt.Color(255, 153, 0));
-		this.jLabelPlayerTwoChanges.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-		this.jLabelPlayerTwoChanges.setForeground(new java.awt.Color(255, 255, 255));
-		this.jLabelPlayerTwoChanges.setText("Changes:");
-		this.jLabelPlayerTwoChanges.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-		this.jLabelPlayerTwoChanges.setOpaque(true);
-		this.getContentPane().add(this.jLabelPlayerTwoChanges,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 560, -1, -1));
+        jLabelPlayerTwoChanges.setBackground(new java.awt.Color(255, 153, 0));
+        jLabelPlayerTwoChanges.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabelPlayerTwoChanges.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelPlayerTwoChanges.setText("Changes:");
+        jLabelPlayerTwoChanges.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabelPlayerTwoChanges.setOpaque(true);
+        getContentPane().add(jLabelPlayerTwoChanges, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 560, -1, -1));
 
-		this.jProgressBarPlayerOne.setForeground(new java.awt.Color(0, 204, 0));
-		this.jProgressBarPlayerOne.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
-		this.getContentPane().add(this.jProgressBarPlayerOne,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, 130, 16));
+        jProgressBarPlayerOne.setForeground(new java.awt.Color(0, 204, 0));
+        jProgressBarPlayerOne.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        getContentPane().add(jProgressBarPlayerOne, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, 130, 16));
 
-		this.jProgressBarPlayerTwo.setForeground(new java.awt.Color(51, 204, 0));
-		this.jProgressBarPlayerTwo.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
-		this.getContentPane().add(this.jProgressBarPlayerTwo,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 250, 130, 16));
+        jProgressBarPlayerTwo.setForeground(new java.awt.Color(51, 204, 0));
+        jProgressBarPlayerTwo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        getContentPane().add(jProgressBarPlayerTwo, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 250, 130, 16));
 
-		this.jLabelPlayerOneName.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-		this.jLabelPlayerOneName.setText("jLabel4");
-		this.getContentPane().add(this.jLabelPlayerOneName, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, 162, 22));
+        jLabelPlayerOneName.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabelPlayerOneName.setText("jLabel4");
+        getContentPane().add(jLabelPlayerOneName, new org.netbeans.lib.awtextra.AbsoluteConstraints(142, 20, 210, 22));
 
-		this.jLabelPlayerTwoName.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-		this.jLabelPlayerTwoName.setText("jLabel5");
-		this.getContentPane().add(this.jLabelPlayerTwoName, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 20, 162, 22));
+        jLabelPlayerTwoName.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabelPlayerTwoName.setText("jLabel5");
+        getContentPane().add(jLabelPlayerTwoName, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 20, 240, 22));
 
-		this.jLabelCurrentPlayerOnePokemonName.setText("jLabel6");
-		this.jLabelCurrentPlayerOnePokemonName.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
-		this.getContentPane().add(this.jLabelCurrentPlayerOnePokemonName,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 220, -1, -1));
+        jLabelCurrentPlayerOnePokemonName.setText("jLabel6");
+        jLabelCurrentPlayerOnePokemonName.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        getContentPane().add(jLabelCurrentPlayerOnePokemonName, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 220, -1, -1));
 
-		this.jLabeljLabelCurrentPlayerTwoPokemonName.setText("jLabel9");
-		this.jLabeljLabelCurrentPlayerTwoPokemonName.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
-		this.getContentPane().add(this.jLabeljLabelCurrentPlayerTwoPokemonName,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 220, -1, -1));
+        jLabeljLabelCurrentPlayerTwoPokemonName.setText("jLabel9");
+        jLabeljLabelCurrentPlayerTwoPokemonName.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        getContentPane().add(jLabeljLabelCurrentPlayerTwoPokemonName, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 220, -1, -1));
 
-		this.jLabelPlayerTwoCardImage.setIcon(new javax.swing.ImageIcon(this.getClass().getResource("/cards/basicCard.png"))); // NOI18N
-		this.jLabelPlayerTwoCardImage.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
-		this.getContentPane().add(this.jLabelPlayerTwoCardImage,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 60, -1, -1));
+        jLabelPlayerTwoCardImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cards/basicCard.png"))); // NOI18N
+        jLabelPlayerTwoCardImage.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        getContentPane().add(jLabelPlayerTwoCardImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 60, -1, -1));
 
-		this.jLabelPlayerOneCardImage.setIcon(new javax.swing.ImageIcon(this.getClass().getResource("/cards/basicCard.png"))); // NOI18N
-		this.jLabelPlayerOneCardImage.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
-		this.getContentPane().add(this.jLabelPlayerOneCardImage,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, -1, -1));
+        jLabelPlayerOneCardImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cards/basicCard.png"))); // NOI18N
+        jLabelPlayerOneCardImage.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        getContentPane().add(jLabelPlayerOneCardImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, -1, -1));
 
-		this.jLabelGameVersion.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-		this.jLabelGameVersion.setText("       v1.0.0");
-		this.getContentPane().add(this.jLabelGameVersion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 680, 1020, 40));
+        jLabelGameVersion.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabelGameVersion.setText("       v1.0.0");
+        getContentPane().add(jLabelGameVersion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 680, 1020, 40));
 
-		this.SpriteSelectedPlayerOne.setText(" ");
-		this.getContentPane().add(this.SpriteSelectedPlayerOne,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 210, 90, 160));
+        SpriteSelectedPlayerOne.setText(" ");
+        getContentPane().add(SpriteSelectedPlayerOne, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 210, 90, 160));
 
-		this.SpriteSelectedPlayerTwo.setText(" ");
-		this.getContentPane().add(this.SpriteSelectedPlayerTwo,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 210, 90, 160));
+        SpriteSelectedPlayerTwo.setText(" ");
+        getContentPane().add(SpriteSelectedPlayerTwo, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 210, 90, 160));
 
-		this.jLabelBackground.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-		this.getContentPane().add(this.jLabelBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 740));
+        jLabelBackground.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        getContentPane().add(jLabelBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 740));
 
-		this.jMenu.setText("File");
+        jMenu.setText("File");
 
-		this.jMenuItemSaveState.setText("Save State");
-		this.jMenuItemSaveState.addActionListener(new java.awt.event.ActionListener()
-		{
-			@Override
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				PlayerVersusPlayer.this.jMenuItemSaveStateActionPerformed(evt);
-			}
-		});
-		this.jMenu.add(this.jMenuItemSaveState);
+        jMenuItemSaveState.setText("Save State");
+        jMenuItemSaveState.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemSaveStateActionPerformed(evt);
+            }
+        });
+        jMenu.add(jMenuItemSaveState);
 
-		this.jMenuItemLoadState.setText("Load State");
-		this.jMenuItemLoadState.addActionListener(new java.awt.event.ActionListener()
-		{
-			@Override
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				PlayerVersusPlayer.this.jMenuItemLoadStateActionPerformed(evt);
-			}
-		});
-		this.jMenu.add(this.jMenuItemLoadState);
+        jMenuItemLoadState.setText("Load State");
+        jMenuItemLoadState.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemLoadStateActionPerformed(evt);
+            }
+        });
+        jMenu.add(jMenuItemLoadState);
 
-		this.jMenuBar1.add(this.jMenu);
+        jMenuBar1.add(jMenu);
 
-		this.setJMenuBar(this.jMenuBar1);
+        setJMenuBar(jMenuBar1);
 
-		this.pack();
-	}// </editor-fold>//GEN-END:initComponents
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
 
 	/**
 	 * Method jMenuItemSaveStateActionPerformed Used for save the party status
