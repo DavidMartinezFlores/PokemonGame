@@ -235,7 +235,18 @@ public class Pokemon implements Serializable
 					break;
 				}
 			}
-			// --NORMAL MEGAS AND Y MEGAS---
+			//--MEGA Y OPTIONS---
+			else if (this.name.toLowerCase().contains("mega") && this.name.toLowerCase().contains("y"))
+			{
+				if (imageTmp.getName().startsWith(String.valueOf(this.pokedexNumber + "-"))
+						&& imageTmp.getName().toLowerCase().contains("mega")
+						&& imageTmp.getName().toLowerCase().contains("-y"))
+				{
+					image = new ImageIcon(imageTmp.getAbsolutePath()).getImage();
+					break;
+				}
+			}
+			// -- NORMAL MEGAS ---
 			else if (this.name.toLowerCase().contains("mega"))
 			{
 				if (imageTmp.getName().startsWith(String.valueOf(this.pokedexNumber + "-"))
