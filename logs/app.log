@@ -16626,3 +16626,48 @@ java.lang.InterruptedException: sleep interrupted
 	at java.lang.Thread.sleep(Native Method) ~[?:?]
 	at es.iesjandula.pokemon_game.PlayerVersusPlayer$15.run(PlayerVersusPlayer.java:1180) ~[classes/:?]
 	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+[INFO ] 2023-11-07 23:12:31.673 [AWT-EventQueue-0] PlayerOneSelection - 208
+[INFO ] 2023-11-07 23:12:33.806 [AWT-EventQueue-0] PlayerTwoSelection - 404
+[INFO ] 2023-11-07 23:12:48.042 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 2 PRIMERO
+[INFO ] 2023-11-07 23:12:48.043 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 1 SEGUNDO
+[ERROR] 2023-11-07 23:12:48.043 [Thread-9] PlayerVersusPlayer - InterruptedException
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep0(Native Method) ~[?:?]
+	at java.lang.Thread.sleep(Thread.java:465) ~[?:?]
+	at es.iesjandula.pokemon_game.PlayerVersusPlayer$16.run(PlayerVersusPlayer.java:1237) ~[classes/:?]
+	at java.lang.Thread.run(Thread.java:1589) ~[?:?]
+[ERROR] 2023-11-07 23:12:48.042 [Thread-8] PlayerVersusPlayer - InterruptedException
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep0(Native Method) ~[?:?]
+	at java.lang.Thread.sleep(Thread.java:465) ~[?:?]
+	at es.iesjandula.pokemon_game.PlayerVersusPlayer$15.run(PlayerVersusPlayer.java:1180) ~[classes/:?]
+	at java.lang.Thread.run(Thread.java:1589) ~[?:?]
+[INFO ] 2023-11-07 23:12:50.058 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 2 PRIMERO
+[ERROR] 2023-11-07 23:12:50.058 [Thread-10] PlayerVersusPlayer - InterruptedException
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep0(Native Method) ~[?:?]
+	at java.lang.Thread.sleep(Thread.java:465) ~[?:?]
+	at es.iesjandula.pokemon_game.PlayerVersusPlayer$15.run(PlayerVersusPlayer.java:1180) ~[classes/:?]
+	at java.lang.Thread.run(Thread.java:1589) ~[?:?]
+[INFO ] 2023-11-07 23:12:51.032 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 1 SEGUNDO
+[ERROR] 2023-11-07 23:12:51.032 [Thread-11] PlayerVersusPlayer - InterruptedException
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep0(Native Method) ~[?:?]
+	at java.lang.Thread.sleep(Thread.java:465) ~[?:?]
+	at es.iesjandula.pokemon_game.PlayerVersusPlayer$16.run(PlayerVersusPlayer.java:1237) ~[classes/:?]
+	at java.lang.Thread.run(Thread.java:1589) ~[?:?]
+[INFO ] 2023-11-07 23:13:19.273 [AWT-EventQueue-0] PlayerOneSelection - Presiono Enter
+[INFO ] 2023-11-07 23:13:32.935 [AWT-EventQueue-0] PlayerOneSelection - Presiono Enter
+[INFO ] 2023-11-07 23:13:45.103 [AWT-EventQueue-0] PlayerOneSelection - Presiono Enter
+[INFO ] 2023-11-07 23:14:15.063 [AWT-EventQueue-0] PlayerOneSelection - Presiono Enter
+[INFO ] 2023-11-07 23:15:50.081 [AWT-EventQueue-0] PlayerOneSelection - Presiono Enter
+[INFO ] 2023-11-07 23:16:18.391 [AWT-EventQueue-0] PlayerOneSelection - Presiono Enter
+[INFO ] 2023-11-07 23:16:20.247 [AWT-EventQueue-0] PlayerOneSelection - Presiono Enter
+[INFO ] 2023-11-07 23:16:24.903 [AWT-EventQueue-0] PlayerOneSelection - Presiono Enter
+[INFO ] 2023-11-07 23:16:26.207 [AWT-EventQueue-0] PlayerOneSelection - Presiono Enter
+[INFO ] 2023-11-07 23:17:25.753 [AWT-EventQueue-0] PlayerOneSelection - Presiono Enter
+[INFO ] 2023-11-07 23:17:49.507 [AWT-EventQueue-0] PlayerOneSelection - [ Pokedex Nº: 150 MewtwoMega Mewtwo Y - Psychic  - ]
+[INFO ] 2023-11-07 23:17:51.283 [AWT-EventQueue-0] PlayerOneSelection - [ Pokedex Nº: 150 MewtwoMega Mewtwo X - Psychic Fighting - ,  Pokedex Nº: 150 MewtwoMega Mewtwo Y - Psychic  - ]
+[INFO ] 2023-11-07 23:17:54.155 [AWT-EventQueue-0] PlayerOneSelection - [ Pokedex Nº: 6 CharizardMega Charizard Y - Fire Flying - ,  Pokedex Nº: 150 MewtwoMega Mewtwo X - Psychic Fighting - ,  Pokedex Nº: 150 MewtwoMega Mewtwo Y - Psychic  - ]
+[INFO ] 2023-11-07 23:17:55.315 [AWT-EventQueue-0] PlayerOneSelection - [ Pokedex Nº: 6 CharizardMega Charizard X - Fire Dragon - ,  Pokedex Nº: 6 CharizardMega Charizard Y - Fire Flying - ,  Pokedex Nº: 150 MewtwoMega Mewtwo X - Psychic Fighting - ,  Pokedex Nº: 150 MewtwoMega Mewtwo Y - Psychic  - ]
+[INFO ] 2023-11-07 23:20:05.257 [AWT-EventQueue-0] PlayerOneSelection - Presiono Enter

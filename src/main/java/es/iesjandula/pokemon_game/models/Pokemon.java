@@ -222,30 +222,30 @@ public class Pokemon implements Serializable
 				break;
 			}
 
+			if (this.name.equalsIgnoreCase("MewtwoMega Mewtwo Y"))
+			{
+				image = new ImageIcon("./images/150-mega-y.png").getImage();
+				break;
+			}
+			if (this.name.equalsIgnoreCase("MewtwoMega Mewtwo X"))
+			{
+				image = new ImageIcon("./images/150-mega-x.png").getImage();
+				break;
+			}
+			if (this.name.equalsIgnoreCase("CharizardMega Charizard Y"))
+			{
+				image = new ImageIcon("./images/6-mega-y.png").getImage();
+				break;
+			}
+			if (this.name.equalsIgnoreCase("CharizardMega Charizard X"))
+			{
+				image = new ImageIcon("./images/6-mega-x.png").getImage();
+				break;
+			}
+
 			// --SPECIAL CASES-----
 
-			// --MEGA X OPTIONS---
-			if (this.name.toLowerCase().contains("mega") && this.name.toLowerCase().contains("x"))
-			{
-				if (imageTmp.getName().startsWith(String.valueOf(this.pokedexNumber + "-"))
-						&& imageTmp.getName().toLowerCase().contains("mega")
-						&& imageTmp.getName().toLowerCase().contains("-x"))
-				{
-					image = new ImageIcon(imageTmp.getAbsolutePath()).getImage();
-					break;
-				}
-			}
-			//--MEGA Y OPTIONS---
-			else if (this.name.toLowerCase().contains("mega") && this.name.toLowerCase().contains("y"))
-			{
-				if (imageTmp.getName().startsWith(String.valueOf(this.pokedexNumber + "-"))
-						&& imageTmp.getName().toLowerCase().contains("mega")
-						&& imageTmp.getName().toLowerCase().contains("-y"))
-				{
-					image = new ImageIcon(imageTmp.getAbsolutePath()).getImage();
-					break;
-				}
-			}
+			
 			// -- NORMAL MEGAS ---
 			else if (this.name.toLowerCase().contains("mega"))
 			{
