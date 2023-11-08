@@ -132,6 +132,9 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 	{
 		// ---THE ORDER ITS IMPORTANT----
 		this.initComponents();
+                this.jLabelPlayerOneCardImage.setIcon(new ImageIcon("./images/basicCard.png"));
+                this.jLabelPlayerTwoCardImage.setIcon(new ImageIcon("./images/basicCard.png"));
+                
 		this.setTitle("Player Versus Player");
 		this.setIconImage(Toolkit.getDefaultToolkit().getImage("./images/pokeball.png"));
 
@@ -226,6 +229,8 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
 		// --THE ORDER ITS IMPORTANT---
 		// --THAT CONSTRUCTOR ITS ONLY FOR THE LOAD STATE OPTIONS WITH OBJECT LIST---
 		this.initComponents();
+                this.jLabelPlayerOneCardImage.setIcon(new ImageIcon("./images/basicCard.png"));
+                this.jLabelPlayerTwoCardImage.setIcon(new ImageIcon("./images/basicCard.png"));
 		this.mainTheme = this.startBattleTheme();
 		if (this.mainTheme != null)
 		{
@@ -530,11 +535,9 @@ public class PlayerVersusPlayer extends javax.swing.JFrame implements Serializab
         jLabeljLabelCurrentPlayerTwoPokemonName.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         getContentPane().add(jLabeljLabelCurrentPlayerTwoPokemonName, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 220, -1, -1));
 
-        jLabelPlayerTwoCardImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cards/basicCard.png"))); // NOI18N
         jLabelPlayerTwoCardImage.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         getContentPane().add(jLabelPlayerTwoCardImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 60, -1, -1));
 
-        jLabelPlayerOneCardImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cards/basicCard.png"))); // NOI18N
         jLabelPlayerOneCardImage.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         getContentPane().add(jLabelPlayerOneCardImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, -1, -1));
 

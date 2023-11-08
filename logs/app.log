@@ -16671,3 +16671,269 @@ java.lang.InterruptedException: sleep interrupted
 [INFO ] 2023-11-07 23:17:54.155 [AWT-EventQueue-0] PlayerOneSelection - [ Pokedex Nº: 6 CharizardMega Charizard Y - Fire Flying - ,  Pokedex Nº: 150 MewtwoMega Mewtwo X - Psychic Fighting - ,  Pokedex Nº: 150 MewtwoMega Mewtwo Y - Psychic  - ]
 [INFO ] 2023-11-07 23:17:55.315 [AWT-EventQueue-0] PlayerOneSelection - [ Pokedex Nº: 6 CharizardMega Charizard X - Fire Dragon - ,  Pokedex Nº: 6 CharizardMega Charizard Y - Fire Flying - ,  Pokedex Nº: 150 MewtwoMega Mewtwo X - Psychic Fighting - ,  Pokedex Nº: 150 MewtwoMega Mewtwo Y - Psychic  - ]
 [INFO ] 2023-11-07 23:20:05.257 [AWT-EventQueue-0] PlayerOneSelection - Presiono Enter
+[INFO ] 2023-11-08 08:14:44.030 [AWT-EventQueue-0] PlayerOneSelection - 298
+[INFO ] 2023-11-08 08:14:45.827 [AWT-EventQueue-0] PlayerTwoSelection - 189
+[INFO ] 2023-11-08 08:14:52.635 [AWT-EventQueue-0] PlayerTwoSelection - 540
+[INFO ] 2023-11-08 08:14:52.803 [AWT-EventQueue-0] PlayerTwoSelection - 449
+[INFO ] 2023-11-08 08:14:52.963 [AWT-EventQueue-0] PlayerTwoSelection - 503
+[INFO ] 2023-11-08 08:14:53.139 [AWT-EventQueue-0] PlayerTwoSelection - 349
+[INFO ] 2023-11-08 08:15:02.210 [AWT-EventQueue-0] PlayerTwoSelection - 498
+[INFO ] 2023-11-08 08:15:02.355 [AWT-EventQueue-0] PlayerTwoSelection - 469
+[INFO ] 2023-11-08 08:15:02.499 [AWT-EventQueue-0] PlayerTwoSelection - 247
+[INFO ] 2023-11-08 08:15:13.107 [AWT-EventQueue-0] PlayerTwoSelection - 652
+[INFO ] 2023-11-08 08:15:13.274 [AWT-EventQueue-0] PlayerTwoSelection - 230
+[INFO ] 2023-11-08 08:15:13.443 [AWT-EventQueue-0] PlayerTwoSelection - 69
+[INFO ] 2023-11-08 08:15:13.610 [AWT-EventQueue-0] PlayerTwoSelection - 706
+[INFO ] 2023-11-08 08:15:13.755 [AWT-EventQueue-0] PlayerTwoSelection - 358
+[INFO ] 2023-11-08 08:15:16.123 [AWT-EventQueue-0] PlayerTwoSelection - 588
+[INFO ] 2023-11-08 08:15:16.267 [AWT-EventQueue-0] PlayerTwoSelection - 311
+[INFO ] 2023-11-08 08:15:58.597 [AWT-EventQueue-0] PlayerOneSelection - 296
+[INFO ] 2023-11-08 08:16:00.923 [AWT-EventQueue-0] PlayerTwoSelection - 681
+[INFO ] 2023-11-08 08:16:36.342 [AWT-EventQueue-0] PlayerOneSelection - 484
+[INFO ] 2023-11-08 08:16:37.795 [AWT-EventQueue-0] PlayerTwoSelection - 32
+[INFO ] 2023-11-08 08:18:10.054 [AWT-EventQueue-0] PlayerOneSelection - 690
+[INFO ] 2023-11-08 08:18:11.195 [AWT-EventQueue-0] PlayerTwoSelection - 123
+[INFO ] 2023-11-08 08:21:27.878 [AWT-EventQueue-0] PlayerOneSelection - 336
+[INFO ] 2023-11-08 08:21:29.196 [AWT-EventQueue-0] PlayerTwoSelection - 647
+[INFO ] 2023-11-08 08:22:44.975 [AWT-EventQueue-0] PlayerOneSelection - 699
+[INFO ] 2023-11-08 08:22:47.628 [AWT-EventQueue-0] PlayerTwoSelection - 501
+[INFO ] 2023-11-08 08:23:27.888 [AWT-EventQueue-0] PlayerOneSelection - CARGAR ESTADO
+[INFO ] 2023-11-08 08:23:28.122 [AWT-EventQueue-0] PlayerOneSelection - [[ Pokedex Nº: 150 Mewtwo - Psychic  - ], [ Pokedex Nº: 149 Dragonite - Dragon Flying - ,  Pokedex Nº: 9 BlastoiseMega Blastoise - Water  - ],  Pokedex Nº: 150 Mewtwo - Psychic  - ,  Pokedex Nº: 149 Dragonite - Dragon Flying - , 8, 8, Red, Blue, ./images/red.png, ./images/blue.png, [], [ Pokedex Nº: 3 VenusaurMega Venusaur - Grass Poison - ]]
+[INFO ] 2023-11-08 08:23:31.814 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 1 PRIMERO
+[ERROR] 2023-11-08 08:23:31.815 [Thread-7] PlayerVersusPlayer - InterruptedException
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:?]
+	at es.iesjandula.pokemon_game.PlayerVersusPlayer$16.run(PlayerVersusPlayer.java:1240) ~[classes/:?]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+[INFO ] 2023-11-08 08:23:31.837 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 2 SEGUNDO
+[ERROR] 2023-11-08 08:23:31.838 [Thread-8] PlayerVersusPlayer - InterruptedException
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:?]
+	at es.iesjandula.pokemon_game.PlayerVersusPlayer$15.run(PlayerVersusPlayer.java:1183) ~[classes/:?]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+[INFO ] 2023-11-08 08:23:33.901 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 1 PRIMERO
+[INFO ] 2023-11-08 08:23:33.902 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 2 SEGUNDO
+[ERROR] 2023-11-08 08:23:33.901 [Thread-9] PlayerVersusPlayer - InterruptedException
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:?]
+	at es.iesjandula.pokemon_game.PlayerVersusPlayer$16.run(PlayerVersusPlayer.java:1240) ~[classes/:?]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+[ERROR] 2023-11-08 08:23:33.902 [Thread-10] PlayerVersusPlayer - InterruptedException
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:?]
+	at es.iesjandula.pokemon_game.PlayerVersusPlayer$15.run(PlayerVersusPlayer.java:1183) ~[classes/:?]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+[INFO ] 2023-11-08 08:23:36.549 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 1 PRIMERO
+[INFO ] 2023-11-08 08:23:36.550 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 2 SEGUNDO
+[ERROR] 2023-11-08 08:23:36.550 [Thread-11] PlayerVersusPlayer - InterruptedException
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:?]
+	at es.iesjandula.pokemon_game.PlayerVersusPlayer$16.run(PlayerVersusPlayer.java:1240) ~[classes/:?]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+[ERROR] 2023-11-08 08:23:36.550 [Thread-12] PlayerVersusPlayer - InterruptedException
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:?]
+	at es.iesjandula.pokemon_game.PlayerVersusPlayer$15.run(PlayerVersusPlayer.java:1183) ~[classes/:?]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+[INFO ] 2023-11-08 08:23:38.669 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 1 PRIMERO
+[ERROR] 2023-11-08 08:23:38.670 [Thread-13] PlayerVersusPlayer - InterruptedException
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:?]
+	at es.iesjandula.pokemon_game.PlayerVersusPlayer$16.run(PlayerVersusPlayer.java:1240) ~[classes/:?]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+[INFO ] 2023-11-08 08:23:40.001 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 2 SEGUNDO
+[ERROR] 2023-11-08 08:23:40.001 [Thread-17] PlayerVersusPlayer - InterruptedException
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:?]
+	at es.iesjandula.pokemon_game.PlayerVersusPlayer$15.run(PlayerVersusPlayer.java:1183) ~[classes/:?]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+[INFO ] 2023-11-08 08:23:43.227 [AWT-EventQueue-0] PlayerOneSelection - 398
+[INFO ] 2023-11-08 08:23:44.884 [AWT-EventQueue-0] PlayerTwoSelection - 151
+[INFO ] 2023-11-08 08:23:48.493 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 2 PRIMERO
+[INFO ] 2023-11-08 08:23:48.494 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 1 SEGUNDO
+[ERROR] 2023-11-08 08:23:48.494 [Thread-27] PlayerVersusPlayer - InterruptedException
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:?]
+	at es.iesjandula.pokemon_game.PlayerVersusPlayer$15.run(PlayerVersusPlayer.java:1183) ~[classes/:?]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+[ERROR] 2023-11-08 08:23:48.494 [Thread-28] PlayerVersusPlayer - InterruptedException
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:?]
+	at es.iesjandula.pokemon_game.PlayerVersusPlayer$16.run(PlayerVersusPlayer.java:1240) ~[classes/:?]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+[INFO ] 2023-11-08 08:24:46.294 [AWT-EventQueue-0] PlayerOneSelection - 657
+[INFO ] 2023-11-08 08:24:48.267 [AWT-EventQueue-0] PlayerTwoSelection - 273
+[INFO ] 2023-11-08 08:24:53.877 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 2 PRIMERO
+[INFO ] 2023-11-08 08:24:53.879 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 1 SEGUNDO
+[ERROR] 2023-11-08 08:24:53.879 [Thread-9] PlayerVersusPlayer - InterruptedException
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:?]
+	at es.iesjandula.pokemon_game.PlayerVersusPlayer$16.run(PlayerVersusPlayer.java:1240) ~[classes/:?]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+[ERROR] 2023-11-08 08:24:53.878 [Thread-8] PlayerVersusPlayer - InterruptedException
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:?]
+	at es.iesjandula.pokemon_game.PlayerVersusPlayer$15.run(PlayerVersusPlayer.java:1183) ~[classes/:?]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+[INFO ] 2023-11-08 08:24:55.741 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 2 PRIMERO
+[ERROR] 2023-11-08 08:24:55.742 [Thread-10] PlayerVersusPlayer - InterruptedException
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:?]
+	at es.iesjandula.pokemon_game.PlayerVersusPlayer$15.run(PlayerVersusPlayer.java:1183) ~[classes/:?]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+[INFO ] 2023-11-08 08:24:55.764 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 1 SEGUNDO
+[ERROR] 2023-11-08 08:24:55.765 [Thread-11] PlayerVersusPlayer - InterruptedException
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:?]
+	at es.iesjandula.pokemon_game.PlayerVersusPlayer$16.run(PlayerVersusPlayer.java:1240) ~[classes/:?]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+[INFO ] 2023-11-08 08:24:57.477 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 2 PRIMERO
+[INFO ] 2023-11-08 08:24:57.478 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 1 SEGUNDO
+[ERROR] 2023-11-08 08:24:57.477 [Thread-12] PlayerVersusPlayer - InterruptedException
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:?]
+	at es.iesjandula.pokemon_game.PlayerVersusPlayer$15.run(PlayerVersusPlayer.java:1183) ~[classes/:?]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+[ERROR] 2023-11-08 08:24:57.478 [Thread-13] PlayerVersusPlayer - InterruptedException
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:?]
+	at es.iesjandula.pokemon_game.PlayerVersusPlayer$16.run(PlayerVersusPlayer.java:1240) ~[classes/:?]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+[INFO ] 2023-11-08 08:24:59.469 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 2 PRIMERO
+[INFO ] 2023-11-08 08:24:59.470 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 1 SEGUNDO
+[ERROR] 2023-11-08 08:24:59.470 [Thread-14] PlayerVersusPlayer - InterruptedException
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:?]
+	at es.iesjandula.pokemon_game.PlayerVersusPlayer$15.run(PlayerVersusPlayer.java:1183) ~[classes/:?]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+[ERROR] 2023-11-08 08:24:59.470 [Thread-15] PlayerVersusPlayer - InterruptedException
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:?]
+	at es.iesjandula.pokemon_game.PlayerVersusPlayer$16.run(PlayerVersusPlayer.java:1240) ~[classes/:?]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+[INFO ] 2023-11-08 08:25:01.588 [AWT-EventQueue-0] PlayerVersusPlayer - CARGAR ESTADO
+[INFO ] 2023-11-08 08:25:01.718 [AWT-EventQueue-0] PlayerVersusPlayer - [[ Pokedex Nº: 150 Mewtwo - Psychic  - ], [ Pokedex Nº: 149 Dragonite - Dragon Flying - ,  Pokedex Nº: 9 BlastoiseMega Blastoise - Water  - ],  Pokedex Nº: 150 Mewtwo - Psychic  - ,  Pokedex Nº: 149 Dragonite - Dragon Flying - , 8, 8, Red, Blue, ./images/red.png, ./images/blue.png, [], [ Pokedex Nº: 3 VenusaurMega Venusaur - Grass Poison - ]]
+[INFO ] 2023-11-08 08:25:05.365 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 1 PRIMERO
+[INFO ] 2023-11-08 08:25:05.366 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 2 SEGUNDO
+[ERROR] 2023-11-08 08:25:05.366 [Thread-19] PlayerVersusPlayer - InterruptedException
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:?]
+	at es.iesjandula.pokemon_game.PlayerVersusPlayer$16.run(PlayerVersusPlayer.java:1240) ~[classes/:?]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+[ERROR] 2023-11-08 08:25:05.366 [Thread-20] PlayerVersusPlayer - InterruptedException
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:?]
+	at es.iesjandula.pokemon_game.PlayerVersusPlayer$15.run(PlayerVersusPlayer.java:1183) ~[classes/:?]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+[INFO ] 2023-11-08 08:25:07.174 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 1 PRIMERO
+[INFO ] 2023-11-08 08:25:07.174 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 2 SEGUNDO
+[ERROR] 2023-11-08 08:25:07.175 [Thread-21] PlayerVersusPlayer - InterruptedException
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:?]
+	at es.iesjandula.pokemon_game.PlayerVersusPlayer$16.run(PlayerVersusPlayer.java:1240) ~[classes/:?]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+[ERROR] 2023-11-08 08:25:07.175 [Thread-22] PlayerVersusPlayer - InterruptedException
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:?]
+	at es.iesjandula.pokemon_game.PlayerVersusPlayer$15.run(PlayerVersusPlayer.java:1183) ~[classes/:?]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+[INFO ] 2023-11-08 08:25:08.854 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 1 PRIMERO
+[INFO ] 2023-11-08 08:25:08.854 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 2 SEGUNDO
+[ERROR] 2023-11-08 08:25:08.854 [Thread-23] PlayerVersusPlayer - InterruptedException
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:?]
+	at es.iesjandula.pokemon_game.PlayerVersusPlayer$16.run(PlayerVersusPlayer.java:1240) ~[classes/:?]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+[ERROR] 2023-11-08 08:25:08.854 [Thread-24] PlayerVersusPlayer - InterruptedException
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:?]
+	at es.iesjandula.pokemon_game.PlayerVersusPlayer$15.run(PlayerVersusPlayer.java:1183) ~[classes/:?]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+[INFO ] 2023-11-08 08:25:16.813 [AWT-EventQueue-0] PlayerOneSelection - [ Pokedex Nº: 6 CharizardMega Charizard Y - Fire Flying - ]
+[INFO ] 2023-11-08 08:25:18.933 [AWT-EventQueue-0] PlayerTwoSelection - [ Pokedex Nº: 6 CharizardMega Charizard X - Fire Dragon - ]
+[INFO ] 2023-11-08 08:25:28.749 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 2 PRIMERO
+[INFO ] 2023-11-08 08:25:28.754 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 1 SEGUNDO
+[ERROR] 2023-11-08 08:25:28.754 [Thread-37] PlayerVersusPlayer - InterruptedException
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:?]
+	at es.iesjandula.pokemon_game.PlayerVersusPlayer$15.run(PlayerVersusPlayer.java:1183) ~[classes/:?]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+[ERROR] 2023-11-08 08:25:28.755 [Thread-38] PlayerVersusPlayer - InterruptedException
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:?]
+	at es.iesjandula.pokemon_game.PlayerVersusPlayer$16.run(PlayerVersusPlayer.java:1240) ~[classes/:?]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+[INFO ] 2023-11-08 08:25:30.820 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 1 PRIMERO
+[ERROR] 2023-11-08 08:25:30.821 [Thread-39] PlayerVersusPlayer - InterruptedException
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:?]
+	at es.iesjandula.pokemon_game.PlayerVersusPlayer$16.run(PlayerVersusPlayer.java:1240) ~[classes/:?]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+[INFO ] 2023-11-08 08:25:33.459 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 2 SEGUNDO
+[ERROR] 2023-11-08 08:25:33.459 [Thread-43] PlayerVersusPlayer - InterruptedException
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:?]
+	at es.iesjandula.pokemon_game.PlayerVersusPlayer$15.run(PlayerVersusPlayer.java:1183) ~[classes/:?]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+[INFO ] 2023-11-08 11:22:50.147 [AWT-EventQueue-0] PlayerOneSelection - 402
+[INFO ] 2023-11-08 11:22:51.680 [AWT-EventQueue-0] PlayerTwoSelection - 105
+[INFO ] 2023-11-08 11:22:55.355 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 2 PRIMERO
+[INFO ] 2023-11-08 11:22:55.357 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 1 SEGUNDO
+[ERROR] 2023-11-08 11:22:55.357 [Thread-9] PlayerVersusPlayer - InterruptedException
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:?]
+	at es.iesjandula.pokemon_game.PlayerVersusPlayer$16.run(PlayerVersusPlayer.java:1240) ~[classes/:?]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+[ERROR] 2023-11-08 11:22:55.355 [Thread-8] PlayerVersusPlayer - InterruptedException
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:?]
+	at es.iesjandula.pokemon_game.PlayerVersusPlayer$15.run(PlayerVersusPlayer.java:1183) ~[classes/:?]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+[INFO ] 2023-11-08 11:22:57.322 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 2 PRIMERO
+[INFO ] 2023-11-08 11:22:57.322 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 1 SEGUNDO
+[ERROR] 2023-11-08 11:22:57.322 [Thread-10] PlayerVersusPlayer - InterruptedException
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:?]
+	at es.iesjandula.pokemon_game.PlayerVersusPlayer$15.run(PlayerVersusPlayer.java:1183) ~[classes/:?]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+[ERROR] 2023-11-08 11:22:57.323 [Thread-11] PlayerVersusPlayer - InterruptedException
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:?]
+	at es.iesjandula.pokemon_game.PlayerVersusPlayer$16.run(PlayerVersusPlayer.java:1240) ~[classes/:?]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+[INFO ] 2023-11-08 11:22:59.130 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 2 PRIMERO
+[ERROR] 2023-11-08 11:22:59.131 [Thread-12] PlayerVersusPlayer - InterruptedException
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:?]
+	at es.iesjandula.pokemon_game.PlayerVersusPlayer$15.run(PlayerVersusPlayer.java:1183) ~[classes/:?]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+[INFO ] 2023-11-08 11:22:59.153 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 1 SEGUNDO
+[ERROR] 2023-11-08 11:22:59.153 [Thread-13] PlayerVersusPlayer - InterruptedException
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:?]
+	at es.iesjandula.pokemon_game.PlayerVersusPlayer$16.run(PlayerVersusPlayer.java:1240) ~[classes/:?]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+[INFO ] 2023-11-08 11:23:00.890 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 2 PRIMERO
+[INFO ] 2023-11-08 11:23:00.891 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 1 SEGUNDO
+[ERROR] 2023-11-08 11:23:00.890 [Thread-14] PlayerVersusPlayer - InterruptedException
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:?]
+	at es.iesjandula.pokemon_game.PlayerVersusPlayer$15.run(PlayerVersusPlayer.java:1183) ~[classes/:?]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+[ERROR] 2023-11-08 11:23:00.891 [Thread-15] PlayerVersusPlayer - InterruptedException
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:?]
+	at es.iesjandula.pokemon_game.PlayerVersusPlayer$16.run(PlayerVersusPlayer.java:1240) ~[classes/:?]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+[INFO ] 2023-11-08 11:23:02.914 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 2 PRIMERO
+[ERROR] 2023-11-08 11:23:02.915 [Thread-16] PlayerVersusPlayer - InterruptedException
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:?]
+	at es.iesjandula.pokemon_game.PlayerVersusPlayer$15.run(PlayerVersusPlayer.java:1183) ~[classes/:?]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+[INFO ] 2023-11-08 11:23:02.939 [AWT-EventQueue-0] PlayerVersusPlayer - ATACA EL JUGADOR 1 SEGUNDO
+[ERROR] 2023-11-08 11:23:02.939 [Thread-17] PlayerVersusPlayer - InterruptedException
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:?]
+	at es.iesjandula.pokemon_game.PlayerVersusPlayer$16.run(PlayerVersusPlayer.java:1240) ~[classes/:?]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
