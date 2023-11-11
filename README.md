@@ -1,6 +1,6 @@
 # 🕹**️Pokemon Game**🕹️
 
-![N|Solid](https://i.imgur.com/QhKlmsK.png)
+# ![N|Solid](https://i.imgur.com/QhKlmsK.png) **Gotta Catch 'em All!** ![N|Solid](https://i.imgur.com/QhKlmsK.png)
 
 
 # 💖  **What is PokeGame?** 💖
