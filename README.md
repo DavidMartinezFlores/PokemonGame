@@ -1,9 +1,10 @@
-# 🕹**️Pokemon Gam**e🕹️
+# 🕹**️Pokemon Game**🕹️
 
- [![N|Solid](https://i.imgur.com/QhKlmsK.png)](https://nodesource.com/products/nsolid) 
+![N|Solid](https://i.imgur.com/QhKlmsK.png)
 
 
 # 💖  **What is PokeGame?** 💖
+-------------------------
 >PokeGame is a pokemon card game with nuances of the anime itself or turn-based fighting games.
 In this game you can select more than 700 different Pokémon to fight in a 1 versus 1 against another player. 
 This has a single battle window in which the selected Pokémon are displayed on Pokémon cards. In the Player versus Player window you can select what type of attack to use (Physical or Special), but be careful because the elements exist! and water will quickly put out the flames of any fire type pokemon.
@@ -13,16 +14,16 @@ Remember that you can also change the current Pokémon for any other on your tea
 If you have doubts about the statistics of any pokemon, simply leave your mouse over the image of the pokemon and you will obtain valuable information.
 
 >At the end of the fight, the winner will be shown and it will be decided if we want to play another game or exit the game.
-
+--------------------------------------
 # 🚓  **RULES** 🚓
 - >**Select your avatar and name.**
 - >**Choose your pokemons (Max 5).**
-[![N|Solid](https://i.gyazo.com/6c57889916d815caac360a275ca50a9e.png)](https://nodesource.com/products/nsolid) 
+![N|Solid](https://i.gyazo.com/6c57889916d815caac360a275ca50a9e.png)
 - >**Wait to the other player selections.**
 - >**💥Start the figth.💥**
-[![N|Solid](https://i.gyazo.com/d22c258b2536cb207a05119d4b4a2292.png)](https://nodesource.com/products/nsolid) 
+![N|Solid](https://i.gyazo.com/d22c258b2536cb207a05119d4b4a2292.png)
 - >**🏆Be the Winner!🏆**
-[![N|Solid](https://i.gyazo.com/d5d373a71d3601d2774a9760b2642faa.png)](https://nodesource.com/products/nsolid) 
+![N|Solid](https://i.gyazo.com/d5d373a71d3601d2774a9760b2642faa.png)
 
 # 💾 **REQUERIMENTS** 💾
 - >☕ **Java necesary.**
@@ -65,4 +66,6 @@ If you have doubts about the statistics of any pokemon, simply leave your mouse 
 
 # ✨ **LICENSE**✨    
 >Project carried out by David Martinez Flores and Manuel Belmonte Oliva
+🕵 [️David Martinez Flores](https://github.com/DavidMartinezFlores)
+🕵️ [Manuel Belmonte Oliva](https://github.com/zanux02)
 
