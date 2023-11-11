@@ -66,6 +66,6 @@ If you have doubts about the statistics of any pokemon, simply leave your mouse 
 
 # ✨ **LICENSE**✨    
 >Project carried out by David Martinez Flores and Manuel Belmonte Oliva
+
 🕵 [️David Martinez Flores](https://github.com/DavidMartinezFlores)
 🕵️ [Manuel Belmonte Oliva](https://github.com/zanux02)
-
