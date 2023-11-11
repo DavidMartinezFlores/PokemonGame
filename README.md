@@ -38,7 +38,7 @@ If you have doubts about the statistics of any pokemon, simply leave your mouse 
 - > ☕ **IDE: Apache NetBeans and Eclipse.**
 
 # 💻 **Development** 💻
->**PokemonGame is based on java swing, to achieve other animations Trheads are used to obtain this effect**.
+>**PokemonGame is based on java swing, to achieve other animations Threads are used to obtain this effect**.
 >**The game is basically made up of**:
 - **Pokemon Class**
  >Stores all the information about each Pokémon and provides useful information about them, such as obtaining their images, names, etc.
